@@ -1,0 +1,42 @@
+.navbar__submenu {
+
+
+    font-family: Lucida Grande;
+	line-height: 24px;
+	font-size: 13px;
+	color: $clr-white;
+    // display: flex;
+    // flex-direction: column;
+    // width: 100%;
+    // margin-bottom: 0px;
+    // height: 0px;
+    // opacity: 0;
+    display: none;
+    margin-bottom: 16px;
+       
+
+    &--open {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        // height: auto;
+        // opacity: 1;
+        // margin-bottom: 16px;
+        // transition: width 3s, visibility 3s, opacity 0.5s linear; 
+    }
+
+    &-item {
+        font-family: Lucida Grande;
+        line-height: 24px;
+        font-size: 13px;
+        color: $clr-white;
+        text-decoration: none;
+        padding-left: 27px; 
+
+        &:hover {
+            background: rgba(0, 0, 0, 0.12);
+        }     
+
+    }
+}
+

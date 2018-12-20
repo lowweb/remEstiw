@@ -1,0 +1,155 @@
+const gulp= require('gulp'),
+	  concat= require('gulp-concat'),
+	  sass = require('gulp-sass'),
+	  rigger = require('gulp-rigger'),
+	  watch = require('gulp-watch'),
+	  imagemin = require('gulp-imagemin'),
+   	  pngquant = require('imagemin-pngquant'),
+      rimraf = require('rimraf'),
+      flatten = require('gulp-flatten'),
+      // runSequence = require('run-sequence'),
+      autoprefixer = require('gulp-autoprefixer'),
+	  browserSync = require("browser-sync"),
+	  reload = browserSync.reload;
+
+runSequence = require('run-sequence').use(gulp);
+
+var path = {
+    build: { 
+        html: 'build/',
+        js: 'build/js/',
+        css: 'build/css/',
+        img: 'build/img/',
+        fonts: 'build/fonts/'
+    },
+    src: {
+        html: 'src/html/*.html', 
+        jsGlobal: 'src/js/app.js',
+        js: 'src/common.blocks/**/*.js',
+        style: 'src/common.blocks/**/*.scss',
+        img: 'src/**/img/*.*', 
+        fonts: 'src/fonts/**/*.*'
+    },
+    watch: { 
+        html: 'src/html/**/*.html',
+        js: 'src/common.blocks/**/*.js',
+        style: 'src/common.blocks/**/*.scss',
+        img: 'src/**/img/*.*',
+        fonts: 'src/fonts/**/*.*'
+    },
+    clean: './build'
+};	  
+
+gulp.task('html:build', function () {
+    gulp.src(path.src.html)
+        .pipe(rigger())
+        .pipe(gulp.dest(path.build.html)) 
+         .pipe(reload({stream: true})); 
+});
+
+gulp.task('style:build', () => {
+	gulp.src(path.src.style)
+		.pipe(concat('style.scss'))
+		.pipe(sass().on('error', sass.logError))
+		// {
+		// 	outputStyle: 'compressed'
+		// }
+		// ))
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
+		.pipe(gulp.dest(path.build.css))
+		.pipe(reload({stream: true}));
+});
+
+
+gulp.task ('js:cnct',function () {
+     gulp.src('src/js/stickyfill.min.js')
+         .pipe(gulp.dest(path.build.js));
+
+	return gulp.src(path.src.js)
+		.pipe(concat('blocks.js'))
+		.pipe(gulp.dest('src/js/'));
+}); 
+
+gulp.task('js:rigger', ['js:cnct'], function () {
+
+  return    gulp.src(path.src.jsGlobal)
+        .pipe(rigger()) 
+        // .pipe(sourcemaps.init()) //Инициализируем sourcemap
+        // .pipe(uglify()) //Сожмем наш js
+        // .pipe(sourcemaps.write()) //Пропишем карты
+        .pipe(gulp.dest(path.build.js)) 
+        .pipe(reload({stream: true}));       
+});
+
+ gulp.task('js:build', ['js:cnct', 'js:rigger']);
+
+
+
+gulp.task('image:build', function () {
+    gulp.src(path.src.img) //Выберем наши картинки
+        .pipe(imagemin({ //Сожмем их
+            progressive: true,
+            svgoPlugins: [{removeViewBox: false}],
+            use: [pngquant()],
+            interlaced: true
+        }))
+        .pipe(flatten())
+        .pipe(gulp.dest(path.build.img))
+        .pipe(reload({stream: true}));
+});
+
+
+
+// сервер и сбока всех частей
+var config = {
+    server: {
+        baseDir: "./build"
+    },
+    // tunnel: true,
+    host: 'localhost',
+    port: 8080,
+    // logPrefix: "Frontend_Devil"
+    notify: false
+};
+
+gulp.task('webserver', function () {
+    browserSync(config);
+});
+
+gulp.task('build', [
+    'html:build',
+    // 'js:cnct',
+    'js:build',
+    'style:build',
+    // 'fonts:build',
+    'image:build'
+]);
+
+gulp.task('watch', function(){
+    watch([path.watch.html], function(event, cb) {
+        gulp.start('html:build');
+    });
+
+    watch([path.watch.style], function(event, cb) {
+        gulp.start('style:build');
+    });
+
+    watch([path.watch.js], function(event, cb) {
+        // gulp.start('js:cnct');
+        gulp.start('js:build');
+    });
+    watch([path.watch.img], function(event, cb) {
+        gulp.start('image:build');
+    });
+});
+
+
+gulp.task('clean', function (cb) {
+    rimraf(path.clean, cb);
+});
+
+
+gulp.task('default', ['build', 'webserver', 'watch']);

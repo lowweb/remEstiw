@@ -1,0 +1,168 @@
+ .navbar__item {
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+
+    // justify-content: center;
+    // align--items: center;
+
+    &:hover
+        {
+        background: rgba(0, 0, 0, 0.12);
+        }
+
+
+//      &-main-menu {
+//         height: 44px;   
+//         // transition: height 0.5s ease-in-out 0s, visibility 0s linear 0.3s;
+//         visibility: visible;
+//         transition: height  600ms, visibility 500ms linear;
+
+        
+//         &:hover {
+//             background-color: $clr-blue;
+//          }
+
+//         &-link:before, &-link-2w:before
+//             {
+//                 content: url(#{$imgFolder}nav-main-menu.svg);
+//             }
+//         // &--hide {
+//         //     // transition: height 0.5s ease-in-out 0s, visibility 0s linear 0.3s;   
+//         //     height: 0px;
+//         //     visibility: hidden;
+//         //     transition: height  600ms, visibility 500ms linear;
+//         //  }
+//          &-link-whide {
+//             display: none;
+//         }    
+//     }
+
+//     &-copyright {
+//         display: none;
+//         align-self: center;
+//         margin-left: 27px;
+//         font-family: Lucida Grande;
+//         line-height: normal;
+//         font-size: 13px;    
+//         color: $clr-white;
+//     }
+
+//     &-link {
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         height: 100%;
+//         width: 78px;
+//         max-width: 78px;
+//         opacity: 0.6;
+//         flex: 1 0 auto;
+
+//             &:hover {
+//                 opacity: 1;
+//                 transition: opacity 1s
+//             }
+//             &-caption {
+//                 font-family: Lucida Grande;
+//                 line-height: normal;
+//                 font-size: 15px;
+//                 text-decoration: none;
+//                 color: $clr-white;
+                
+//             }
+//     }           
+   
+
+
+//     &-whithsubmenu {
+//         background: rgba(0, 0, 0, 0.12);
+
+//         &:hover{
+//             background: rgba(0, 0, 0, 0.12);   
+//         }
+//     }
+//     &-caption {
+//          display: inline-block;
+//          width: 235px;
+//          // width: 0px; перешли на анимацию
+//          padding-top: 19px;
+//          visibility: hidden;
+//          opacity: 0;
+         
+//             &--open {
+//                 visibility: visible;
+//                 opacity: 1;
+//                 // width: 235px; перешли на анимацию
+//                  transition: width 1s, visibility 3s, opacity 0.5s linear; 
+
+//             }
+//         }
+
+//     &-btn-submenu {
+//             display: flex;
+//             align-items: center;
+//             justify-content: center;
+//             position: relative;
+//             float: right;
+//             cursor: pointer;
+//             width: 35px;
+//             height: 15px;
+//             margin-right: 10px;
+
+//         // transition: width 0.3s ease-in-out, visibility 1s, opacity 0.1s linear;
+//         &:before {
+//             content: url(#{$imgFolder}nav__item-open-btn.svg);
+//         }
+//         &--up:before {
+//             content: url(#{$imgFolder}nav__item-open-btn-up.svg);
+//         }
+//     }
+
+//     &-open-btn {
+//         height: 92px;   
+//         // position: -webkit-sticky;
+//         // position: sticky;
+//         // top: 0px;
+//         z-index: 3;
+//         background-color: $clr-blue;
+//          &:hover {
+//             background-color: $clr-blue;
+//          }
+
+//         &--open{
+//             justify-content: space-between;
+//             min-width: 313px; //fixednav
+//         }
+//         &-link:before {
+//             content: url(#{$imgFolder}nav-open-btn.svg);
+//         }
+//         &-link--open {
+//             justify-content: flex-end;
+
+//             &:before {
+//                 content: url(#{$imgFolder}nav-close-btn.svg);
+//             }
+//         }
+
+//     }
+
+//     &-header {
+//         // width: 100%; перешли на анимацию
+//         display: flex;
+//         height: 56px;
+//     }
+    
+
+
+//     &--sticky {
+//         position: fixed;
+//         top: 0;
+//         // width: 100%;
+//     }
+ }
+
+.navbar-ul--forticky {
+  padding-top: 92px;
+}
+
+
