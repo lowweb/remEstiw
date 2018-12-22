@@ -98,12 +98,7 @@ html
 }
 
 body{
-	display: flex;
-	// height: 100vh;
-	height: 100%;
-	overflow: hidden;
-	flex-direction: row;
-	margin: 0;
+font-size: 20px;
 }
 
 .layout {
@@ -126,7 +121,7 @@ body{
 .main-content {
 	background: green;
 	flex: 1 1 auto;
-	min-width: 1330px;
+	// min-width: 1330px;
 	overflow-y: auto;
 	overflow-x: none;
 

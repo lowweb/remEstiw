@@ -1,10 +1,27 @@
-.navbar{
+.navbar {
 	background: linear-gradient(0deg, $clr-blue, $clr-blue), rgba(224, 224, 226, 0.3);
-	flex: 0 0 78px;
+	// flex: 0 0 78px;
 	min-width: 78px;
+	width: 78px;
 	overflow-y: auto;
 	overflow-x: none;
     min-height: 640px;
+     transition: width 3s ease-in-out 3s;
+	
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+
+	// position: absolute;
+	// height: 100%;
+
+	// &-slim {
+	// 	width: 78px;
+	// 	// flex: 0 1 78px;
+	// 	min-width: 78px;
+	// 	animation: navbar-open 0.2s;
+	// }
+
 	// transition: width 0.3s ease-in-out 0s;
 	//скрол IE
 	-ms-overflow-style: none;
@@ -22,13 +39,28 @@
 	&--open{
 		
 		animation: navbar-open 0.2s;
-		flex: 0 0 313px;
+		width: 313px;
 		min-width: 313px;
 		// transition: width 0.7s ease-in-out 0s;
 		// -o-transition: width 1s ease-in-out;
 	    // transition: width 1s ease-in-out;
 	}
+	
+
+
+
 }
+
+// .main-content {
+
+// 	 transform: translate3d(313px,0,0);
+// 	 transition: transform .3s;
+// 	 	  &-wide {
+// 	   	transform: translate3d(78px,0,0);
+// 	    transition: transform .3s;
+//     }
+// }
+
 
 @keyframes navbar-open {
     0%   {width: 78px; min-width: 78px;}
