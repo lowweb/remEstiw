@@ -1,0 +1,78 @@
+ .navbar__item {
+	width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    flex: 1 0 56px;
+    // max-height: 56px;
+    display: flex;
+    flex-direction: column;
+
+    &:hover
+        {
+        background: rgba(0, 0, 0, 0.12);
+        }
+
+    &-header{
+        flex: 0 0 56px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        cursor: pointer;    
+    }
+
+    &-icon {
+        min-width: 24px;
+        min-height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 27px 0 27px;
+        opacity: 0.6;      
+    }
+
+    &-caption {
+        @include font-lucida ($clr-white, 15px, normal);
+        visibility: visible;
+        opacity: 1;
+        transition: width 1s, visibility 3s linear, opacity 1s linear;        
+        
+    }
+
+    &-btn-submenu {
+        flex: 0 1 70px;
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;  
+        transition: transform .5s;
+
+        visibility: visible;
+        opacity: 1;
+        transition: width 1s, visibility 3s linear, opacity 1s linear;        
+        
+
+        &:before {
+            content: url(#{$imgFolder}nav__item-open-btn.svg);
+        }
+    }    
+
+ }
+
+.navbar-item-el--hide {
+    flex: 0;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    transition: width 0s, visibility 0s, opacity 0s linear;
+}
+
+.btn-rotate180-hor {
+    transform: rotate(180deg);
+    transition: transform .3s;
+}
+
+.navbar-ul--understicky {
+  padding-top: 112px;
+}
+
+

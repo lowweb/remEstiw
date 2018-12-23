@@ -1,0 +1,89 @@
+
+.header-currency {
+	// height: 44px;
+	flex: 1 0 44px;
+	border: 1px solid #E6E6E6;
+	background: $clr-white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; 
+    visibility: visible;
+    transition: height  600ms, visibility 500ms linear;
+    // transition: height 0.5s ease-in-out 0s, visibility 0.1s linear 0.3s;
+    	&--hide {
+    		height: 0px;
+    		visibility: hidden;
+    		transition: height  600ms, visibility 500ms linear;
+    		// transition: height 0.5s ease-in-out 0s, visibility 0.1s linear 0.3s;
+    	}
+
+    	
+
+	&__leftside {
+		display: flex;
+    	flex-direction: row;
+    	margin: 0 30px;
+	}
+
+	&__lang-btn:after {
+		content: url(#{$imgFolder}button-down.svg);
+	    vertical-align: 3px;
+	}
+
+	&__rightside {
+    	margin-right: 42px;
+    	display: flex;
+    	flex-direction: row;
+    	width: 39px;
+    	justify-content: space-between;
+    	align-items: center;
+	}
+
+	&__item {
+		display: flex;
+   		flex-direction: row;
+   		margin: 0 10px;
+   		justify-content: space-between;
+	}
+
+	&__curprice {
+		margin: 0 7px;
+	}
+
+	&__title {
+		margin-right: 30px;
+	}
+
+	&__dynamic-link {
+		margin-left: 30px;
+	}
+
+	&__title, &__lang, &__dynamic-link {
+		@include font-lucida ($clr-blue, 13px, normal);
+		text-decoration: none;
+	}
+
+	&__curname
+	{
+		@include font-lucida ($clr-blue, 13px, normal);
+	}
+
+	&__curprice
+	{
+		@include font-lucida ($clr-dark, 13px, normal);
+	}
+
+	&__curdelta--up
+	{
+		@include font-lucida ($clr-green, 13px, normal);
+	}
+
+	&__curdelta--down
+	{
+		@include font-lucida ($clr-red, 13px, normal);
+	}
+
+}
+
+

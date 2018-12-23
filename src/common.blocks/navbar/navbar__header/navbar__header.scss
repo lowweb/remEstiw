@@ -5,11 +5,12 @@
 
 	    &:hover
         {
-        background: rgba(0, 0, 0, 0.12);
+        // background: rgba(0, 0, 0, 0.12);
     }
 
     &-roll {
     	flex: 0 0 44px;
+    	max-height: 44px;
     	display: flex;
     	align-items: center;
     }
@@ -25,9 +26,18 @@
 
 	&-sticky{
 		flex: 0 0 112px;
+		max-height: 112px;
 		display: flex;
 		flex-direction: row;
-		align-items: center;
+		align-items: center; 
+
+		&--active
+		{	background: linear-gradient(0deg, $clr-blue, $clr-blue), rgba(224, 224, 226, 0.3);
+			position: fixed;
+        	top: 0;
+        	width: 313px;
+        	z-index: 3;
+		}
 
 	} 
 
@@ -58,6 +68,9 @@
     	opacity: 1;
     	transition: width 1s, visibility 3s linear, opacity 1s linear;        
 		
+		&-roll{
+			flex: 0 1 78px;
+		}
 
 		&:before {
 			// align-self: center;
@@ -73,7 +86,8 @@
 			opacity: 1;
 
 		}
-	}       
+	}
+    
 }
 
 .btn-rotate180-vert {

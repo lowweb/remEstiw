@@ -1,0 +1,64 @@
+.header-sticky__main {
+	flex: 0 0 112px;
+	max-height: 112px;
+	height: 112px;
+	display: flex;
+	align-items: center;
+
+	&-logo {
+		content: url(#{$imgFolder}hs-estiw_logo.svg);
+		width: 203px;
+		height: 64px;
+		margin: 0 161px 0 30px;
+    	flex: 0 1 156px;
+	}
+	
+	&-timezone {
+		height: 100%;
+		flex: 1 0 auto;
+		display: flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		justify-content: center;
+		margin-right: 30px;
+		
+		&-city {
+			@include font-lucida ($clr-blue, 15px, normal);
+		}
+
+		&-city:before {
+			content: url(#{$imgFolder}hs-clock.svg);
+			margin-right: 11px;
+			vertical-align: -5px;
+			margin-top:10px;
+		}
+
+		&-city-btn:after {
+			content: url(#{$imgFolder}button-down.svg);
+			vertical-align: 2px;
+			margin-left: 5px;
+		}
+
+		&-datetime {
+			margin-left: 33px;
+			@include font-lucida (rgba(55, 63, 81, 0.7), 13px, normal);
+			
+		}
+
+	}
+
+	&-people {
+		height: 100%;
+		flex: 6 0 auto;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		// align-items: center;
+		justify-content: space-around;
+		margin: 0 30px;
+
+	}
+
+
+}
+

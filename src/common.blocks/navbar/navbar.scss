@@ -5,7 +5,7 @@
 	width: 78px;
 	overflow-y: auto;
 	overflow-x: none;
-    min-height: 640px;
+    min-height: 670px;
      transition: width 3s ease-in-out 3s;
 	
     display: flex;
@@ -38,7 +38,7 @@
 
 	&--open{
 		
-		animation: navbar-open 0.2s;
+		animation: navbar-open 0.3s;
 		width: 313px;
 		min-width: 313px;
 		// transition: width 0.7s ease-in-out 0s;
