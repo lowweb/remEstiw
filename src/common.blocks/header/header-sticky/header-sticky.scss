@@ -4,10 +4,13 @@
     display: flex;
     flex-direction: column;
     flex: 1 1 auto;
-    // &--stick {
-    // 	position: fixed;
-    // 	top: 0;
-    // }
+    
+    &--active {
+            position: fixed;
+            top: 0;
+            // width: 313px;
+            z-index: 3;
+    }
 }
 
 // .header-sticky--stick + .view {
