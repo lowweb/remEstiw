@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $('.navbar__header-close-btn').on('click', function() {
-
+//пересчитат длину стики хедера при открытии и закрытии
   	openNavbar ();
     // console.log('dsada');
     // $('.main-content').toggleClass('main-content-wide');
@@ -25,7 +25,11 @@ function openNavbar () {
     $(".navbar-ul").removeClass("navbar-ul--understicky");
 	 	$('.navbar__submenu').removeClass('navbar__submenu--open');
     $('.navbar__header-roll')[0].scrollIntoView(true);
+        $(".header-sticky").removeAttr('style' , "width: calc(100% - 78px)" );
 	 } 
+     else {
+        $(".header-sticky").attr('style' , "width: calc(100% - 313px)" );
+     }
 
 
 	 $('.navbar').toggleClass('navbar--open');

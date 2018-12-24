@@ -1,23 +1,21 @@
 
 $(".main-content").scroll (function () {
-console.log ('двигаем');
+
  if ( $(this).scrollTop() > $('.header-currency').height()) {
-
+console.log ('up');
     $(".header-sticky").addClass("header-sticky--active");
-     $(".header-sticky").attr('style' , "width: calc(100% - " + $('.navbar').width() + "px )" );
-    // $(".navbar-ul").addClass("navbar-ul--understicky");
-
- 	// $(".header-currency").addClass("header-currency--hide");
-  	// $('.header-sticky')[0].scrollIntoView(true);
+    $(".header-sticky").attr('style' , "width: calc(100% - " + $('.navbar').width() + "px )" );
+    $(".view").addClass("view--understicky");
+    //прокрутили соседа
+    $('.navbar__header-sticky')[0].scrollIntoView(true);
 
 }  
 if ( $(this).scrollTop() == 0) {
-
-     $(".header-sticky").removeClass("header-sticky--active");
-    // $(".navbar-ul").removeClass("navbar-ul--understicky");
-  	// $('.header-currency')[0].scrollIntoView(true);
-
-  	// $(".header-currency").removeClass("header-currency--hide");
+console.log ('top 0');
+    $(".header-sticky").removeClass("header-sticky--active");
+    $(".header-sticky").removeAttr('style' , "width: calc(100% - " + $('.navbar').width() + "px )" );
+    $(".view").removeClass("view--understicky");
+    $('.navbar__header-roll')[0].scrollIntoView(true);
  }
 
  });

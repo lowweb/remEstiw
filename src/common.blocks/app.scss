@@ -122,10 +122,11 @@ font-size: 20px;
 .main-content {
 	background: green;
 	flex: 1 1 auto;
+	min-width: 1300px;
 	// min-width: 1330px;
 	overflow-y: auto;
 	overflow-x: none;
-
+	min-height: 670px;
 	display: flex;
 	flex-direction: column;
 	align-content: stretch;
@@ -159,6 +160,10 @@ font-size: 20px;
 
 .view {
 	flex: 1 0 auto;
-	/* min-height: 300px; */
+	 min-height: 690px; 
 	background-color: #ADF7B6;
+
+	&--understicky {
+		padding-top: 238px;
+	}
 }
