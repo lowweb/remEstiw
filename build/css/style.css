@@ -432,23 +432,6 @@ body {
     -webkit-transform: translateY(-5px);
     transform: translateY(-5px); } }
 
-.header-sticky {
-  background: #FFFFFF;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-flex: 1;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto; }
-  .header-sticky--active {
-    position: fixed;
-    top: 0;
-    z-index: 3; }
-
 .header-currency {
   -webkit-box-flex: 1;
   -ms-flex: 1 0 44px;
@@ -558,6 +541,23 @@ body {
     color: #E63946;
     font-style: normal;
     font-weight: normal; }
+
+.header-sticky {
+  background: #FFFFFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto; }
+  .header-sticky--active {
+    position: fixed;
+    top: 0;
+    z-index: 3; }
 
 .navbar__header {
   width: 100%;
@@ -843,10 +843,15 @@ body {
   -ms-flex-align: stretch;
   align-items: stretch; }
   .header-sticky__main-logo {
-    content: url(../img/hs-estiw_logo.svg);
     min-width: 203px;
-    height: 64px;
     margin: 0 161px 0 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
     -webkit-box-flex: 0;
     -ms-flex: 0 1 156px;
     flex: 0 1 156px;
