@@ -3,18 +3,20 @@
 	max-height: 112px;
 	height: 112px;
 	display: flex;
-	align-items: center;
+	align-items: stretch;
+	// align-items: center;
 
 	&-logo {
 		content: url(#{$imgFolder}hs-estiw_logo.svg);
-		width: 203px;
+		min-width: 203px;
 		height: 64px;
 		margin: 0 161px 0 30px;
     	flex: 0 1 156px;
+    	align-self: center;
 	}
 	
 	&-timezone {
-		height: 100%;
+		// height: 100%;
 		flex: 1 0 auto;
 		display: flex;
 		flex-direction: column;
@@ -48,8 +50,8 @@
 	}
 
 	&-people {
-		height: 100%;
-		flex: 6 0 auto;
+		// height: 100%;
+		flex: 1 0 auto;
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
