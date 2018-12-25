@@ -31,7 +31,7 @@
         align-items: center;
         padding: 0 16px;
         flex: 0 0 112px;
-			&-btn:after {
+			&-btn:before {
 				content: url(#{$imgFolder}popup-down-btn.svg);
 				// object-fit: none; //проверить на IE
 				 vertical-align: 2px;
@@ -39,7 +39,7 @@
 				// height: 15px;
 
 				&--up {
-					content: url(#{$imgFolder}popup-up-btn.svg);
+				//	content: url(#{$imgFolder}popup-up-btn.svg);
 				}
 			}
 			&-pic {

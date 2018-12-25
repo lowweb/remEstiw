@@ -11,10 +11,14 @@
              // width: 100%;
             z-index: 3;
     }
+
+    &--fix78 {
+        width: calc(100% - 78px);
+    }
+
+    &--fix313 {
+        width: calc(100% - 313px);
+        transition: width .3s; //при переходе в fix header плавность вместе с меню
+    }
 }
-
-// .header-sticky--stick + .view {
-//   padding-top: 218px;
-// }
-
-    
+   

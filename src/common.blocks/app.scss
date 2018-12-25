@@ -76,7 +76,21 @@ color: $clr-dark;
 	box-shadow: none;
 }
 
+//эффект поворота кнопок угольных
+.btn-rotate180:before {
+	transform: rotate(180deg);
+	transition: transform .3s;
+}
+.btn-rotate180:after {
+	transform: rotate(180deg);
+	transition: transform .3s;
+}
 
+
+.btn-rotate180-hor {
+	transform: rotate(180deg);
+	transition: transform .3s;
+}
 
 *
 {
@@ -160,10 +174,11 @@ font-size: 20px;
 
 .view {
 	flex: 1 0 auto;
-	 min-height: 690px; 
+	 min-height: 690px; // чтобы стики хедер не уходил в 0 при скроле вверх
+	 height: 900px;
 	background-color: #ADF7B6;
 
 	&--understicky {
-		padding-top: 238px;
+		padding-top: 202px;
 	}
 }

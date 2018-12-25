@@ -6,22 +6,10 @@
 	overflow-y: auto;
 	overflow-x: none;
     min-height: 670px;
-     transition: width 3s ease-in-out 3s;
-	
+    transition: width 3s ease-in-out 3s;
     display: flex;
     flex-direction: column;
     align-content: center;
-
-	// position: absolute;
-	// height: 100%;
-
-	// &-slim {
-	// 	width: 78px;
-	// 	// flex: 0 1 78px;
-	// 	min-width: 78px;
-	// 	animation: navbar-open 0.2s;
-	// }
-
 	// transition: width 0.3s ease-in-out 0s;
 	//скрол IE
 	-ms-overflow-style: none;
@@ -31,19 +19,11 @@
 
 	}
 
-	// &-ul {
-	// 	width: 100%;
-	// 	list-style-type: none;
-	// }
-
 	&--open{
 		
 		animation: navbar-open 0.3s;
 		width: 313px;
 		min-width: 313px;
-		// transition: width 0.7s ease-in-out 0s;
-		// -o-transition: width 1s ease-in-out;
-	    // transition: width 1s ease-in-out;
 	}
 	
 	
@@ -53,19 +33,6 @@
 
 
 }
-
-
-
-
-// .main-content {
-
-// 	 transform: translate3d(313px,0,0);
-// 	 transition: transform .3s;
-// 	 	  &-wide {
-// 	   	transform: translate3d(78px,0,0);
-// 	    transition: transform .3s;
-//     }
-// }
 
 
 @keyframes navbar-open {
