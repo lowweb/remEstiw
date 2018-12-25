@@ -437,6 +437,104 @@ body {
     flex: 0 0 88px;
     max-height: 88px; }
 
+.timezone-popup-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  z-index: 3;
+  margin-right: 30px; }
+  .timezone-popup-menu--active {
+    background: #FFFFFF;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0px 8px 20px rgba(55, 63, 81, 0.2);
+    box-shadow: 0px 8px 20px rgba(55, 63, 81, 0.2);
+    border-radius: 3px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-transition: all 100ms cubic-bezier(0.4, 0, 1, 1);
+    transition: all 100ms cubic-bezier(0.4, 0, 1, 1); }
+  .timezone-popup-menu__title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    min-height: 70px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0 17px;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 70px;
+    flex: 0 0 70px;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-line-pack: distribute;
+    align-content: space-around; }
+    .timezone-popup-menu__title-city {
+      font-family: Lucida Grande, Tahoma, Arial;
+      line-height: normal;
+      font-size: 15px;
+      color: #0073BE;
+      font-style: normal;
+      font-weight: normal; }
+    .timezone-popup-menu__title:before {
+      content: url(../img/hs-clock.svg);
+      margin-right: 11px; }
+    .timezone-popup-menu__title-btn:after {
+      content: url(../img/popup-down-btn.svg);
+      margin-left: 5px;
+      vertical-align: 2px; }
+    .timezone-popup-menu__title-datetime {
+      margin-left: 33px;
+      font-family: Lucida Grande, Tahoma, Arial;
+      line-height: normal;
+      font-size: 13px;
+      color: rgba(55, 63, 81, 0.7);
+      font-style: normal;
+      font-weight: normal; }
+  .timezone-popup-menu__group {
+    border-top: 1px solid #D5D7E1;
+    padding: 16px 16px;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+  .timezone-popup-menu__add {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    opacity: 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto; }
+    .timezone-popup-menu__add--active {
+      opacity: 1;
+      -webkit-transition: opacity 700ms cubic-bezier(0.4, 0, 1, 1);
+      transition: opacity 700ms cubic-bezier(0.4, 0, 1, 1); }
+
 @-webkit-keyframes bounce {
   0%, 20%, 60%, 100% {
     -webkit-transform: translateY(0);
@@ -879,6 +977,7 @@ body {
     -ms-flex-item-align: center;
     align-self: center; }
   .header-sticky__main-timezone {
+    height: 70px;
     -webkit-box-flex: 1;
     -ms-flex: 1 0 272px;
     flex: 1 0 272px;
@@ -896,30 +995,6 @@ body {
     -ms-flex-pack: center;
     justify-content: center;
     margin-right: 30px; }
-    .header-sticky__main-timezone-city {
-      font-family: Lucida Grande, Tahoma, Arial;
-      line-height: normal;
-      font-size: 15px;
-      color: #0073BE;
-      font-style: normal;
-      font-weight: normal; }
-    .header-sticky__main-timezone-city:before {
-      content: url(../img/hs-clock.svg);
-      margin-right: 11px;
-      vertical-align: -5px;
-      margin-top: 10px; }
-    .header-sticky__main-timezone-city-btn:after {
-      content: url(../img/button-down.svg);
-      vertical-align: 2px;
-      margin-left: 5px; }
-    .header-sticky__main-timezone-datetime {
-      margin-left: 33px;
-      font-family: Lucida Grande, Tahoma, Arial;
-      line-height: normal;
-      font-size: 13px;
-      color: rgba(55, 63, 81, 0.7);
-      font-style: normal;
-      font-weight: normal; }
   .header-sticky__main-people {
     -webkit-box-flex: 1;
     -ms-flex: 1 0 auto;

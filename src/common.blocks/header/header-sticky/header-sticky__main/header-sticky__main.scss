@@ -18,7 +18,7 @@
 	}
 	
 	&-timezone {
-		// height: 100%;
+		height: 70px;
 		flex: 1 0 272px;
 		max-width: 272px;
 		display: flex;
@@ -27,29 +27,6 @@
 		justify-content: center;
 		margin-right: 30px;
 		
-		&-city {
-			@include font-lucida ($clr-blue, 15px, normal);
-		}
-
-		&-city:before {
-			content: url(#{$imgFolder}hs-clock.svg);
-			margin-right: 11px;
-			vertical-align: -5px;
-			margin-top:10px;
-		}
-
-		&-city-btn:after {
-			content: url(#{$imgFolder}button-down.svg);
-			vertical-align: 2px;
-			margin-left: 5px;
-		}
-
-		&-datetime {
-			margin-left: 33px;
-			@include font-lucida (rgba(55, 63, 81, 0.7), 13px, normal);
-			
-		}
-
 	}
 
 	&-people {
