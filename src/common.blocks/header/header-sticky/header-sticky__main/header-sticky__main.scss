@@ -3,8 +3,8 @@
 	// max-height: 112px;
 	height: 112px;
 	display: flex;
-	align-items: stretch;
-	// align-items: center;
+	///align-items: stretch;
+	align-items: center;
 
 	&-logo {
 		// content: url(#{$imgFolder}hs-estiw_logo.svg);
@@ -19,7 +19,8 @@
 	
 	&-timezone {
 		// height: 100%;
-		flex: 1 0 auto;
+		flex: 1 0 272px;
+		max-width: 272px;
 		display: flex;
 		flex-direction: column;
 		flex-wrap: nowrap;
@@ -54,6 +55,7 @@
 	&-people {
 		// height: 100%;
 		flex: 1 0 auto;
+		max-height: 80px;
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;

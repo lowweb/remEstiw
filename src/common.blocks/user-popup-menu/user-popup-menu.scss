@@ -8,10 +8,12 @@
 
 	&-mngr {
 		height: 229px;
+		// height: auto;
 	}
 
 	&-user {
 		height: 400px;
+		// height: auto;
 	}
 
 	&--active {
@@ -27,10 +29,10 @@
 		display: flex;
 		flex-direction: row;
 		// margin-right: 30px;
-		min-height: 112px;
+		min-height: 80px;
         align-items: center;
         padding: 0 16px;
-        flex: 0 0 112px;
+        flex: 0 0 80px;
 			&-btn:before {
 				content: url(#{$imgFolder}popup-down-btn.svg);
 				// object-fit: none; //проверить на IE
@@ -111,7 +113,7 @@
 		flex: 1 0 auto;
 		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
+		justify-content: center;
 	}
 
 	&__add {
