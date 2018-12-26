@@ -33,17 +33,21 @@
         align-items: center;
         padding: 0 16px;
         flex: 0 0 80px;
-			&-btn:before {
+			&-btn {
+			    display: inline-flex;
+			    align-items: center;
+			    position: relative;
+			    bottom: 3px;
+			    height: 10px;
+				
+				&:before {
 				content: url(#{$imgFolder}popup-down-btn.svg);
 				// object-fit: none; //проверить на IE
 				 vertical-align: 2px;
 				// width: 10px;
 				// height: 15px;
-
-				&--up {
-				//	content: url(#{$imgFolder}popup-up-btn.svg);
-				}
 			}
+		}
 			&-pic {
 				flex: 3 0 auto;
 				width: 48px;
@@ -113,7 +117,7 @@
 		flex: 1 0 auto;
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		justify-content: space-between;
 	}
 
 	&__add {

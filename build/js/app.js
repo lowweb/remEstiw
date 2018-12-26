@@ -25,7 +25,7 @@ $('.timezone-popup-menu__title-btn').click(function(){
 	// $(this).toggleClass('timezone-popup-menu__title-btn--up');
 	$(this).parents(".timezone-popup-menu__title").toggleClass('timezone-popup-menu__title--active');
 	$(this).parents(".timezone-popup-menu").find('.timezone-popup-menu__add').toggleClass('timezone-popup-menu__add--active');
-	// $(this).toggleClass('btn-rotate180');
+	$(this).toggleClass('btn-rotate180');
 });
 $('.user-popup-menu__title-btn').click(function(){
 	// $(this).toggleClass('user-popup-menu__title-btn--up');
