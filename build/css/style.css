@@ -83,7 +83,8 @@
 * {
   margin: 0;
   padding: 0;
-  text-decoration: none; }
+  text-decoration: none;
+  list-style-type: none; }
 
 html {
   height: 100%;
@@ -216,8 +217,7 @@ body {
     height: auto;
     position: relative;
     border-top: 1px solid #D5D7E1;
-    -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 1, 1);
-    transition: opacity 200ms cubic-bezier(0.4, 0, 1, 1);
+    opacity: 0;
     padding: 16px 0 20px 50px; }
     .timezone-popup-menu__add--active {
       background: #FFFFFF;
@@ -227,8 +227,8 @@ body {
       -webkit-box-shadow: 0px 8px 20px rgba(55, 63, 81, 0.2);
       box-shadow: 0px 8px 20px rgba(55, 63, 81, 0.2);
       border-radius: 3px;
-      -webkit-transition: opacity 700ms cubic-bezier(0.4, 0, 1, 1);
-      transition: opacity 700ms cubic-bezier(0.4, 0, 1, 1); }
+      -webkit-transition: opacity 100ms cubic-bezier(0.4, 0, 1, 1);
+      transition: opacity 100ms cubic-bezier(0.4, 0, 1, 1); }
   .timezone-popup-menu__title {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -276,6 +276,16 @@ body {
       color: rgba(55, 63, 81, 0.7);
       font-style: normal;
       font-weight: normal; }
+  .timezone-popup-menu__city {
+    font-family: Lucida Grande, Tahoma, Arial;
+    line-height: normal;
+    font-size: 13px;
+    color: #0073BE;
+    font-style: normal;
+    font-weight: normal;
+    margin-bottom: 12px; }
+    .timezone-popup-menu__city:last-child {
+      margin-bottom: 0px; }
 
 .user-popup-menu {
   display: -webkit-box;
