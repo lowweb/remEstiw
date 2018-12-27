@@ -118,7 +118,7 @@ font-size: 20px;
 }
 
 .layout {
-	background-color: blue;
+	// background-color: blue;
 	width: 100%;
 	height: 100%;
 	display: flex;
@@ -135,7 +135,7 @@ font-size: 20px;
 // }
 
 .main-content {
-	background: green;
+	// background: green;
 	flex: 1 1 auto;
 	// min-width: 1450px;
 	// min-width: 1330px;
@@ -176,10 +176,47 @@ font-size: 20px;
 .view {
 	flex: 1 0 auto;
 	 min-height: 690px; // чтобы стики хедер не уходил в 0 при скроле вверх
-	 height: 900px;
-	background-color: #ADF7B6;
+	 height: 1200px;
+	 // background-color: #ADF7B6;
+;
 
 	&--understicky {
 		padding-top: 202px;
+
 	}
+}
+
+.menu-block {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	padding-left: 30px;
+	padding-top: 54px
+}
+
+
+
+.block {
+	width: 440px;
+	height: 151px;
+	// background-color: grey;
+	border: 1px solid grey;
+	margin-right: 50px;
+	margin-bottom: 50px;
+}
+.colortab {
+	&-yellow {
+		border-left: solid 3px #FFCE2F;
+		// bo-radius: 3px;
+
+	}
+	&-green {
+		border-left: solid 3px #02C39A;
+	}
+	&-orange {
+		border-left: solid 3px #F59138;
+	}
+	&-blue {
+		border-left: solid 3px #615DA2;
+	}		
 }
