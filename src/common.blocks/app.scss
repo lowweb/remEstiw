@@ -64,6 +64,11 @@ color: $clr-dark;
 	color: $clr-purple;
 }
 
+.app-lnk-disable {
+	color: $clr-dark-light !important;
+  	cursor: not-allowed;	
+}
+
 
 .basic-button {
 	outline: none; height: 36px; width: 155px; background: $clr-white; border: 1px solid $clr-purple; box-sizing: border-box; box-shadow: inset 0px -3px 0px rgba(97, 93, 162, 0.3); border-radius: 3px; font-family: Lucida Grande; font-style: normal; font-weight: bold; line-height: normal; font-size: 14px; color: $clr-purple;
@@ -86,11 +91,6 @@ color: $clr-dark;
 	transition: transform .3s;
 }
 
-
-.btn-rotate180-hor {
-	transform: rotate(180deg);
-	transition: transform .3s;
-}
 
 *
 {

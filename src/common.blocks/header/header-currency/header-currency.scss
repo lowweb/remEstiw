@@ -26,9 +26,9 @@
     	margin: 0 30px;
 	}
 
-	&__lang-btn:after {
+	&__lang:after {
 		content: url(#{$imgFolder}button-down.svg);
-	    vertical-align: 3px;
+	    vertical-align: 2px;
 	}
 
 	&__rightside {
@@ -67,6 +67,9 @@
 	&__curname
 	{
 		@include font-lucida ($clr-blue, 13px, normal);
+		&:hover {
+			
+		}
 	}
 
 	&__curprice
