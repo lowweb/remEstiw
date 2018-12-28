@@ -2,10 +2,9 @@ $(document).ready(function(){
 //= blocks.js
 
 
-
-$(document).click(function() {
-	timezonePopupClose ();
-	userPopupClose ();
+$(document).click(function(event) {
+	timezonePopupClose (event);
+	userPopupClose (event);
 });
 
 });

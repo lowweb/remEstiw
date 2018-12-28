@@ -1,11 +1,11 @@
 $('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
 	// $(this).toggleClass('user-popup-menu__title-btn--up');
-	if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
+	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
 		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
 		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
 		$(this).toggleClass('btn-rotate180');
 		$(this).toggleClass('app-lnk-disable');
-	}
+	// }
 });
 
 //пример анимации

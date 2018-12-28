@@ -65,8 +65,8 @@ gulp.task('style:build', () => {
 
 
 gulp.task ('js:cnct',function () {
-     gulp.src('src/js/stickyfill.min.js')
-         .pipe(gulp.dest(path.build.js));
+     // gulp.src('src/js/stickyfill.min.js')
+     //     .pipe(gulp.dest(path.build.js));
 
 	return gulp.src(path.src.js)
 		.pipe(concat('blocks.js'))
@@ -77,9 +77,9 @@ gulp.task('js:rigger', ['js:cnct'], function () {
 
   return    gulp.src(path.src.jsGlobal)
         .pipe(rigger()) 
-        // .pipe(sourcemaps.init()) //Инициализируем sourcemap
-        // .pipe(uglify()) //Сожмем наш js
-        // .pipe(sourcemaps.write()) //Пропишем карты
+        // .pipe(sourcemaps.init()) 
+        // .pipe(uglify()) 
+        // .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.js)) 
         .pipe(reload({stream: true}));       
 });
@@ -89,8 +89,8 @@ gulp.task('js:rigger', ['js:cnct'], function () {
 
 
 gulp.task('image:build', function () {
-    gulp.src(path.src.img) //Выберем наши картинки
-        .pipe(imagemin({ //Сожмем их
+    gulp.src(path.src.img) 
+        .pipe(imagemin({ 
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant()],
@@ -103,7 +103,7 @@ gulp.task('image:build', function () {
 
 
 
-// сервер и сбока всех частей
+// сервер и сброка всех частей
 var config = {
     server: {
         baseDir: "./build"
