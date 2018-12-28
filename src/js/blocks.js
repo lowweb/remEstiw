@@ -123,13 +123,7 @@ function openNavbar () {
      $('.navbar__item-btn-submenu').toggleClass('navbar-item-el--hide');
      $('.navbar__item-icon').css('margin','0 10px 0 27px'); //отступ от иконки при раскрытом меню
     
-
-        //правим ширину для fix header
-    if ($('.header-sticky').hasClass('header-sticky--active'))
-    {   
-        $('.header-sticky').toggleClass('header-sticky--fix78');
-        $('.header-sticky').toggleClass('header-sticky--fix313');
-    } 
+ 
 
      //сворачиваем все  submenu
      if ($('.navbar').hasClass('navbar--open'))//меню открыо
@@ -155,7 +149,7 @@ function openNavbar () {
 
 	 } 
      else { //меню закрыто
-        postHeaderStickyResize=true;
+
         //правим ширину для fix элемента
         if ($('.header-sticky').hasClass('header-sticky--active'))
         {
@@ -170,7 +164,13 @@ function openNavbar () {
      }
 
 
-	 $('.navbar').toggleClass('navbar--open'); //после всех тк ориентир на класс
+	$('.navbar').toggleClass('navbar--open'); //после всех тк ориентир на класс
+    //правим ширину для fix header после тк safari не корректно обрабатывает
+    if ($('.header-sticky').hasClass('header-sticky--active'))
+    {   
+        $('.header-sticky').toggleClass('header-sticky--fix78');
+        $('.header-sticky').toggleClass('header-sticky--fix313');
+    }
 }
 //эффект на иконке при hover тк заголовок всегда 1
 $('.navbar__item-header').hover(  
