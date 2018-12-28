@@ -12,14 +12,13 @@
     align-content: center;
 	// transition: width 0.1s ease-in-out 0.2s;
 	//скрол IE
-
-	
 	-ms-overflow-style: none;
 	//скрол Chrome Opera
 	&::-webkit-scrollbar {
 		width: 0;
 
 	}
+	
 
 	&--open{
 		
