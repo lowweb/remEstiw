@@ -1,4 +1,4 @@
-
+// для корректной работы gulp
 
 $(".navbar").scroll (function () {
 
@@ -21,12 +21,13 @@ if ( $(this).scrollTop() == 0) {
  });
 $('.timezone-popup-menu__title-btn').click(function(){
 // console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
-if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
+// if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
 		$(this).parents(".timezone-popup-menu__title").toggleClass('timezone-popup-menu__title--active');
 		$(this).parents(".timezone-popup-menu").find('.timezone-popup-menu__add').toggleClass('timezone-popup-menu__add--active');
 		$(this).toggleClass('btn-rotate180');
 		$(this).toggleClass('app-lnk-disable');
-	}
+
+	// }
 });
 
 
@@ -34,24 +35,26 @@ $(".timezone-popup-menu__title-btn").click(function(e) {
   e.stopPropagation(); 
 });
 
-function timezonePopupClose() {
+function timezonePopupClose(e) {
+   // if (!$(e.target).closest("timezone-popup-menu").length) {
 	if ($('.timezone-popup-menu__title').hasClass('timezone-popup-menu__title--active')){
 		$(".timezone-popup-menu__title").toggleClass('timezone-popup-menu__title--active');
 		$(".timezone-popup-menu").find('.timezone-popup-menu__add').toggleClass('timezone-popup-menu__add--active');
 		$('.timezone-popup-menu__title-btn').toggleClass('btn-rotate180');
 		$('.timezone-popup-menu__title-btn').toggleClass('app-lnk-disable');
 	}
+	// }
 }
 
 
 $('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
 	// $(this).toggleClass('user-popup-menu__title-btn--up');
-	if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
+	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
 		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
 		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
 		$(this).toggleClass('btn-rotate180');
 		$(this).toggleClass('app-lnk-disable');
-	}
+	// }
 });
 
 //пример анимации
