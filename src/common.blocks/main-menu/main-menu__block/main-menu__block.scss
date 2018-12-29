@@ -1,0 +1,90 @@
+.main-menu__block {
+	width: 440px;
+	height: 151px;
+	margin-right: 50px;
+	margin-bottom: 50px;
+	border: 1px solid $clr-grey-v2;
+	box-sizing: border-box;
+	border-radius: 3px;
+
+
+	&-cap {
+
+		@include font-fira ($clr-dark-light, 17px, normal);
+		display: inline-flex;
+	    padding-left: 12px;
+	    padding-right: 10px;
+	    margin-left: 11px;
+	    border: none;
+	    align-items: center;
+	}
+
+	&-icn {
+		width: 24px;
+		height: 24px;
+		margin-right: 12px;
+		background-repeat: no-repeat;
+    	background-position: center;
+		
+		&--contract{
+			background-image: url(#{$imgFolder}main-menu__contract.svg);
+		}
+		&--new-doc{
+			background-image: url(#{$imgFolder}main-menu__new-doc.svg);
+		}
+		&--deal{
+			background-image: url(#{$imgFolder}main-menu__deal.svg);
+		}
+		&--docs{
+			background-image: url(#{$imgFolder}main-menu__docs.svg);
+		}
+		&--finance{
+			background-image: url(#{$imgFolder}main-menu__finance.svg);
+		}
+		&--message{
+			background-image: url(#{$imgFolder}main-menu__msg.svg);
+		}
+		&--statistic{
+			background-image: url(#{$imgFolder}main-menu__statistic.svg);
+		}
+		&--request{
+			background-image: url(#{$imgFolder}main-menu__request.svg);
+		}
+		&--settings{
+			background-image: url(#{$imgFolder}main-menu__settings.svg);
+		}
+
+
+		}
+
+
+	&-color {
+		&--bl {
+			border-left: solid 3px #58CAEF;
+		}
+		&--prp {
+			border-left: solid 3px #615DA2;
+		}	
+		&--yl {
+			border-left: solid 3px #FFCE2F;
+		}
+		&--rd{
+			border-left: solid 3px #E63946;
+		}
+		&--gr {
+			border-left: solid 3px #02C39A;
+		}
+		&--or {
+			border-left: solid 3px #F59138;
+		}
+		&--pn{
+			border-left: solid 3px #F56BD7;
+		}
+		&--drk-bl{
+			border-left: solid 3px #87B4F6;
+		}
+	
+}
+
+
+}
