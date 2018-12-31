@@ -8,11 +8,6 @@ $('.user-popup-menu__title-btn').click(function(){ //button not global beacause 
 	// }
 });
 
-//пример анимации
-$('.user-popup-menu__title-pic').click(function(){
-	$(this).find('.user-popup-menu__title-pic-msg').toggleClass('user-popup-menu__title-pic-msg--active');
-});
-
 
 $(".user-popup-menu__title-btn").click(function(e) {
   e.stopPropagation(); 
