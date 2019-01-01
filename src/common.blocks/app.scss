@@ -129,6 +129,15 @@ body{
 font-size: 20px;
 }
 
+h1 {
+font-family: Fira Sans; 
+font-style: normal; 
+font-weight: 500; 
+line-height: normal; 
+font-size: 25px; 
+letter-spacing: 0.01em; 
+color: $clr-dark;	
+}
 .layout {
 	// background-color: blue;
 	width: 100%;
@@ -175,7 +184,7 @@ font-size: 20px;
 ;
 
 	&--understicky {
-		padding-top: 202px;
+		padding-top: 186px;
 
 	}
 }

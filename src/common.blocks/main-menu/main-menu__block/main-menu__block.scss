@@ -94,4 +94,12 @@
 			margin-left: 20px;
 		}
 
+		&-item{
+			    position: relative;
+   				display: flex;
+				flex-direction: row;
+				align-items: flex-start;
+
+		}
+
 }
