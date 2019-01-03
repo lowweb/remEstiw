@@ -1,6 +1,8 @@
 //open close menu
   $('.navbar__header-close-btn').on('click', function() {
   	openNavbar ();
+    //ширина footer
+    $('.footer').toggleClass('footer--fix313');
   });
 
 function openNavbar () {
@@ -60,4 +62,5 @@ function openNavbar () {
         $('.header-sticky').toggleClass('header-sticky--fix78');
         $('.header-sticky').toggleClass('header-sticky--fix313');
     }
+
 }

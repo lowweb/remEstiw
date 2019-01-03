@@ -1,5 +1,16 @@
 // для корректной работы gulp
 
+$("#nameRequest").dxTextBox({
+  inputAttr: {
+   		 id: "nameRequest__id"
+   }
+});
+
+$("#nameTwoRequest").dxTextBox({
+  inputAttr: {
+   		 id: "nameTwoRequest__id"
+   }
+});
 $(".navbar").scroll (function () {
 
  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
@@ -27,10 +38,39 @@ function (){
 }
 );
 
-// var progressPercentValue=10;
+
+var progressPercentValue=10;
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function runProgressBar() {
+
+	while (progressPercentValue < 100) {
+		$('.progress-bar__status').width((progressPercentValue + 5)+'%');
+		// console.log('posle='+ Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100));
+		if(progressPercentValue == 45){
+			$('.progress-bar__second-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
+			$('.progress-bar__second-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+
+		}
+
+		if(progressPercentValue == 95){
+			$('.progress-bar__third-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
+			$('.progress-bar__third-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+
+		}
+	await sleep(500);
+	progressPercentValue+=5;	
+	}
+
+}
+
+
 $('.progress-bar__third-step').click(function() {
 
-	progressPercentValue=Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100);
+	// progressPercentValue=Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100);
 	console.log('do='+progressPercentValue);
 	if (progressPercentValue < 100) {
 		$('.progress-bar__status').width((progressPercentValue + 5)+'%');
@@ -46,7 +86,7 @@ $('.progress-bar__third-step').click(function() {
 			$('.progress-bar__third-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
 
 		}
-	// progressPercentValue+=5;	
+	progressPercentValue+=5;	
 	}
 
 
@@ -139,6 +179,8 @@ $(".main-content").scroll (function () {
 //open close menu
   $('.navbar__header-close-btn').on('click', function() {
   	openNavbar ();
+    //ширина footer
+    $('.footer').toggleClass('footer--fix313');
   });
 
 function openNavbar () {
@@ -198,6 +240,7 @@ function openNavbar () {
         $('.header-sticky').toggleClass('header-sticky--fix78');
         $('.header-sticky').toggleClass('header-sticky--fix313');
     }
+
 }
 //эффект на иконке при hover тк заголовок всегда 1
 $('.navbar__item-header').hover(  

@@ -13,4 +13,7 @@ $('.user-popup-menu__title-pic').click(function(){
 	$(this).find('.bounce-newmsg-cnt').toggleClass('bounce-newmsg-cnt--active');
 });
 
+//demo progressbar
+//runProgressBar();
+
 });

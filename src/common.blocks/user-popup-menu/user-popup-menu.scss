@@ -6,12 +6,12 @@
 	margin-right: 30px;
 	// padding: 0 16px;
 
-	&-mngr {
+	&-mngr.user-popup-menu--active {  
 		height: 229px;
 		// height: auto;
 	}
 
-	&-user {
+	&-user.user-popup-menu--active {
 		height: 400px;
 		// height: auto;
 	}
@@ -172,6 +172,11 @@
 	}
 
 }
+
+// .user-popup-menu-mngr.user-popup-menu--active{
+
+// 	height: 229px;
+// }
 
 
 @keyframes bounce {

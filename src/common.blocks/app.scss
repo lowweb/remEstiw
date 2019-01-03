@@ -57,8 +57,9 @@ color: $clr-dark;
 
 }
 
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans');
 @mixin font-fira ($color, $size, $height) {
-	font-family: Lucida Grande, Tahoma, Arial;
+	font-family: 'Fira Sans', sans-serif;
 	line-height: $height;
 	font-size: $size;
 	color: $color;
@@ -89,9 +90,26 @@ color: $clr-dark;
 	background: #F8F7FF;
 }
 
-.basic-button:active, {
+.basic-button:active {
 	box-shadow: none;
 }
+
+.purple-button {
+	height: 36px; padding-left: 24px; padding-right: 14px; background: #5C2D91; box-shadow: inset 0px -3px 0px rgba(0, 0, 0, 0.3); border-radius: 3px; font-family: Lucida Grande; font-style: normal; font-weight: bold; line-height: normal; font-size: 14px; color: #FFFFFF;
+	&__arrow{
+		transform: rotate(180deg);
+		margin-left: 17px;
+		transform: rotate(180deg);
+	}
+}
+.purple-button:hover {
+	background: #615DA2; box-shadow: inset 0px -3px 0px rgba(0, 0, 0, 0.1);
+}
+
+.purple-button:active {
+	box-shadow: none;
+}
+
 
 //эффект поворота кнопок угольных
 .btn-rotate180:before {
@@ -130,13 +148,23 @@ font-size: 20px;
 }
 
 h1 {
-font-family: Fira Sans; 
-font-style: normal; 
-font-weight: 500; 
-line-height: normal; 
-font-size: 25px; 
-letter-spacing: 0.01em; 
-color: $clr-dark;	
+	font-family: Fira Sans; 
+	font-style: normal; 
+	font-weight: 500; 
+	line-height: normal; 
+	font-size: 25px; 
+	letter-spacing: 0.01em; 
+	color: $clr-dark;	
+}
+
+h2{
+	font-family: Fira Sans; 
+	font-style: normal; 
+	font-weight: 500; 
+	line-height: normal; 
+	font-size: 22px; 
+	letter-spacing: 0.01em; 
+	color: $clr-dark-light;
 }
 .layout {
 	// background-color: blue;
@@ -178,10 +206,12 @@ color: $clr-dark;
 
 .view {
 	flex: 1 0 auto;
-	 min-height: 690px; // чтобы стики хедер не уходил в 0 при скроле вверх
-	 // height: 1200px; для примера скролла
-	 // background-color: #ADF7B6;
-;
+	min-height: 690px; // чтобы стики хедер не уходил в 0 при скроле вверх
+	// height: 1200px; для примера скролла
+	// background-color: #ADF7B6;
+	padding-left: 30px;
+	padding-top: 54px;
+
 
 	&--understicky {
 		padding-top: 186px;
