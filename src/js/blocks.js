@@ -1,16 +1,5 @@
 // для корректной работы gulp
 
-$("#nameRequest").dxTextBox({
-  inputAttr: {
-   		 id: "nameRequest__id"
-   }
-});
-
-$("#nameTwoRequest").dxTextBox({
-  inputAttr: {
-   		 id: "nameTwoRequest__id"
-   }
-});
 $(".navbar").scroll (function () {
 
  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
@@ -40,35 +29,35 @@ function (){
 
 
 var progressPercentValue=10;
+  
+// function sleep(ms) {
+//   return new Promise(resolve => setTimeout(resolve, ms));
+// }
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
+// async function runProgressBar() {
 
-async function runProgressBar() {
+// 	while (progressPercentValue < 100) {
+// 		$('.progress-bar__status').width((progressPercentValue + 5)+'%');
+// 		// console.log('posle='+ Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100));
+// 		if(progressPercentValue == 45){
+// 			$('.progress-bar__second-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
+// 			$('.progress-bar__second-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
 
-	while (progressPercentValue < 100) {
-		$('.progress-bar__status').width((progressPercentValue + 5)+'%');
-		// console.log('posle='+ Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100));
-		if(progressPercentValue == 45){
-			$('.progress-bar__second-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
-			$('.progress-bar__second-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+// 		}
 
-		}
+// 		if(progressPercentValue == 95){
+// 			$('.progress-bar__third-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
+// 			$('.progress-bar__third-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
 
-		if(progressPercentValue == 95){
-			$('.progress-bar__third-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
-			$('.progress-bar__third-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+// 		}
+// 	await sleep(500);
+// 	progressPercentValue+=5;	
+// 	}
 
-		}
-	await sleep(500);
-	progressPercentValue+=5;	
-	}
-
-}
+// }
 
 
-$('.progress-bar__third-step').click(function() {
+$('.header-sticky__progress').click(function() {
 
 	// progressPercentValue=Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100);
 	console.log('do='+progressPercentValue);
@@ -143,6 +132,19 @@ function userPopupClose() {
 		$('.app-lnk-disable').toggleClass('app-lnk-disable');
 	}
 }
+$("#nameRequest").dxTextBox({
+  inputAttr: {
+   		 id: "nameRequest__id",
+   		 class:"input-field__value"
+   }
+});
+
+$("#nameTwoRequest").dxTextBox({
+  inputAttr: {
+   		 id: "nameTwoRequest__id",
+   		 class:"input-field__value"
+   }
+});
 //скролим правую часть
 $(".main-content").scroll (function () {
   //move up

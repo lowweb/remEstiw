@@ -7,52 +7,59 @@
 	box-sizing: border-box;
 	border-radius: 3px;
 	display: flex;
-
+	position: relative;
 
 	&-cap {
-
 		@include font-fira ($clr-dark-light, 17px, normal);
-		display: inline-flex;
 	    padding-left: 12px;
 	    padding-right: 10px;
 	    margin-left: 11px;
 	    border: none;
-	    align-items: center;
+	    //for IE legend
+        position:absolute;
+	    margin-top:-12px;
+	    background: $clr-white;
 	}
 
 	&-icn {
-		width: 24px;
-		height: 24px;
-		margin-right: 12px;
-		background-repeat: no-repeat;
-    	background-position: center;
+ 		display: flex;
+		align-items: center;
 		
-		&--contract{
-			background-image: url(#{$imgFolder}main-menu__contract.svg);
+		&--contract:before{
+			content: url(#{$imgFolder}main-menu__contract.svg);
+			margin-right: 12px;
 		}
-		&--new-doc{
-			background-image: url(#{$imgFolder}main-menu__new-doc.svg);
+		&--new-doc:before{
+			content: url(#{$imgFolder}main-menu__new-doc.svg);
+			margin-right: 12px;
 		}
-		&--deal{
-			background-image: url(#{$imgFolder}main-menu__deal.svg);
+		&--deal:before{
+			content: url(#{$imgFolder}main-menu__deal.svg);
+			margin-right: 12px;
 		}
-		&--docs{
-			background-image: url(#{$imgFolder}main-menu__docs.svg);
+		&--docs:before{
+			content: url(#{$imgFolder}main-menu__docs.svg);
+			margin-right: 12px;
 		}
-		&--finance{
-			background-image: url(#{$imgFolder}main-menu__finance.svg);
+		&--finance:before{
+			content: url(#{$imgFolder}main-menu__finance.svg);
+			margin-right: 12px;
 		}
-		&--message{
-			background-image: url(#{$imgFolder}main-menu__msg.svg);
+		&--message:before{
+			content: url(#{$imgFolder}main-menu__msg.svg);
+			margin-right: 12px;
 		}
-		&--statistic{
-			background-image: url(#{$imgFolder}main-menu__statistic.svg);
+		&--statistic:before{
+			content: url(#{$imgFolder}main-menu__statistic.svg);
+			margin-right: 12px;
 		}
-		&--request{
-			background-image: url(#{$imgFolder}main-menu__request.svg);
+		&--request:before{
+			content: url(#{$imgFolder}main-menu__request.svg);
+			margin-right: 12px;
 		}
-		&--settings{
-			background-image: url(#{$imgFolder}main-menu__settings.svg);
+		&--settings:before{
+			content: url(#{$imgFolder}main-menu__settings.svg);
+			margin-right: 12px;
 		}
 
 
