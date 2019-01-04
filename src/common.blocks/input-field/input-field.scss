@@ -1,40 +1,96 @@
 .input-field {
+	position: relative;
+	&__label {
+		@include font-lucida ($clr-dark-light, 13px, normal);
+		margin-bottom: 6px;
+		display: flex;
+		flex-direction: row;
+
+		&--err:before{
+			content: url(#{$imgFolder}input-field-err.svg);
+			margin-right: 5px;
+
+		}
+	}
 
 	&__cont{
 		height: 36px;
-		width: 200px;
-	}
+		// width: 200px;
+		border-radius: 3px !important;
+		border: 1px solid $clr-grey-v4 !important; //перекрываем свойство dexpr
+		&.dx-invalid{
+			border: 1px solid #E63946 !important;
+		}
 
-	&__label {
-		@include font-lucida ($clr-dark-light, 13px, normal);
 	}
 
 	&__value{
-		// background: $clr-grey-v4 !important; 
-		border-radius: 3px !important;
-		border: 0px !important;
 		background: $clr-grey-v4;
+		border: 1px solid $clr-grey-v4; 
+		@include font-lucida ($clr-dark-light, 15px, normal);
+		padding-left: 10px;
 
 		&:focus{
-			background: blue;	
+			background: rgba(243, 243, 243, 0.4); 
+			border: 1px solid $clr-grey-v2; 
+			box-sizing: border-box; 
+			border-radius: 3px;	
+		}
+
+		&:hover {
+
 		}
 	}
+
+	&__remark {
+		float: right;
+		@include font-lucida ($clr-dark-light, 12px, normal);
+		margin-top: 6px;
+	}
+
+
+	&__requestName {
+		width: 602px;
+		margin-top: 20px;
+	}
 }
-//input элемента
-// .dx-texteditor-input {
-// 	background: $clr-grey-v4 !important;
-// }
+
+.depart-destination {
+	margin-top:70px;
+	width: 918px;
+	height: 937px;
+}
 
 
-// .dx-texteditor.dx-state-focused.dx-editor-filled,
-// .dx-texteditor.dx-state-active.dx-editor-filled,
-// .dx-texteditor.dx-state-focused.dx-editor-underlined,
-// .dx-texteditor.dx-state-active.dx-editor-underlined,
-// .dx-texteditor.dx-state-focused.dx-editor-outlined,
-// .dx-texteditor.dx-state-active.dx-editor-outlined {
+.fieldset {
+	&__depart {
+		height: 80px;
+	}
+
+	&__destination {
+		height: 80px;
+		margin-top:-12px;
+	}
+
+	&__cap {
+		padding-left: 12px;
+	    padding-right: 10px;
+	    margin-left: 11px;
+	    border: none;
+	    @include font-fira ($clr-dark-light, 17px, normal);
+	    background-color: $clr-white;
+	}
+}
+//err message
+.dx-invalid-message > .dx-overlay-content{
+	background: #E63946;
+	border-radius: 0px;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	@include font-lucida ($clr-white, 12px, normal);
+}
+.dx-texteditor-container:after {
+	display: none;
+}
 
 
-// background: blue !important; 
-// border: 1px solid #D5D7E1 !important; 
-// box-sizing: border-box;
-// }
