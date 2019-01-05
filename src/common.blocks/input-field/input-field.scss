@@ -1,5 +1,6 @@
 .input-field {
 	position: relative;
+
 	&__label {
 		@include font-lucida ($clr-dark-light, 13px, normal);
 		margin-bottom: 6px;
@@ -52,41 +53,82 @@
 	&__requestName {
 		width: 602px;
 		margin-top: 20px;
+		padding-bottom: 21px; //из за ремарки
+
 	}
+
+	&__destName,&__departName {
+		flex: 1 0 581px;
+	}
+	&__condition {
+		flex: 1 0 221px;
+	}
+
 }
 
-.depart-destination {
-	margin-top:70px;
+.step-block__depart-destination {
 	width: 918px;
 	height: 937px;
 }
 
+.step-block__sep{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-image: linear-gradient(to right, transparent 50%, $clr-grey-v2 50%);
+    background-size: 10px 100%;
+	margin: 40px 0;
+}
 
-.fieldset {
+
+.field-set {
+	display: flex;
+	border: 1px solid $clr-grey-v2;
+	box-sizing: border-box;
+	border-radius: 3px;
+	position: relative;
+	
+	& .input-field{
+		margin-right: 30px;
+	}
+	& .input-field:last-child{
+		margin-right: 0px;
+	}
+
+	&__items{
+		padding: 30px 20px 20px 20px;
+		width: 100%;	
+		display: inline-flex;
+	}
+
 	&__depart {
-		height: 80px;
+		// height: 80px;
 	}
 
 	&__destination {
-		height: 80px;
-		margin-top:-12px;
+		// height: 80px;
+		 margin-top:-1px;
 	}
 
 	&__cap {
 		padding-left: 12px;
 	    padding-right: 10px;
-	    margin-left: 11px;
+	    margin-left: 0px;
 	    border: none;
 	    @include font-fira ($clr-dark-light, 17px, normal);
 	    background-color: $clr-white;
+	    margin-left: 10px;
+	   	//for IE legend
+        position:absolute;
+	    margin-top:-10px;
+	    background: $clr-white;
 	}
 }
 //err message
 .dx-invalid-message > .dx-overlay-content{
 	background: #E63946;
-	border-radius: 0px;
-	border-bottom-left-radius: 3px;
-	border-bottom-right-radius: 3px;
+	border-radius: 0 0px 3px 3px;
 	@include font-lucida ($clr-white, 12px, normal);
 }
 .dx-texteditor-container:after {

@@ -17,8 +17,34 @@ $("#requestName").dxTextBox({
             message: "Длина строки не меньше 2 символов"
         }]
     });
+//отправление назначеие
+$("#departName").dxTextBox({
+  inputAttr: {
+       id: "departName__id",
+       class:"input-field__value"
+   }
+})
+$("#destName").dxTextBox({
+  inputAttr: {
+       id: "destName__id",
+       class:"input-field__value"
+   }
+})
+$("#conditionDest").dxTextBox({
+  inputAttr: {
+       id: "conditionDest__id",
+       class:"input-field__value"
+   }
+})
+$("#conditionDepart").dxTextBox({
+  inputAttr: {
+       id: "conditionDepart__id",
+       class:"input-field__value"
+   }
+})
 
 
+//свой знак ошибки
 $('.input-field__cont').change ( function () {
 	console.log($(this));
 	 if( $(this).hasClass('dx-invalid') ){

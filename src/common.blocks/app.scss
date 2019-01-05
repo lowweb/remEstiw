@@ -209,12 +209,11 @@ h2{
 	min-height: 690px; // чтобы стики хедер не уходил в 0 при скроле вверх
 	// height: 1200px; для примера скролла
 	// background-color: #ADF7B6;
-	padding-left: 30px;
-	padding-top: 54px;
+	padding: 54px 30px;
 
 
 	&--understicky {
-		padding-top: 186px;
+		padding-top: 281px;
 
 	}
 }
