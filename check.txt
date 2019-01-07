@@ -17,3 +17,5 @@
 
 >devextreem
 dx-state-focused dx-state-hover
+стили применяются js кодом
+даже стиль прописанный ниже в хедере перебивается

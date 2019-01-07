@@ -30,18 +30,23 @@ $("#destName").dxTextBox({
        class:"input-field__value"
    }
 })
-$("#conditionDest").dxTextBox({
-  inputAttr: {
-       id: "conditionDest__id",
-       class:"input-field__value"
-   }
-})
-$("#conditionDepart").dxTextBox({
-  inputAttr: {
-       id: "conditionDepart__id",
-       class:"input-field__value"
-   }
-})
+$("#conditionDest").dxSelectBox({
+        dataSource: [ "FCA", "FAS", "FOB" ],
+        placeholder: "",
+        inputAttr: {
+          id: "conditionDepart__id",
+          class:"input-field__value"
+         }
+    });
+
+$("#conditionDepart").dxSelectBox({
+        dataSource: [ "FCA", "FAS", "FOB" ],
+        placeholder: "",
+        inputAttr: {
+           id: "conditionDest__id",
+           class:"input-field__value"
+         }
+});
 
 
 //свой знак ошибки
