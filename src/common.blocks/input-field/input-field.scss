@@ -59,18 +59,19 @@
 	&__requestName {
 		width: 602px;
 		margin-top: 20px;
-		padding-bottom: 21px; //из за ремарки
+		// padding-bottom: 21px; //из за ремарки
 
 	}
 
 	&__destName,&__departName {
-		flex: 1 0 613px;
-		max-width: 613px;
+		flex: 1 0 627px;
+		max-width: 627px;
 	}
 
 
 	&__condition {
 		flex: 1 0 221px;
+		max-width: 221px;
 	}
 
 	&__btn {
@@ -96,146 +97,13 @@
 		}
 	}
 
-}
-
-.step-block__depart-destination {
-	width: 918px;
-	height: 937px;
-}
-
-.step-block__sep{
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-image: linear-gradient(to right, transparent 50%, $clr-grey-v2 50%);
-    background-size: 10px 100%;
-	margin: 40px 0;
-}
-
-
-.field-set {
-	display: flex;
-	border: 1px solid $clr-grey-v2;
-	box-sizing: border-box;
-	border-radius: 3px;
-	position: relative;
-	
-	& .input-field{
-		margin-right: 30px;
-	}
-	& .input-field:last-child{
-		margin-right: 0px;
+	&__currency-calc {
+		width: 480px;
+		margin-top: 30px;
 	}
 
-	&__items{
-		padding: 30px 20px 20px 20px;
-		width: 100%;	
-		display: inline-flex;
-	}
-
-	&__depart {
-		// height: 80px;
-	}
-
-	&__destination {
-		// height: 80px;
-		 margin-top:-1px;
-	}
-
-	&__cap {
-		padding-left: 12px;
-	    padding-right: 10px;
-	    margin-left: 0px;
-	    border: none;
-	    @include font-fira ($clr-dark-light, 17px, normal);
-	    background-color: $clr-white;
-	    margin-left: 10px;
-	   	//for IE legend
-        position:absolute;
-	    margin-top:-10px;
-	    background: $clr-white;
-	}
-}
-//err message
-.dx-invalid-message > .dx-overlay-content{
-	background: #E63946;
-	border-radius: 0 0px 3px 3px;
-	@include font-lucida ($clr-white, 12px, normal);
-}
-.dx-texteditor-container:after {
-	display: none;
-}
-
-// input-field focus hover 
-.dx-texteditor.dx-state-focused.dx-editor-filled,
-.dx-texteditor.dx-state-active.dx-editor-filled,
-.dx-texteditor.dx-state-focused.dx-editor-underlined,
-.dx-texteditor.dx-state-active.dx-editor-underlined,
-.dx-texteditor.dx-state-focused.dx-editor-outlined,
-.dx-texteditor.dx-state-active.dx-editor-outlined {
-  border-color: $clr-grey-v2;
-}
-.dx-texteditor.dx-state-hover {
-  border-color: $clr-grey-v2;
-}
-.dx-texteditor.dx-editor-outlined {
-	border-radius: 5px;
 }
 
 
-.dx-widget input, .dx-widget textarea {
-	@include font-lucida ($clr-dark-light, 15px, normal);	
-}
-.dx-dropdowneditor-button-visible .dx-texteditor-input {
-     padding-right: 0px; 
-    }
 
-//кнопка выпадающего списка
-.dx-texteditor-buttons-container {
-    position: absolute;
-    top: 6;
-    right: 6;
-    width: auto;
-    height: 24px;
- }
- .dx-dropdowneditor-button {
-    width: 24px;
-    padding: 0px;
-    border-radius: 4px;
-}
-.dx-dropdowneditor-icon {
-    width: 24px;
-	border: 1px solid $clr-grey-v2;
-	background: $clr-white;
-	box-sizing: border-box;
-	border-radius: 3px;
-    color: $clr-blue;
-    font: 14px/1 DXIcons;
-    font-size: 18px;
-    text-align: center;
-    line-height: 18px;
-    border-radius: 3px;
-  }
 
-.dx-dropdowneditor-icon:before {
-    position: absolute;
-    display: block;
-    width: 18px;
-    top: 50%;
-    margin-top: -8px;
-    left: 50%;
-    margin-left: -9px;
-}  
-
-.dx-dropdowneditor.dx-state-hover .dx-dropdowneditor-icon,
-.dx-dropdowneditor.dx-state-active .dx-dropdowneditor-icon {
-  background-color: $clr-blue;
-  color: $clr-white;
-}
-
-.dx-dropdowneditor.dx-dropdowneditor-active .dx-dropdowneditor-icon,
-.dx-dropdowneditor-button.dx-state-active .dx-dropdowneditor-icon {
-  background-color: $clr-blue;
-  color: $clr-white;
-}

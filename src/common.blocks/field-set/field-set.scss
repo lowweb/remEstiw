@@ -1,0 +1,66 @@
+
+.field-set {
+	display: flex;
+	border: 1px solid $clr-grey-v2;
+	box-sizing: border-box;
+	border-radius: 3px;
+	position: relative;
+	margin-right: 30px;
+	&:last-child{
+		margin-right: 0px;
+	}
+
+	& .input-field{
+		margin-right: 30px;
+	}
+	& .input-field:last-child{
+		margin-right: 0px;
+	}
+
+	&__items{
+		padding: 30px 20px 20px 20px;
+		width: 100%;	
+		display: inline-flex;
+	}
+
+	&__depart {
+		width: 918px;
+	}
+
+	&__destination {
+		width: 918px;
+		 margin-top:-1px;
+	}
+
+	&__cap {
+		padding-left: 12px;
+	    padding-right: 10px;
+	    margin-left: 0px;
+	    border: none;
+	    @include font-fira ($clr-dark-light, 17px, normal);
+	    background-color: $clr-white;
+	    margin-left: 10px;
+	   	//for IE legend
+        position:absolute;
+	    margin-top:-10px;
+	    background: $clr-white;
+	}
+
+	&__type-deal {
+		width: 245px;
+		height: 100px;
+	}
+	&__what-need {
+		width: 432px;
+		height: 130px;
+	}
+	&__volume-cargo {
+		width: 158px;
+	}
+	&__cargo-receiver {
+		width: 388px;
+	}
+	&__cargo-ready {
+		width: 530px;
+	}			
+}
