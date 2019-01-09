@@ -11,6 +11,7 @@ function(){
 $('.navbar__item-header').click(function(){
 	if (!$('.navbar').hasClass('navbar--open')){
 		openNavbar ();
+		$('.footer').toggleClass('footer--fix313');
 	}
 	$(this).parents(".navbar__item").find('.navbar__submenu').toggleClass('navbar__submenu--open');
 	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');

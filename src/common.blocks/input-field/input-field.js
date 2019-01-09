@@ -59,12 +59,6 @@ $("#currency-calc").dxSelectBox({
          }
 });
 
-var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
-//radio-group
-$("#type-deal__radioGroup").dxRadioGroup({
-        items: typeDealitem,
-        value: typeDealitem[0]
-    });
 
 //свой знак ошибки на поле
 $('.input-field__cont').change ( function () {

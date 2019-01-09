@@ -4,7 +4,8 @@
     background: -webkit-linear-gradient(top, #FF6969 0%,#ff0000 100%);
     // box-shadow: 0 1px 2px rgba(0,0,0,.5), 0 1px 4px rgba(0,0,0,.4), 0 0 1px rgba(0,0,0,.7) inset, 0 10px 0px rgba(255,255,255,.11);
 	@include font-lucida ($clr-white, 10px, normal);
-	    width: 18px;
+	    width: auto;
+	    padding: 0 6px;
 	    height: 18px;
 	    align-items: center;
 	    justify-content: center;
@@ -22,8 +23,8 @@
 
 	    &--abslt{
 			position: absolute;
-			top: 12;
-    		left: 45;
+			top: 12px;
+    		left: 45px;
 	    }
 
 }
