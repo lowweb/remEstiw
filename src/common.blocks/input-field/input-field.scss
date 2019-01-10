@@ -50,17 +50,17 @@
 	}
 
 	&__remark {
-		float: right;
 		@include font-lucida ($clr-dark-light, 12px, normal);
 		margin-top: 6px;
+		align-self: flex-end;
 	}
 
 
 	&__requestName {
-		width: 602px;
-		margin-top: 20px;
-		// padding-bottom: 21px; //из за ремарки
-
+		display: flex;
+    	flex-direction: column;
+    	width: 602px;
+    	margin-top: 20px;
 	}
 
 	&__destName,&__departName {
