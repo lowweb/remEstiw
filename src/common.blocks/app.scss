@@ -91,7 +91,7 @@ color: $clr-dark;
 
 
 .basic-button {
-	outline: none; height: 36px; width: 155px; background: $clr-white; border: 1px solid $clr-purple; box-sizing: border-box; box-shadow: inset 0px -3px 0px rgba(97, 93, 162, 0.3); border-radius: 3px; font-family: Lucida Grande; font-style: normal; font-weight: bold; line-height: normal; font-size: 14px; color: $clr-purple;
+	outline: none; height: 36px; width: 155px; background: $clr-white; border: 1px solid $clr-purple; box-sizing: border-box; box-shadow: inset 0px -3px 0px rgba(97, 93, 162, 0.3); border-radius: 3px; font-family: Lucida Grande; font-style: normal; font-weight: bold; line-height: normal; font-size: 14px; color: $clr-purple;cursor: pointer;
 }
 .basic-button:hover {
 	background: #F8F7FF;
@@ -102,7 +102,7 @@ color: $clr-dark;
 }
 
 .purple-button {
-	height: 36px; padding-left: 24px; padding-right: 14px; background: #5C2D91; box-shadow: inset 0px -3px 0px rgba(0, 0, 0, 0.3); border-radius: 3px; font-family: Lucida Grande; font-style: normal; font-weight: bold; line-height: normal; font-size: 14px; color: #FFFFFF;
+	height: 36px; padding-left: 24px; padding-right: 14px; background: #5C2D91; box-shadow: inset 0px -3px 0px rgba(0, 0, 0, 0.3); border-radius: 3px; font-family: Lucida Grande; font-style: normal; font-weight: bold; line-height: normal; font-size: 14px; color: #FFFFFF; cursor: pointer;
 	&__arrow{
 		transform: rotate(180deg);
 		margin-left: 17px;
