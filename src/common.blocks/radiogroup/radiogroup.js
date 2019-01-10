@@ -1,4 +1,4 @@
-var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
+var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)", "ВЭД (Международная)"];
 $("#type-deal__radioGroup").dxRadioGroup({
         items: typeDealitem,
         value: typeDealitem[0]

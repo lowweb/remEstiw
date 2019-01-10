@@ -6,6 +6,7 @@
 	border-radius: 3px;
 	position: relative;
 	margin-right: 30px;
+	max-height: min-content;
 	&:last-child{
 		margin-right: 0px;
 	}
