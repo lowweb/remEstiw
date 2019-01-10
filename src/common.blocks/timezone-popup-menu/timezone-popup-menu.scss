@@ -51,7 +51,7 @@
         &-city {
 	        	@include font-lucida ($clr-blue, 15px, normal);
 			}
-	    &:before {
+	    &-img {
 				content: url(#{$imgFolder}hs-clock.svg);
 				margin-right: 11px;
 			}
