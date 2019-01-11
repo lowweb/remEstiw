@@ -281,40 +281,17 @@ function openNavbar () {
      //сворачиваем все  submenu
      if ($('.navbar').hasClass('navbar--open'))//меню открыо
 	 { 
-        //правим ширину для fix header
-        if ($('.header-sticky').hasClass('header-sticky--active'))
-        {   
-            // $('.header-sticky').toggleClass('header-sticky--fix78');
-            // $('.header-sticky').toggleClass('header-sticky--fix313');
-           /// $(".header-sticky").removeAttr('style' , "width: calc(100% - 313px)" );
-            ///$(".header-sticky").attr('style' , "width: calc(100% - 78px)" );
+        if ($('.navbar__submenu').hasClass('navbar__submenu--open')){
+          $('.navbar__submenu--open').parent().find('.navbar__item-header').find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
         }
-        else {
-          /// $(".header-sticky").removeAttr('style' , "width: calc(100% - 313px)" ); 
-           //$('.header-sticky').toggleClass('header-sticky--fix313');
-        }    
-
+        
         //убрали sticky  и закрыли все  submenu
         $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
         $(".navbar-ul").removeClass("navbar-ul--understicky");
-    	 	$('.navbar__submenu').removeClass('navbar__submenu--open');
+    	$('.navbar__submenu').removeClass('navbar__submenu--open');
         $('.navbar__header-roll')[0].scrollIntoView(true);
 
 	 } 
-     else { //меню закрыто
-
-        //правим ширину для fix элемента
-        if ($('.header-sticky').hasClass('header-sticky--active'))
-        {
-             // $('.header-sticky').toggleClass('header-sticky--fix313');
-           /// $(".header-sticky").removeAttr('style' , "width: calc(100% - 78px)" );
-           /// $(".header -sticky").attr('style' , "width: calc(100% - 313px)" );
-        }
-        else {
-             // $('.header-sticky').toggleClass('header-sticky--fix313');
-          /// $(".header-sticky").removeAttr('style' , "width: calc(100% - 78px)" ); 
-        } 
-     }
 
 
 	$('.navbar').toggleClass('navbar--open'); //после всех тк ориентир на класс
