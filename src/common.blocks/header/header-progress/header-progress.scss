@@ -1,0 +1,29 @@
+.header-progress {
+	height: 74px;
+	background: #F2F3FB;
+	transition:height 1s;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding-left: 30px;
+	// justify-content: space-between;
+	padding-top: 24px;
+	padding-bottom: 24px;
+
+	&--slim {
+		height: 74px;
+		transition:height 1s;
+		display: flex;
+		// flex-direction: row;
+		// align-items: center;
+		// justify-content: flex-start;
+
+	}
+
+	&-percent {
+		font-size: 17px;
+		vertical-align: 6px;
+		margin-left: 10px;
+	}
+}
+

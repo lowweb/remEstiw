@@ -4,4 +4,13 @@
 	// flex: 0 1 auto;
 	display: flex;
 	flex-direction: column;
+
+	&--fix78 {
+        width: calc(100% - 78px);
+    }
+
+    &--fix313 {
+        width: calc(100% - 313px);
+        transition: width .3s; //при переходе в fix header плавность вместе с меню
+    }
 }
