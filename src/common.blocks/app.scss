@@ -135,24 +135,38 @@ color: $clr-dark;
 	padding: 0;
 	text-decoration: none;
 	list-style-type: none;
+	box-sizing: border-box;
 }
+
+.view::-webkit-scrollbar{
+     display: none; 
+     
+}
+
+	// //скрол IE
+	// -ms-overflow-style: none;
+	// //скрол Chrome Opera
+	// &::-webkit-scrollbar {
+	// 	width: 0;
+
+	// }
 
 html 
 	{
-	 height: 100%;
+	 ///height: 100%;
 	 overflow: hidden;
 	 box-sizing: border-box;
 	 margin: 0;
 }
 
-*, *:before, *:after
+*:before, *:after
 {
 	box-sizing: inherit;
 }
 
 body{
 font-size: 20px;
-height: 100%;
+///height: 100%;
 }
 
 h1 {
@@ -180,7 +194,8 @@ h2{
 	height: 100%;
 	display: flex;
 	flex-direction: row;
-	min-width: 1440px; //есть баги в mozilla
+	min-width: 1640px; //есть баги в mozilla
+	position: relative;
 
 }
 
@@ -193,12 +208,10 @@ h2{
 // }
 
 .main-content {
-	// background: green;
 	flex: 1 1 auto;
-	// min-width: 1450px;
-	// min-width: 1330px;
-	overflow-y: auto;
-	overflow-x: hidden;
+	///overflow-y: auto;
+	///overflow-x: hidden;
+	overflow: hidden;
 	min-height: 670px;
 	display: flex;
 	flex-direction: column;
@@ -215,11 +228,12 @@ h2{
 .view {
 	flex: 1 0 auto;
 	min-height: 690px; // чтобы стики хедер не уходил в 0 при скроле вверх
-	// height: 1200px; для примера скролла
-	// background-color: #ADF7B6;
 	padding: 54px 30px;
-	padding-bottom: 96px;
-	
+	overflow-y: auto;
+    height: 100vh;
+    margin-top: -230px;
+    padding-top: 284px;
+    // -ms-overflow-style: none; //скролл для IE
 
 	&--understicky {
 		padding-top: 281px;
