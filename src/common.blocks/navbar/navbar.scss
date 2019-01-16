@@ -3,8 +3,9 @@
 	// flex: 0 0 78px;
 	min-width: 78px;
 	width: 78px;
-	overflow-y: auto;
-	overflow-x: hidden;
+	///overflow-y: auto;
+	///overflow-x: hidden;
+	overflow: hidden;
     min-height: 670px;
     height: auto;
 
@@ -28,10 +29,15 @@
 	}
 
 	&-ul{
-		overflow: auto;
-    height: 100vh;
-    margin-top: -156px;
-    padding-top: 156px;
+		overflow-y: auto;
+    	height: 100vh;
+    	margin-top: -156px;
+    	padding-top: 156px;
+    	-ms-overflow-style: none;
+
+    	&::-webkit-scrollbar{
+     		display: none;  
+		}
 	}
 
 

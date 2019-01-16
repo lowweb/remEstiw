@@ -3,16 +3,13 @@
 	height: 100%;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 
-	    &:hover
-        {
-        // background: rgba(0, 0, 0, 0.12);
-    }
-
     &-roll {
     	flex: 0 0 44px;
     	max-height: 44px;
     	display: flex;
     	align-items: center;
+    	z-index: 3;
+    	background: linear-gradient(0deg, $clr-blue, $clr-blue), rgba(224, 224, 226, 0.3);
     }
 
     &-copyright {
@@ -29,15 +26,17 @@
 		max-height: 112px;
 		display: flex;
 		flex-direction: row;
-		align-items: center; 
+		align-items: center;
+		z-index: 3;
+		background: linear-gradient(0deg, $clr-blue, $clr-blue), rgba(224, 224, 226, 0.3); 
 
-		&--active
-		{	background: linear-gradient(0deg, $clr-blue, $clr-blue), rgba(224, 224, 226, 0.3);
-			position: fixed;
-        	top: 0;
-        	width: 313px;
-        	z-index: 3;
-		}
+		// &--active
+		// {	background: linear-gradient(0deg, $clr-blue, $clr-blue), rgba(224, 224, 226, 0.3);
+		// 	position: fixed;
+  //       	top: 0;
+  //       	width: 313px;
+  //       	z-index: 3;
+		// }
 
 	} 
 

@@ -139,9 +139,9 @@ color: $clr-dark;
 }
 
 .view::-webkit-scrollbar{
-     display: none; 
-     
+     // display: none;    
 }
+
 
 	// //скрол IE
 	// -ms-overflow-style: none;
@@ -228,9 +228,9 @@ h2{
 .view {
 	flex: 1 0 auto;
 	min-height: 690px; // чтобы стики хедер не уходил в 0 при скроле вверх
-	padding: 54px 30px;
+	padding: 0px 30px;
 	overflow-y: auto;
-    height: 100vh;
+    height: calc(100vh);
     margin-top: -230px;
     padding-top: 284px;
     // -ms-overflow-style: none; //скролл для IE

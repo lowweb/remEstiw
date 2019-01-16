@@ -14,7 +14,7 @@ function(){
   $('.navbar__header-close-btn').on('click', function() {
   	openNavbar ();
     //ширина footer
-    $('.footer').toggleClass('footer--fix313');
+    ///$('.footer').toggleClass('footer--fix313');
   });
 
 function openNavbar () {
@@ -46,10 +46,10 @@ function openNavbar () {
 
 	$('.navbar').toggleClass('navbar--open'); //после всех тк ориентир на класс
     //правим ширину для fix header после тк safari не корректно обрабатывает
-    if ($('.header-sticky').hasClass('header-sticky--active'))
-    {   
-        $('.header-sticky').toggleClass('header-sticky--fix78');
-        $('.header-sticky').toggleClass('header-sticky--fix313');
-    }
+    /// if ($('.header-sticky').hasClass('header-sticky--active'))
+    /// {   
+    ///     $('.header-sticky').toggleClass('header-sticky--fix78');
+    ///     $('.header-sticky').toggleClass('header-sticky--fix313');
+    /// }
 
 }
