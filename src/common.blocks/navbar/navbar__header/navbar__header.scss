@@ -72,12 +72,13 @@
 			flex: 0 1 78px;
 		}
 
-		&:before {
-			// align-self: center;
-			opacity: 0.6;
-			padding: 0 14px 0 31px;
-			content: url(#{$imgFolder}nav-main-menu.svg);
-		}
+		// &:before {
+		// 	// align-self: center;
+		// 	opacity: 0.6;
+		// 	padding: 0 14px 0 31px;
+		// 	content: url(#{$imgFolder}nav-main-menu.svg);
+		// }
+
 	}
 
 	&-link{
@@ -87,6 +88,12 @@
 
 		}
 	}
+
+	&-icon {
+		opacity: 0.6;
+		padding: 0 14px 0 31px;
+	}
+
     
 }
 

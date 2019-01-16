@@ -1,3 +1,15 @@
+//эффект на иконке при hover тк заголовок всегда 1
+$('.navbar__header-link').hover(  
+function(){
+    $(this).find(".navbar__header-icon").css('opacity','1')
+},
+function(){
+    $(this).find(".navbar__header-icon").css('opacity','0.6')
+
+});
+
+
+
 //open close menu
   $('.navbar__header-close-btn').on('click', function() {
   	openNavbar ();
