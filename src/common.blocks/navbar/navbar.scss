@@ -7,7 +7,7 @@
 	///overflow-x: hidden;
 	overflow: hidden;
     min-height: 670px;
-    height: auto;
+    height: 100%;
 
     // transition: width .3s ease-in-out .3s;
     display: flex;
@@ -29,10 +29,9 @@
 	}
 
 	&-ul{
-		overflow-y: auto;
-    	height: 100vh;
-    	margin-top: -156px;
-    	padding-top: 156px;
+    	overflow-y: auto;
+    	flex: 1 1 auto;
+    	position: relative;
     	-ms-overflow-style: none;
 
     	&::-webkit-scrollbar{

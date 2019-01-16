@@ -9,9 +9,9 @@
 	display: flex;
 	position: relative;
 
-	// &:nth-child(7),&:nth-child(8),&:nth-child(9) {
-	// 	margin-bottom: 0px;	
-	// }
+	&:nth-child(7),&:nth-child(8),&:nth-child(9) {
+		margin-bottom: 0px;	
+	}
 
 	&-cap {
 		@include font-fira ($clr-dark-light, 17px, normal);
