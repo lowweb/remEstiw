@@ -136,6 +136,7 @@ color: $clr-dark;
 	text-decoration: none;
 	list-style-type: none;
 	box-sizing: border-box;
+	outline: none; //так дизайнер попросил
 }
 
 .view::-webkit-scrollbar{

@@ -1,0 +1,9 @@
+//err message
+.dx-invalid-message > .dx-overlay-content{
+	background: #E63946;
+	border-radius: 0 0px 3px 3px;
+	@include font-lucida ($clr-white, 12px, normal);
+}
+.dx-texteditor-container:after {
+	display: none;
+}

@@ -54,6 +54,8 @@
 	    &-img {
 				content: url(#{$imgFolder}hs-clock.svg);
 				margin-right: 11px;
+				width: 24px;
+    			height: 24px;
 			}
 		&-btn {
 		    // flex: 0 1 20px;

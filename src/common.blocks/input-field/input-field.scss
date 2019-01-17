@@ -12,6 +12,8 @@
 		flex-direction: row;
 		width: 100%;
 
+
+
 		&--err:before{
 			content: url(#{$imgFolder}input-field-err.svg);
 			margin-right: 5px;
@@ -106,6 +108,10 @@
 	}
 
 }
+
+.dx-state-disabled + .input-field__label {
+			color:green;
+		}
 
 
 

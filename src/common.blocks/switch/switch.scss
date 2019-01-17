@@ -1,0 +1,9 @@
+.switch {
+	display: flex;
+	align-items: center;
+
+	&__title {
+		@include font-lucida (#999999, 12px, normal);
+		margin-left: 10px;
+	}
+}

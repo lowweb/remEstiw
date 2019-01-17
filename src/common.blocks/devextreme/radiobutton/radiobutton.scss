@@ -1,0 +1,38 @@
+//radiobutton
+.dx-radiobutton-icon-checked .dx-radiobutton-icon-dot {
+    display: block;
+    margin-top: -15px;
+    margin-left: 7px;
+    width: 8px;
+    height: 8px;
+    background: $clr-white;
+    content: "";
+    border-radius: 5px;
+}
+
+.dx-radiobutton-icon:before {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid  #E4ECF2;
+    background-color:  #E4ECF2;
+    content: "";
+    border-radius: 11px;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.dx-radiobutton-icon-checked:before {
+      border: 1px solid $clr-blue;
+    background-color: $clr-blue;
+}
+.dx-radiobutton.dx-state-focused:not(.dx-state-active) .dx-radiobutton-icon:before {
+    border: 1px solid  $clr-blue;
+}
+.dx-radiobutton.dx-state-hover .dx-radiobutton-icon:before {
+      border-color: $clr-blue;
+}
+
+.dx-radio-value-container {
+    padding-left: 0;
+    padding-bottom: 10px;
+}
