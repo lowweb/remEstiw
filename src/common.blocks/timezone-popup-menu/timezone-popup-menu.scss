@@ -64,10 +64,19 @@
 		    align-items: center;
 
 			&:after {
-				content: url(#{$imgFolder}popup-down-btn.svg);
+				background: url(#{$imgFolder}popup-down-btn.svg);
 				margin-left: 5px;
-				position: relative;
-    			padding-bottom: 6px;
+				content: "";
+   				width: 10px;
+    			height: 4px;
+    			background-repeat: no-repeat;
+    			transform: translate(0,2px);
+				//posiion: relative;
+    			//padding-bottom: 6px;
+			}
+
+			&.btn-rotate180:after {
+				transform: translate(0,1px) rotate(180deg);
 			}
 		}
 		&-datetime{

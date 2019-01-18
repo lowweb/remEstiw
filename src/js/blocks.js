@@ -92,79 +92,6 @@ $('.input-field__cont').change ( function () {
 });
 
 
-    $("#period__switch").dxSwitch({
-        value: false
-    });
-$('.timezone-popup-menu__title-btn').click(function(){
-// console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
-// if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
-		$(this).parents(".timezone-popup-menu__title").toggleClass('timezone-popup-menu__title--active');
-		$(this).parents(".timezone-popup-menu").find('.timezone-popup-menu__add').toggleClass('timezone-popup-menu__add--active');
-		$(this).toggleClass('btn-rotate180');
-		$(this).toggleClass('app-lnk-disable');
-
-	// }
-});
-
-
-$(".timezone-popup-menu__title-btn").click(function(e) {
-  e.stopPropagation(); 
-});
-
-function timezonePopupClose(e) {
-   // if (!$(e.target).closest("timezone-popup-menu").length) {
-	if ($('.timezone-popup-menu__title').hasClass('timezone-popup-menu__title--active')){
-		$(".timezone-popup-menu__title").toggleClass('timezone-popup-menu__title--active');
-		$(".timezone-popup-menu").find('.timezone-popup-menu__add').toggleClass('timezone-popup-menu__add--active');
-		$('.timezone-popup-menu__title-btn').toggleClass('btn-rotate180');
-		$('.timezone-popup-menu__title-btn').toggleClass('app-lnk-disable');
-	}
-	// }
-}
-
-
-$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
-	// $(this).toggleClass('user-popup-menu__title-btn--up');
-	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
-		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
-		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
-		$(this).toggleClass('btn-rotate180');
-		$(this).toggleClass('app-lnk-disable');
-	// }
-});
-
-
-$(".user-popup-menu__title-btn").click(function(e) {
-  e.stopPropagation(); 
-});
-
-
-function userPopupClose() {
-	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
-		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
-		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
-		$('.app-lnk-disable').toggleClass('btn-rotate180');
-		$('.app-lnk-disable').toggleClass('app-lnk-disable');
-	}
-}
-var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)", "ВЭД (Международная)"];
-$("#type-deal__radioGroup").dxRadioGroup({
-        items: typeDealitem,
-        value: typeDealitem[0]
-    });
-
-var volumeItem = ["До 5 м", "Свыше 5 м"];
-$("#volume-cargo__radioGroup").dxRadioGroup({
-        items: volumeItem,
-        value: volumeItem[0]
-    });
-
-var cargoReceiverItem = ["Физическое лицо", "Юридическое лицо"];
-$("#cargo-receiver__radioGroup").dxRadioGroup({
-        items: cargoReceiverItem,
-        value: cargoReceiverItem[0],
-        layout: "horizontal"
-    });
 // $(".navbar").scroll (function () {
 
 //  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
@@ -245,6 +172,79 @@ $('.header-sticky__progress').click(function() {
 
 
 });
+var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)", "ВЭД (Международная)"];
+$("#type-deal__radioGroup").dxRadioGroup({
+        items: typeDealitem,
+        value: typeDealitem[0]
+    });
+
+var volumeItem = ["До 5 м", "Свыше 5 м"];
+$("#volume-cargo__radioGroup").dxRadioGroup({
+        items: volumeItem,
+        value: volumeItem[0]
+    });
+
+var cargoReceiverItem = ["Физическое лицо", "Юридическое лицо"];
+$("#cargo-receiver__radioGroup").dxRadioGroup({
+        items: cargoReceiverItem,
+        value: cargoReceiverItem[0],
+        layout: "horizontal"
+    });
+    $("#period__switch").dxSwitch({
+        value: false
+    });
+$('.timezone-popup-menu__title-btn').click(function(){
+// console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
+// if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
+		$(this).parents(".timezone-popup-menu__title").toggleClass('timezone-popup-menu__title--active');
+		$(this).parents(".timezone-popup-menu").find('.timezone-popup-menu__add').toggleClass('timezone-popup-menu__add--active');
+		$(this).toggleClass('btn-rotate180');
+		$(this).toggleClass('app-lnk-disable');
+
+	// }
+});
+
+
+$(".timezone-popup-menu__title-btn").click(function(e) {
+  e.stopPropagation(); 
+});
+
+function timezonePopupClose(e) {
+   // if (!$(e.target).closest("timezone-popup-menu").length) {
+	if ($('.timezone-popup-menu__title').hasClass('timezone-popup-menu__title--active')){
+		$(".timezone-popup-menu__title").toggleClass('timezone-popup-menu__title--active');
+		$(".timezone-popup-menu").find('.timezone-popup-menu__add').toggleClass('timezone-popup-menu__add--active');
+		$('.timezone-popup-menu__title-btn').toggleClass('btn-rotate180');
+		$('.timezone-popup-menu__title-btn').toggleClass('app-lnk-disable');
+	}
+	// }
+}
+
+
+$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
+	// $(this).toggleClass('user-popup-menu__title-btn--up');
+	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
+		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
+		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
+		$(this).toggleClass('btn-rotate180');
+		$(this).toggleClass('app-lnk-disable');
+	// }
+});
+
+
+$(".user-popup-menu__title-btn").click(function(e) {
+  e.stopPropagation(); 
+});
+
+
+function userPopupClose() {
+	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
+		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
+		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
+		$('.app-lnk-disable').toggleClass('btn-rotate180');
+		$('.app-lnk-disable').toggleClass('app-lnk-disable');
+	}
+}
 //скролим правую часть
 // $(".main-content").scroll (function () {
 //   //move up
