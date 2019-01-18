@@ -1,10 +1,10 @@
 <h2>Предварительный выбор условий будущей сделки</h2>
 
 <div class="input-field input-field__requestName">
+    <div id="requestName" class="input-field__cont"></div>
     <div class="input-field__label">
     	<label for="requestName__id">Наименование запроса:</label> 
     </div>
-    <div id="requestName" class="input-field__cont"></div>
     <div class="input-field__remark"">Обозначьте название для сделки, чтобы её легко можно было найти позднее</div>
 </div>
 
@@ -49,18 +49,18 @@
 		<div class="field-set__items">
 
 			<div class="input-field input-field__departName">
+			    <div id="departName" class="input-field__cont"></div>
+			    <button class="input-field__btn" onclick=""><div class="input-field__btn-img app-lnk-img"></div></button>
 			    <div class="input-field__label">
 			    	<label for="departName__id">Выберите пункт отправления:</label> 
 			    </div>
-			    <div id="departName" class="input-field__cont"></div>
-			    <button class="input-field__btn" onclick=""><div class="input-field__btn-img app-lnk-img"></div></button>
 			</div>
 
 			<div class="input-field input-field__condition">
-			    <div class="input-field__label">
+			    <div id="conditionDepart" class="input-field__cont"></div>			
+				<div class="input-field__label">
 			    	<label for="conditionDepart__id">Выберите условия:</label> 
-			    </div>
-			    <div id="conditionDepart" class="input-field__cont"></div>			    
+			    </div>        
 			</div>
 
 		</div>
@@ -71,18 +71,18 @@
 		</legend>
 		<div class="field-set__items">
 			<div class="input-field input-field__destName">
+			    <div id="destName" class="input-field__cont"></div>
+			    <button class="input-field__btn" onclick=""><div class="input-field__btn-img app-lnk-img"></div></button>
 			    <div class="input-field__label">
 			    	<label for="desttName__id">Выберите пункт отправления:</label> 
-			    </div>
-			    <div id="destName" class="input-field__cont"></div>
-			    <button class="input-field__btn" onclick=""><div class="input-field__btn-img app-lnk-img"></div></button>			    
+			    </div>			    
 			</div>
 
 			<div class="input-field input-field__condition">
+			    <div id="conditionDest" class="input-field__cont"></div>
 			    <div class="input-field__label">
 			    	<label for="conditionDest__id">Выберите условия:</label> 
 			    </div>
-			    <div id="conditionDest" class="input-field__cont"></div>
 			</div>
 		</div>
 	</field-set>
@@ -113,10 +113,10 @@
 
 		<div class="field-set__period-begin-exp">
 		<div class="input-field input-field__datebox">
+			    <div id="cargoBeginDate" class="input-field__cont"></div>
 			    <div class="input-field__label">
 			    	<label for="cargoBeginDate__id">Выберите дату:</label> 
 			    </div>
-			    <div id="cargoBeginDate" class="input-field__cont"></div>
 		</div>
 		<img src="img/field-set__period-begin-exp.svg" class="field-set__period-begin-exp-img">
 		<div class="input-field input-field__datebox">
@@ -134,8 +134,8 @@
 </field-set>
 
 <div class="input-field input-field__currency-calc">
+    <div id="currency-calc" class="input-field__cont"></div>
     <div class="input-field__label">
     	<label for="currency-calc__id">В какой валлюте расчитать:</label> 
     </div>
-    <div id="currency-calc" class="input-field__cont"></div>
 </div>
