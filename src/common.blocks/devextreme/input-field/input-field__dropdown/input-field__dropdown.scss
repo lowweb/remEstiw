@@ -1,7 +1,7 @@
 //кнопка выпадающего списка
 .dx-texteditor-buttons-container {
     position: absolute;
-    top: 6px;
+    top: 5px;
     right: 6px;
     width: auto;
     height: 24px;
@@ -11,7 +11,7 @@
     padding: 0px;
     border-radius: 4px;
 }
-.dx-dropdowneditor-icon {
+.input-field__icn-dropdown .dx-dropdowneditor-icon {
     width: 24px;
 	border: 1px solid $clr-grey-v2;
 	background: $clr-white;
@@ -35,13 +35,13 @@
     margin-left: -9px;
 }  
 
-.dx-dropdowneditor.dx-state-hover .dx-dropdowneditor-icon,
+.input-field__icn-dropdown.dx-dropdowneditor.dx-state-hover .dx-dropdowneditor-icon,
 .dx-dropdowneditor.dx-state-active .dx-dropdowneditor-icon {
   background-color: $clr-blue;
   color: $clr-white;
 }
 
-.dx-dropdowneditor.dx-dropdowneditor-active .dx-dropdowneditor-icon,
+.input-field__icn-dropdown.dx-dropdowneditor.dx-dropdowneditor-active .dx-dropdowneditor-icon,
 .dx-dropdowneditor-button.dx-state-active .dx-dropdowneditor-icon {
   background-color: $clr-blue;
   color: $clr-white;
