@@ -24,3 +24,73 @@
     left: 50%;
     margin-left: -10px;
 }
+
+.input-field__icn-calendar.dx-dropdowneditor.dx-dropdowneditor-active .dx-dropdowneditor-icon, .dx-dropdowneditor-button.dx-state-active .dx-dropdowneditor-icon {
+    background-color: $clr-white;
+}
+
+//calendar
+.dx-popup-wrapper > .dx-overlay-content {
+    border: 1px solid #D5D7E1;
+    background: #FAFAFA;
+	box-shadow: 0px 4px 10px rgba(55, 63, 81, 0.2);
+    border-radius: 3px;
+}
+
+.dx-calendar-cell {
+    text-align: center;
+    padding: 1px 8px 2px;
+    color: #333;
+    font-size: 13px;
+    border: 1px double transparent;
+    width: 39px;
+}
+
+.dx-calendar-cell.dx-calendar-selected-date.dx-calendar-contoured-date, .dx-calendar-cell.dx-calendar-selected-date.dx-calendar-today.dx-calendar-contoured-date {
+    box-shadow: none;
+    background: #02C39A;
+	border-radius: unset;
+}
+.dx-calendar-cell.dx-calendar-selected-date, .dx-calendar-cell.dx-calendar-selected-date.dx-calendar-today {
+    color: #fff;
+    box-shadow: none;
+    background-color: #02C39A;
+    font-weight: normal;
+}
+.dx-calendar-navigator .dx-calendar-caption-button.dx-button .dx-button-content {
+    padding: 2px 15px 4px;
+    color: #000000;
+    background-color: #FAFAFA;
+    font-size: 15px;
+}
+
+.dx-calendar-navigator .dx-button {
+    border-color: #FAFAFA;
+}
+
+.dx-calendar-navigator-next-view.dx-button .dx-icon, .dx-calendar-navigator-next-month.dx-button .dx-icon {
+    color: $clr-blue;
+}
+
+.dx-calendar-body thead {
+    text-transform: capitalize;
+}
+
+.dx-calendar-body thead tr th {
+    box-shadow: none;
+    color: rgba(55, 63, 81, 0.6);
+}
+
+.dx-calendar-body table th {
+    font-size: 13px;
+    padding: 1px 0 6px 0;
+}
+
+.dx-datebox-wrapper-calendar .dx-calendar {
+    border: none;
+    margin: 18px;
+}
+
+.dx-calendar-navigator .dx-button.dx-state-hover:not(.dx-calendar-disabled-navigator-link) {
+  border-color: #FAFAFA;
+}
