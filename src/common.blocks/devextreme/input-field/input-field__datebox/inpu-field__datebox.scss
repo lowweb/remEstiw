@@ -8,3 +8,19 @@
 .input-field__icn-calendar .dx-dropdowneditor-icon{
 		background-color: $clr-grey-v4;
 	}
+
+.input-field__icn-calendar.dx-dropdowneditor.dx-state-hover .dx-dropdowneditor-icon,
+.dx-dropdowneditor.dx-state-active .dx-dropdowneditor-icon {
+  background-color: $clr-grey-v4;
+  // border-color: transparent;
+}
+
+.input-field__icn-calendar.dx-datebox-calendar .dx-dropdowneditor-icon:before {
+    position: absolute;
+    display: block;
+    width: 24px;
+    top: 50%;
+    margin-top: -10px;
+    left: 50%;
+    margin-left: -10px;
+}
