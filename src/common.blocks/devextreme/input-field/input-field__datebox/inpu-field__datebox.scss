@@ -1,3 +1,6 @@
+.input-field__icn-calendar{
+	width: 200px !important;
+}
 .dx-datebox-calendar .dx-dropdowneditor-icon:before {
     content: url(#{$imgFolder}input-field__btn-calendar.svg);
 }
@@ -105,4 +108,13 @@
 
 .dx-calendar-navigator .dx-button.dx-state-hover:not(.dx-calendar-disabled-navigator-link) {
   border-color: #FAFAFA;
+}
+
+
+.dx-button-mode-contained.dx-state-hover {
+  background-color: #FAFAFA;
+}
+
+.dx-button-mode-contained.dx-state-hover.dx-button .dx-icon {
+	color: $clr-purple;
 }
