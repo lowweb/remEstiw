@@ -30,6 +30,17 @@
 }
 
 //calendar
+.dx-calendar {
+    width: 296px;
+    min-width: 296px;
+    height: 340px;
+    min-height: 340px;
+    background-color: #fff;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    outline: 0;
+    background-color: #FAFAFA;
+}
+
 .dx-popup-wrapper > .dx-overlay-content {
     border: 1px solid #D5D7E1;
     background: #FAFAFA;
@@ -43,13 +54,14 @@
     color: #333;
     font-size: 13px;
     border: 1px double transparent;
-    width: 39px;
+    width: 36px;
+    height: 36px;
+    border-radius: 0px;
 }
 
 .dx-calendar-cell.dx-calendar-selected-date.dx-calendar-contoured-date, .dx-calendar-cell.dx-calendar-selected-date.dx-calendar-today.dx-calendar-contoured-date {
     box-shadow: none;
     background: #02C39A;
-	border-radius: unset;
 }
 .dx-calendar-cell.dx-calendar-selected-date, .dx-calendar-cell.dx-calendar-selected-date.dx-calendar-today {
     color: #fff;
