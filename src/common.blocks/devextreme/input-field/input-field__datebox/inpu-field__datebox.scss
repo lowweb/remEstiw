@@ -1,12 +1,11 @@
-.input-field__icn-calendar{
-	width: 200px !important;
-}
+
 .dx-datebox-calendar .dx-dropdowneditor-icon:before {
     content: url(#{$imgFolder}input-field__btn-calendar.svg);
 }
 
 .dx-datebox-calendar .dx-dropdowneditor-icon:hover::before {
    	 content: url(#{$imgFolder}input-field__btn-calendar--hover.svg);
+     // background-color: unset;
     }
 .input-field__icn-calendar .dx-dropdowneditor-icon{
 		background-color: $clr-grey-v4;
@@ -32,6 +31,10 @@
     background-color: $clr-white;
 }
 
+.input-field__icn-calendar.dx-dropdowneditor.dx-state-hover .dx-dropdowneditor-icon,
+.input-field__icn-calendar.dx-dropdowneditor.dx-state-active .dx-dropdowneditor-icon {
+  background-color: #FAFAFA;
+}
 //calendar
 .dx-calendar {
     width: 296px;

@@ -1,0 +1,14 @@
+.checkbox-items {
+	display: flex;
+	flex-direction: column;
+
+}
+
+.checkbox {
+	padding-bottom: 10px;
+	padding-right: 10px;
+
+	&:last-child {
+		padding-bottom: 0px;
+	}
+}

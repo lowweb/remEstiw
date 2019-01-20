@@ -11,12 +11,7 @@
 		margin-right: 0px;
 	}
 
-	& .input-field{
-		margin-right: 30px;
-	}
-	& .input-field:last-child{
-		margin-right: 0px;
-	}
+
 
 	&__items{
 		padding: 30px 20px 20px 20px;
@@ -32,11 +27,25 @@
 
 	&__depart {
 		width: 918px;
+
+		& .input-field{
+			margin-right: 30px;
+		}
+		& .input-field:last-child{
+			margin-right: 0px;
+		}
 	}
 
 	&__destination {
 		width: 918px;
 		 margin-top:-1px;
+
+		& .input-field{
+			margin-right: 30px;
+		}
+		& .input-field:last-child{
+			margin-right: 0px;
+		}		 
 	}
 
 	&__cap {
@@ -58,8 +67,7 @@
 		// height: 100px;
 	}
 	&__what-need {
-		width: 432px;
-		// height: 130px;
+		// width: 432px; //автоматом
 	}
 	&__volume-cargo {
 		width: 158px;

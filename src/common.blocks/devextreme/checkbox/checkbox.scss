@@ -1,0 +1,23 @@
+.dx-checkbox-text {
+    margin-left: 0px;
+    padding-left: 10px;
+}
+
+.dx-checkbox-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    /* border: 1px solid #ddd; */
+    /* background-color: #fff; */
+    border: 1px solid #E4ECF2;
+    background-color: #E4ECF2;
+}
+
+.dx-checkbox-checked .dx-checkbox-icon {
+    color: $clr-white;
+	background-color: $clr-blue;
+}
+
+.dx-checkbox-checked .dx-checkbox-icon {
+    font-size: 10px;
+}
