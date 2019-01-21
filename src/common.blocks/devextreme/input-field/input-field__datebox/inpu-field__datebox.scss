@@ -121,3 +121,10 @@
 .dx-button-mode-contained.dx-state-hover.dx-button .dx-icon {
 	color: $clr-purple;
 }
+
+//hover date
+.dx-calendar-cell.dx-state-hover {
+  -webkit-box-shadow: inset 0px -1px 0px 1000px #ECF4FA;
+  box-shadow: inset 0px -1px 0px 1000px #ECF4FA;
+  color: $clr-purple;
+}
