@@ -24,28 +24,16 @@
         }
     });
 
-// $(".navbar").scroll (function () {
 
-//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
 
-//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
-//     $(".navbar-ul").addClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-sticky')[0].scrollIntoView(true);
-
-// }  
-// if ( $(this).scrollTop() == 0) {
-
-//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
-//     $(".navbar-ul").removeClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-currency')[0].scrollIntoView(true);
-//  }
-
-//  });
-    $("#period__switch").dxSwitch({
-        value: false
+    $("#button").dxButton({
+        text: "",
+        onClick: function() {
+            alert("The Button was clicked");
+        }
     });
+
+
 //название запроса
 $("#requestName").dxTextBox({
   inputAttr: {
@@ -80,53 +68,8 @@ $("#destName").dxTextBox({
        class:"input-field__value"
    }
 })
-$("#conditionDest").dxSelectBox({
-        dataSource: [ "FCA", "FAS", "FOB" ],
-        placeholder: "",
-        inputAttr: {
-          id: "conditionDepart__id",
-          class:"input-field__value"
-         }
-    });
-
-$("#conditionDepart").dxSelectBox({
-        dataSource: [ "FCA", "FAS", "FOB" ],
-        placeholder: "",
-        inputAttr: {
-           id: "conditionDest__id",
-           class:"input-field__value"
-         }
-});
-//в какой валюте расчитать
-$("#currency-calc").dxSelectBox({
-        dataSource: [ "Доллары США (USD)", "Рубли (RUB)"],
-        placeholder: "",
-        inputAttr: {
-           id: "currency-calc__id",
-           class:"input-field__value"
-         }
-});
 
 
-//Выберите дату
-var now = new Date();   
-    $("#cargoBeginDate").dxDateBox({
-        type: "date",
-        placeholder: "Введите дату",
-        inputAttr: {
-           id: "cargoBeginDate__id",
-           class:"input-field__value"
-         }
-    });
-    $("#cargoExpDate").dxDateBox({
-        type: "date",
-        placeholder: "Введите дату",
-        disabled: false,
-        inputAttr: {
-           id: "cargoExpDate__id",
-           class:"input-field__value"
-         }
-    });
 //свой знак ошибки на поле
 $('.input-field__cont').change ( function () {
 	console.log($(this));
@@ -139,48 +82,25 @@ $('.input-field__cont').change ( function () {
 });
 
 
-$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
-	// $(this).toggleClass('user-popup-menu__title-btn--up');
-	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
-		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
-		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
-		$(this).toggleClass('btn-rotate180');
-		$(this).toggleClass('app-lnk-disable');
-	// }
-});
+// $(".navbar").scroll (function () {
 
+//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
 
-$(".user-popup-menu__title-btn").click(function(e) {
-  e.stopPropagation(); 
-});
+//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
+//     $(".navbar-ul").addClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-sticky')[0].scrollIntoView(true);
 
+// }  
+// if ( $(this).scrollTop() == 0) {
 
-function userPopupClose() {
-	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
-		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
-		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
-		$('.app-lnk-disable').toggleClass('btn-rotate180');
-		$('.app-lnk-disable').toggleClass('app-lnk-disable');
-	}
-}
-var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
-$("#type-deal__radioGroup").dxRadioGroup({
-        items: typeDealitem,
-        value: typeDealitem[0]
-    });
+//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
+//     $(".navbar-ul").removeClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-currency')[0].scrollIntoView(true);
+//  }
 
-var volumeItem = ["До 5 м", "Свыше 5 м"];
-$("#volume-cargo__radioGroup").dxRadioGroup({
-        items: volumeItem,
-        value: volumeItem[0]
-    });
-
-var cargoReceiverItem = ["Физическое лицо", "Юридическое лицо"];
-$("#cargo-receiver__radioGroup").dxRadioGroup({
-        items: cargoReceiverItem,
-        value: cargoReceiverItem[0],
-        layout: "horizontal"
-    });
+//  });
 $('.progress-bar__step').hover (function(){
 	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
 },
@@ -242,6 +162,27 @@ $('.header-sticky__progress').click(function() {
 
 
 });
+var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
+$("#type-deal__radioGroup").dxRadioGroup({
+        items: typeDealitem,
+        value: typeDealitem[0]
+    });
+
+var volumeItem = ["До 5 м", "Свыше 5 м"];
+$("#volume-cargo__radioGroup").dxRadioGroup({
+        items: volumeItem,
+        value: volumeItem[0]
+    });
+
+var cargoReceiverItem = ["Физическое лицо", "Юридическое лицо"];
+$("#cargo-receiver__radioGroup").dxRadioGroup({
+        items: cargoReceiverItem,
+        value: cargoReceiverItem[0],
+        layout: "horizontal"
+    });
+    $("#period__switch").dxSwitch({
+        value: false
+    });
 $('.timezone-popup-menu__title-btn').click(function(){
 // console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
 // if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
@@ -270,6 +211,30 @@ function timezonePopupClose(e) {
 }
 
 
+$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
+	// $(this).toggleClass('user-popup-menu__title-btn--up');
+	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
+		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
+		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
+		$(this).toggleClass('btn-rotate180');
+		$(this).toggleClass('app-lnk-disable');
+	// }
+});
+
+
+$(".user-popup-menu__title-btn").click(function(e) {
+  e.stopPropagation(); 
+});
+
+
+function userPopupClose() {
+	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
+		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
+		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
+		$('.app-lnk-disable').toggleClass('btn-rotate180');
+		$('.app-lnk-disable').toggleClass('app-lnk-disable');
+	}
+}
 //скролим правую часть
 // $(".main-content").scroll (function () {
 //   //move up
@@ -302,6 +267,53 @@ function timezonePopupClose(e) {
 //     $('.header-sticky__progress').removeClass('header-sticky__progress--slim');
 //   }
 //  });
+
+
+//Выберите дату
+var now = new Date();   
+    $("#cargoBeginDate").dxDateBox({
+        type: "date",
+        placeholder: "Введите дату",
+        inputAttr: {
+           id: "cargoBeginDate__id",
+           class:"input-field__value"
+         }
+    });
+    $("#cargoExpDate").dxDateBox({
+        type: "date",
+        placeholder: "Введите дату",
+        disabled: true,
+        inputAttr: {
+           id: "cargoExpDate__id",
+           class:"input-field__value"
+         }
+    });
+$("#conditionDest").dxSelectBox({
+        dataSource: [ "FCA", "FAS", "FOB" ],
+        placeholder: "",
+        inputAttr: {
+          id: "conditionDepart__id",
+          class:"input-field__value"
+         }
+    });
+
+$("#conditionDepart").dxSelectBox({
+        dataSource: [ "FCA", "FAS", "FOB" ],
+        placeholder: "",
+        inputAttr: {
+           id: "conditionDest__id",
+           class:"input-field__value"
+         }
+});
+//в какой валюте расчитать
+$("#currency-calc").dxSelectBox({
+        dataSource: [ "Доллары США (USD)", "Рубли (RUB)"],
+        placeholder: "",
+        inputAttr: {
+           id: "currency-calc__id",
+           class:"input-field__value"
+         }
+});
 
 //эффект на иконке при hover тк заголовок всегда 1
 $('.navbar__header-link').hover(  
@@ -378,50 +390,15 @@ $('.navbar__item-header').click(function(){
 
 });
 
-
-//Выберите дату
-var now = new Date();   
-    $("#cargoBeginDate").dxDateBox({
-        type: "date",
-        placeholder: "Введите дату",
-        inputAttr: {
-           id: "cargoBeginDate__id",
-           class:"input-field__value"
-         }
-    });
-    $("#cargoExpDate").dxDateBox({
-        type: "date",
-        placeholder: "Введите дату",
-        disabled: true,
-        inputAttr: {
-           id: "cargoExpDate__id",
-           class:"input-field__value"
-         }
-    });
-$("#conditionDest").dxSelectBox({
-        dataSource: [ "FCA", "FAS", "FOB" ],
-        placeholder: "",
-        inputAttr: {
-          id: "conditionDepart__id",
-          class:"input-field__value"
-         }
-    });
-
-$("#conditionDepart").dxSelectBox({
-        dataSource: [ "FCA", "FAS", "FOB" ],
-        placeholder: "",
-        inputAttr: {
-           id: "conditionDest__id",
-           class:"input-field__value"
-         }
+$("#destButton").dxButton({
+    text: "",
+    onClick: function() {
+        alert("The Button was clicked");
+    }
 });
-//в какой валюте расчитать
-$("#currency-calc").dxSelectBox({
-        dataSource: [ "Доллары США (USD)", "Рубли (RUB)"],
-        placeholder: "",
-        inputAttr: {
-           id: "currency-calc__id",
-           class:"input-field__value"
-         }
+$("#departButton").dxButton({
+    text: "",
+    onClick: function() {
+        alert("The Button was clicked");
+    }
 });
-

@@ -1,0 +1,21 @@
+.dex-button__earth .dx-button-content {
+	background: url(../img/input-field__btn-world.svg);
+    width: 22px;
+    height: 22px;
+}
+
+.dex-button__earth.dx-button-mode-contained.dx-state-hover {
+  background-color: $clr-white;
+
+  /* border-color: #ddd; */
+}
+.dex-button__earth.dx-button-mode-contained.dx-state-hover .dx-button-content{
+  	background: url(../img/input-field__btn-world--hover.svg);
+    width: 22px;
+    height: 22px;
+}
+
+.dex-button__earth.dx-button-normal.dx-state-hover .dx-button-content,
+.dex-button__earth.dx-button-back.dx-state-hover .dx-button-content {
+  border-radius: 0px;
+}
