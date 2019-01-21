@@ -16,6 +16,15 @@ $clr-white:      #FFFFFF;
 
 //дериктория img для build-а
 $imgFolder: '../img/';
+//@import url('https://fonts.googleapis.com/css?family=Fira+Sans');
+
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  src: local('Fira Sans Regular'), local('FiraSans-Regular'),
+       url('../fonts/fira-sans-v8-cyrillic-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/fira-sans-v8-cyrillic-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
 
 .font-h1Header {
 font-family: Fira Sans; 
@@ -57,7 +66,7 @@ color: $clr-dark;
 
 }
 
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans');
+
 @mixin font-fira ($color, $size, $height) {
 	font-family: 'Fira Sans', sans-serif;
 	line-height: $height;

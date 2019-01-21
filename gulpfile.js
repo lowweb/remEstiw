@@ -101,6 +101,11 @@ gulp.task('image:build', function () {
         .pipe(reload({stream: true}));
 });
 
+// Fonts
+gulp.task('fonts:build', function() {
+    return gulp.src(path.src.fonts)
+            .pipe(gulp.dest(path.build.fonts));
+});
 
 
 // сервер и сброка всех частей
@@ -124,8 +129,8 @@ gulp.task('build', [
     // 'js:cnct',
     'js:build',
     'style:build',
-    // 'fonts:build',
-    'image:build'
+    'image:build',
+    'fonts:build'
 ]);
 
 gulp.task('watch', function(){
@@ -143,6 +148,10 @@ gulp.task('watch', function(){
     });
     watch([path.watch.img], function(event, cb) {
         gulp.start('image:build');
+    });
+    
+    watch([path.watch.fonts], function(event, cb) {
+        gulp.start('fonts:build');
     });
 });
 

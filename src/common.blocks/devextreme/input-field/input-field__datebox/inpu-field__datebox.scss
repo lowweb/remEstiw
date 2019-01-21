@@ -31,9 +31,9 @@
     background-color: $clr-white;
 }
 
-.input-field__icn-calendar.dx-dropdowneditor.dx-state-hover .dx-dropdowneditor-icon,
-.input-field__icn-calendar.dx-dropdowneditor.dx-state-active .dx-dropdowneditor-icon {
-  background-color: #FAFAFA;
+
+.input-field__icn-calendar.dx-dropdowneditor.dx-state-focused .dx-dropdowneditor-icon {
+   background-color: #FAFAFA;
 }
 //calendar
 .dx-calendar {

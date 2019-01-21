@@ -73,7 +73,7 @@ var now = new Date();
     $("#cargoExpDate").dxDateBox({
         type: "date",
         placeholder: "Введите дату",
-        disabled: true,
+        disabled: false,
         inputAttr: {
            id: "cargoExpDate__id",
            class:"input-field__value"

@@ -12,7 +12,7 @@
 		flex-direction: row;
 		width: 100%;
 		order: -1;
-
+		height: 17px; //for icn error
 
 
 		&--err:before{
@@ -41,10 +41,10 @@
 		padding-left: 10px !important;
 
 		&:focus{
-			background-color: rgba(243, 243, 2, 0.4); 
+			background-color: #FAFAFA; 
 			// border: 1px solid $clr-grey-v2; 
 			box-sizing: border-box; 
-			border-radius: 3px;	
+			border-radius: 3px;
 		}
 
 		&:hover {

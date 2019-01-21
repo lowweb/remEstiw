@@ -46,3 +46,20 @@
   background-color: $clr-blue;
   color: $clr-white;
 }
+
+
+//dropdown list items
+.dx-list:not(.dx-list-select-decorator-enabled) .dx-list-item.dx-state-hover {
+  background-color: #ECF4FA;
+  color: $clr-purple;
+}
+
+.dx-list:not(.dx-list-select-decorator-enabled) .dx-list-item.dx-list-item-selected {
+  background-color: #ECF4FA;
+  color: $clr-purple;
+}
+
+.dx-list:not(.dx-list-select-decorator-enabled) .dx-list-item.dx-list-item-selected.dx-state-hover:not(.dx-state-focused) {
+  background-color: #ECF4FA;
+  color: $clr-purple;
+}
