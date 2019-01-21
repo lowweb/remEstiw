@@ -1,3 +1,4 @@
+$("#summary").dxValidationSummary({ });
 
     $("#deliver-cargo__checkbox").dxCheckBox({
         text: "Доставить груз",
@@ -6,6 +7,20 @@
             // alert(e.value);
         }
     });
+    // .dxValidator({
+    //     validationRules: [{
+    //         type: "compare",
+    //         comparisonTarget: function(){ return true; },
+    //         message: "Заполните поле доставить груз"
+    //     }]
+    // });
+
+    $("#button").dxButton({
+        text: "Register",
+        type: "success",
+        useSubmitBehavior: true
+    });
+    
 
     $("#bay-cargo__checkbox").dxCheckBox({
         text: "Купить",
@@ -20,15 +35,6 @@
         value: false,
         onValueChanged: function (e) {
             // alert(e.value);
-        }
-    });
-
-
-
-    $("#button").dxButton({
-        text: "",
-        onClick: function() {
-            alert("The Button was clicked");
         }
     });
 

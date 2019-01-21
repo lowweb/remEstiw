@@ -58,7 +58,7 @@
 	    margin-left: 10px;
 	   	//for IE legend
         position:absolute;
-	    margin-top:-10px;
+	    margin-top:-11px;
 	    background: $clr-white;
 	}
 
@@ -77,6 +77,16 @@
 	}
 	&__cargo-ready {
 		width: 530px;
+	}
+
+	&--error {
+		border: 1px solid #E63946;
+
+		& .field-set__cap:before {
+			content: url(#{$imgFolder}input-field-err.svg);
+    		margin-right: 5px;
+    		vertical-align: -3px;
+		}
 	}	
 		
 }

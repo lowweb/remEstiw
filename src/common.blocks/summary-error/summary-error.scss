@@ -1,0 +1,13 @@
+.summary-error {
+    color: red;
+    border: none;
+    border-left: solid 2px red;
+    padding-left: 10px;
+  }
+
+.summary-error__href {
+  color: #f75c5c;
+  font-size: 14px;
+  text-decoration: none;
+  border-bottom: dotted 2px;
+}

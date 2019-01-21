@@ -20,3 +20,7 @@
 .dx-checkbox-checked .dx-checkbox-icon {
     font-size: 10px;
 }
+
+.dx-invalid .dx-checkbox-container .dx-checkbox-icon {
+    border: unset;
+} 
