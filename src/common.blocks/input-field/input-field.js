@@ -32,53 +32,8 @@ $("#destName").dxTextBox({
        class:"input-field__value"
    }
 })
-$("#conditionDest").dxSelectBox({
-        dataSource: [ "FCA", "FAS", "FOB" ],
-        placeholder: "",
-        inputAttr: {
-          id: "conditionDepart__id",
-          class:"input-field__value"
-         }
-    });
-
-$("#conditionDepart").dxSelectBox({
-        dataSource: [ "FCA", "FAS", "FOB" ],
-        placeholder: "",
-        inputAttr: {
-           id: "conditionDest__id",
-           class:"input-field__value"
-         }
-});
-//в какой валюте расчитать
-$("#currency-calc").dxSelectBox({
-        dataSource: [ "Доллары США (USD)", "Рубли (RUB)"],
-        placeholder: "",
-        inputAttr: {
-           id: "currency-calc__id",
-           class:"input-field__value"
-         }
-});
 
 
-//Выберите дату
-var now = new Date();   
-    $("#cargoBeginDate").dxDateBox({
-        type: "date",
-        placeholder: "Введите дату",
-        inputAttr: {
-           id: "cargoBeginDate__id",
-           class:"input-field__value"
-         }
-    });
-    $("#cargoExpDate").dxDateBox({
-        type: "date",
-        placeholder: "Введите дату",
-        disabled: false,
-        inputAttr: {
-           id: "cargoExpDate__id",
-           class:"input-field__value"
-         }
-    });
 //свой знак ошибки на поле
 $('.input-field__cont').change ( function () {
 	console.log($(this));
