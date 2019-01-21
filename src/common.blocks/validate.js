@@ -23,7 +23,7 @@
 //check error
 $('#submitButton').click(function(){
 	// console.log ('fsdf');
-	 $('.field-set__error').empty();
+	 $('.summary-error').empty();
 	 var checkedFld=false;
 	 var fieldSet = document.getElementsByClassName("field-set");
 
