@@ -128,6 +128,7 @@
 	&__exit:after {
 		content: url(#{$imgFolder}popup-exit-btn.svg);
 		margin-left: 7px;
+		vertical-align: -1px;
 	}
 	&__exit:hover:after {
 			content: url(#{$imgFolder}popup-exit-btn-hvr.svg);	
