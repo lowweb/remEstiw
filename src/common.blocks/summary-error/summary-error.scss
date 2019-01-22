@@ -1,18 +1,33 @@
+
 .summary-error {
     color: $clr-red;
     border: none;
     border-left: solid 2px $clr-red;
     padding-left: 10px;
-  }
+    display: none;
 
-.summary-error__href {
-  color: $clr-red;
-  font-size: 15px;
-  // text-decoration: none;
-  border-bottom: 1px dashed;
-}
+    &__items,&__custom-items {
+    	@include font-lucida ($clr-red, 15px, normal);
+    }
+    &__cap {
+    	padding-bottom: 10px;
+    }
+    &__cap:before {
+    	content: url(#{$imgFolder}input-field-err.svg);
+    	margin-right: 5px;
+
+    }
+
+    &__href {
+  		color: $clr-red;
+ 		 font-size: 15px;
+  		// text-decoration: none;
+  		border-bottom: 1px dashed;
+		}
+  }
 
 .dx-validationsummary-item {
 	font-size: 15px;
     color: $clr-red;
 }
+

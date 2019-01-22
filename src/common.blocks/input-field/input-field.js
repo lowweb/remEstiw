@@ -33,7 +33,6 @@ $("#departName").dxTextBox({
         }],
         validationGroup: "validateItems" //обязательный параметр для валидации
     });
-
 $("#destName").dxTextBox({
   inputAttr: {
        id: "destName__id",
@@ -42,14 +41,5 @@ $("#destName").dxTextBox({
 })
 
 
-//свой знак ошибки на поле
-$('.input-field__cont').change ( function () {
-	console.log($(this));
-	 if( $(this).hasClass('dx-invalid') ){
-	 	$(this).parent().find('.input-field__label').addClass('input-field__label--err');
-	 }
-	 else {
-	 	$(this).parent().find('.input-field__label').removeClass('input-field__label--err');
-	 }
-});
+
 

@@ -2,25 +2,21 @@
 $(".summary-error__items").dxValidationSummary({
         validationGroup: "validateItems"
     });
-// //devextreeme validate
-//     $("#button").dxButton({
-//         text: "Register",
-//         type: "success",
-//         useSubmitBehavior: true
-//     });
-
-
 
 //click checkbox element
   $('.checkbox').click(function(){
     if ($(this).parent().parent().hasClass("field-set--error")) {
+    	$('#href-' + $(this).parent().parent().attr('id')).remove();
     	$(this).parent().parent().removeClass('field-set--error');
     }
+    // console.log ($(this).parent().parent().attr('id'));
+    
   });
 
   //click radiobox element
   $('.radiogroup').click(function(){
     if ($(this).parent().parent().hasClass("field-set--error")) {
+    	$('#href-' + $(this).parent().parent().attr('id')).remove();
     	$(this).parent().parent().removeClass('field-set--error');
     }
   });
@@ -28,19 +24,19 @@ $(".summary-error__items").dxValidationSummary({
   //jump to link from erro href
 	$(document).on("click", ".summary-error__href", function(e){
    	e.preventDefault();
-		 document.querySelector(this.hash).scrollIntoView();		 
-		  $(this.hash).fadeOut(350).fadeIn(250); 
+		 // document.querySelector(this.hash).scrollIntoView(true);
+		 console.log ($(this.hash).offset().top + '=' + $(this.hash).offset().left);
+		 $(".view").animate({scrollTop: $(this.hash).offset().top+ 72 },"slow");	
 		});
 
 //check error
-$('#submitButton').click(function(){
+$('#submitButton').click(function(){ 
 
-	 // $('.summary-error').empty();
+	$('.summary-error').hide();
 	DevExpress.validationEngine.validateGroup("validateItems");
 
-	// console.log ('fsdf');
-	 
-	 
+	  $('.summary-error__custom-items').empty();//очистили ошибки
+
 	 var checkedFld=false;
 	 var fieldSet = document.getElementsByClassName("field-set");
 
@@ -54,8 +50,9 @@ $('#submitButton').click(function(){
 	  	if ($(elementChk[j]).hasClass("dx-checkbox-checked")) { checkedFld=true;}
 	  }
 	  if (!checkedFld && $(fieldSet[i]).find('.checkbox').length>0) {
+	  	$('.summary-error').show();
 	  	$(fieldSet[i]).addClass('field-set--error');
-	  	$('.summary-error__items').append('<p><a class="summary-error__href" href="#' + $(fieldSet[i]).attr('id') + '">Необходимо выбрать один или несколько вариантов</a></p>');
+	  	$('.summary-error__custom-items').append('<p><a id=href-'+$(fieldSet[i]).attr('id') +' class="summary-error__href" href="#' + $(fieldSet[i]).attr('id') + '">Необходимо выбрать один или несколько вариантов</a></p>');
 	  }
 	   if (checkedFld && $(fieldSet[i]).find('.checkbox').length>0) {
 	  	$(fieldSet[i]).removeClass('field-set--error');
@@ -70,8 +67,9 @@ $('#submitButton').click(function(){
 	  	if ($(elementRadioGrp[j]).hasClass("dx-radiobutton-checked")) { checkedFld=true;}
 	  }
 	  if (!checkedFld && $(fieldSet[i]).find('.dx-radiobutton').length>0) {
+	  	$('.summary-error').show();
 	  	$(fieldSet[i]).addClass('field-set--error');
-	  	$('.summary-error__items').append('<p><a class="summary-error__href" href="#' + $(fieldSet[i]).attr('id') + '">Необходимо выбрать один или несколько вариантов</a></p>');
+	  	$('.summary-error__custom-items').append('<p><a id=href-'+$(fieldSet[i]).attr('id') +' class="summary-error__href" href="#' + $(fieldSet[i]).attr('id') + '">Необходимо выбрать вариант</a></p>');
 	  }
 	   if (checkedFld && $(fieldSet[i]).find('.dx-radiobutton').length>0) {
 	  	$(fieldSet[i]).removeClass('field-set--error');
@@ -81,8 +79,16 @@ $('#submitButton').click(function(){
 
 
 	 }
+});
 
-
-
-
+//если при заполнении input-field срабаотала валидация 
+//свой знак ошибки на поле
+$('.input-field__cont').change ( function () {
+	// console.log($(this));
+	 if( $(this).hasClass('dx-invalid') ){
+	 	$(this).parent().find('.input-field__label').addClass('input-field__label--err');
+	 }
+	 else {
+	 	$(this).parent().find('.input-field__label').removeClass('input-field__label--err');
+	 }
 });

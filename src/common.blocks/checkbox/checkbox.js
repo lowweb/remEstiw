@@ -1,4 +1,4 @@
-$("#summary").dxValidationSummary({ });
+
 
     $("#deliver-cargo__checkbox").dxCheckBox({
         text: "Доставить груз",

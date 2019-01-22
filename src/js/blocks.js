@@ -3,25 +3,21 @@
 $(".summary-error__items").dxValidationSummary({
         validationGroup: "validateItems"
     });
-// //devextreeme validate
-//     $("#button").dxButton({
-//         text: "Register",
-//         type: "success",
-//         useSubmitBehavior: true
-//     });
-
-
 
 //click checkbox element
   $('.checkbox').click(function(){
     if ($(this).parent().parent().hasClass("field-set--error")) {
+    	$('#href-' + $(this).parent().parent().attr('id')).remove();
     	$(this).parent().parent().removeClass('field-set--error');
     }
+    // console.log ($(this).parent().parent().attr('id'));
+    
   });
 
   //click radiobox element
   $('.radiogroup').click(function(){
     if ($(this).parent().parent().hasClass("field-set--error")) {
+    	$('#href-' + $(this).parent().parent().attr('id')).remove();
     	$(this).parent().parent().removeClass('field-set--error');
     }
   });
@@ -29,19 +25,19 @@ $(".summary-error__items").dxValidationSummary({
   //jump to link from erro href
 	$(document).on("click", ".summary-error__href", function(e){
    	e.preventDefault();
-		 document.querySelector(this.hash).scrollIntoView();		 
-		  $(this.hash).fadeOut(350).fadeIn(250); 
+		 // document.querySelector(this.hash).scrollIntoView(true);
+		 console.log ($(this.hash).offset().top + '=' + $(this.hash).offset().left);
+		 $(".view").animate({scrollTop: $(this.hash).offset().top+ 72 },"slow");	
 		});
 
 //check error
-$('#submitButton').click(function(){
+$('#submitButton').click(function(){ 
 
-	 // $('.summary-error').empty();
+	$('.summary-error').hide();
 	DevExpress.validationEngine.validateGroup("validateItems");
 
-	// console.log ('fsdf');
-	 
-	 
+	  $('.summary-error__custom-items').empty();//очистили ошибки
+
 	 var checkedFld=false;
 	 var fieldSet = document.getElementsByClassName("field-set");
 
@@ -55,8 +51,9 @@ $('#submitButton').click(function(){
 	  	if ($(elementChk[j]).hasClass("dx-checkbox-checked")) { checkedFld=true;}
 	  }
 	  if (!checkedFld && $(fieldSet[i]).find('.checkbox').length>0) {
+	  	$('.summary-error').show();
 	  	$(fieldSet[i]).addClass('field-set--error');
-	  	$('.summary-error__items').append('<p><a class="summary-error__href" href="#' + $(fieldSet[i]).attr('id') + '">Необходимо выбрать один или несколько вариантов</a></p>');
+	  	$('.summary-error__custom-items').append('<p><a id=href-'+$(fieldSet[i]).attr('id') +' class="summary-error__href" href="#' + $(fieldSet[i]).attr('id') + '">Необходимо выбрать один или несколько вариантов</a></p>');
 	  }
 	   if (checkedFld && $(fieldSet[i]).find('.checkbox').length>0) {
 	  	$(fieldSet[i]).removeClass('field-set--error');
@@ -71,8 +68,9 @@ $('#submitButton').click(function(){
 	  	if ($(elementRadioGrp[j]).hasClass("dx-radiobutton-checked")) { checkedFld=true;}
 	  }
 	  if (!checkedFld && $(fieldSet[i]).find('.dx-radiobutton').length>0) {
+	  	$('.summary-error').show();
 	  	$(fieldSet[i]).addClass('field-set--error');
-	  	$('.summary-error__items').append('<p><a class="summary-error__href" href="#' + $(fieldSet[i]).attr('id') + '">Необходимо выбрать один или несколько вариантов</a></p>');
+	  	$('.summary-error__custom-items').append('<p><a id=href-'+$(fieldSet[i]).attr('id') +' class="summary-error__href" href="#' + $(fieldSet[i]).attr('id') + '">Необходимо выбрать вариант</a></p>');
 	  }
 	   if (checkedFld && $(fieldSet[i]).find('.dx-radiobutton').length>0) {
 	  	$(fieldSet[i]).removeClass('field-set--error');
@@ -82,12 +80,20 @@ $('#submitButton').click(function(){
 
 
 	 }
-
-
-
-
 });
-$("#summary").dxValidationSummary({ });
+
+//если при заполнении input-field срабаотала валидация 
+//свой знак ошибки на поле
+$('.input-field__cont').change ( function () {
+	// console.log($(this));
+	 if( $(this).hasClass('dx-invalid') ){
+	 	$(this).parent().find('.input-field__label').addClass('input-field__label--err');
+	 }
+	 else {
+	 	$(this).parent().find('.input-field__label').removeClass('input-field__label--err');
+	 }
+});
+
 
     $("#deliver-cargo__checkbox").dxCheckBox({
         text: "Доставить груз",
@@ -149,7 +155,6 @@ $("#departName").dxTextBox({
         }],
         validationGroup: "validateItems" //обязательный параметр для валидации
     });
-
 $("#destName").dxTextBox({
   inputAttr: {
        id: "destName__id",
@@ -158,16 +163,82 @@ $("#destName").dxTextBox({
 })
 
 
-//свой знак ошибки на поле
-$('.input-field__cont').change ( function () {
-	console.log($(this));
-	 if( $(this).hasClass('dx-invalid') ){
-	 	$(this).parent().find('.input-field__label').addClass('input-field__label--err');
-	 }
-	 else {
-	 	$(this).parent().find('.input-field__label').removeClass('input-field__label--err');
-	 }
+
+
+
+
+// $(".navbar").scroll (function () {
+
+//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
+
+//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
+//     $(".navbar-ul").addClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-sticky')[0].scrollIntoView(true);
+
+// }  
+// if ( $(this).scrollTop() == 0) {
+
+//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
+//     $(".navbar-ul").removeClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-currency')[0].scrollIntoView(true);
+//  }
+
+//  });
+    $("#period__switch").dxSwitch({
+        value: false
+    });
+$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
+	// $(this).toggleClass('user-popup-menu__title-btn--up');
+	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
+		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
+		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
+		$(this).toggleClass('btn-rotate180');
+		$(this).toggleClass('app-lnk-disable');
+	// }
 });
+
+
+$(".user-popup-menu__title-btn").click(function(e) {
+  e.stopPropagation(); 
+});
+
+
+function userPopupClose() {
+	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
+		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
+		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
+		$('.app-lnk-disable').toggleClass('btn-rotate180');
+		$('.app-lnk-disable').toggleClass('app-lnk-disable');
+	}
+}
+$('.timezone-popup-menu__title-btn').click(function(){
+// console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
+// if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
+		$(this).parents(".timezone-popup-menu__title").toggleClass('timezone-popup-menu__title--active');
+		$(this).parents(".timezone-popup-menu").find('.timezone-popup-menu__add').toggleClass('timezone-popup-menu__add--active');
+		$(this).toggleClass('btn-rotate180');
+		$(this).toggleClass('app-lnk-disable');
+
+	// }
+});
+
+
+$(".timezone-popup-menu__title-btn").click(function(e) {
+  e.stopPropagation(); 
+});
+
+function timezonePopupClose(e) {
+   // if (!$(e.target).closest("timezone-popup-menu").length) {
+	if ($('.timezone-popup-menu__title').hasClass('timezone-popup-menu__title--active')){
+		$(".timezone-popup-menu__title").toggleClass('timezone-popup-menu__title--active');
+		$(".timezone-popup-menu").find('.timezone-popup-menu__add').toggleClass('timezone-popup-menu__add--active');
+		$('.timezone-popup-menu__title-btn').toggleClass('btn-rotate180');
+		$('.timezone-popup-menu__title-btn').toggleClass('app-lnk-disable');
+	}
+	// }
+}
 
 
 var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
@@ -195,26 +266,6 @@ $("#cargo-receiver__radioGroup").dxRadioGroup({
         // value: cargoReceiverItem[0],
         layout: "horizontal"
     });
-
-// $(".navbar").scroll (function () {
-
-//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
-
-//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
-//     $(".navbar-ul").addClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-sticky')[0].scrollIntoView(true);
-
-// }  
-// if ( $(this).scrollTop() == 0) {
-
-//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
-//     $(".navbar-ul").removeClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-currency')[0].scrollIntoView(true);
-//  }
-
-//  });
 $('.progress-bar__step').hover (function(){
 	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
 },
@@ -276,61 +327,6 @@ $('.header-sticky__progress').click(function() {
 
 
 });
-$('.timezone-popup-menu__title-btn').click(function(){
-// console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
-// if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
-		$(this).parents(".timezone-popup-menu__title").toggleClass('timezone-popup-menu__title--active');
-		$(this).parents(".timezone-popup-menu").find('.timezone-popup-menu__add').toggleClass('timezone-popup-menu__add--active');
-		$(this).toggleClass('btn-rotate180');
-		$(this).toggleClass('app-lnk-disable');
-
-	// }
-});
-
-
-$(".timezone-popup-menu__title-btn").click(function(e) {
-  e.stopPropagation(); 
-});
-
-function timezonePopupClose(e) {
-   // if (!$(e.target).closest("timezone-popup-menu").length) {
-	if ($('.timezone-popup-menu__title').hasClass('timezone-popup-menu__title--active')){
-		$(".timezone-popup-menu__title").toggleClass('timezone-popup-menu__title--active');
-		$(".timezone-popup-menu").find('.timezone-popup-menu__add').toggleClass('timezone-popup-menu__add--active');
-		$('.timezone-popup-menu__title-btn').toggleClass('btn-rotate180');
-		$('.timezone-popup-menu__title-btn').toggleClass('app-lnk-disable');
-	}
-	// }
-}
-
-
-    $("#period__switch").dxSwitch({
-        value: false
-    });
-$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
-	// $(this).toggleClass('user-popup-menu__title-btn--up');
-	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
-		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
-		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
-		$(this).toggleClass('btn-rotate180');
-		$(this).toggleClass('app-lnk-disable');
-	// }
-});
-
-
-$(".user-popup-menu__title-btn").click(function(e) {
-  e.stopPropagation(); 
-});
-
-
-function userPopupClose() {
-	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
-		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
-		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
-		$('.app-lnk-disable').toggleClass('btn-rotate180');
-		$('.app-lnk-disable').toggleClass('app-lnk-disable');
-	}
-}
 //скролим правую часть
 // $(".main-content").scroll (function () {
 //   //move up
@@ -391,6 +387,26 @@ $("#currency-calc").dxSelectBox({
          }
 });
 
+
+//Выберите дату
+var now = new Date();   
+    $("#cargoBeginDate").dxDateBox({
+        type: "date",
+        placeholder: "Введите дату",
+        inputAttr: {
+           id: "cargoBeginDate__id",
+           class:"input-field__value"
+         }
+    });
+    $("#cargoExpDate").dxDateBox({
+        type: "date",
+        placeholder: "Введите дату",
+        disabled: true,
+        inputAttr: {
+           id: "cargoExpDate__id",
+           class:"input-field__value"
+         }
+    });
 //эффект на иконке при hover тк заголовок всегда 1
 $('.navbar__header-link').hover(  
 function(){
@@ -467,25 +483,6 @@ $('.navbar__item-header').click(function(){
 });
 
 
-//Выберите дату
-var now = new Date();   
-    $("#cargoBeginDate").dxDateBox({
-        type: "date",
-        placeholder: "Введите дату",
-        inputAttr: {
-           id: "cargoBeginDate__id",
-           class:"input-field__value"
-         }
-    });
-    $("#cargoExpDate").dxDateBox({
-        type: "date",
-        placeholder: "Введите дату",
-        disabled: true,
-        inputAttr: {
-           id: "cargoExpDate__id",
-           class:"input-field__value"
-         }
-    });
 $("#destButton").dxButton({
     text: "",
     onClick: function() {
