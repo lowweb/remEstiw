@@ -120,7 +120,27 @@ $('.input-field__cont').change ( function () {
         }
     });
 
-
+$("#danger-cargo__checkbox").dxCheckBox({
+        text: "Опасный груз",
+        value: false,
+    });
+$("#oversize-cargo__checkbox").dxCheckBox({
+        text: "Негабаритный",
+        value: false,
+    });
+$("#humane-cargo__checkbox").dxCheckBox({
+        text: "Гуманитарная помощь",
+        value: false,
+    });
+$("#home-cargo__checkbox").dxCheckBox({
+        text: "Домашние вещи",
+        value: false,
+    });
+$("#used-cargo__checkbox").dxCheckBox({
+        text: "Бывший в употреблении",
+        value: false,
+    });
+        
 
 //название запроса
 $("#requestName").dxTextBox({
@@ -272,6 +292,21 @@ $("#cargo-receiver__radioGroup").dxRadioGroup({
         items: cargoReceiverItem,
         // value: cargoReceiverItem[0],
         layout: "horizontal"
+    });
+
+var cargoCheracterItem = ["Однородный (массовый)", "Однородный (не массовый)","Однородный в упаковке", "Не однородный в/без упаковки/и", "Одно грузовое место", "Жидкость без упаковки"];
+$("#cargo-cheracter__radioGroup").dxRadioGroup({
+        items: cargoCheracterItem
+    });
+
+var transportModItem = ["Груз навалом", "Загрузить в контейнер", "Уже загружен в контейнер", "По решению исполнителя"];
+$("#transport-mod__radioGroup").dxRadioGroup({
+        items: transportModItem
+  
+    });
+var specialConditionsItem = ["На верхней палубе судна", "Открытое хранение", "Крытое хранение", "Температурный режим"];
+$("#special-conditions__radioGroup").dxRadioGroup({
+        items: specialConditionsItem
     });
 //add consignment block
 $(".step-block__sep-btn-add").click ( function () {

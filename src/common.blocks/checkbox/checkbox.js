@@ -24,3 +24,24 @@
         }
     });
 
+$("#danger-cargo__checkbox").dxCheckBox({
+        text: "Опасный груз",
+        value: false,
+    });
+$("#oversize-cargo__checkbox").dxCheckBox({
+        text: "Негабаритный",
+        value: false,
+    });
+$("#humane-cargo__checkbox").dxCheckBox({
+        text: "Гуманитарная помощь",
+        value: false,
+    });
+$("#home-cargo__checkbox").dxCheckBox({
+        text: "Домашние вещи",
+        value: false,
+    });
+$("#used-cargo__checkbox").dxCheckBox({
+        text: "Бывший в употреблении",
+        value: false,
+    });
+        
