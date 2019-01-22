@@ -1,4 +1,17 @@
 // для корректной работы gulp
+
+$(".summary-error__items").dxValidationSummary({
+        validationGroup: "validateItems"
+    });
+// //devextreeme validate
+//     $("#button").dxButton({
+//         text: "Register",
+//         type: "success",
+//         useSubmitBehavior: true
+//     });
+
+
+
 //click checkbox element
   $('.checkbox').click(function(){
     if ($(this).parent().parent().hasClass("field-set--error")) {
@@ -6,15 +19,14 @@
     }
   });
 
-  //click checkbox element
+  //click radiobox element
   $('.radiogroup').click(function(){
-  	console.log ('radio');
     if ($(this).parent().parent().hasClass("field-set--error")) {
     	$(this).parent().parent().removeClass('field-set--error');
     }
   });
 
-  //jump to link
+  //jump to link from erro href
 	$(document).on("click", ".summary-error__href", function(e){
    	e.preventDefault();
 		 document.querySelector(this.hash).scrollIntoView();		 
@@ -23,8 +35,13 @@
 
 //check error
 $('#submitButton').click(function(){
+
+	 // $('.summary-error').empty();
+	DevExpress.validationEngine.validateGroup("validateItems");
+
 	// console.log ('fsdf');
-	 $('.summary-error').empty();
+	 
+	 
 	 var checkedFld=false;
 	 var fieldSet = document.getElementsByClassName("field-set");
 
@@ -39,7 +56,7 @@ $('#submitButton').click(function(){
 	  }
 	  if (!checkedFld && $(fieldSet[i]).find('.checkbox').length>0) {
 	  	$(fieldSet[i]).addClass('field-set--error');
-	  	$('.summary-error').append('<p><a class="summary-error__href" href="#' + $(fieldSet[i]).attr('id') + '">Необходимо выбрать один или несколько вариантов</a></p>');
+	  	$('.summary-error__items').append('<p><a class="summary-error__href" href="#' + $(fieldSet[i]).attr('id') + '">Необходимо выбрать один или несколько вариантов</a></p>');
 	  }
 	   if (checkedFld && $(fieldSet[i]).find('.checkbox').length>0) {
 	  	$(fieldSet[i]).removeClass('field-set--error');
@@ -55,7 +72,7 @@ $('#submitButton').click(function(){
 	  }
 	  if (!checkedFld && $(fieldSet[i]).find('.dx-radiobutton').length>0) {
 	  	$(fieldSet[i]).addClass('field-set--error');
-	  	$('.summary-error').append('<p><a class="summary-error__href" href="#' + $(fieldSet[i]).attr('id') + '">Необходимо выбрать один или несколько вариантов</a></p>');
+	  	$('.summary-error__items').append('<p><a class="summary-error__href" href="#' + $(fieldSet[i]).attr('id') + '">Необходимо выбрать один или несколько вариантов</a></p>');
 	  }
 	   if (checkedFld && $(fieldSet[i]).find('.dx-radiobutton').length>0) {
 	  	$(fieldSet[i]).removeClass('field-set--error');
@@ -65,6 +82,8 @@ $('#submitButton').click(function(){
 
 
 	 }
+
+
 
 
 });
@@ -77,20 +96,6 @@ $("#summary").dxValidationSummary({ });
             // alert(e.value);
         }
     });
-    // .dxValidator({
-    //     validationRules: [{
-    //         type: "compare",
-    //         comparisonTarget: function(){ return true; },
-    //         message: "Заполните поле доставить груз"
-    //     }]
-    // });
-
-    $("#button").dxButton({
-        text: "Register",
-        type: "success",
-        useSubmitBehavior: true
-    });
-    
 
     $("#bay-cargo__checkbox").dxCheckBox({
         text: "Купить",
@@ -109,7 +114,6 @@ $("#summary").dxValidationSummary({ });
     });
 
 
-
 //название запроса
 $("#requestName").dxTextBox({
   inputAttr: {
@@ -119,7 +123,7 @@ $("#requestName").dxTextBox({
 }).dxValidator({
         validationRules: [{
             type: "required",
-            message: "Name is required"
+            message: "Обязательно к заполнению"
         }, {
             type: "pattern",
             pattern: /^[^0-9]+$/,
@@ -128,7 +132,8 @@ $("#requestName").dxTextBox({
             type: "stringLength",
             min: 2,
             message: "Длина строки не меньше 2 символов"
-        }]
+        }],
+        validationGroup: "validateItems" //обязательный параметр для валидации
     });
 
 //отправление назначеие
@@ -137,7 +142,14 @@ $("#departName").dxTextBox({
        id: "departName__id",
        class:"input-field__value"
    }
-})
+}).dxValidator({
+        validationRules: [{
+            type: "required",
+            message: "Обязательно к заполнению"
+        }],
+        validationGroup: "validateItems" //обязательный параметр для валидации
+    });
+
 $("#destName").dxTextBox({
   inputAttr: {
        id: "destName__id",
@@ -157,6 +169,32 @@ $('.input-field__cont').change ( function () {
 	 }
 });
 
+
+var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
+$("#type-deal__radioGroup").dxRadioGroup({
+        items: typeDealitem,
+        // value: typeDealitem[0]
+     });
+    //.dxValidator({
+    //     validationRules: [{
+    //         type: "required",
+    //         message: "select one"
+    //     }],
+    //     validationGroup: "validateItems"
+    // });
+
+var volumeItem = ["До 5 м", "Свыше 5 м"];
+$("#volume-cargo__radioGroup").dxRadioGroup({
+        items: volumeItem,
+        // value: volumeItem[0]
+    });
+
+var cargoReceiverItem = ["Физическое лицо", "Юридическое лицо"];
+$("#cargo-receiver__radioGroup").dxRadioGroup({
+        items: cargoReceiverItem,
+        // value: cargoReceiverItem[0],
+        layout: "horizontal"
+    });
 
 // $(".navbar").scroll (function () {
 
@@ -238,27 +276,6 @@ $('.header-sticky__progress').click(function() {
 
 
 });
-var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
-$("#type-deal__radioGroup").dxRadioGroup({
-        items: typeDealitem,
-        // value: typeDealitem[0]
-    });
-
-var volumeItem = ["До 5 м", "Свыше 5 м"];
-$("#volume-cargo__radioGroup").dxRadioGroup({
-        items: volumeItem,
-        // value: volumeItem[0]
-    });
-
-var cargoReceiverItem = ["Физическое лицо", "Юридическое лицо"];
-$("#cargo-receiver__radioGroup").dxRadioGroup({
-        items: cargoReceiverItem,
-        // value: cargoReceiverItem[0],
-        layout: "horizontal"
-    });
-    $("#period__switch").dxSwitch({
-        value: false
-    });
 $('.timezone-popup-menu__title-btn').click(function(){
 // console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
 // if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
@@ -287,6 +304,9 @@ function timezonePopupClose(e) {
 }
 
 
+    $("#period__switch").dxSwitch({
+        value: false
+    });
 $('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
 	// $(this).toggleClass('user-popup-menu__title-btn--up');
 	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
@@ -344,26 +364,6 @@ function userPopupClose() {
 //   }
 //  });
 
-
-//Выберите дату
-var now = new Date();   
-    $("#cargoBeginDate").dxDateBox({
-        type: "date",
-        placeholder: "Введите дату",
-        inputAttr: {
-           id: "cargoBeginDate__id",
-           class:"input-field__value"
-         }
-    });
-    $("#cargoExpDate").dxDateBox({
-        type: "date",
-        placeholder: "Введите дату",
-        disabled: true,
-        inputAttr: {
-           id: "cargoExpDate__id",
-           class:"input-field__value"
-         }
-    });
 $("#conditionDest").dxSelectBox({
         dataSource: [ "FCA", "FAS", "FOB" ],
         placeholder: "",
@@ -466,6 +466,26 @@ $('.navbar__item-header').click(function(){
 
 });
 
+
+//Выберите дату
+var now = new Date();   
+    $("#cargoBeginDate").dxDateBox({
+        type: "date",
+        placeholder: "Введите дату",
+        inputAttr: {
+           id: "cargoBeginDate__id",
+           class:"input-field__value"
+         }
+    });
+    $("#cargoExpDate").dxDateBox({
+        type: "date",
+        placeholder: "Введите дату",
+        disabled: true,
+        inputAttr: {
+           id: "cargoExpDate__id",
+           class:"input-field__value"
+         }
+    });
 $("#destButton").dxButton({
     text: "",
     onClick: function() {

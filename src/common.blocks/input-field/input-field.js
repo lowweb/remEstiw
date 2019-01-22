@@ -7,7 +7,7 @@ $("#requestName").dxTextBox({
 }).dxValidator({
         validationRules: [{
             type: "required",
-            message: "Name is required"
+            message: "Обязательно к заполнению"
         }, {
             type: "pattern",
             pattern: /^[^0-9]+$/,
@@ -16,7 +16,8 @@ $("#requestName").dxTextBox({
             type: "stringLength",
             min: 2,
             message: "Длина строки не меньше 2 символов"
-        }]
+        }],
+        validationGroup: "validateItems" //обязательный параметр для валидации
     });
 
 //отправление назначеие
@@ -25,7 +26,14 @@ $("#departName").dxTextBox({
        id: "departName__id",
        class:"input-field__value"
    }
-})
+}).dxValidator({
+        validationRules: [{
+            type: "required",
+            message: "Обязательно к заполнению"
+        }],
+        validationGroup: "validateItems" //обязательный параметр для валидации
+    });
+
 $("#destName").dxTextBox({
   inputAttr: {
        id: "destName__id",

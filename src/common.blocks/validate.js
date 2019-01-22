@@ -1,3 +1,16 @@
+
+$(".summary-error__items").dxValidationSummary({
+        validationGroup: "validateItems"
+    });
+// //devextreeme validate
+//     $("#button").dxButton({
+//         text: "Register",
+//         type: "success",
+//         useSubmitBehavior: true
+//     });
+
+
+
 //click checkbox element
   $('.checkbox').click(function(){
     if ($(this).parent().parent().hasClass("field-set--error")) {
@@ -5,15 +18,14 @@
     }
   });
 
-  //click checkbox element
+  //click radiobox element
   $('.radiogroup').click(function(){
-  	console.log ('radio');
     if ($(this).parent().parent().hasClass("field-set--error")) {
     	$(this).parent().parent().removeClass('field-set--error');
     }
   });
 
-  //jump to link
+  //jump to link from erro href
 	$(document).on("click", ".summary-error__href", function(e){
    	e.preventDefault();
 		 document.querySelector(this.hash).scrollIntoView();		 
@@ -22,8 +34,13 @@
 
 //check error
 $('#submitButton').click(function(){
+
+	 // $('.summary-error').empty();
+	DevExpress.validationEngine.validateGroup("validateItems");
+
 	// console.log ('fsdf');
-	 $('.summary-error').empty();
+	 
+	 
 	 var checkedFld=false;
 	 var fieldSet = document.getElementsByClassName("field-set");
 
@@ -38,7 +55,7 @@ $('#submitButton').click(function(){
 	  }
 	  if (!checkedFld && $(fieldSet[i]).find('.checkbox').length>0) {
 	  	$(fieldSet[i]).addClass('field-set--error');
-	  	$('.summary-error').append('<p><a class="summary-error__href" href="#' + $(fieldSet[i]).attr('id') + '">Необходимо выбрать один или несколько вариантов</a></p>');
+	  	$('.summary-error__items').append('<p><a class="summary-error__href" href="#' + $(fieldSet[i]).attr('id') + '">Необходимо выбрать один или несколько вариантов</a></p>');
 	  }
 	   if (checkedFld && $(fieldSet[i]).find('.checkbox').length>0) {
 	  	$(fieldSet[i]).removeClass('field-set--error');
@@ -54,7 +71,7 @@ $('#submitButton').click(function(){
 	  }
 	  if (!checkedFld && $(fieldSet[i]).find('.dx-radiobutton').length>0) {
 	  	$(fieldSet[i]).addClass('field-set--error');
-	  	$('.summary-error').append('<p><a class="summary-error__href" href="#' + $(fieldSet[i]).attr('id') + '">Необходимо выбрать один или несколько вариантов</a></p>');
+	  	$('.summary-error__items').append('<p><a class="summary-error__href" href="#' + $(fieldSet[i]).attr('id') + '">Необходимо выбрать один или несколько вариантов</a></p>');
 	  }
 	   if (checkedFld && $(fieldSet[i]).find('.dx-radiobutton').length>0) {
 	  	$(fieldSet[i]).removeClass('field-set--error');
@@ -64,6 +81,8 @@ $('#submitButton').click(function(){
 
 
 	 }
+
+
 
 
 });

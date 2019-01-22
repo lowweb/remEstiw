@@ -2,7 +2,14 @@ var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Ме
 $("#type-deal__radioGroup").dxRadioGroup({
         items: typeDealitem,
         // value: typeDealitem[0]
-    });
+     });
+    //.dxValidator({
+    //     validationRules: [{
+    //         type: "required",
+    //         message: "select one"
+    //     }],
+    //     validationGroup: "validateItems"
+    // });
 
 var volumeItem = ["До 5 м", "Свыше 5 м"];
 $("#volume-cargo__radioGroup").dxRadioGroup({

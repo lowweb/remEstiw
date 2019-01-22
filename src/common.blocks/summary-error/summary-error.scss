@@ -1,13 +1,18 @@
 .summary-error {
-    color: red;
+    color: $clr-red;
     border: none;
-    border-left: solid 2px red;
+    border-left: solid 2px $clr-red;
     padding-left: 10px;
   }
 
 .summary-error__href {
-  color: #f75c5c;
-  font-size: 14px;
-  text-decoration: none;
-  border-bottom: dotted 2px;
+  color: $clr-red;
+  font-size: 15px;
+  // text-decoration: none;
+  border-bottom: 1px dashed;
+}
+
+.dx-validationsummary-item {
+	font-size: 15px;
+    color: $clr-red;
 }
