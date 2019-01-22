@@ -4,7 +4,13 @@
 		display: block;
 	}
 
-	&__sep{
+	&__sep {
+		display: flex;
+    	align-items: center;
+	}
+
+	&__sep-line{
+		flex: 1;
     	top: 0;
     	left: 0;
     	width: 100%;
@@ -12,6 +18,11 @@
         background-image: linear-gradient(to right, transparent 50%, $clr-grey-v2 50%);
     	background-size: 10px 100%;
 		margin: 40px 0;
+	}
+
+	&__sep-cap {
+		flex: 0 1 auto;
+		margin-right: 18px;
 	}
 
 	&__type-need-volume {

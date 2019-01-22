@@ -24,9 +24,9 @@ $(".summary-error__items").dxValidationSummary({
   //jump to link from erro href
 	$(document).on("click", ".summary-error__href", function(e){
    	e.preventDefault();
-		 // document.querySelector(this.hash).scrollIntoView(true);
-		 console.log ($(this.hash).offset().top + '=' + $(this.hash).offset().left);
-		 $(".view").animate({scrollTop: $(this.hash).offset().top+ 72 },"slow");	
+		 document.querySelector(this.hash).scrollIntoView(true);
+		 // console.log ($(this.hash).offset().top + '=' + $(this.hash).offset().left);
+		 // $(".view").animate({scrollTop: $(this.hash).offset().top+ 72 },"slow");	
 		});
 
 //check error
