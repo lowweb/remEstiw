@@ -25,8 +25,9 @@ $(".summary-error__items").dxValidationSummary({
 	$(document).on("click", ".summary-error__href", function(e){
    	e.preventDefault();
 		 document.querySelector(this.hash).scrollIntoView(true);
-		 // console.log ($(this.hash).offset().top + '=' + $(this.hash).offset().left);
-		 // $(".view").animate({scrollTop: $(this.hash).offset().top+ 72 },"slow");	
+		 // console.log ($('.view-container').offset().top + '=' + $(this.hash).offset().top);
+		 // console.log (Math.abs($('.view-container').offset().top) + $('.header').height());
+		 $(".view").animate({scrollTop: Math.abs($('.view-container').offset().top) + $('.header').height() - 50  },"slow");	
 		});
 
 //check error
