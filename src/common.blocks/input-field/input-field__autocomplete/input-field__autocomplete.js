@@ -69,3 +69,20 @@ $("#destName").dxAutocomplete({
         }],
         validationGroup: "validateItems" //обязательный параметр для валидации
 });
+
+
+$("#citySearch").dxAutocomplete({
+   placeholder: "Начните вводить название",
+  inputAttr: {
+       id: "citySearch__id",
+       class:"input-field__value"
+   },
+   dataSource: cityData,
+   valueExpr: 'name',
+   itemTemplate: function(data) {
+            return $("<div class='input-field__autocomplete-item'><img class='input-field__autocomplete-item--flag' src='" + data.imgSrc +
+                "'>" + data.name + "</div>");
+         }
+    
+});
+

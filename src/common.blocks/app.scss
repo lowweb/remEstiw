@@ -111,7 +111,7 @@ color: $clr-dark;
 }
 
 .purple-button {
-	height: 36px; padding-left: 24px; padding-right: 14px; background: #5C2D91; box-shadow: inset 0px -3px 0px rgba(0, 0, 0, 0.3); border-radius: 3px; font-family: Lucida Grande; font-style: normal; font-weight: bold; line-height: normal; font-size: 14px; color: #FFFFFF; cursor: pointer;
+	height: 36px; min-width: 70px; background: #5C2D91; box-shadow: inset 0px -3px 0px rgba(0, 0, 0, 0.3); border-radius: 3px; font-family: Lucida Grande; font-style: normal; font-weight: bold; line-height: normal; font-size: 14px; color: #FFFFFF; cursor: pointer;
 	&__arrow{
 		transform: rotate(180deg);
 		margin-left: 17px;
@@ -126,7 +126,20 @@ color: $clr-dark;
 	box-shadow: none;
 }
 
+.button {
+	&-ok {
 
+	}
+	&-cancel{
+
+	}
+	&-next {
+		padding-left: 24px; padding-right: 14px;
+	}
+	&-save {
+
+	}
+}
 //эффект поворота кнопок угольных
 .btn-rotate180:before {
 	transform: rotate(180deg);

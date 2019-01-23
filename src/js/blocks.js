@@ -408,78 +408,6 @@ function userPopupClose() {
 //   }
 //  });
 
-var cityData = [{
-    id: 1,
-    name: "Владивосток, Приморский край, Россия",
-    flag: "RU",
-    imgSrc: "img/flag-russia.svg"
-},
-{
-    id: 2,
-    name: "Владивосток, Приморский край, Россия",
-    flag: "RU",
-    imgSrc: "img/flag-russia.svg"
-},
-{
-    id: 3,
-    name: "Владивосток, Приморский край, Россия",
-    flag: "RU",
-    imgSrc: "img/flag-russia.svg"
-},
-{
-    id: 4,
-    name: "Владивосток, Приморский край, Россия",
-    flag: "RU",
-    imgSrc: "img/flag-russia.svg"
-}, {
-    id: 5,
-    name: "Находка",
-    flag: "RU",
-    imgSrc: "img/flag-russia.svg"
-}
-];
-
-
-//отправление назначеие
-$("#departName").dxAutocomplete({
-  inputAttr: {
-       id: "departName__id",
-       class:"input-field__value"
-   },
-   dataSource: cityData,
-   valueExpr: 'name',
-   itemTemplate: function(data) {
-            return $("<div class='input-field__autocomplete-item'><img class='input-field__autocomplete-item--flag' src='" + data.imgSrc +
-                "'>" + data.name + "</div>");
-         }
-    
-}).dxValidator({
-        validationRules: [{
-            type: "required",
-            message: "Обязательно к заполнению"
-        }],
-        validationGroup: "validateItems" //обязательный параметр для валидации
-    });
-$("#destName").dxAutocomplete({
-  inputAttr: {
-       id: "destName__id",
-       class:"input-field__value"
-   },
-   dataSource: cityData,
-   valueExpr: 'name',
-   itemTemplate: function(data) {
-            return $("<div class='input-field__autocomplete-item'><img class='input-field__autocomplete-item--flag' src='" + data.imgSrc +
-                "'>" + data.name + "</div>");
-         }
-    
-}).dxValidator({
-        validationRules: [{
-            type: "required",
-            message: "Обязательно к заполнению"
-        }],
-        validationGroup: "validateItems" //обязательный параметр для валидации
-});
-
 
 //Выберите дату
 var now = new Date();   
@@ -500,33 +428,6 @@ var now = new Date();
            class:"input-field__value"
          }
     });
-$("#conditionDest").dxSelectBox({
-        dataSource: [ "FCA", "FAS", "FOB" ],
-        placeholder: "",
-        inputAttr: {
-          id: "conditionDepart__id",
-          class:"input-field__value"
-         }
-    });
-
-$("#conditionDepart").dxSelectBox({
-        dataSource: [ "FCA", "FAS", "FOB" ],
-        placeholder: "",
-        inputAttr: {
-           id: "conditionDest__id",
-           class:"input-field__value"
-         }
-});
-//в какой валюте расчитать
-$("#currency-calc").dxSelectBox({
-        dataSource: [ "Доллары США (USD)", "Рубли (RUB)"],
-        placeholder: "",
-        inputAttr: {
-           id: "currency-calc__id",
-           class:"input-field__value"
-         }
-});
-
 //эффект на иконке при hover тк заголовок всегда 1
 $('.navbar__header-link').hover(  
 function(){
@@ -602,13 +503,72 @@ $('.navbar__item-header').click(function(){
 
 });
 
-   
+
+
 function popupCitySelectShow () {
     $(".popup__city-select").dxPopup({
-        title: "Popup Title",
-        visible: true
+        title: "Выберите пункт отправления",
+        visible: true,
+        width: 500,
+        maxHeight: 772,
+        onShown: function () {
+        	$('.popup__city-content').show();
+        }
     });
 };
+
+
+ const $stepContainer = $('.popup__step-container'),
+      $steps         = $('.popup__step'),
+      numSteps       = $steps.length,
+      $form          = $('.popup__city-select'),
+      $next          = $('.popup__content-nav--next'),
+      $prev          = $('.popup__content-nav--prev');
+
+
+
+let stepWidth = $form.width();
+let currentSlide = 0;
+  stepWidth = $form.width();
+  $steps.css({
+    width: stepWidth + "px"
+  });
+  $stepContainer.css("width", stepWidth*numSteps + "px");
+
+  animateSlider();
+
+function animateSlider() {
+  $stepContainer.css('transform', `translateX(${-stepWidth * currentSlide}px)`);
+}
+
+$next.on('click', function() {
+  if(currentSlide < numSteps-1){
+  currentSlide ++;
+  animateSlider();
+  }
+  if(currentSlide != 0) {
+    $prev.removeClass('disabled');
+  }
+  if(currentSlide === numSteps -1 ) {
+    $(this).addClass('disabled');
+  }
+});
+
+$prev.on('click', function() {
+  if(currentSlide > 0) {
+    currentSlide --;
+    animateSlider();
+  } 
+  if(currentSlide === 0) {
+    $(this).addClass('disabled');
+  }
+  if(currentSlide != numSteps -1 ) {
+    $next.removeClass('disabled');
+  }
+});
+
+
+
 $("#destButton").dxButton({
     text: "",
     onClick: function() {
@@ -621,3 +581,119 @@ $("#departButton").dxButton({
         popupCitySelectShow ();
     }
 });
+
+$("#conditionDest").dxSelectBox({
+        dataSource: [ "FCA", "FAS", "FOB" ],
+        placeholder: "",
+        inputAttr: {
+          id: "conditionDepart__id",
+          class:"input-field__value"
+         }
+    });
+
+$("#conditionDepart").dxSelectBox({
+        dataSource: [ "FCA", "FAS", "FOB" ],
+        placeholder: "",
+        inputAttr: {
+           id: "conditionDest__id",
+           class:"input-field__value"
+         }
+});
+//в какой валюте расчитать
+$("#currency-calc").dxSelectBox({
+        dataSource: [ "Доллары США (USD)", "Рубли (RUB)"],
+        placeholder: "",
+        inputAttr: {
+           id: "currency-calc__id",
+           class:"input-field__value"
+         }
+});
+
+var cityData = [{
+    id: 1,
+    name: "Владивосток, Приморский край, Россия",
+    flag: "RU",
+    imgSrc: "img/flag-russia.svg"
+},
+{
+    id: 2,
+    name: "Владивосток, Приморский край, Россия",
+    flag: "RU",
+    imgSrc: "img/flag-russia.svg"
+},
+{
+    id: 3,
+    name: "Владивосток, Приморский край, Россия",
+    flag: "RU",
+    imgSrc: "img/flag-russia.svg"
+},
+{
+    id: 4,
+    name: "Владивосток, Приморский край, Россия",
+    flag: "RU",
+    imgSrc: "img/flag-russia.svg"
+}, {
+    id: 5,
+    name: "Находка",
+    flag: "RU",
+    imgSrc: "img/flag-russia.svg"
+}
+];
+
+
+//отправление назначеие
+$("#departName").dxAutocomplete({
+  inputAttr: {
+       id: "departName__id",
+       class:"input-field__value"
+   },
+   dataSource: cityData,
+   valueExpr: 'name',
+   itemTemplate: function(data) {
+            return $("<div class='input-field__autocomplete-item'><img class='input-field__autocomplete-item--flag' src='" + data.imgSrc +
+                "'>" + data.name + "</div>");
+         }
+    
+}).dxValidator({
+        validationRules: [{
+            type: "required",
+            message: "Обязательно к заполнению"
+        }],
+        validationGroup: "validateItems" //обязательный параметр для валидации
+    });
+$("#destName").dxAutocomplete({
+  inputAttr: {
+       id: "destName__id",
+       class:"input-field__value"
+   },
+   dataSource: cityData,
+   valueExpr: 'name',
+   itemTemplate: function(data) {
+            return $("<div class='input-field__autocomplete-item'><img class='input-field__autocomplete-item--flag' src='" + data.imgSrc +
+                "'>" + data.name + "</div>");
+         }
+    
+}).dxValidator({
+        validationRules: [{
+            type: "required",
+            message: "Обязательно к заполнению"
+        }],
+        validationGroup: "validateItems" //обязательный параметр для валидации
+});
+
+
+$("#citySearch").dxAutocomplete({
+   placeholder: "Начните вводить название",
+  inputAttr: {
+       id: "citySearch__id",
+       class:"input-field__value"
+   },
+   dataSource: cityData,
+   valueExpr: 'name',
+   itemTemplate: function(data) {
+            return $("<div class='input-field__autocomplete-item'><img class='input-field__autocomplete-item--flag' src='" + data.imgSrc +
+                "'>" + data.name + "</div>");
+         }
+    
+});
+

@@ -1,0 +1,22 @@
+.popup__city-select > .dx-overlay-content {
+    background: #FFFFFF;
+	border: 1px solid #D5D7E1;
+	box-sizing: border-box;
+	box-shadow: 0px 8px 30px rgba(55, 63, 81, 0.2);
+	border-radius: 3px;
+}
+
+.popup__city-select .dx-popup-title {
+	border-bottom: unset;
+	padding-left: 20px;
+    padding-top: 20px;
+    height: 77px;
+}
+
+.dx-item-content.dx-toolbar-item-content {
+	@include font-lucida ($clr-dark-light, 23px, normal);
+}
+
+.dx-popup-content {
+     padding: 0px; 
+}
