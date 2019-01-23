@@ -20,26 +20,6 @@ $("#requestName").dxTextBox({
         validationGroup: "validateItems" //обязательный параметр для валидации
     });
 
-//отправление назначеие
-$("#departName").dxTextBox({
-  inputAttr: {
-       id: "departName__id",
-       class:"input-field__value"
-   }
-}).dxValidator({
-        validationRules: [{
-            type: "required",
-            message: "Обязательно к заполнению"
-        }],
-        validationGroup: "validateItems" //обязательный параметр для валидации
-    });
-$("#destName").dxTextBox({
-  inputAttr: {
-       id: "destName__id",
-       class:"input-field__value"
-   }
-})
-
 
 
 

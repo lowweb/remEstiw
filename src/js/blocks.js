@@ -164,26 +164,6 @@ $("#requestName").dxTextBox({
         validationGroup: "validateItems" //обязательный параметр для валидации
     });
 
-//отправление назначеие
-$("#departName").dxTextBox({
-  inputAttr: {
-       id: "departName__id",
-       class:"input-field__value"
-   }
-}).dxValidator({
-        validationRules: [{
-            type: "required",
-            message: "Обязательно к заполнению"
-        }],
-        validationGroup: "validateItems" //обязательный параметр для валидации
-    });
-$("#destName").dxTextBox({
-  inputAttr: {
-       id: "destName__id",
-       class:"input-field__value"
-   }
-})
-
 
 
 
@@ -309,13 +289,20 @@ $("#special-conditions__radioGroup").dxRadioGroup({
         items: specialConditionsItem
     });
 //add consignment block
-$(".step-block__sep-btn-add").click ( function () {
+// $(".step-block__sep-btn-add").click ( function () {
+
+$(document.body).on('click', '.step-block__sep-btn-add' ,function(){
 //add del btn to first element
 	if ($( ".consignment" ).length == 1 )
 		$( ".consignment .step-block__sep").append("<div class='step-block__sep-btn-close'></div>");
+	
+	//add content, load from temple html
 	var consignmentCount= $( ".consignment" ).length + 1;
-	$( ".consignment" ).last().after($( "<section class='consignment'><div class='step-block__sep'><h2 class='step-block__sep-cap'>Партия №" + consignmentCount +"</h2><div class='step-block__sep-line'></div><div class='step-block__sep-btn-close'></div> </div></section>" ));
+	var templHtml = $('.consignment-template').html();
+	$( ".consignment" ).last().after($( "<section class='consignment'><div class='step-block__sep'><h2 class='step-block__sep-cap'>Партия №" + consignmentCount +"</h2><div class='step-block__sep-line'></div><div class='step-block__sep-btn-close'></div> </div>" + templHtml + "</section>" ));
+
 });
+
 
 //del consignment block 
 $(document.body).on('click', '.step-block__sep-btn-close' ,function(){
@@ -420,6 +407,78 @@ function userPopupClose() {
 //     $('.header-sticky__progress').removeClass('header-sticky__progress--slim');
 //   }
 //  });
+
+var cityData = [{
+    id: 1,
+    name: "Владивосток, Приморский край, Россия",
+    flag: "RU",
+    imgSrc: "img/flag-russia.svg"
+},
+{
+    id: 2,
+    name: "Владивосток, Приморский край, Россия",
+    flag: "RU",
+    imgSrc: "img/flag-russia.svg"
+},
+{
+    id: 3,
+    name: "Владивосток, Приморский край, Россия",
+    flag: "RU",
+    imgSrc: "img/flag-russia.svg"
+},
+{
+    id: 4,
+    name: "Владивосток, Приморский край, Россия",
+    flag: "RU",
+    imgSrc: "img/flag-russia.svg"
+}, {
+    id: 5,
+    name: "Находка",
+    flag: "RU",
+    imgSrc: "img/flag-russia.svg"
+}
+];
+
+
+//отправление назначеие
+$("#departName").dxAutocomplete({
+  inputAttr: {
+       id: "departName__id",
+       class:"input-field__value"
+   },
+   dataSource: cityData,
+   valueExpr: 'name',
+   itemTemplate: function(data) {
+            return $("<div class='input-field__autocomplete-item'><img class='input-field__autocomplete-item--flag' src='" + data.imgSrc +
+                "'>" + data.name + "</div>");
+         }
+    
+}).dxValidator({
+        validationRules: [{
+            type: "required",
+            message: "Обязательно к заполнению"
+        }],
+        validationGroup: "validateItems" //обязательный параметр для валидации
+    });
+$("#destName").dxAutocomplete({
+  inputAttr: {
+       id: "destName__id",
+       class:"input-field__value"
+   },
+   dataSource: cityData,
+   valueExpr: 'name',
+   itemTemplate: function(data) {
+            return $("<div class='input-field__autocomplete-item'><img class='input-field__autocomplete-item--flag' src='" + data.imgSrc +
+                "'>" + data.name + "</div>");
+         }
+    
+}).dxValidator({
+        validationRules: [{
+            type: "required",
+            message: "Обязательно к заполнению"
+        }],
+        validationGroup: "validateItems" //обязательный параметр для валидации
+});
 
 
 //Выберите дату
@@ -543,15 +602,22 @@ $('.navbar__item-header').click(function(){
 
 });
 
+   
+function popupCitySelectShow () {
+    $(".popup__city-select").dxPopup({
+        title: "Popup Title",
+        visible: true
+    });
+};
 $("#destButton").dxButton({
     text: "",
     onClick: function() {
-        alert("The Button was clicked");
+        popupCitySelectShow ();
     }
 });
 $("#departButton").dxButton({
     text: "",
     onClick: function() {
-        alert("The Button was clicked");
+        popupCitySelectShow ();
     }
 });

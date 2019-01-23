@@ -9,7 +9,9 @@
     content: "";
     border-radius: 5px;
 }
-
+.dx-item.dx-radiobutton.dx-radiobutton-checked {
+    color: $clr-dark;
+}
 .dx-radiobutton-icon:before {
     display: block;
     width: 20px;

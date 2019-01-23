@@ -1,11 +1,18 @@
 //add consignment block
-$(".step-block__sep-btn-add").click ( function () {
+// $(".step-block__sep-btn-add").click ( function () {
+
+$(document.body).on('click', '.step-block__sep-btn-add' ,function(){
 //add del btn to first element
 	if ($( ".consignment" ).length == 1 )
 		$( ".consignment .step-block__sep").append("<div class='step-block__sep-btn-close'></div>");
+	
+	//add content, load from temple html
 	var consignmentCount= $( ".consignment" ).length + 1;
-	$( ".consignment" ).last().after($( "<section class='consignment'><div class='step-block__sep'><h2 class='step-block__sep-cap'>Партия №" + consignmentCount +"</h2><div class='step-block__sep-line'></div><div class='step-block__sep-btn-close'></div> </div></section>" ));
+	var templHtml = $('.consignment-template').html();
+	$( ".consignment" ).last().after($( "<section class='consignment'><div class='step-block__sep'><h2 class='step-block__sep-cap'>Партия №" + consignmentCount +"</h2><div class='step-block__sep-line'></div><div class='step-block__sep-btn-close'></div> </div>" + templHtml + "</section>" ));
+
 });
+
 
 //del consignment block 
 $(document.body).on('click', '.step-block__sep-btn-close' ,function(){

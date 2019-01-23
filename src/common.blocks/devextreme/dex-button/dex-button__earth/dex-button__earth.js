@@ -1,12 +1,12 @@
 $("#destButton").dxButton({
     text: "",
     onClick: function() {
-        alert("The Button was clicked");
+        popupCitySelectShow ();
     }
 });
 $("#departButton").dxButton({
     text: "",
     onClick: function() {
-        alert("The Button was clicked");
+        popupCitySelectShow ();
     }
 });
