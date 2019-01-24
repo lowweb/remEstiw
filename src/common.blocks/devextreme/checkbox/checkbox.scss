@@ -27,3 +27,7 @@
 .dx-invalid .dx-checkbox-container .dx-checkbox-icon {
     border: unset;
 } 
+
+.dx-checkbox.dx-state-focused .dx-checkbox-icon {
+  border: 1px solid $clr-blue;
+}

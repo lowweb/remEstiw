@@ -86,3 +86,18 @@ $("#citySearch").dxAutocomplete({
     
 });
 
+
+$("#modalCity").dxAutocomplete({
+   placeholder: "Начните вводить название",
+  inputAttr: {
+       id: "modalCity__id",
+       class:"input-field__value"
+   },
+   dataSource: cityData,
+   valueExpr: 'name',
+   itemTemplate: function(data) {
+            return $("<div class='input-field__autocomplete-item'><img class='input-field__autocomplete-item--flag' src='" + data.imgSrc +
+                "'>" + data.name + "</div>");
+         }
+    
+});

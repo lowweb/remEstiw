@@ -24,3 +24,21 @@ $("#currency-calc").dxSelectBox({
            class:"input-field__value"
          }
 });
+//страна в модальном окне
+$("#modal__country-list").dxSelectBox({
+        dataSource: [ "Россия", "Америка"],
+        placeholder: "",
+        inputAttr: {
+           id: "modal__country-list__id",
+           class:"input-field__value"
+         }
+});
+//край район область в модальном окне
+$("#modal__region-list").dxSelectBox({
+        dataSource: [ "Приморский край", "Камчатский край"],
+        placeholder: "",
+        inputAttr: {
+           id: "modal__region-list__id",
+           class:"input-field__value"
+         }
+});
