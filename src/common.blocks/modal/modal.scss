@@ -93,6 +93,7 @@
       align-items: center;
       padding-left: 19px;
       border-top: 1px solid $clr-grey-v2;
+      border-bottom: 1px solid $clr-grey-v2;
       cursor: pointer;
       @include font-lucida ($clr-blue, 15px, normal);
       &:hover {
@@ -105,7 +106,6 @@
     height: 44px;
     background-color: $clr-white;
     border-top: 1px solid $clr-grey-v2;
-    border-bottom: 1px solid $clr-grey-v2;
     display: flex;
     align-items: center;
     justify-content: space-between;

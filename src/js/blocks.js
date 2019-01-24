@@ -172,17 +172,20 @@ $("#requestName").dxTextBox({
 
 
 
+//close modal
 $('.modal__btn-close').click( function () {
 	$('#modal-city').hide();
 });
-
+$('.modal-city__footer-close-btn').click( function () {
+  $('#modal-city').hide();
+});
 
  const $stepContainer = $('.modal-city__step-container'),
        $steps         = $('.modal-city__step'),
        numSteps       = $steps.length,
        $form          = $('.modal-city__content'),
-       $next          = $('.modal-city__block-href-next'),
-       $prev          = $('.modal-city__block-href-back');
+       $next          = $('.modal-city__block-item'),
+       $prev          = $('.modal-city__block-cap--link');
 
 var stepWidth = $form.width();
 var currentSlide = 0;
@@ -225,7 +228,7 @@ $prev.on('click', function() {
   }
 });
 
-
+//ощщибка заполнения города
 $('.modal-city__title').click(function() {
   $('.modal-city__search-err').toggleClass('modal-city__search-err--show');;
 });
