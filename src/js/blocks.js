@@ -184,10 +184,8 @@ $('.modal__btn-close').click( function () {
        $next          = $('.modal-city__block-href-next'),
        $prev          = $('.modal-city__block-href-back');
 
-
-
-let stepWidth = $form.width();
-let currentSlide = 0;
+var stepWidth = $form.width();
+var currentSlide = 0;
  
   $steps.css({
     width: stepWidth + "px"
@@ -211,8 +209,6 @@ $next.on('click', function() {
   if(currentSlide === numSteps -1 ) {
     $(this).addClass('disabled');
   }
-
-  console.log ($(this).text());
   $('.modal-city__block-href-back').text($(this).text());
 });
 
@@ -365,7 +361,7 @@ $(document.body).on('click', '.step-block__sep-btn-add' ,function(){
 		$( ".consignment .step-block__sep").append("<div class='step-block__sep-btn-close'></div>");
 	
 	//add content
-	let consignmentCount= $( ".consignment" ).length + 1;
+	var consignmentCount= $( ".consignment" ).length + 1;
 
 	$( ".consignment" ).last().after($( "<section class='consignment'><div class='step-block__sep'><h2 class='step-block__sep-cap'>Партия №" + consignmentCount +"</h2><div class='step-block__sep-line'></div><div class='step-block__sep-btn-close'></div> </div></section>" ));
 	$( ".consignment").last().append(cnstCargoCheracter(consignmentCount));
@@ -373,7 +369,7 @@ $(document.body).on('click', '.step-block__sep-btn-add' ,function(){
 	$( ".consignment").last().append(cnstSpecialConditions(consignmentCount));
 	$( ".consignment").last().append(cnstAdditionalCharacter(consignmentCount));
 
-	let el=$(".consignment #cargo-cheracter__radioGroup").last();
+	var el=$(".consignment #cargo-cheracter__radioGroup").last();
 	 	$(el).dxRadioGroup({
    	 	   items: cargoCheracterItem
    		});
@@ -418,8 +414,8 @@ $(document.body).on('click', '.step-block__sep-btn-add' ,function(){
 //del consignment block 
 $(document.body).on('click', '.step-block__sep-btn-close' ,function(){
 	$(this).parent().parent().remove();
-	let consignmentElement = document.getElementsByClassName("consignment");
-		for(let i=0; i < consignmentElement.length; i++){
+	var consignmentElement = document.getElementsByClassName("consignment");
+		for(var i=0; i < consignmentElement.length; i++){
 			$(consignmentElement[i]).find('.step-block__sep-cap').replaceWith("<h2 class='step-block__sep-cap'>Партия №"+ (i+1) +"</h2>");
 		}
 

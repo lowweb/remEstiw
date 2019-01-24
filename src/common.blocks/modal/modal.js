@@ -10,10 +10,8 @@ $('.modal__btn-close').click( function () {
        $next          = $('.modal-city__block-href-next'),
        $prev          = $('.modal-city__block-href-back');
 
-
-
-let stepWidth = $form.width();
-let currentSlide = 0;
+var stepWidth = $form.width();
+var currentSlide = 0;
  
   $steps.css({
     width: stepWidth + "px"
@@ -37,8 +35,6 @@ $next.on('click', function() {
   if(currentSlide === numSteps -1 ) {
     $(this).addClass('disabled');
   }
-
-  console.log ($(this).text());
   $('.modal-city__block-href-back').text($(this).text());
 });
 
