@@ -142,6 +142,123 @@ $("#used-cargo__checkbox").dxCheckBox({
     });
         
 
+$('.modal__btn-close').click( function () {
+	$('#modal-city').hide();
+});
+
+var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
+$("#type-deal__radioGroup").dxRadioGroup({
+        items: typeDealitem,
+        // value: typeDealitem[0]
+     });
+    //.dxValidator({
+    //     validationRules: [{
+    //         type: "required",
+    //         message: "select one"
+    //     }],
+    //     validationGroup: "validateItems"
+    // });
+
+var volumeItem = ["До 5 м", "Свыше 5 м"];
+$("#volume-cargo__radioGroup").dxRadioGroup({
+        items: volumeItem,
+        // value: volumeItem[0]
+    });
+
+var cargoReceiverItem = ["Физическое лицо", "Юридическое лицо"];
+$("#cargo-receiver__radioGroup").dxRadioGroup({
+        items: cargoReceiverItem,
+        // value: cargoReceiverItem[0],
+        layout: "horizontal"
+    });
+
+var cargoCheracterItem = ["Однородный (массовый)", "Однородный (не массовый)","Однородный в упаковке", "Не однородный в/без упаковки/и", "Одно грузовое место", "Жидкость без упаковки"];
+$("#cargo-cheracter__radioGroup").dxRadioGroup({
+        items: cargoCheracterItem
+    });
+
+var transportModItem = ["Груз навалом", "Загрузить в контейнер", "Уже загружен в контейнер", "По решению исполнителя"];
+$("#transport-mod__radioGroup").dxRadioGroup({
+        items: transportModItem
+  
+    });
+var specialConditionsItem = ["На верхней палубе судна", "Открытое хранение", "Крытое хранение", "Температурный режим"];
+$("#special-conditions__radioGroup").dxRadioGroup({
+        items: specialConditionsItem
+    });
+//add consignment block
+const cnstCargoCheracter="<field-set id='field-set__cargo-cheracter' class='field-set field-set__cargo-cheracter'><legend class='field-set__cap'>Характеристики груза</legend><div class='field-set__items'><div id='cargo-cheracter__radioGroup' class='radiogroup'></div></div></field-set>";
+	  cnstTransportMod = "<field-set id='field-set__transport-mod' class='field-set field-set__transport-mod'><legend class='field-set__cap'>Способ перевозки</legend><div class='field-set__items'><div id='transport-mod__radioGroup' class='radiogroup'></div></div></field-set>";
+	  cnstSpecialConditions="<field-set id='field-set__special-conditions' class='field-set field-set__special-conditions'><legend class='field-set__cap'>Особые условия хранения и перевозки</legend><div class='field-set__items'><div id='special-conditions__radioGroup' class='radiogroup'></div></div></field-set>";
+	  cnstAdditionalCharacter="<field-set id='field-set__additional-character' class='field-set field-set__additional-character'><legend class='field-set__cap'>Дополнительные характеристики</legend><div class='field-set__items checkbox-items'><div id='danger-cargo__checkbox' class='checkbox'></div><div id='oversize-cargo__checkbox' class='checkbox'></div><div id='humane-cargo__checkbox' class='checkbox'></div><div id='home-cargo__checkbox' class='checkbox'></div><div id='used-cargo__checkbox' class='checkbox'></div></div></field-set>";
+
+$(document.body).on('click', '.step-block__sep-btn-add' ,function(){
+//add del btn to first element
+	if ($( ".consignment" ).length == 1 )
+		$( ".consignment .step-block__sep").append("<div class='step-block__sep-btn-close'></div>");
+	
+	//add content
+	let consignmentCount= $( ".consignment" ).length + 1;
+
+	$( ".consignment" ).last().after($( "<section class='consignment'><div class='step-block__sep'><h2 class='step-block__sep-cap'>Партия №" + consignmentCount +"</h2><div class='step-block__sep-line'></div><div class='step-block__sep-btn-close'></div> </div></section>" ));
+		
+	$( ".consignment").last().append(cnstCargoCheracter);
+	$( ".consignment").last().append(cnstTransportMod);
+	$( ".consignment").last().append(cnstSpecialConditions);
+	$( ".consignment").last().append(cnstAdditionalCharacter);
+	let el=$(".consignment #cargo-cheracter__radioGroup").last();
+	 	$(el).dxRadioGroup({
+   	 	   items: cargoCheracterItem
+   		});
+   		el=$(".consignment #transport-mod__radioGroup").last();
+	 	$(el).dxRadioGroup({
+   	 	   items: transportModItem
+   		});
+   		el=$(".consignment #special-conditions__radioGroup").last();
+	 	$(el).dxRadioGroup({
+   	 	   items: specialConditionsItem
+   		});
+
+	 	el=$(".consignment #danger-cargo__checkbox").last();
+	 	$(el).dxCheckBox({
+       		 text: "Опасный груз",
+       		 value: false
+   		 });
+	 	el=$(".consignment #oversize-cargo__checkbox").last();
+	 	$(el).dxCheckBox({
+       		text: "Негабаритный",
+        	value: false
+   		 });
+
+	 	el=$(".consignment #humane-cargo__checkbox").last();
+	 	$(el).dxCheckBox({
+       		 text: "Гуманитарная помощь",
+       		 value: false,
+   		 });
+	 	el=$(".consignment #home-cargo__checkbox").last();
+	 	$(el).dxCheckBox({
+       		 text: "Домашние вещи",
+       		 value: false,
+   		 });
+	 	el=$(".consignment #used-cargo__checkbox").last();
+	 	$(el).dxCheckBox({
+       		 text: "Бывший в употреблении",
+       		 value: false,
+   		 });
+});
+
+
+//del consignment block 
+$(document.body).on('click', '.step-block__sep-btn-close' ,function(){
+	$(this).parent().parent().remove();
+	let consignmentElement = document.getElementsByClassName("consignment");
+		for(let i=0; i < consignmentElement.length; i++){
+			$(consignmentElement[i]).find('.step-block__sep-cap').replaceWith("<h2 class='step-block__sep-cap'>Партия №"+ (i+1) +"</h2>");
+		}
+
+	if ($( ".consignment" ).length == 1 )
+		$( ".consignment .step-block__sep .step-block__sep-btn-close").remove();
+});
 // $(".navbar").scroll (function () {
 
 //  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
@@ -161,6 +278,32 @@ $("#used-cargo__checkbox").dxCheckBox({
 //  }
 
 //  });
+//название запроса
+$("#requestName").dxTextBox({
+  inputAttr: {
+   		 id: "requestName__id",
+   		 class:"input-field__value"
+   }
+}).dxValidator({
+        validationRules: [{
+            type: "required",
+            message: "Обязательно к заполнению"
+        }, {
+            type: "pattern",
+            pattern: /^[^0-9]+$/,
+            message: "Строка не может содержать цифры"
+        }, {
+            type: "stringLength",
+            min: 2,
+            message: "Длина строки не меньше 2 символов"
+        }],
+        validationGroup: "validateItems" //обязательный параметр для валидации
+    });
+
+
+
+
+
 $('.progress-bar__step').hover (function(){
 	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
 },
@@ -222,133 +365,6 @@ $('.header-sticky__progress').click(function() {
 
 
 });
-var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
-$("#type-deal__radioGroup").dxRadioGroup({
-        items: typeDealitem,
-        // value: typeDealitem[0]
-     });
-    //.dxValidator({
-    //     validationRules: [{
-    //         type: "required",
-    //         message: "select one"
-    //     }],
-    //     validationGroup: "validateItems"
-    // });
-
-var volumeItem = ["До 5 м", "Свыше 5 м"];
-$("#volume-cargo__radioGroup").dxRadioGroup({
-        items: volumeItem,
-        // value: volumeItem[0]
-    });
-
-var cargoReceiverItem = ["Физическое лицо", "Юридическое лицо"];
-$("#cargo-receiver__radioGroup").dxRadioGroup({
-        items: cargoReceiverItem,
-        // value: cargoReceiverItem[0],
-        layout: "horizontal"
-    });
-
-var cargoCheracterItem = ["Однородный (массовый)", "Однородный (не массовый)","Однородный в упаковке", "Не однородный в/без упаковки/и", "Одно грузовое место", "Жидкость без упаковки"];
-$("#cargo-cheracter__radioGroup").dxRadioGroup({
-        items: cargoCheracterItem
-    });
-
-var transportModItem = ["Груз навалом", "Загрузить в контейнер", "Уже загружен в контейнер", "По решению исполнителя"];
-$("#transport-mod__radioGroup").dxRadioGroup({
-        items: transportModItem
-  
-    });
-var specialConditionsItem = ["На верхней палубе судна", "Открытое хранение", "Крытое хранение", "Температурный режим"];
-$("#special-conditions__radioGroup").dxRadioGroup({
-        items: specialConditionsItem
-    });
-//add consignment block
-// $(".step-block__sep-btn-add").click ( function () {
-const cnstCargoCheracter="<field-set id='field-set__cargo-cheracter' class='field-set field-set__cargo-cheracter'><legend class='field-set__cap'>Характеристики груза</legend><div class='field-set__items'><div id='cargo-cheracter__radioGroup' class='radiogroup'></div></div></field-set>";
-	  cnstTransportMod = "<field-set id='field-set__transport-mod' class='field-set field-set__transport-mod'><legend class='field-set__cap'>Способ перевозки</legend><div class='field-set__items'><div id='transport-mod__radioGroup' class='radiogroup'></div></div></field-set>";
-	  cnstSpecialConditions="<field-set id='field-set__special-conditions' class='field-set field-set__special-conditions'><legend class='field-set__cap'>Особые условия хранения и перевозки</legend><div class='field-set__items'><div id='special-conditions__radioGroup' class='radiogroup'></div></div></field-set>";
-	  cnstAdditionalCharacter="<field-set id='field-set__additional-character' class='field-set field-set__additional-character'><legend class='field-set__cap'>Дополнительные характеристики</legend><div class='field-set__items checkbox-items'><div id='danger-cargo__checkbox' class='checkbox'></div><div id='oversize-cargo__checkbox' class='checkbox'></div><div id='humane-cargo__checkbox' class='checkbox'></div><div id='home-cargo__checkbox' class='checkbox'></div><div id='used-cargo__checkbox' class='checkbox'></div></div></field-set>";
-
-$(document.body).on('click', '.step-block__sep-btn-add' ,function(){
-//add del btn to first element
-	if ($( ".consignment" ).length == 1 )
-		$( ".consignment .step-block__sep").append("<div class='step-block__sep-btn-close'></div>");
-	
-	//add content
-	let consignmentCount= $( ".consignment" ).length + 1;
-
-	$( ".consignment" ).last().after($( "<section class='consignment'><div class='step-block__sep'><h2 class='step-block__sep-cap'>Партия №" + consignmentCount +"</h2><div class='step-block__sep-line'></div><div class='step-block__sep-btn-close'></div> </div></section>" ));
-		
-	$( ".consignment").last().append(cnstCargoCheracter);
-	$( ".consignment").last().append(cnstTransportMod);
-	$( ".consignment").last().append(cnstSpecialConditions);
-	$( ".consignment").last().append(cnstAdditionalCharacter);
-	let el=$(".consignment #cargo-cheracter__radioGroup").last();
-	 	$(el).dxRadioGroup({
-   	 	   items: cargoCheracterItem
-   		});
-   		el=$(".consignment #transport-mod__radioGroup").last();
-	 	$(el).dxRadioGroup({
-   	 	   items: transportModItem
-   		});
-   		el=$(".consignment #special-conditions__radioGroup").last();
-	 	$(el).dxRadioGroup({
-   	 	   items: specialConditionsItem
-   		});
-
-	 	el=$(".consignment #danger-cargo__checkbox").last();
-	 	$(el).dxCheckBox({
-       		 text: "Опасный груз",
-       		 value: false
-   		 });
-	 	el=$(".consignment #oversize-cargo__checkbox").last();
-	 	$(el).dxCheckBox({
-       		text: "Негабаритный",
-        	value: false
-   		 });
-
-	 	el=$(".consignment #humane-cargo__checkbox").last();
-	 	$(el).dxCheckBox({
-       		 text: "Гуманитарная помощь",
-       		 value: false,
-   		 });
-	 	el=$(".consignment #home-cargo__checkbox").last();
-	 	$(el).dxCheckBox({
-       		 text: "Домашние вещи",
-       		 value: false,
-   		 });
-	 	el=$(".consignment #used-cargo__checkbox").last();
-	 	$(el).dxCheckBox({
-       		 text: "Бывший в употреблении",
-       		 value: false,
-   		 });
-
-   		
-
-
-
-
-
-
-});
-
-
-//del consignment block 
-$(document.body).on('click', '.step-block__sep-btn-close' ,function(){
-// $(".step-block__sep-btn-close").click ( function () {
-	// alert('dsdsa');
-
-	$(this).parent().parent().remove();
-
-	var consignmentElement = document.getElementsByClassName("consignment");
-		for(var i=0; i < consignmentElement.length; i++){
-			$(consignmentElement[i]).find('.step-block__sep-cap').replaceWith("<h2 class='step-block__sep-cap'>Партия №"+ (i+1) +"</h2>");
-		}
-
-	if ($( ".consignment" ).length == 1 )
-		$( ".consignment .step-block__sep .step-block__sep-btn-close").remove();
- 	// $( ".consignment" ).last().after($( "<section class='consignment'><div class='step-block__sep'><h2 class='step-block__sep-cap'>Партия</h2><div class='step-block__sep-line'></div><div class='step-block__sep-btn-close'></div> </div></section>" ));
-});
     $("#period__switch").dxSwitch({
         value: false
     });
@@ -378,32 +394,6 @@ function timezonePopupClose(e) {
 	}
 	// }
 }
-
-
-//название запроса
-$("#requestName").dxTextBox({
-  inputAttr: {
-   		 id: "requestName__id",
-   		 class:"input-field__value"
-   }
-}).dxValidator({
-        validationRules: [{
-            type: "required",
-            message: "Обязательно к заполнению"
-        }, {
-            type: "pattern",
-            pattern: /^[^0-9]+$/,
-            message: "Строка не может содержать цифры"
-        }, {
-            type: "stringLength",
-            min: 2,
-            message: "Длина строки не меньше 2 символов"
-        }],
-        validationGroup: "validateItems" //обязательный параметр для валидации
-    });
-
-
-
 
 
 $('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
@@ -462,6 +452,85 @@ function userPopupClose() {
 //     $('.header-sticky__progress').removeClass('header-sticky__progress--slim');
 //   }
 //  });
+
+$("#destButton").dxButton({
+    text: "",
+    onClick: function() {
+  		$('#modal-city').show();
+    }
+});
+$("#departButton").dxButton({
+    text: "",
+    onClick: function() {
+        $('#modal-city').show();
+    }
+});
+
+
+function popupCitySelectShow () {
+    $(".popup__city-select").dxPopup({
+        title: "Выберите пункт отправления",
+        visible: true,
+        width: 500,
+        // height: 100%,
+        onShown: function () {
+        	$('.popup__city-container').show();
+
+        }
+    });
+};
+
+
+ const $stepContainer = $('.popup__step-container'),
+      $steps         = $('.popup__step'),
+      numSteps       = $steps.length,
+      $form          = $('.popup__city-content'),
+      $next          = $('.popup__content-nav--next'),
+      $prev          = $('.popup__content-nav--prev');
+
+
+
+let stepWidth = 498;
+let currentSlide = 0;
+ 
+  $steps.css({
+    width: stepWidth + "px"
+  });
+  $stepContainer.css("width", stepWidth*numSteps + "px");
+
+  animateSlider();
+
+function animateSlider() {
+  $stepContainer.css('transform', `translateX(${-stepWidth * currentSlide}px)`);
+}
+
+$next.on('click', function() {
+  if(currentSlide < numSteps-1){
+  currentSlide ++;
+  animateSlider();
+  }
+  if(currentSlide != 0) {
+    $prev.removeClass('disabled');
+  }
+  if(currentSlide === numSteps -1 ) {
+    $(this).addClass('disabled');
+  }
+});
+
+$prev.on('click', function() {
+  if(currentSlide > 0) {
+    currentSlide --;
+    animateSlider();
+  } 
+  if(currentSlide === 0) {
+    $(this).addClass('disabled');
+  }
+  if(currentSlide != numSteps -1 ) {
+    $next.removeClass('disabled');
+  }
+});
+
+
 
 //эффект на иконке при hover тк заголовок всегда 1
 $('.navbar__header-link').hover(  
@@ -536,53 +605,6 @@ $('.navbar__item-header').click(function(){
 	$(this).parents(".navbar__item").find('.navbar__submenu').toggleClass('navbar__submenu--open');
 	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
 
-});
-
-
-//Выберите дату
-var now = new Date();   
-    $("#cargoBeginDate").dxDateBox({
-        type: "date",
-        placeholder: "Введите дату",
-        inputAttr: {
-           id: "cargoBeginDate__id",
-           class:"input-field__value"
-         }
-    });
-    $("#cargoExpDate").dxDateBox({
-        type: "date",
-        placeholder: "Введите дату",
-        disabled: true,
-        inputAttr: {
-           id: "cargoExpDate__id",
-           class:"input-field__value"
-         }
-    });
-$("#conditionDest").dxSelectBox({
-        dataSource: [ "FCA", "FAS", "FOB" ],
-        placeholder: "",
-        inputAttr: {
-          id: "conditionDepart__id",
-          class:"input-field__value"
-         }
-    });
-
-$("#conditionDepart").dxSelectBox({
-        dataSource: [ "FCA", "FAS", "FOB" ],
-        placeholder: "",
-        inputAttr: {
-           id: "conditionDest__id",
-           class:"input-field__value"
-         }
-});
-//в какой валюте расчитать
-$("#currency-calc").dxSelectBox({
-        dataSource: [ "Доллары США (USD)", "Рубли (RUB)"],
-        placeholder: "",
-        inputAttr: {
-           id: "currency-calc__id",
-           class:"input-field__value"
-         }
 });
 
 var cityData = [{
@@ -674,82 +696,50 @@ $("#citySearch").dxAutocomplete({
 });
 
 
-
-
-function popupCitySelectShow () {
-    $(".popup__city-select").dxPopup({
-        title: "Выберите пункт отправления",
-        visible: true,
-        width: 500,
-        maxHeight: 772,
-        onShown: function () {
-        	$('.popup__city-content').show();
-        }
+$("#conditionDest").dxSelectBox({
+        dataSource: [ "FCA", "FAS", "FOB" ],
+        placeholder: "",
+        inputAttr: {
+          id: "conditionDepart__id",
+          class:"input-field__value"
+         }
     });
-};
 
-
- const $stepContainer = $('.popup__step-container'),
-      $steps         = $('.popup__step'),
-      numSteps       = $steps.length,
-      $form          = $('.popup__city-select'),
-      $next          = $('.popup__content-nav--next'),
-      $prev          = $('.popup__content-nav--prev');
-
-
-
-let stepWidth = $form.width();
-let currentSlide = 0;
-  stepWidth = $form.width();
-  $steps.css({
-    width: stepWidth + "px"
-  });
-  $stepContainer.css("width", stepWidth*numSteps + "px");
-
-  animateSlider();
-
-function animateSlider() {
-  $stepContainer.css('transform', `translateX(${-stepWidth * currentSlide}px)`);
-}
-
-$next.on('click', function() {
-  if(currentSlide < numSteps-1){
-  currentSlide ++;
-  animateSlider();
-  }
-  if(currentSlide != 0) {
-    $prev.removeClass('disabled');
-  }
-  if(currentSlide === numSteps -1 ) {
-    $(this).addClass('disabled');
-  }
+$("#conditionDepart").dxSelectBox({
+        dataSource: [ "FCA", "FAS", "FOB" ],
+        placeholder: "",
+        inputAttr: {
+           id: "conditionDest__id",
+           class:"input-field__value"
+         }
 });
-
-$prev.on('click', function() {
-  if(currentSlide > 0) {
-    currentSlide --;
-    animateSlider();
-  } 
-  if(currentSlide === 0) {
-    $(this).addClass('disabled');
-  }
-  if(currentSlide != numSteps -1 ) {
-    $next.removeClass('disabled');
-  }
+//в какой валюте расчитать
+$("#currency-calc").dxSelectBox({
+        dataSource: [ "Доллары США (USD)", "Рубли (RUB)"],
+        placeholder: "",
+        inputAttr: {
+           id: "currency-calc__id",
+           class:"input-field__value"
+         }
 });
 
 
-
-
-$("#destButton").dxButton({
-    text: "",
-    onClick: function() {
-        popupCitySelectShow ();
-    }
-});
-$("#departButton").dxButton({
-    text: "",
-    onClick: function() {
-        popupCitySelectShow ();
-    }
-});
+//Выберите дату
+var now = new Date();   
+    $("#cargoBeginDate").dxDateBox({
+        type: "date",
+        placeholder: "Введите дату",
+        inputAttr: {
+           id: "cargoBeginDate__id",
+           class:"input-field__value"
+         }
+    });
+    $("#cargoExpDate").dxDateBox({
+        type: "date",
+        placeholder: "Введите дату",
+        disabled: true,
+        inputAttr: {
+           id: "cargoExpDate__id",
+           class:"input-field__value"
+         }
+    });

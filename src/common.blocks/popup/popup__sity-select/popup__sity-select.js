@@ -5,9 +5,10 @@ function popupCitySelectShow () {
         title: "Выберите пункт отправления",
         visible: true,
         width: 500,
-        maxHeight: 772,
+        // height: 100%,
         onShown: function () {
-        	$('.popup__city-content').show();
+        	$('.popup__city-container').show();
+
         }
     });
 };
@@ -16,15 +17,15 @@ function popupCitySelectShow () {
  const $stepContainer = $('.popup__step-container'),
       $steps         = $('.popup__step'),
       numSteps       = $steps.length,
-      $form          = $('.popup__city-select'),
+      $form          = $('.popup__city-content'),
       $next          = $('.popup__content-nav--next'),
       $prev          = $('.popup__content-nav--prev');
 
 
 
-let stepWidth = $form.width();
+let stepWidth = 498;
 let currentSlide = 0;
-  stepWidth = $form.width();
+ 
   $steps.css({
     width: stepWidth + "px"
   });

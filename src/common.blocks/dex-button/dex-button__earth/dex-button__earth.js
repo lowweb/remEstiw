@@ -1,12 +1,12 @@
 $("#destButton").dxButton({
     text: "",
     onClick: function() {
-        popupCitySelectShow ();
+  		$('#modal-city').show();
     }
 });
 $("#departButton").dxButton({
     text: "",
     onClick: function() {
-        popupCitySelectShow ();
+        $('#modal-city').show();
     }
 });
