@@ -4,7 +4,8 @@ $(".summary-error__items").dxValidationSummary({
     });
 
 //click checkbox element
-  $('.checkbox').click(function(){
+$(document.body).on('click', '.checkbox' ,function(){
+  // $('.checkbox').click(function(){
     if ($(this).parent().parent().hasClass("field-set--error")) {
     	$('#href-' + $(this).parent().parent().attr('id')).remove();
     	$(this).parent().parent().removeClass('field-set--error');
@@ -14,7 +15,8 @@ $(".summary-error__items").dxValidationSummary({
   });
 
   //click radiobox element
-  $('.radiogroup').click(function(){
+  $(document.body).on('click', '.radiogroup' ,function(){
+  // $('.radiogroup').click(function(){
     if ($(this).parent().parent().hasClass("field-set--error")) {
     	$('#href-' + $(this).parent().parent().attr('id')).remove();
     	$(this).parent().parent().removeClass('field-set--error');
@@ -25,14 +27,14 @@ $(".summary-error__items").dxValidationSummary({
 	$(document).on("click", ".summary-error__href", function(e){
    	e.preventDefault();
 		 document.querySelector(this.hash).scrollIntoView(true);
+		 $(this.hash).fadeOut(350).fadeIn(350); 
 		 // console.log ($('.view-container').offset().top + '=' + $(this.hash).offset().top);
 		 // console.log (Math.abs($('.view-container').offset().top) + $('.header').height());
 		 $(".view").animate({scrollTop: Math.abs($('.view-container').offset().top) + $('.header').height() - 50  },"slow");	
 		});
 
 //check error
-$('#submitButton').click(function(){ 
-
+$(document.body).on('click', '#submitButton' ,function(){
 	$('.summary-error').hide();
 	DevExpress.validationEngine.validateGroup("validateItems");
 

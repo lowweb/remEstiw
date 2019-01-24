@@ -7,8 +7,8 @@ $('.modal__btn-close').click( function () {
        $steps         = $('.modal-city__step'),
        numSteps       = $steps.length,
        $form          = $('.modal-city__content'),
-       $next          = $('.modal-city__content-nav--next'),
-       $prev          = $('.modal-city__content-nav--prev');
+       $next          = $('.modal-city__block-href-next'),
+       $prev          = $('.modal-city__block-href-back');
 
 
 
