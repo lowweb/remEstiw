@@ -1,6 +1,44 @@
 <div id="modal-city" class="modal modal-city">
   <div class="modal-city__content">
-    <span class="modal__btn-close">&times;</span>
-    <p>Some text in the Modal..</p>
+  	 <div class="modal-city__title">
+  	 	<div class="modal-city__title-cap">Выберите пункт отправления</div>
+     	<div class="modal__btn-close">&times;</div>
+ 	</div>
+    <div class="modal-city__search"> 
+				<div class="input-field input-field__city-search">
+			    <div id="citySearch" class="input-field__cont"></div>		    
+			</div>
+		</div>
+	    <div class="modal-city__step-container">
+	        <div class="modal-city__step">
+			<div class="modal-city__block-cap">Наиболее популярные направления:</div>
+            	<ul class="modal-city__block-items">
+            		<li class="modal-city__block-item"><a class="modal-city__block-href-next">Россия</a></li>
+            		<li class="modal-city__block-item"><a class="modal-city__block-href-next">Китай (КНР)</a></li>
+            		<li class="modal-city__block-item"><a class="modal-city__block-href-next">Республика Корея</a></li>
+            	</ul>   
+          	<div class="modal-city__block-cap">Части света:</div>
+            	<ul class="modal-city__block-items">
+            		<li class="modal-city__block-item"><a class="modal-city__block-href-next">Европа</a></li>
+            		<li class="modal-city__block-item"><a class="modal-city__block-href-next">Азия</a></li>
+            		<li class="modal-city__block-item"><a class="modal-city__block-href-next">Америка</a></li>
+            		<li class="modal-city__block-item"><a class="modal-city__block-href-next">Африка</a></li>
+            		<li class="modal-city__block-item"><a class="modal-city__block-href-next">Австралия</a></li>
+            		<li class="modal-city__block-item"><a class="modal-city__block-href-next">Андарктида</a></li>
+            	</ul>  
+          	</div>
+
+	        <div class="modal-city__step">
+            	<div>
+            		<div class="modal-city__block-cap--link"><a class="modal-city__block-href-back">Европа</a></div>
+            	</div>     
+          	</div>
+        </div>
+        <div class="modal-city__footer">
+        	<button class="purple-button button-ok modal-city__footer-ok-btn">Ok</button>
+        	<button class="basic-button button-cancel modal-city__footer-close-btn">Отмена</button>
+        	<a href="#" class="modal-city__content-nav--prev">Back</a>
+	        <a href="#" class="modal-city__content-nav--next">Next</a>
+	</div>
   </div>
 </div>

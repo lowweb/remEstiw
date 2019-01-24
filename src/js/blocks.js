@@ -141,6 +141,59 @@ $("#used-cargo__checkbox").dxCheckBox({
         value: false,
     });
         
+$('.modal__btn-close').click( function () {
+	$('#modal-city').hide();
+});
+
+
+ const $stepContainer = $('.modal-city__step-container'),
+       $steps         = $('.modal-city__step'),
+       numSteps       = $steps.length,
+       $form          = $('.modal-city__content'),
+       $next          = $('.modal-city__content-nav--next'),
+       $prev          = $('.modal-city__content-nav--prev');
+
+
+
+let stepWidth = $form.width();
+let currentSlide = 0;
+ 
+  $steps.css({
+    width: stepWidth + "px"
+  });
+  $stepContainer.css("width", stepWidth*numSteps + "px");
+
+  animateSlider();
+
+function animateSlider() {
+  $stepContainer.css('transform', `translateX(${-stepWidth * currentSlide}px)`);
+}
+
+$next.on('click', function() {
+  if(currentSlide < numSteps-1){
+  currentSlide ++;
+  animateSlider();
+  }
+  if(currentSlide != 0) {
+    $prev.removeClass('disabled');
+  }
+  if(currentSlide === numSteps -1 ) {
+    $(this).addClass('disabled');
+  }
+});
+
+$prev.on('click', function() {
+  if(currentSlide > 0) {
+    currentSlide --;
+    animateSlider();
+  } 
+  if(currentSlide === 0) {
+    $(this).addClass('disabled');
+  }
+  if(currentSlide != numSteps -1 ) {
+    $next.removeClass('disabled');
+  }
+});
 
 //название запроса
 $("#requestName").dxTextBox({
@@ -168,90 +221,6 @@ $("#requestName").dxTextBox({
 
 
 
-$('.modal__btn-close').click( function () {
-	$('#modal-city').hide();
-});
-
-// $(".navbar").scroll (function () {
-
-//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
-
-//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
-//     $(".navbar-ul").addClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-sticky')[0].scrollIntoView(true);
-
-// }  
-// if ( $(this).scrollTop() == 0) {
-
-//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
-//     $(".navbar-ul").removeClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-currency')[0].scrollIntoView(true);
-//  }
-
-//  });
-$('.progress-bar__step').hover (function(){
-	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
-},
-function (){
-	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
-}
-);
-
-
-var progressPercentValue=10;
-  
-// function sleep(ms) {
-//   return new Promise(resolve => setTimeout(resolve, ms));
-// }
-
-// async function runProgressBar() {
-
-// 	while (progressPercentValue < 100) {
-// 		$('.progress-bar__status').width((progressPercentValue + 5)+'%');
-// 		// console.log('posle='+ Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100));
-// 		if(progressPercentValue == 45){
-// 			$('.progress-bar__second-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
-// 			$('.progress-bar__second-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
-
-// 		}
-
-// 		if(progressPercentValue == 95){
-// 			$('.progress-bar__third-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
-// 			$('.progress-bar__third-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
-
-// 		}
-// 	await sleep(500);
-// 	progressPercentValue+=5;	
-// 	}
-
-// }
-
-
-$('.header-sticky__progress').click(function() {
-
-	// progressPercentValue=Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100);
-	console.log('do='+progressPercentValue);
-	if (progressPercentValue < 100) {
-		$('.progress-bar__status').width((progressPercentValue + 5)+'%');
-		// console.log('posle='+ Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100));
-		if(progressPercentValue == 45){
-			$('.progress-bar__second-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
-			$('.progress-bar__second-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
-
-		}
-
-		if(progressPercentValue == 95){
-			$('.progress-bar__third-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
-			$('.progress-bar__third-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
-
-		}
-	progressPercentValue+=5;	
-	}
-
-
-});
 var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
 $("#type-deal__radioGroup").dxRadioGroup({
         items: typeDealitem,
@@ -365,6 +334,25 @@ $(document.body).on('click', '.step-block__sep-btn-close' ,function(){
 	if ($( ".consignment" ).length == 1 )
 		$( ".consignment .step-block__sep .step-block__sep-btn-close").remove();
 });
+// $(".navbar").scroll (function () {
+
+//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
+
+//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
+//     $(".navbar-ul").addClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-sticky')[0].scrollIntoView(true);
+
+// }  
+// if ( $(this).scrollTop() == 0) {
+
+//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
+//     $(".navbar-ul").removeClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-currency')[0].scrollIntoView(true);
+//  }
+
+//  });
     $("#period__switch").dxSwitch({
         value: false
     });
@@ -396,6 +384,67 @@ function timezonePopupClose(e) {
 }
 
 
+$('.progress-bar__step').hover (function(){
+	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
+},
+function (){
+	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
+}
+);
+
+
+var progressPercentValue=10;
+  
+// function sleep(ms) {
+//   return new Promise(resolve => setTimeout(resolve, ms));
+// }
+
+// async function runProgressBar() {
+
+// 	while (progressPercentValue < 100) {
+// 		$('.progress-bar__status').width((progressPercentValue + 5)+'%');
+// 		// console.log('posle='+ Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100));
+// 		if(progressPercentValue == 45){
+// 			$('.progress-bar__second-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
+// 			$('.progress-bar__second-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+
+// 		}
+
+// 		if(progressPercentValue == 95){
+// 			$('.progress-bar__third-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
+// 			$('.progress-bar__third-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+
+// 		}
+// 	await sleep(500);
+// 	progressPercentValue+=5;	
+// 	}
+
+// }
+
+
+$('.header-sticky__progress').click(function() {
+
+	// progressPercentValue=Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100);
+	console.log('do='+progressPercentValue);
+	if (progressPercentValue < 100) {
+		$('.progress-bar__status').width((progressPercentValue + 5)+'%');
+		// console.log('posle='+ Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100));
+		if(progressPercentValue == 45){
+			$('.progress-bar__second-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
+			$('.progress-bar__second-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+
+		}
+
+		if(progressPercentValue == 95){
+			$('.progress-bar__third-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
+			$('.progress-bar__third-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+
+		}
+	progressPercentValue+=5;	
+	}
+
+
+});
 $('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
 	// $(this).toggleClass('user-popup-menu__title-btn--up');
 	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
@@ -420,18 +469,6 @@ function userPopupClose() {
 		$('.app-lnk-disable').toggleClass('app-lnk-disable');
 	}
 }
-$("#destButton").dxButton({
-    text: "",
-    onClick: function() {
-  		$('#modal-city').show();
-    }
-});
-$("#departButton").dxButton({
-    text: "",
-    onClick: function() {
-        $('#modal-city').show();
-    }
-});
 //скролим правую часть
 // $(".main-content").scroll (function () {
 //   //move up
@@ -464,6 +501,112 @@ $("#departButton").dxButton({
 //     $('.header-sticky__progress').removeClass('header-sticky__progress--slim');
 //   }
 //  });
+
+$("#destButton").dxButton({
+    text: "",
+    onClick: function() {
+  		$('#modal-city').show();
+    }
+});
+$("#departButton").dxButton({
+    text: "",
+    onClick: function() {
+        $('#modal-city').show();
+    }
+});
+$("#conditionDest").dxSelectBox({
+        dataSource: [ "FCA", "FAS", "FOB" ],
+        placeholder: "",
+        inputAttr: {
+          id: "conditionDepart__id",
+          class:"input-field__value"
+         }
+    });
+
+$("#conditionDepart").dxSelectBox({
+        dataSource: [ "FCA", "FAS", "FOB" ],
+        placeholder: "",
+        inputAttr: {
+           id: "conditionDest__id",
+           class:"input-field__value"
+         }
+});
+//в какой валюте расчитать
+$("#currency-calc").dxSelectBox({
+        dataSource: [ "Доллары США (USD)", "Рубли (RUB)"],
+        placeholder: "",
+        inputAttr: {
+           id: "currency-calc__id",
+           class:"input-field__value"
+         }
+});
+
+
+
+// function popupCitySelectShow () {
+//     $(".popup__city-select").dxPopup({
+//         title: "Выберите пункт отправления",
+//         visible: true,
+//         width: 500,
+//         // height: 100%,
+//         onShown: function () {
+//         	$('.popup__city-container').show();
+
+//         }
+//     });
+// };
+
+
+//  const $stepContainer = $('.popup__step-container'),
+//       $steps         = $('.popup__step'),
+//       numSteps       = $steps.length,
+//       $form          = $('.popup__city-content'),
+//       $next          = $('.popup__content-nav--next'),
+//       $prev          = $('.popup__content-nav--prev');
+
+
+
+// let stepWidth = 498;
+// let currentSlide = 0;
+ 
+//   $steps.css({
+//     width: stepWidth + "px"
+//   });
+//   $stepContainer.css("width", stepWidth*numSteps + "px");
+
+//   animateSlider();
+
+// function animateSlider() {
+//   $stepContainer.css('transform', `translateX(${-stepWidth * currentSlide}px)`);
+// }
+
+// $next.on('click', function() {
+//   if(currentSlide < numSteps-1){
+//   currentSlide ++;
+//   animateSlider();
+//   }
+//   if(currentSlide != 0) {
+//     $prev.removeClass('disabled');
+//   }
+//   if(currentSlide === numSteps -1 ) {
+//     $(this).addClass('disabled');
+//   }
+// });
+
+// $prev.on('click', function() {
+//   if(currentSlide > 0) {
+//     currentSlide --;
+//     animateSlider();
+//   } 
+//   if(currentSlide === 0) {
+//     $(this).addClass('disabled');
+//   }
+//   if(currentSlide != numSteps -1 ) {
+//     $next.removeClass('disabled');
+//   }
+// });
+
+
 
 var cityData = [{
     id: 1,
@@ -574,31 +717,24 @@ var now = new Date();
            class:"input-field__value"
          }
     });
-$("#conditionDest").dxSelectBox({
-        dataSource: [ "FCA", "FAS", "FOB" ],
-        placeholder: "",
-        inputAttr: {
-          id: "conditionDepart__id",
-          class:"input-field__value"
-         }
-    });
+//эффект на иконке при hover тк заголовок всегда 1
+$('.navbar__item-header').hover(  
+function(){
+	$(this).find(".navbar__item-icon").css('opacity','1')
+},
+function(){
+	$(this).find(".navbar__item-icon").css('opacity','0.6')
 
-$("#conditionDepart").dxSelectBox({
-        dataSource: [ "FCA", "FAS", "FOB" ],
-        placeholder: "",
-        inputAttr: {
-           id: "conditionDest__id",
-           class:"input-field__value"
-         }
 });
-//в какой валюте расчитать
-$("#currency-calc").dxSelectBox({
-        dataSource: [ "Доллары США (USD)", "Рубли (RUB)"],
-        placeholder: "",
-        inputAttr: {
-           id: "currency-calc__id",
-           class:"input-field__value"
-         }
+
+$('.navbar__item-header').click(function(){
+	if (!$('.navbar').hasClass('navbar--open')){
+		openNavbar ();
+		///$('.footer').toggleClass('footer--fix313');
+	}
+	$(this).parents(".navbar__item").find('.navbar__submenu').toggleClass('navbar__submenu--open');
+	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
+
 });
 
 //эффект на иконке при hover тк заголовок всегда 1
@@ -656,90 +792,3 @@ function openNavbar () {
     /// }
 
 }
-//эффект на иконке при hover тк заголовок всегда 1
-$('.navbar__item-header').hover(  
-function(){
-	$(this).find(".navbar__item-icon").css('opacity','1')
-},
-function(){
-	$(this).find(".navbar__item-icon").css('opacity','0.6')
-
-});
-
-$('.navbar__item-header').click(function(){
-	if (!$('.navbar').hasClass('navbar--open')){
-		openNavbar ();
-		///$('.footer').toggleClass('footer--fix313');
-	}
-	$(this).parents(".navbar__item").find('.navbar__submenu').toggleClass('navbar__submenu--open');
-	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
-
-});
-
-
-
-function popupCitySelectShow () {
-    $(".popup__city-select").dxPopup({
-        title: "Выберите пункт отправления",
-        visible: true,
-        width: 500,
-        // height: 100%,
-        onShown: function () {
-        	$('.popup__city-container').show();
-
-        }
-    });
-};
-
-
- const $stepContainer = $('.popup__step-container'),
-      $steps         = $('.popup__step'),
-      numSteps       = $steps.length,
-      $form          = $('.popup__city-content'),
-      $next          = $('.popup__content-nav--next'),
-      $prev          = $('.popup__content-nav--prev');
-
-
-
-let stepWidth = 498;
-let currentSlide = 0;
- 
-  $steps.css({
-    width: stepWidth + "px"
-  });
-  $stepContainer.css("width", stepWidth*numSteps + "px");
-
-  animateSlider();
-
-function animateSlider() {
-  $stepContainer.css('transform', `translateX(${-stepWidth * currentSlide}px)`);
-}
-
-$next.on('click', function() {
-  if(currentSlide < numSteps-1){
-  currentSlide ++;
-  animateSlider();
-  }
-  if(currentSlide != 0) {
-    $prev.removeClass('disabled');
-  }
-  if(currentSlide === numSteps -1 ) {
-    $(this).addClass('disabled');
-  }
-});
-
-$prev.on('click', function() {
-  if(currentSlide > 0) {
-    currentSlide --;
-    animateSlider();
-  } 
-  if(currentSlide === 0) {
-    $(this).addClass('disabled');
-  }
-  if(currentSlide != numSteps -1 ) {
-    $next.removeClass('disabled');
-  }
-});
-
-
-
