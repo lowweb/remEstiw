@@ -37,6 +37,9 @@ $next.on('click', function() {
   if(currentSlide === numSteps -1 ) {
     $(this).addClass('disabled');
   }
+
+  console.log ($(this).text());
+  $('.modal-city__block-href-back').text($(this).text());
 });
 
 $prev.on('click', function() {
@@ -50,4 +53,9 @@ $prev.on('click', function() {
   if(currentSlide != numSteps -1 ) {
     $next.removeClass('disabled');
   }
+});
+
+
+$('.modal-city__title').click(function() {
+  $('.modal-city__search-err').toggleClass('modal-city__search-err--show');;
 });

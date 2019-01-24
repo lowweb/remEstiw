@@ -15,7 +15,7 @@
     margin: 5% auto; 
     width: 500px; 
     background: #FFFFFF;
-    border: 1px solid #D5D7E1;
+    border: 1px solid $clr-grey-v2;
     box-sizing: border-box;
     box-shadow: 0px 8px 30px rgba(55, 63, 81, 0.2);
     border-radius: 3px;
@@ -57,7 +57,24 @@
   }
 
   &__search {
-    padding: 0 20px 30px 20px;
+    padding: 0 20px 0px 20px;
+
+    &-block{
+      min-height: 33px;
+      margin-bottom: 30px;
+
+    }
+
+    &-err {
+      @include font-lucida (#999999, 12px, normal);
+      padding: 6px 103px 0px 20px;
+      display: none;
+
+      &--show {
+        display: block;
+      }
+    }
+
   }
 
   &__block-cap{
@@ -67,7 +84,7 @@
     display: flex;
     align-items: center;
     padding-left: 19px;
-    border-top: 1px solid #D5D7E1;
+    border-top: 1px solid $clr-grey-v2;
 
     &--link{
       height: 50px;
@@ -75,7 +92,7 @@
       display: flex;
       align-items: center;
       padding-left: 19px;
-      border-top: 1px solid #D5D7E1;
+      border-top: 1px solid $clr-grey-v2;
       cursor: pointer;
       @include font-lucida ($clr-blue, 15px, normal);
       &:hover {
@@ -87,8 +104,8 @@
   &__block-item {
     height: 44px;
     background-color: $clr-white;
-    border-top: 1px solid #D5D7E1;
-    border-bottom: 1px solid #D5D7E1;
+    border-top: 1px solid $clr-grey-v2;
+    border-bottom: 1px solid $clr-grey-v2;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -131,6 +148,7 @@
     height: 96px;
     display: flex;
     align-items: center;
+    border-top: 1px solid $clr-grey-v2; 
     
     &-ok-btn {
       margin-left: 20px;
@@ -149,6 +167,12 @@
   &__content {
         // display: none;
     // height: 100%;
+  }
+
+  &__step {
+    & .input-field {
+      padding: 20px 120px 10px 20px;
+    }
   }
 }
 

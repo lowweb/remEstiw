@@ -38,6 +38,8 @@ $(document.body).on('click', '.checkbox' ,function(){
 $(document.body).on('click', '#submitButton' ,function(){
 	$('.summary-error').hide();
 	DevExpress.validationEngine.validateGroup("validateItems");
+	$('.input-field__cont.dx-invalid').parent().find('.input-field__label').addClass('input-field__label--err');
+	   
 
 	  $('.summary-error__custom-items').empty();//очистили ошибки
 
@@ -209,6 +211,9 @@ $next.on('click', function() {
   if(currentSlide === numSteps -1 ) {
     $(this).addClass('disabled');
   }
+
+  console.log ($(this).text());
+  $('.modal-city__block-href-back').text($(this).text());
 });
 
 $prev.on('click', function() {
@@ -222,6 +227,11 @@ $prev.on('click', function() {
   if(currentSlide != numSteps -1 ) {
     $next.removeClass('disabled');
   }
+});
+
+
+$('.modal-city__title').click(function() {
+  $('.modal-city__search-err').toggleClass('modal-city__search-err--show');;
 });
 // $(".navbar").scroll (function () {
 
@@ -303,6 +313,46 @@ $('.header-sticky__progress').click(function() {
 
 
 });
+var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
+$("#type-deal__radioGroup").dxRadioGroup({
+        items: typeDealitem,
+        // value: typeDealitem[0]
+     });
+    //.dxValidator({
+    //     validationRules: [{
+    //         type: "required",
+    //         message: "select one"
+    //     }],
+    //     validationGroup: "validateItems"
+    // });
+
+var volumeItem = ["До 5 м", "Свыше 5 м"];
+$("#volume-cargo__radioGroup").dxRadioGroup({
+        items: volumeItem,
+        // value: volumeItem[0]
+    });
+
+var cargoReceiverItem = ["Физическое лицо", "Юридическое лицо"];
+$("#cargo-receiver__radioGroup").dxRadioGroup({
+        items: cargoReceiverItem,
+        // value: cargoReceiverItem[0],
+        layout: "horizontal"
+    });
+
+var cargoCheracterItem = ["Однородный (массовый)", "Однородный (не массовый)","Однородный в упаковке", "Не однородный в/без упаковки/и", "Одно грузовое место", "Жидкость без упаковки"];
+$("#cargo-cheracter__radioGroup").dxRadioGroup({
+        items: cargoCheracterItem
+    });
+
+var transportModItem = ["Груз навалом", "Загрузить в контейнер", "Уже загружен в контейнер", "По решению исполнителя"];
+$("#transport-mod__radioGroup").dxRadioGroup({
+        items: transportModItem
+  
+    });
+var specialConditionsItem = ["На верхней палубе судна", "Открытое хранение", "Крытое хранение", "Температурный режим"];
+$("#special-conditions__radioGroup").dxRadioGroup({
+        items: specialConditionsItem
+    });
 //add consignment block
 function cnstCargoCheracter (count) { return "<field-set id='field-set__cargo-cheracter--part"+ count + "' class='field-set field-set__cargo-cheracter'><legend class='field-set__cap'>Характеристики груза</legend><div class='field-set__items'><div id='cargo-cheracter__radioGroup' class='radiogroup'></div></div></field-set>"};
 function cnstTransportMod (count) { return "<field-set id='field-set__transport-mod--part"+ count + "' class='field-set field-set__transport-mod'><legend class='field-set__cap'>Способ перевозки</legend><div class='field-set__items'><div id='transport-mod__radioGroup' class='radiogroup'></div></div></field-set>"};
@@ -431,46 +481,6 @@ function userPopupClose() {
 		$('.app-lnk-disable').toggleClass('app-lnk-disable');
 	}
 }
-var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
-$("#type-deal__radioGroup").dxRadioGroup({
-        items: typeDealitem,
-        // value: typeDealitem[0]
-     });
-    //.dxValidator({
-    //     validationRules: [{
-    //         type: "required",
-    //         message: "select one"
-    //     }],
-    //     validationGroup: "validateItems"
-    // });
-
-var volumeItem = ["До 5 м", "Свыше 5 м"];
-$("#volume-cargo__radioGroup").dxRadioGroup({
-        items: volumeItem,
-        // value: volumeItem[0]
-    });
-
-var cargoReceiverItem = ["Физическое лицо", "Юридическое лицо"];
-$("#cargo-receiver__radioGroup").dxRadioGroup({
-        items: cargoReceiverItem,
-        // value: cargoReceiverItem[0],
-        layout: "horizontal"
-    });
-
-var cargoCheracterItem = ["Однородный (массовый)", "Однородный (не массовый)","Однородный в упаковке", "Не однородный в/без упаковки/и", "Одно грузовое место", "Жидкость без упаковки"];
-$("#cargo-cheracter__radioGroup").dxRadioGroup({
-        items: cargoCheracterItem
-    });
-
-var transportModItem = ["Груз навалом", "Загрузить в контейнер", "Уже загружен в контейнер", "По решению исполнителя"];
-$("#transport-mod__radioGroup").dxRadioGroup({
-        items: transportModItem
-  
-    });
-var specialConditionsItem = ["На верхней палубе судна", "Открытое хранение", "Крытое хранение", "Температурный режим"];
-$("#special-conditions__radioGroup").dxRadioGroup({
-        items: specialConditionsItem
-    });
 $("#destButton").dxButton({
     text: "",
     onClick: function() {
@@ -605,6 +615,21 @@ $("#citySearch").dxAutocomplete({
 });
 
 
+$("#modalCity").dxAutocomplete({
+   placeholder: "Начните вводить название",
+  inputAttr: {
+       id: "modalCity__id",
+       class:"input-field__value"
+   },
+   dataSource: cityData,
+   valueExpr: 'name',
+   itemTemplate: function(data) {
+            return $("<div class='input-field__autocomplete-item'><img class='input-field__autocomplete-item--flag' src='" + data.imgSrc +
+                "'>" + data.name + "</div>");
+         }
+    
+});
+
 
 //Выберите дату
 var now = new Date();   
@@ -651,7 +676,24 @@ $("#currency-calc").dxSelectBox({
            class:"input-field__value"
          }
 });
-
+//страна в модальном окне
+$("#modal__country-list").dxSelectBox({
+        dataSource: [ "Россия", "Америка"],
+        placeholder: "",
+        inputAttr: {
+           id: "modal__country-list__id",
+           class:"input-field__value"
+         }
+});
+//край район область в модальном окне
+$("#modal__region-list").dxSelectBox({
+        dataSource: [ "Приморский край", "Камчатский край"],
+        placeholder: "",
+        inputAttr: {
+           id: "modal__region-list__id",
+           class:"input-field__value"
+         }
+});
 //эффект на иконке при hover тк заголовок всегда 1
 $('.navbar__header-link').hover(  
 function(){

@@ -37,6 +37,8 @@ $(document.body).on('click', '.checkbox' ,function(){
 $(document.body).on('click', '#submitButton' ,function(){
 	$('.summary-error').hide();
 	DevExpress.validationEngine.validateGroup("validateItems");
+	$('.input-field__cont.dx-invalid').parent().find('.input-field__label').addClass('input-field__label--err');
+	   
 
 	  $('.summary-error__custom-items').empty();//очистили ошибки
 
