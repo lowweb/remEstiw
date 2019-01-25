@@ -34,7 +34,7 @@ $(document.body).on('click', '.checkbox' ,function(){
 		});
 
 //check error
-$(document.body).on('click', '#submitButton' ,function(){
+$(document.body).on('click', '#footer__button-next' ,function(){
 	$('.summary-error').hide();
 	DevExpress.validationEngine.validateGroup("validateItems");
 	$('.input-field__cont.dx-invalid').parent().find('.input-field__label').addClass('input-field__label--err');

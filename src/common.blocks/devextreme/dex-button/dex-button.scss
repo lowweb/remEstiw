@@ -6,3 +6,14 @@
   background-color: $clr-white;
 
 }
+
+//сброс стилей
+.basic-button.dx-button-mode-text.dx-state-hover,.basic-button.dx-button-mode-text.dx-state-focused  {
+  background: #F8F7FF;
+  border: 1px solid $clr-purple;
+}
+
+.purple-button.dx-button-mode-text.dx-state-hover,.purple-button.dx-button-mode-text.dx-state-focused  {
+  background: #615DA2;
+  border: 1px solid $clr-purple;
+}

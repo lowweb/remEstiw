@@ -54,6 +54,7 @@
         &:before {
             content: url(#{$imgFolder}nav__item-open-btn.svg);
             padding-bottom: 7px;
+            transition: transform .3s;
         }
     }    
 

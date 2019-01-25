@@ -1,0 +1,51 @@
+.basic-button {
+	outline: none; height: 36px; width: 155px; background: $clr-white; border: 1px solid $clr-purple; box-sizing: border-box; box-shadow: inset 0px -3px 0px rgba(97, 93, 162, 0.3); border-radius: 3px; font-family: Lucida Grande; font-style: normal; font-weight: bold; line-height: normal; font-size: 14px; color: $clr-purple;cursor: pointer;
+}
+.basic-button:hover{
+	background: #F8F7FF;
+}
+
+.basic-button:active {
+	box-shadow: none;
+}
+
+.purple-button {
+	height: 36px; min-width: 70px; background: #5C2D91; box-shadow: inset 0px -3px 0px rgba(0, 0, 0, 0.3); border-radius: 3px; font-family: Lucida Grande; font-style: normal; font-weight: bold; line-height: normal; font-size: 14px; color: #FFFFFF; cursor: pointer;
+	&__arrow{
+		transform: rotate(180deg);
+		margin-left: 17px;
+		transform: rotate(180deg);
+	}
+}
+.purple-button:hover {
+	background: #615DA2; box-shadow: inset 0px -3px 0px rgba(0, 0, 0, 0.1);
+}
+
+.purple-button:active {
+	box-shadow: none;
+}
+
+.button {
+	&-ok {
+
+	}
+	&-cancel{
+
+	}
+	&-next {
+		padding-left: 24px; padding-right: 14px;
+	}
+	&-save {
+
+	}
+}
+//эффект поворота кнопок угольных
+.btn-rotate180:before {
+	transform: rotate(180deg);
+	transition: transform .3s;
+}
+.btn-rotate180:after {
+	transform:translate(0,5px) rotate(180deg);
+	transition: transform .3s;
+
+}
