@@ -19,4 +19,10 @@
 	&__next-btn {
 		margin-left: 900px;
 	}
+
+	&__saved-msg {
+		@include font-lucida (#999999, 12px, normal);
+		margin-left: 12px;
+		display: none;
+	}
 }
