@@ -1,12 +1,7 @@
 $("#destButton").dxButton({
     text: "",
     onClick: function() {
-  		$('#modal-city').show();
+  		// $('#modal-city').show();
     }
 });
-$("#departButton").dxButton({
-    text: "",
-    onClick: function() {
-        $('#modal-city').show();
-    }
-});
+

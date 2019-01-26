@@ -17,6 +17,9 @@
 	@include font-lucida ($clr-dark-light, 23px, normal);
 }
 
-.dx-popup-content {
+.dx-popup-content,.dx-popup-title {
      padding: 0px; 
 }
+ .dx-popup-title {
+ 	border-bottom: 0px;
+ }

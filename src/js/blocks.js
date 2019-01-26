@@ -104,7 +104,7 @@ $('.input-field__cont').change ( function () {
 
 $('#footer__button-save').dxButton({
                 stylingMode: 'text',
-                text: 'okl',
+                text: '',
                 type: 'normal',
                 onClick: function() { 
 					$('.footer__saved-msg').show();                
@@ -113,12 +113,32 @@ $('#footer__button-save').dxButton({
 
 $('#footer__button-next').dxButton({
                 stylingMode: 'text',
-                text: 'okl',
+                text: '',
                 type: 'normal',
                 onClick: function() { 
-					// $('.footer__saved-msg').show();                
+
 				}
             });
+
+    //button init
+    $('.modal-city__footer-ok-btn').dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+
+                }
+            });
+
+    $('.modal-city__footer-close-btn').dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+
+                }
+            });
+    
 
 
     $("#deliver-cargo__checkbox").dxCheckBox({
@@ -166,6 +186,155 @@ $("#used-cargo__checkbox").dxCheckBox({
         value: false,
     });
         
+$("#departButton").dxButton({
+    text: "",
+    onClick: function() {
+        // $('#modal-city').show();
+//init modal			
+    $(".modal").dxPopup({
+        visible: true,
+        height:"auto",
+        width: 500,
+        titleTemplate: function() {
+         	return $("<div class='modal-city__title'><div class='modal-city__title-cap'>Выберите пункт отправления</div><div class='modal__btn-close'>&times;</div></div><div class='modal-city__search-block'><div class='modal-city__search'> <div class='input-field input-field__city-search'><div id='citySearch' class='input-field__cont'></div></div></div><div class='modal-city__search-err'>Такого населенного пункта нет в нашей базе. Пожалуйста, выберите ближайшее к нему местоположение</div></div>");
+          },
+          contentTemplate: function () {
+          	return $("<div class='modal-city__step-container'><div class='modal-city__step'><div class='modal-city__block-cap'>Наиболее популярные направления:</div><ul class='modal-city__block-items'><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Россия</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Китай (КНР)</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Республика Корея</a></li></ul><div class='modal-city__block-cap'>Части света:</div><ul class='modal-city__block-items'><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Европа</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Азия</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Америка</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Африка</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Австралия</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Андарктида</a></li></ul></div><div class='modal-city__step'><div class='modal-city__block-cap--link'><a class='modal-city__block-href-back'>Европа</a></div><div class='input-field input-field__country-list'><div id='modal__country-list' class='input-field__cont input-field__icn-dropdown'></div><div class='input-field__label'><label for='modal__country-list__id'>Страна:</label> </div></div> <div class='input-field input-field__region-list'><div id='modal__region-list' class='input-field__cont input-field__icn-dropdown'></div><div class='input-field__label'><label for='modal__region-list__id'>Край, район, область, штат:</label> </div></div><div class='input-field input-field__modal-city'><div id='modalCity' class='input-field__cont'></div><div class='input-field__label'><label for='modalCity__id'>Город, населенный пункт::</label> </div>  </div> </div> </div> <div class='modal-city__footer'><button class='purple-button button-ok modal-city__footer-ok-btn'>Ok</button><button class='basic-button button-cancel modal-city__footer-close-btn'>Отмена</button></div>");
+          } 
+    });
+
+//make slidecontent for modal
+	const $stepContainer = $('.modal-city__step-container'),
+       	  $steps         = $('.modal-city__step'),
+      	  numSteps       = $steps.length,
+       	  $form          = $('.modal'),
+          $next          = $('.modal-city__block-item'),
+          $prev          = $('.modal-city__block-cap--link');
+
+	var stepWidth = 500;
+	var currentSlide = 0;
+	 
+	$steps.css({ width: stepWidth + "px" });
+	$stepContainer.css("width", stepWidth*numSteps + "px");
+	
+	animateSlider();	
+
+	function animateSlider() {
+	  $stepContainer.css('transform', `translateX(${-stepWidth * currentSlide}px)`);
+	}	
+
+	$next.on('click', function() {
+	  if(currentSlide < numSteps-1){
+	  currentSlide ++;
+	  animateSlider();
+	  }
+	  if(currentSlide != 0) {
+	    $prev.removeClass('disabled');
+	  }
+	  if(currentSlide === numSteps -1 ) {
+	    $(this).addClass('disabled');
+	  }
+	  $('.modal-city__block-href-back').text($(this).text());
+	});	
+
+	$prev.on('click', function() {
+	  if(currentSlide > 0) {
+	    currentSlide --;
+	    animateSlider();
+	  } 
+	  if(currentSlide === 0) {
+	    $(this).addClass('disabled');
+	  }
+	  if(currentSlide != numSteps -1 ) {
+	    $next.removeClass('disabled');
+	  }
+	});
+
+	//ошибка заполнения города
+	$('.modal-city__title').click(function() {
+	  $('.modal-city__search-err').toggleClass('modal-city__search-err--show');;
+	});	
+
+	//close modal
+	$('.modal__btn-close').click( function () {
+		$('.modal-city.dx-popup-wrapper').remove();
+	});
+	//closemodal btn
+	$('.modal-city__footer-close-btn').click( function () {
+  		$('.modal-city.dx-popup-wrapper').remove();
+	});
+
+	//button init
+	$('.modal-city__footer-ok-btn').dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+
+                }
+            });
+
+	$('.modal-city__footer-close-btn').dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+
+                }
+            });
+	//init inpu-field
+	//страна в модальном окне
+	$("#modal__country-list").dxSelectBox({
+	        dataSource: [ "Россия", "Америка"],
+	        placeholder: "",
+	        inputAttr: {
+	           id: "modal__country-list__id",
+	           class:"input-field__value"
+	         }
+	});
+	//край район область в модальном окне
+	$("#modal__region-list").dxSelectBox({
+	        dataSource: [ "Приморский край", "Камчатский край"],
+	        placeholder: "",
+	        inputAttr: {
+	           id: "modal__region-list__id",
+	           class:"input-field__value"
+	         }
+	});
+	$("#citySearch").dxAutocomplete({
+	   placeholder: "Начните вводить название",
+	  inputAttr: {
+	       id: "citySearch__id",
+	       class:"input-field__value"
+	   },
+	   dataSource: cityData,
+	   valueExpr: 'name',
+	   itemTemplate: function(data) {
+	            return $("<div class='input-field__autocomplete-item'><img class='input-field__autocomplete-item--flag' src='" + data.imgSrc +
+	                "'>" + data.name + "</div>");
+	         }
+	    
+	});	
+	
+
+	$("#modalCity").dxAutocomplete({
+	   placeholder: "Начните вводить название",
+	  inputAttr: {
+	       id: "modalCity__id",
+	       class:"input-field__value"
+	   },
+	   dataSource: cityData,
+	   valueExpr: 'name',
+	   itemTemplate: function(data) {
+	            return $("<div class='input-field__autocomplete-item'><img class='input-field__autocomplete-item--flag' src='" + data.imgSrc +
+	                "'>" + data.name + "</div>");
+	         }
+	    
+	});
+    }
+
+
+});
 
 //название запроса
 $("#requestName").dxTextBox({
@@ -193,66 +362,69 @@ $("#requestName").dxTextBox({
 
 
 
-//close modal
-$('.modal__btn-close').click( function () {
-	$('#modal-city').hide();
-});
-$('.modal-city__footer-close-btn').click( function () {
-  $('#modal-city').hide();
-});
+// //close modal
+// $('.modal__btn-close').click( function () {
+// 	$('#modal-city').hide();
+// });
 
- const $stepContainer = $('.modal-city__step-container'),
-       $steps         = $('.modal-city__step'),
-       numSteps       = $steps.length,
-       $form          = $('.modal-city__content'),
-       $next          = $('.modal-city__block-item'),
-       $prev          = $('.modal-city__block-cap--link');
+// $('.modal-city__footer-close-btn').click( function () {
+//   $('#modal-city').hide();
+// });
 
-var stepWidth = $form.width();
-var currentSlide = 0;
+
+
+//  const $stepContainer = $('.modal-city__step-container'),
+//        $steps         = $('.modal-city__step'),
+//        numSteps       = $steps.length,
+//        $form          = $('.modal-city__content'),
+//        $next          = $('.modal-city__block-item'),
+//        $prev          = $('.modal-city__block-cap--link');
+
+// var stepWidth = $form.width();
+// var currentSlide = 0;
  
-  $steps.css({
-    width: stepWidth + "px"
-  });
-  $stepContainer.css("width", stepWidth*numSteps + "px");
+//   $steps.css({
+//     width: stepWidth + "px"
+//   });
+//   $stepContainer.css("width", stepWidth*numSteps + "px");
 
-  animateSlider();
+//   animateSlider();
 
-function animateSlider() {
-  $stepContainer.css('transform', `translateX(${-stepWidth * currentSlide}px)`);
-}
+// function animateSlider() {
+//   $stepContainer.css('transform', `translateX(${-stepWidth * currentSlide}px)`);
+// }
 
-$next.on('click', function() {
-  if(currentSlide < numSteps-1){
-  currentSlide ++;
-  animateSlider();
-  }
-  if(currentSlide != 0) {
-    $prev.removeClass('disabled');
-  }
-  if(currentSlide === numSteps -1 ) {
-    $(this).addClass('disabled');
-  }
-  $('.modal-city__block-href-back').text($(this).text());
-});
+// $next.on('click', function() {
+//   if(currentSlide < numSteps-1){
+//   currentSlide ++;
+//   animateSlider();
+//   }
+//   if(currentSlide != 0) {
+//     $prev.removeClass('disabled');
+//   }
+//   if(currentSlide === numSteps -1 ) {
+//     $(this).addClass('disabled');
+//   }
+//   $('.modal-city__block-href-back').text($(this).text());
+// });
 
-$prev.on('click', function() {
-  if(currentSlide > 0) {
-    currentSlide --;
-    animateSlider();
-  } 
-  if(currentSlide === 0) {
-    $(this).addClass('disabled');
-  }
-  if(currentSlide != numSteps -1 ) {
-    $next.removeClass('disabled');
-  }
-});
+// $prev.on('click', function() {
+//   if(currentSlide > 0) {
+//     currentSlide --;
+//     animateSlider();
+//   } 
+//   if(currentSlide === 0) {
+//     $(this).addClass('disabled');
+//   }
+//   if(currentSlide != numSteps -1 ) {
+//     $next.removeClass('disabled');
+//   }
+// });
 
-//ощщибка заполнения города
-$('.modal-city__title').click(function() {
-  $('.modal-city__search-err').toggleClass('modal-city__search-err--show');;
-});
+// //ощщибка заполнения города
+// $('.modal-city__title').click(function() {
+//   $('.modal-city__search-err').toggleClass('modal-city__search-err--show');;
+// });
 // $(".navbar").scroll (function () {
 
 //  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
@@ -501,6 +673,14 @@ function userPopupClose() {
 		$('.app-lnk-disable').toggleClass('app-lnk-disable');
 	}
 }
+$("#destButton").dxButton({
+    text: "",
+    onClick: function() {
+  		// $('#modal-city').show();
+    }
+});
+
+
 //скролим правую часть
 // $(".main-content").scroll (function () {
 //   //move up
@@ -534,157 +714,6 @@ function userPopupClose() {
 //   }
 //  });
 
-$("#destButton").dxButton({
-    text: "",
-    onClick: function() {
-  		$('#modal-city').show();
-    }
-});
-$("#departButton").dxButton({
-    text: "",
-    onClick: function() {
-        $('#modal-city').show();
-    }
-});
-
-//Выберите дату
-var now = new Date();   
-    $("#cargoBeginDate").dxDateBox({
-        type: "date",
-        placeholder: "Введите дату",
-        inputAttr: {
-           id: "cargoBeginDate__id",
-           class:"input-field__value"
-         }
-    });
-    $("#cargoExpDate").dxDateBox({
-        type: "date",
-        placeholder: "Введите дату",
-        disabled: true,
-        inputAttr: {
-           id: "cargoExpDate__id",
-           class:"input-field__value"
-         }
-    });
-//эффект на иконке при hover тк заголовок всегда 1
-$('.navbar__header-link').hover(  
-function(){
-    $(this).find(".navbar__header-icon").css('opacity','1')
-},
-function(){
-    $(this).find(".navbar__header-icon").css('opacity','0.6')
-
-});
-
-
-
-//open close menu
-  $('.navbar__header-close-btn').on('click', function() {
-  	openNavbar ();
-    //ширина footer
-    ///$('.footer').toggleClass('footer--fix313');
-  });
-
-function openNavbar () {
-     $('.navbar__header-close-btn').toggleClass('btn-rotate180');
-     $('.navbar__header-main-menu').toggleClass('navbar-el--hide');
-     $('.navbar__header-copyright').toggleClass('navbar-el--hide');
-     //показываем caption и  кнопку раскрытия субменю
-     $('.navbar__item-caption').toggleClass('navbar-item-el--hide');
-     $('.navbar__item-btn-submenu').toggleClass('navbar-item-el--hide');
-     $('.navbar__item-icon').css('margin','0 10px 0 27px'); //отступ от иконки при раскрытом меню
-    
- 
-
-     //сворачиваем все  submenu
-     if ($('.navbar').hasClass('navbar--open'))//меню открыо
-	 { 
-        if ($('.navbar__submenu').hasClass('navbar__submenu--open')){
-          $('.navbar__submenu--open').parent().find('.navbar__item-header').find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
-        }
-        
-        //убрали sticky  и закрыли все  submenu
-        $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
-        $(".navbar-ul").removeClass("navbar-ul--understicky");
-    	$('.navbar__submenu').removeClass('navbar__submenu--open');
-        $('.navbar__header-roll')[0].scrollIntoView(true);
-
-	 } 
-
-
-	$('.navbar').toggleClass('navbar--open'); //после всех тк ориентир на класс
-    //правим ширину для fix header после тк safari не корректно обрабатывает
-    /// if ($('.header-sticky').hasClass('header-sticky--active'))
-    /// {   
-    ///     $('.header-sticky').toggleClass('header-sticky--fix78');
-    ///     $('.header-sticky').toggleClass('header-sticky--fix313');
-    /// }
-
-}
-//эффект на иконке при hover тк заголовок всегда 1
-$('.navbar__item-header').hover(  
-function(){
-	$(this).find(".navbar__item-icon").css('opacity','1')
-},
-function(){
-	$(this).find(".navbar__item-icon").css('opacity','0.6')
-
-});
-
-$('.navbar__item-header').click(function(){
-	if (!$('.navbar').hasClass('navbar--open')){
-		openNavbar ();
-		///$('.footer').toggleClass('footer--fix313');
-	}
-	$(this).parents(".navbar__item").find('.navbar__submenu').toggleClass('navbar__submenu--open');
-	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
-
-});
-
-$("#conditionDest").dxSelectBox({
-        dataSource: [ "FCA", "FAS", "FOB" ],
-        placeholder: "",
-        inputAttr: {
-          id: "conditionDepart__id",
-          class:"input-field__value"
-         }
-    });
-
-$("#conditionDepart").dxSelectBox({
-        dataSource: [ "FCA", "FAS", "FOB" ],
-        placeholder: "",
-        inputAttr: {
-           id: "conditionDest__id",
-           class:"input-field__value"
-         }
-});
-//в какой валюте расчитать
-$("#currency-calc").dxSelectBox({
-        dataSource: [ "Доллары США (USD)", "Рубли (RUB)"],
-        placeholder: "",
-        inputAttr: {
-           id: "currency-calc__id",
-           class:"input-field__value"
-         }
-});
-//страна в модальном окне
-$("#modal__country-list").dxSelectBox({
-        dataSource: [ "Россия", "Америка"],
-        placeholder: "",
-        inputAttr: {
-           id: "modal__country-list__id",
-           class:"input-field__value"
-         }
-});
-//край район область в модальном окне
-$("#modal__region-list").dxSelectBox({
-        dataSource: [ "Приморский край", "Камчатский край"],
-        placeholder: "",
-        inputAttr: {
-           id: "modal__region-list__id",
-           class:"input-field__value"
-         }
-});
 var cityData = [{
     id: 1,
     name: "Владивосток, Приморский край, Россия",
@@ -787,5 +816,144 @@ $("#modalCity").dxAutocomplete({
                 "'>" + data.name + "</div>");
          }
     
+});
+
+
+//Выберите дату
+var now = new Date();   
+    $("#cargoBeginDate").dxDateBox({
+        type: "date",
+        placeholder: "Введите дату",
+        inputAttr: {
+           id: "cargoBeginDate__id",
+           class:"input-field__value"
+         }
+    });
+    $("#cargoExpDate").dxDateBox({
+        type: "date",
+        placeholder: "Введите дату",
+        disabled: true,
+        inputAttr: {
+           id: "cargoExpDate__id",
+           class:"input-field__value"
+         }
+    });
+$("#conditionDest").dxSelectBox({
+        dataSource: [ "FCA", "FAS", "FOB" ],
+        placeholder: "",
+        inputAttr: {
+          id: "conditionDepart__id",
+          class:"input-field__value"
+         }
+    });
+
+$("#conditionDepart").dxSelectBox({
+        dataSource: [ "FCA", "FAS", "FOB" ],
+        placeholder: "",
+        inputAttr: {
+           id: "conditionDest__id",
+           class:"input-field__value"
+         }
+});
+//в какой валюте расчитать
+$("#currency-calc").dxSelectBox({
+        dataSource: [ "Доллары США (USD)", "Рубли (RUB)"],
+        placeholder: "",
+        inputAttr: {
+           id: "currency-calc__id",
+           class:"input-field__value"
+         }
+});
+//страна в модальном окне
+$("#modal__country-list").dxSelectBox({
+        dataSource: [ "Россия", "Америка"],
+        placeholder: "",
+        inputAttr: {
+           id: "modal__country-list__id",
+           class:"input-field__value"
+         }
+});
+//край район область в модальном окне
+$("#modal__region-list").dxSelectBox({
+        dataSource: [ "Приморский край", "Камчатский край"],
+        placeholder: "",
+        inputAttr: {
+           id: "modal__region-list__id",
+           class:"input-field__value"
+         }
+});
+//эффект на иконке при hover тк заголовок всегда 1
+$('.navbar__header-link').hover(  
+function(){
+    $(this).find(".navbar__header-icon").css('opacity','1')
+},
+function(){
+    $(this).find(".navbar__header-icon").css('opacity','0.6')
+
+});
+
+
+
+//open close menu
+  $('.navbar__header-close-btn').on('click', function() {
+  	openNavbar ();
+    //ширина footer
+    ///$('.footer').toggleClass('footer--fix313');
+  });
+
+function openNavbar () {
+     $('.navbar__header-close-btn').toggleClass('btn-rotate180');
+     $('.navbar__header-main-menu').toggleClass('navbar-el--hide');
+     $('.navbar__header-copyright').toggleClass('navbar-el--hide');
+     //показываем caption и  кнопку раскрытия субменю
+     $('.navbar__item-caption').toggleClass('navbar-item-el--hide');
+     $('.navbar__item-btn-submenu').toggleClass('navbar-item-el--hide');
+     $('.navbar__item-icon').css('margin','0 10px 0 27px'); //отступ от иконки при раскрытом меню
+    
+ 
+
+     //сворачиваем все  submenu
+     if ($('.navbar').hasClass('navbar--open'))//меню открыо
+	 { 
+        if ($('.navbar__submenu').hasClass('navbar__submenu--open')){
+          $('.navbar__submenu--open').parent().find('.navbar__item-header').find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
+        }
+        
+        //убрали sticky  и закрыли все  submenu
+        $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
+        $(".navbar-ul").removeClass("navbar-ul--understicky");
+    	$('.navbar__submenu').removeClass('navbar__submenu--open');
+        $('.navbar__header-roll')[0].scrollIntoView(true);
+
+	 } 
+
+
+	$('.navbar').toggleClass('navbar--open'); //после всех тк ориентир на класс
+    //правим ширину для fix header после тк safari не корректно обрабатывает
+    /// if ($('.header-sticky').hasClass('header-sticky--active'))
+    /// {   
+    ///     $('.header-sticky').toggleClass('header-sticky--fix78');
+    ///     $('.header-sticky').toggleClass('header-sticky--fix313');
+    /// }
+
+}
+//эффект на иконке при hover тк заголовок всегда 1
+$('.navbar__item-header').hover(  
+function(){
+	$(this).find(".navbar__item-icon").css('opacity','1')
+},
+function(){
+	$(this).find(".navbar__item-icon").css('opacity','0.6')
+
+});
+
+$('.navbar__item-header').click(function(){
+	if (!$('.navbar').hasClass('navbar--open')){
+		openNavbar ();
+		///$('.footer').toggleClass('footer--fix313');
+	}
+	$(this).parents(".navbar__item").find('.navbar__submenu').toggleClass('navbar__submenu--open');
+	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
+
 });
 
