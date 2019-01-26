@@ -49,10 +49,12 @@
 		justify-content: center;
 		margin-left: auto;	
 		transition: transform .5s;
+
 	&:before{
 		// align-self: center;
 		opacity: 0.6;
 		content: url(#{$imgFolder}navbar-btn-close.svg);
+		transition: transform .5s;
 		}
 	}
 
