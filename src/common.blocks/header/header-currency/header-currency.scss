@@ -26,10 +26,17 @@
     	align-items: center;
     	margin: 0 30px;
 	}
-
-	&__lang:after {
-		content: url(#{$imgFolder}button-down.svg);
-	    vertical-align: 2px;
+	&__lang {
+		display: flex;
+		height: 18px;
+	}
+	&__lang--ru:before {
+			content: url(#{$imgFolder}header-flag-rus.svg);	
+			padding-right: 8px;
+	}
+	&__lang--en:before {
+			content: url(#{$imgFolder}header-flag-eng.svg);	
+			padding-right: 8px;
 	}
 
 	&__rightside {
