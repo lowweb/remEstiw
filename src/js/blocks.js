@@ -496,15 +496,7 @@ $('.header-progress').click(function() {
 var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
 $("#type-deal__radioGroup").dxRadioGroup({
         items: typeDealitem,
-        // value: typeDealitem[0]
      });
-    //.dxValidator({
-    //     validationRules: [{
-    //         type: "required",
-    //         message: "select one"
-    //     }],
-    //     validationGroup: "validateItems"
-    // });
 
 var volumeItem = ["До 5 м", "Свыше 5 м"];
 $("#volume-cargo__radioGroup").dxRadioGroup({
@@ -606,9 +598,6 @@ $(document.body).on('click', '.step-block__sep-btn-close' ,function(){
 	if ($( ".consignment" ).length == 1 )
 		$( ".consignment .step-block__sep .step-block__sep-btn-close").remove();
 });
-    $("#period__switch").dxSwitch({
-        value: false
-    });
 $('.timezone-popup-menu__title-btn').click(function(){
 // console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
 // if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
@@ -661,6 +650,9 @@ function userPopupClose() {
 		$('.app-lnk-disable').toggleClass('app-lnk-disable');
 	}
 }
+    $("#period__switch").dxSwitch({
+        value: false
+    });
 $("#destButton").dxButton({
     text: "",
     onClick: function() {
@@ -848,26 +840,6 @@ $("#modal__region-list").dxSelectBox({
          }
 });
 //эффект на иконке при hover тк заголовок всегда 1
-$('.navbar__item-header').hover(  
-function(){
-	$(this).find(".navbar__item-icon").css('opacity','1')
-},
-function(){
-	$(this).find(".navbar__item-icon").css('opacity','0.6')
-
-});
-
-$('.navbar__item-header').click(function(){
-	if (!$('.navbar').hasClass('navbar--open')){
-		openNavbar ();
-		///$('.footer').toggleClass('footer--fix313');
-	}
-	$(this).parents(".navbar__item").find('.navbar__submenu').toggleClass('navbar__submenu--open');
-	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
-
-});
-
-//эффект на иконке при hover тк заголовок всегда 1
 $('.navbar__header-link').hover(  
 function(){
     $(this).find(".navbar__header-icon").css('opacity','1')
@@ -922,3 +894,22 @@ function openNavbar () {
     /// }
 
 }
+//эффект на иконке при hover тк заголовок всегда 1
+$('.navbar__item-header').hover(  
+function(){
+	$(this).find(".navbar__item-icon").css('opacity','1')
+},
+function(){
+	$(this).find(".navbar__item-icon").css('opacity','0.6')
+
+});
+
+$('.navbar__item-header').click(function(){
+	if (!$('.navbar').hasClass('navbar--open')){
+		openNavbar ();
+		///$('.footer').toggleClass('footer--fix313');
+	}
+	$(this).parents(".navbar__item").find('.navbar__submenu').toggleClass('navbar__submenu--open');
+	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
+
+});
