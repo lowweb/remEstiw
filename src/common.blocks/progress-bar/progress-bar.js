@@ -36,7 +36,7 @@ var progressPercentValue=10;
 // }
 
 
-$('.header-sticky__progress').click(function() {
+$('.header-progress').click(function() {
 
 	// progressPercentValue=Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100);
 	console.log('do='+progressPercentValue);
