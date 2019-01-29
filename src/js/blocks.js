@@ -186,6 +186,11 @@ $("#used-cargo__checkbox").dxCheckBox({
         value: false,
     });
         
+$(function () {
+    $("#fileUploader").dxFileUploader({
+        accept:"image/*"
+    });
+});
 
 //название запроса
 $("#requestName").dxTextBox({
@@ -644,70 +649,6 @@ $('.header-currency__lang').click( function () {
 	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
 	$('.header-currency__lang').toggleClass('header-currency__lang--en');
 });
-
-//Выберите дату
-var now = new Date();   
-    $("#cargoBeginDate").dxDateBox({
-        type: "date",
-        placeholder: "Введите дату",
-        inputAttr: {
-           id: "cargoBeginDate__id",
-           class:"input-field__value"
-         }
-    });
-    $("#cargoExpDate").dxDateBox({
-        type: "date",
-        placeholder: "Введите дату",
-        disabled: true,
-        inputAttr: {
-           id: "cargoExpDate__id",
-           class:"input-field__value"
-         }
-    });
-$("#conditionDest").dxSelectBox({
-        dataSource: [ "FCA", "FAS", "FOB" ],
-        placeholder: "",
-        inputAttr: {
-          id: "conditionDepart__id",
-          class:"input-field__value"
-         }
-    });
-
-$("#conditionDepart").dxSelectBox({
-        dataSource: [ "FCA", "FAS", "FOB" ],
-        placeholder: "",
-        inputAttr: {
-           id: "conditionDest__id",
-           class:"input-field__value"
-         }
-});
-//в какой валюте расчитать
-$("#currency-calc").dxSelectBox({
-        dataSource: [ "Доллары США (USD)", "Рубли (RUB)"],
-        placeholder: "",
-        inputAttr: {
-           id: "currency-calc__id",
-           class:"input-field__value"
-         }
-});
-//страна в модальном окне
-$("#modal__country-list").dxSelectBox({
-        dataSource: [ "Россия", "Америка"],
-        placeholder: "",
-        inputAttr: {
-           id: "modal__country-list__id",
-           class:"input-field__value"
-         }
-});
-//край район область в модальном окне
-$("#modal__region-list").dxSelectBox({
-        dataSource: [ "Приморский край", "Камчатский край"],
-        placeholder: "",
-        inputAttr: {
-           id: "modal__region-list__id",
-           class:"input-field__value"
-         }
-});
 var cityData = [{
     id: 1,
     name: "Владивосток, Приморский край, Россия",
@@ -812,6 +753,70 @@ $("#modalCity").dxAutocomplete({
     
 });
 
+
+//Выберите дату
+var now = new Date();   
+    $("#cargoBeginDate").dxDateBox({
+        type: "date",
+        placeholder: "Введите дату",
+        inputAttr: {
+           id: "cargoBeginDate__id",
+           class:"input-field__value"
+         }
+    });
+    $("#cargoExpDate").dxDateBox({
+        type: "date",
+        placeholder: "Введите дату",
+        disabled: true,
+        inputAttr: {
+           id: "cargoExpDate__id",
+           class:"input-field__value"
+         }
+    });
+$("#conditionDest").dxSelectBox({
+        dataSource: [ "FCA", "FAS", "FOB" ],
+        placeholder: "",
+        inputAttr: {
+          id: "conditionDepart__id",
+          class:"input-field__value"
+         }
+    });
+
+$("#conditionDepart").dxSelectBox({
+        dataSource: [ "FCA", "FAS", "FOB" ],
+        placeholder: "",
+        inputAttr: {
+           id: "conditionDest__id",
+           class:"input-field__value"
+         }
+});
+//в какой валюте расчитать
+$("#currency-calc").dxSelectBox({
+        dataSource: [ "Доллары США (USD)", "Рубли (RUB)"],
+        placeholder: "",
+        inputAttr: {
+           id: "currency-calc__id",
+           class:"input-field__value"
+         }
+});
+//страна в модальном окне
+$("#modal__country-list").dxSelectBox({
+        dataSource: [ "Россия", "Америка"],
+        placeholder: "",
+        inputAttr: {
+           id: "modal__country-list__id",
+           class:"input-field__value"
+         }
+});
+//край район область в модальном окне
+$("#modal__region-list").dxSelectBox({
+        dataSource: [ "Приморский край", "Камчатский край"],
+        placeholder: "",
+        inputAttr: {
+           id: "modal__region-list__id",
+           class:"input-field__value"
+         }
+});
 //эффект на иконке при hover тк заголовок всегда 1
 $('.navbar__header-link').hover(  
 function(){
