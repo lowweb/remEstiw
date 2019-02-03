@@ -3,8 +3,13 @@
 
 	    & .dx-fileuploader-input-container {
 			flex: 1 0 73%;
+
 	    }
 
+}
+
+.dx-fileuploader-input-label:before {
+	content: url(#{$imgFolder}fileupload-downloadbox.svg);
 }
 .dx-fileuploader-wrapper {
      padding: 20px 27px; 
