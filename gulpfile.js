@@ -89,13 +89,24 @@ gulp.task('js:rigger', ['js:cnct'], function () {
 
 
 gulp.task('image:build', function () {
-    gulp.src(path.src.img) 
-        .pipe(imagemin({ 
-            progressive: true,
-            svgoPlugins: [{removeViewBox: false}],
-            use: [pngquant()],
-            interlaced: true
-        }))
+   return gulp.src(path.src.img) 
+        // .pipe(imagemin({ 
+        //     progressive: true,
+        //     svgoPlugins: [{removeViewBox: false}],
+        //     use: [pngquant()],
+        //     interlaced: true
+        // }))
+        .pipe(imagemin([
+            imagemin.svgo({
+                plugins: [
+                    {cleanupIDs: false},
+                    {removeUselessDefs: false},
+                    {removeViewBox: true},
+                ],        
+                use: [pngquant()],
+                interlaced: true
+            })
+        ]))
         .pipe(flatten())
         .pipe(gulp.dest(path.build.img))
         .pipe(reload({stream: true}));
