@@ -1,7 +1,11 @@
 $(function () {
     $("#fileUploader").dxFileUploader({
-        accept:"image/*",
+        accept:"image/*,*.zip",
         width: 424,
-	    height: 72
+	    // height: auto,
+	    multiple: true,
+	    selectButtonText: "выбрать",
+		showFileList: true,
+		labelText: "перенесите сюда файл или нажмите",
     });
 });

@@ -1,5 +1,42 @@
 .dx-fileuploader {
 	    border: 2px dashed blue;
-	    width: 424;
-	    height: 72px;
+
+	    & .dx-fileuploader-input-container {
+			flex: 1 0 73%;
+	    }
+
+}
+.dx-fileuploader-wrapper {
+     padding: 20px 27px; 
+}
+.dx-fileuploader-input-wrapper {
+	display: flex;
+    flex-direction: row-reverse;
+    padding: 0;
+    border: 3px dashed transparent;
+}
+
+.dx-fileuploader-button {
+	border-radius: 0px; 
+    border-width: 0px; 
+    border-style: none;
+    padding: 0;
+    color: $clr-blue;
+    flex: 1 0 20%;
+
+
+    & .dx-button-content {
+    	padding: 0;
+    }
+
+    & .dx-button-text{
+    	border-bottom: 1px dashed $clr-blue;
+    	&:hover {
+    		color: $clr-purple;
+    	}	
+    }
+
+    &.dx-button-mode-contained.dx-state-hover {
+    	background-color: $clr-white;
+    }
 }
