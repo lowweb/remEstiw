@@ -1,8 +1,11 @@
 .dx-fileuploader {
-	    border: 2px dashed blue;
+	    border: 1px dashed #D5D7E1;
+		box-sizing: border-box;
+		border-radius: 3px;
+	    background-color: $clr-grey-v4;
 
 	    & .dx-fileuploader-input-container {
-			flex: 1 0 73%;
+			width: 320px;
 
 	    }
 
@@ -10,15 +13,19 @@
 
 .dx-fileuploader-input-label:before {
 	content: url(#{$imgFolder}fileupload-downloadbox.svg);
+	position: relative;
+	top: 0;
+	padding-right: 20px;
+	overflow: visible;
 }
 .dx-fileuploader-wrapper {
      padding: 20px 27px; 
 }
 .dx-fileuploader-input-wrapper {
-	display: flex;
-    flex-direction: row-reverse;
+	display: block;
     padding: 0;
     border: 3px dashed transparent;
+    position: relative;
 }
 
 .dx-fileuploader-button {
@@ -27,7 +34,11 @@
     border-style: none;
     padding: 0;
     color: $clr-blue;
-    flex: 1 0 20%;
+    position: absolute;
+    top: 17.2px;
+    right: 165px;
+    z-index: 1;
+
 
 
     & .dx-button-content {
@@ -36,6 +47,7 @@
 
     & .dx-button-text{
     	border-bottom: 1px dashed $clr-blue;
+    	background-color: $clr-grey-v4;
     	&:hover {
     		color: $clr-purple;
     	}	
@@ -44,4 +56,11 @@
     &.dx-button-mode-contained.dx-state-hover {
     	background-color: $clr-white;
     }
+}
+
+
+.dx-fileuploader-input-label {
+    display: flex;
+    align-items: center;
+    white-space: normal;
 }

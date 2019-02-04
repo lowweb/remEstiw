@@ -6,6 +6,6 @@ $(function () {
 	    multiple: true,
 	    selectButtonText: "выбрать",
 		showFileList: true,
-		labelText: "перенесите сюда файл или нажмите",
+		labelText: "Перенесите сюда файл (xls, word, pdf) или нажмите",
     });
 });
