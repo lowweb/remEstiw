@@ -11,10 +11,18 @@
 	padding: 0px;
 }
 
-.popup__info-newmsg .dx-toast-icon {
+.popup__info-newmsg .dx-toast-icon:before {
     content: url(#{$imgFolder}popup__info-newmsg.svg);
-    margin: 0 18px;
-    background-size: auto;
+
+}
+.popup__info-newmsg .dx-toast-icon {
+	width: 20px;
+	height: 23px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	width: 25%;
 }
 
 .popup__info-newmsg .dx-toast-message {
