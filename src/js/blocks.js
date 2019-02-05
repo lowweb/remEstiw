@@ -98,6 +98,47 @@ $('.input-field__cont').change ( function () {
 	 	$(this).parent().find('.input-field__label').removeClass('input-field__label--err');
 	 }
 });
+// $('#footer__button-save').click(function () {
+// 	
+// });
+
+$('#footer__button-save').dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+					$('.footer__saved-msg').show();                
+				}
+            });
+
+$('#footer__button-next').dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+
+				}
+            });
+
+    //button init
+    $('.modal-city__footer-ok-btn').dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+
+                }
+            });
+
+    $('.modal-city__footer-close-btn').dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+
+                }
+            });
+    
 
 
     $("#deliver-cargo__checkbox").dxCheckBox({
@@ -145,47 +186,6 @@ $("#used-cargo__checkbox").dxCheckBox({
         value: false,
     });
         
-// $('#footer__button-save').click(function () {
-// 	
-// });
-
-$('#footer__button-save').dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-					$('.footer__saved-msg').show();                
-				}
-            });
-
-$('#footer__button-next').dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-
-				}
-            });
-
-    //button init
-    $('.modal-city__footer-ok-btn').dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-
-                }
-            });
-
-    $('.modal-city__footer-close-btn').dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-
-                }
-            });
-    
 $(function () {
     $("#fileUploader").dxFileUploader({
         accept:"image/*,*.zip,*.pdf,*.mp4",
@@ -209,6 +209,7 @@ $(function () {
 		uploadFailedMessage: "",
     });
 });
+
 //название запроса
 $("#requestName").dxTextBox({
   inputAttr: {
@@ -235,89 +236,6 @@ $("#requestName").dxTextBox({
 
 
 
-
-// $(".navbar").scroll (function () {
-
-//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
-
-//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
-//     $(".navbar-ul").addClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-sticky')[0].scrollIntoView(true);
-
-// }  
-// if ( $(this).scrollTop() == 0) {
-
-//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
-//     $(".navbar-ul").removeClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-currency')[0].scrollIntoView(true);
-//  }
-
-//  });
-// //close modal
-// $('.modal__btn-close').click( function () {
-// 	$('#modal-city').hide();
-// });
-
-// $('.modal-city__footer-close-btn').click( function () {
-//   $('#modal-city').hide();
-// });
-
-
-
-//  const $stepContainer = $('.modal-city__step-container'),
-//        $steps         = $('.modal-city__step'),
-//        numSteps       = $steps.length,
-//        $form          = $('.modal-city__content'),
-//        $next          = $('.modal-city__block-item'),
-//        $prev          = $('.modal-city__block-cap--link');
-
-// var stepWidth = $form.width();
-// var currentSlide = 0;
- 
-//   $steps.css({
-//     width: stepWidth + "px"
-//   });
-//   $stepContainer.css("width", stepWidth*numSteps + "px");
-
-//   animateSlider();
-
-// function animateSlider() {
-//   $stepContainer.css('transform', `translateX(${-stepWidth * currentSlide}px)`);
-// }
-
-// $next.on('click', function() {
-//   if(currentSlide < numSteps-1){
-//   currentSlide ++;
-//   animateSlider();
-//   }
-//   if(currentSlide != 0) {
-//     $prev.removeClass('disabled');
-//   }
-//   if(currentSlide === numSteps -1 ) {
-//     $(this).addClass('disabled');
-//   }
-//   $('.modal-city__block-href-back').text($(this).text());
-// });
-
-// $prev.on('click', function() {
-//   if(currentSlide > 0) {
-//     currentSlide --;
-//     animateSlider();
-//   } 
-//   if(currentSlide === 0) {
-//     $(this).addClass('disabled');
-//   }
-//   if(currentSlide != numSteps -1 ) {
-//     $next.removeClass('disabled');
-//   }
-// });
-
-// //ощщибка заполнения города
-// $('.modal-city__title').click(function() {
-//   $('.modal-city__search-err').toggleClass('modal-city__search-err--show');;
-// });
 $("#departButton").dxButton({
     text: "",
     onClick: function() {
@@ -455,6 +373,122 @@ $("#departButton").dxButton({
 
 
 });
+// //close modal
+// $('.modal__btn-close').click( function () {
+// 	$('#modal-city').hide();
+// });
+
+// $('.modal-city__footer-close-btn').click( function () {
+//   $('#modal-city').hide();
+// });
+
+
+
+//  const $stepContainer = $('.modal-city__step-container'),
+//        $steps         = $('.modal-city__step'),
+//        numSteps       = $steps.length,
+//        $form          = $('.modal-city__content'),
+//        $next          = $('.modal-city__block-item'),
+//        $prev          = $('.modal-city__block-cap--link');
+
+// var stepWidth = $form.width();
+// var currentSlide = 0;
+ 
+//   $steps.css({
+//     width: stepWidth + "px"
+//   });
+//   $stepContainer.css("width", stepWidth*numSteps + "px");
+
+//   animateSlider();
+
+// function animateSlider() {
+//   $stepContainer.css('transform', `translateX(${-stepWidth * currentSlide}px)`);
+// }
+
+// $next.on('click', function() {
+//   if(currentSlide < numSteps-1){
+//   currentSlide ++;
+//   animateSlider();
+//   }
+//   if(currentSlide != 0) {
+//     $prev.removeClass('disabled');
+//   }
+//   if(currentSlide === numSteps -1 ) {
+//     $(this).addClass('disabled');
+//   }
+//   $('.modal-city__block-href-back').text($(this).text());
+// });
+
+// $prev.on('click', function() {
+//   if(currentSlide > 0) {
+//     currentSlide --;
+//     animateSlider();
+//   } 
+//   if(currentSlide === 0) {
+//     $(this).addClass('disabled');
+//   }
+//   if(currentSlide != numSteps -1 ) {
+//     $next.removeClass('disabled');
+//   }
+// });
+
+// //ощщибка заполнения города
+// $('.modal-city__title').click(function() {
+//   $('.modal-city__search-err').toggleClass('modal-city__search-err--show');;
+// });
+// $(".navbar").scroll (function () {
+
+//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
+
+//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
+//     $(".navbar-ul").addClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-sticky')[0].scrollIntoView(true);
+
+// }  
+// if ( $(this).scrollTop() == 0) {
+
+//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
+//     $(".navbar-ul").removeClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-currency')[0].scrollIntoView(true);
+//  }
+
+//  });
+$('.progress-bar__step').hover (function(){
+	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
+},
+function (){
+	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
+}
+);
+
+
+var progressPercentValue=10;
+  
+$('.header-progress').click(function() {
+
+	// progressPercentValue=Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100);
+	console.log('do='+progressPercentValue);
+	if (progressPercentValue < 100) {
+		$('.progress-bar__status').width((progressPercentValue + 5)+'%');
+		// console.log('posle='+ Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100));
+		if(progressPercentValue == 45){
+			$('.progress-bar__second-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
+			$('.progress-bar__second-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+
+		}
+
+		if(progressPercentValue == 95){
+			$('.progress-bar__third-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
+			$('.progress-bar__third-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+
+		}
+	progressPercentValue+=5;	
+	}
+
+
+});
 var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
 $("#type-deal__radioGroup").dxRadioGroup({
         items: typeDealitem,
@@ -487,6 +521,59 @@ var specialConditionsItem = ["На верхней палубе судна", "О�
 $("#special-conditions__radioGroup").dxRadioGroup({
         items: specialConditionsItem
     });
+$(function() {
+    $("#rangeSelector").dxRangeSelector({
+        size: {
+            height: 70,
+            width: 744
+        },
+        selectedRangeColor: "rgba(55, 63, 81, 0.4)",
+        scale: {
+            startValue: -30,
+            endValue: +30,
+            // minorTickInterval: 5,
+            tickInterval: 10,
+            // minorTick: {
+                // visible: false,
+            // },
+            label: {
+                // format: "currency",
+                customizeText: function () {
+                return this.valueText + " ˚C";
+            	},
+            	font: {
+					color: "#373F51",
+					family: "Lucida Grande, Tahoma, Arial",
+					opacity: 1,
+					size: 13,
+					weight: 400
+				}
+            }
+        },
+        sliderMarker: {
+            // format: "currency",
+            color: "#373F51",
+            customizeText: function () {
+                return this.valueText + " ˚C";
+            },
+            font: {
+				color: "#FFFFFF",
+				family: "Lucida Grande, Tahoma, Arial",
+				opacity: 1,
+				size: 13,
+				weight: 400
+			},
+           	invalidRangeColor: "red",
+			paddingLeftRight: 10,
+			paddingTopBottom: 2,
+        },
+        value: [4, 8],
+        onInitialized: function () {      	
+        	$( ".dx-visibility-change-handler" ).append( "<div class='rangeselector__back'></div>");
+        }
+
+    });
+});
 //add consignment block
 function cnstCargoCheracter (count) { return "<field-set id='field-set__cargo-cheracter--part"+ count + "' class='field-set field-set__cargo-cheracter'><legend class='field-set__cap'>Характеристики груза</legend><div class='field-set__items'><div id='cargo-cheracter__radioGroup' class='radiogroup'></div></div></field-set>"};
 function cnstTransportMod (count) { return "<field-set id='field-set__transport-mod--part"+ count + "' class='field-set field-set__transport-mod'><legend class='field-set__cap'>Способ перевозки</legend><div class='field-set__items'><div id='transport-mod__radioGroup' class='radiogroup'></div></div></field-set>"};
@@ -591,93 +678,6 @@ function timezonePopupClose(e) {
 }
 
 
-$('.progress-bar__step').hover (function(){
-	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
-},
-function (){
-	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
-}
-);
-
-
-var progressPercentValue=10;
-  
-$('.header-progress').click(function() {
-
-	// progressPercentValue=Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100);
-	console.log('do='+progressPercentValue);
-	if (progressPercentValue < 100) {
-		$('.progress-bar__status').width((progressPercentValue + 5)+'%');
-		// console.log('posle='+ Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100));
-		if(progressPercentValue == 45){
-			$('.progress-bar__second-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
-			$('.progress-bar__second-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
-
-		}
-
-		if(progressPercentValue == 95){
-			$('.progress-bar__third-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
-			$('.progress-bar__third-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
-
-		}
-	progressPercentValue+=5;	
-	}
-
-
-});
-$(function() {
-    $("#rangeSelector").dxRangeSelector({
-        size: {
-            height: 70,
-            width: 744
-        },
-        selectedRangeColor: "rgba(55, 63, 81, 0.4)",
-        scale: {
-            startValue: -30,
-            endValue: +30,
-            // minorTickInterval: 5,
-            tickInterval: 10,
-            // minorTick: {
-                // visible: false,
-            // },
-            label: {
-                // format: "currency",
-                customizeText: function () {
-                return this.valueText + " ˚C";
-            	},
-            	font: {
-					color: "#373F51",
-					family: "Lucida Grande, Tahoma, Arial",
-					opacity: 1,
-					size: 13,
-					weight: 400
-				}
-            }
-        },
-        sliderMarker: {
-            // format: "currency",
-            color: "#373F51",
-            customizeText: function () {
-                return this.valueText + " ˚C";
-            },
-            font: {
-				color: "#FFFFFF",
-				family: "Lucida Grande, Tahoma, Arial",
-				opacity: 1,
-				size: 13,
-				weight: 400
-			},
-           	invalidRangeColor: "red",
-			paddingLeftRight: 10,
-			paddingTopBottom: 2,
-        },
-        value: [4, 8],
-        onInitialized: function () {      	
-        	$( ".dx-visibility-change-handler" ).append( "<div class='rangeselector__back'></div>");
-        }
-
-    });
-});
 $('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
 	// $(this).toggleClass('user-popup-menu__title-btn--up');
 	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
@@ -844,26 +844,6 @@ var now = new Date();
            class:"input-field__value"
          }
     });
-//эффект на иконке при hover тк заголовок всегда 1
-$('.navbar__item-header').hover(  
-function(){
-	$(this).find(".navbar__item-icon").css('opacity','1')
-},
-function(){
-	$(this).find(".navbar__item-icon").css('opacity','0.6')
-
-});
-
-$('.navbar__item-header').click(function(){
-	if (!$('.navbar').hasClass('navbar--open')){
-		openNavbar ();
-		///$('.footer').toggleClass('footer--fix313');
-	}
-	$(this).parents(".navbar__item").find('.navbar__submenu').toggleClass('navbar__submenu--open');
-	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
-
-});
-
 $("#conditionDest").dxSelectBox({
         dataSource: [ "FCA", "FAS", "FOB" ],
         placeholder: "",
@@ -908,18 +888,6 @@ $("#modal__region-list").dxSelectBox({
            class:"input-field__value"
          }
 });
- $(".popup__info-newmsg").dxToast({
-        message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
-        displayTime: 300000,
-        position: {my: 'center right', at: 'center right', offset: '-50 0'},
-        width: 375,
-		onShowing: function () {
-			//for left separate line on block message
-			$('.dx-toast-message').height($('.dx-toast-content').height());
-		}
-    });
-
-  $(".popup__info-newmsg").dxToast("show");
 //эффект на иконке при hover тк заголовок всегда 1
 $('.navbar__header-link').hover(  
 function(){
@@ -975,3 +943,35 @@ function openNavbar () {
     /// }
 
 }
+//эффект на иконке при hover тк заголовок всегда 1
+$('.navbar__item-header').hover(  
+function(){
+	$(this).find(".navbar__item-icon").css('opacity','1')
+},
+function(){
+	$(this).find(".navbar__item-icon").css('opacity','0.6')
+
+});
+
+$('.navbar__item-header').click(function(){
+	if (!$('.navbar').hasClass('navbar--open')){
+		openNavbar ();
+		///$('.footer').toggleClass('footer--fix313');
+	}
+	$(this).parents(".navbar__item").find('.navbar__submenu').toggleClass('navbar__submenu--open');
+	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
+
+});
+
+ $(".popup__info-newmsg").dxToast({
+        message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
+        displayTime: 300000,
+        position: {my: 'center right', at: 'center right', offset: '-50 0'},
+        width: 375,
+		onShowing: function () {
+			//for left separate line on block message
+			$('.dx-toast-message').height($('.dx-toast-content').height());
+		}
+    });
+
+  $(".popup__info-newmsg").dxToast("show");
