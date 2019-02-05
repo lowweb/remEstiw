@@ -9,8 +9,19 @@
 	max-height: min-content;
 	&:last-child{
 		margin-right: 0px;
-	}
 
+	}
+	
+	&--tween-top{
+		border-bottom-left-radius: 0;
+    	border-bottom-right-radius: 0;
+	}
+	&--tween-bottom {
+		// margin-top:-1px;
+		border-top-left-radius: 0;
+    	border-top-right-radius: 0;
+    	border-top-width: 0px;
+	}
 
 
 	&__items{
@@ -27,8 +38,7 @@
 
 	&__depart {
 		width: 918px;
-		border-bottom-left-radius: 0;
-    	border-bottom-right-radius: 0;
+		
 
 		& .input-field{
 			margin-right: 30px;
@@ -40,10 +50,7 @@
 
 	&__destination {
 		width: 918px;
-		 margin-top:-1px;
-		border-top-left-radius: 0;
-    	border-top-right-radius: 0;
-    	border-top-width: 0px;
+
 
 		& .input-field{
 			margin-right: 30px;
