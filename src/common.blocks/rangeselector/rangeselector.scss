@@ -1,0 +1,15 @@
+.dx-visibility-change-handler {
+	width: 744px;
+    position: relative;
+}
+
+.rangeselector__back {
+	width: 703px;
+    height: 3px;
+    background-image: url(../img/rangeselector__back.svg);
+    position: relative;
+    bottom: 35px;
+    z-index: -1;
+    margin: 0 23px;
+
+}
