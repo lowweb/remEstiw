@@ -1,0 +1,39 @@
+.tagbox 
+{	width: 710px;
+	 @include font-lucida ($clr-white, 13px, normal);
+	& .dx-tag-content {
+    margin: 4px 0 0px 4px;
+    padding: 3px 24px 2px 6px;
+    min-width: 40px;
+    background-color: #0073BE;
+    border-radius: 3px;
+    color: $clr-white;
+    bottom: 1px;
+}
+}
+
+.dx-tag-remove-button:before, .dx-tag-remove-button:after {
+    background: $clr-white;
+}
+
+.dx-tag-remove-button:before {
+    right: 9px;
+    margin-top: -5px;
+    width: 2px;
+    height: 10px;
+}
+
+.dx-tag-remove-button:after {
+    right: 5px;
+    margin-top: -1px;
+    width: 10px;
+    height: 2px;
+}
+
+.dx-overlay-wrapper {
+	@include font-lucida ($clr-white, 13px, normal);
+}
+
+.dx-item.dx-list-item.dx-list-item-selected {
+	color: $clr-dark;
+}

@@ -373,69 +373,6 @@ $("#departButton").dxButton({
 
 
 });
-// //close modal
-// $('.modal__btn-close').click( function () {
-// 	$('#modal-city').hide();
-// });
-
-// $('.modal-city__footer-close-btn').click( function () {
-//   $('#modal-city').hide();
-// });
-
-
-
-//  const $stepContainer = $('.modal-city__step-container'),
-//        $steps         = $('.modal-city__step'),
-//        numSteps       = $steps.length,
-//        $form          = $('.modal-city__content'),
-//        $next          = $('.modal-city__block-item'),
-//        $prev          = $('.modal-city__block-cap--link');
-
-// var stepWidth = $form.width();
-// var currentSlide = 0;
- 
-//   $steps.css({
-//     width: stepWidth + "px"
-//   });
-//   $stepContainer.css("width", stepWidth*numSteps + "px");
-
-//   animateSlider();
-
-// function animateSlider() {
-//   $stepContainer.css('transform', `translateX(${-stepWidth * currentSlide}px)`);
-// }
-
-// $next.on('click', function() {
-//   if(currentSlide < numSteps-1){
-//   currentSlide ++;
-//   animateSlider();
-//   }
-//   if(currentSlide != 0) {
-//     $prev.removeClass('disabled');
-//   }
-//   if(currentSlide === numSteps -1 ) {
-//     $(this).addClass('disabled');
-//   }
-//   $('.modal-city__block-href-back').text($(this).text());
-// });
-
-// $prev.on('click', function() {
-//   if(currentSlide > 0) {
-//     currentSlide --;
-//     animateSlider();
-//   } 
-//   if(currentSlide === 0) {
-//     $(this).addClass('disabled');
-//   }
-//   if(currentSlide != numSteps -1 ) {
-//     $next.removeClass('disabled');
-//   }
-// });
-
-// //ощщибка заполнения города
-// $('.modal-city__title').click(function() {
-//   $('.modal-city__search-err').toggleClass('modal-city__search-err--show');;
-// });
 // $(".navbar").scroll (function () {
 
 //  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
@@ -569,7 +506,14 @@ $(function() {
         },
         value: [4, 8],
         onInitialized: function () {      	
+        	
+        	
+        },
+        redrawOnResize: function (){alert($('.rangeselector .dxrs-range-selector-line').offset());},
+        onDrawn: function (){
+        	
         	$( ".dx-visibility-change-handler" ).append( "<div class='rangeselector__back'></div>");
+        	$('.rangeselector__back').width($('.rangeselector .dxrs-range-selector-line').width());
         }
 
     });
@@ -650,6 +594,29 @@ $(document.body).on('click', '.step-block__sep-btn-close' ,function(){
     $("#period__switch").dxSwitch({
         value: false
     });
+    var simpleProducts = [
+    "HD Video Player",
+    "SuperHD Video Player",
+    "SuperPlasma 50",
+    "SuperLED 50",
+    "SuperLED 42",
+    "SuperLCD 55",
+    "SuperLCD 42",
+    "SuperPlasma 65",
+    "SuperLCD 70",
+    "Projector Plus",
+    "Projector PlusHT",
+    "ExcelRemote IR",
+    "ExcelRemote Bluetooth",
+    "ExcelRemote IP"
+];
+    $("#productsSelection").dxTagBox({
+        items: simpleProducts,
+        showSelectionControls: true,
+        placeholder: "Выберите",
+        showDropDownButton: true
+        // applyValueMode: "useButtons"
+    });
 $('.timezone-popup-menu__title-btn').click(function(){
 // console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
 // if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
@@ -702,6 +669,69 @@ function userPopupClose() {
 		$('.app-lnk-disable').toggleClass('app-lnk-disable');
 	}
 }
+// //close modal
+// $('.modal__btn-close').click( function () {
+// 	$('#modal-city').hide();
+// });
+
+// $('.modal-city__footer-close-btn').click( function () {
+//   $('#modal-city').hide();
+// });
+
+
+
+//  const $stepContainer = $('.modal-city__step-container'),
+//        $steps         = $('.modal-city__step'),
+//        numSteps       = $steps.length,
+//        $form          = $('.modal-city__content'),
+//        $next          = $('.modal-city__block-item'),
+//        $prev          = $('.modal-city__block-cap--link');
+
+// var stepWidth = $form.width();
+// var currentSlide = 0;
+ 
+//   $steps.css({
+//     width: stepWidth + "px"
+//   });
+//   $stepContainer.css("width", stepWidth*numSteps + "px");
+
+//   animateSlider();
+
+// function animateSlider() {
+//   $stepContainer.css('transform', `translateX(${-stepWidth * currentSlide}px)`);
+// }
+
+// $next.on('click', function() {
+//   if(currentSlide < numSteps-1){
+//   currentSlide ++;
+//   animateSlider();
+//   }
+//   if(currentSlide != 0) {
+//     $prev.removeClass('disabled');
+//   }
+//   if(currentSlide === numSteps -1 ) {
+//     $(this).addClass('disabled');
+//   }
+//   $('.modal-city__block-href-back').text($(this).text());
+// });
+
+// $prev.on('click', function() {
+//   if(currentSlide > 0) {
+//     currentSlide --;
+//     animateSlider();
+//   } 
+//   if(currentSlide === 0) {
+//     $(this).addClass('disabled');
+//   }
+//   if(currentSlide != numSteps -1 ) {
+//     $next.removeClass('disabled');
+//   }
+// });
+
+// //ощщибка заполнения города
+// $('.modal-city__title').click(function() {
+//   $('.modal-city__search-err').toggleClass('modal-city__search-err--show');;
+// });
 $("#destButton").dxButton({
     text: "",
     onClick: function() {
