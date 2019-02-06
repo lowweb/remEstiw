@@ -31,9 +31,6 @@
 }
 
 .dx-overlay-wrapper {
-	@include font-lucida ($clr-white, 13px, normal);
+	// @include font-lucida ($clr-white, 13px, normal);
 }
 
-.dx-item.dx-list-item.dx-list-item-selected {
-	color: $clr-dark;
-}
