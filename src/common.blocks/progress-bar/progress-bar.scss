@@ -72,14 +72,14 @@
     		transition: opacity .5s;
 
     		&--hov{
-				transform: scale(1.15,1.15);
+				// transform: scale(1.15,1.15);
 				transition: transform .3s;
     		} 
 
     		&--active {
     			box-shadow: 0 0 0 1px #02BE96;
     			opacity: 1;
-    			transition: opacity .5s;
+    			// transition: opacity .5s;
     		}   		
     	}
 
