@@ -52,8 +52,8 @@ $(function() {
         redrawOnResize: function (){alert($('.rangeselector .dxrs-range-selector-line').offset());},
         onDrawn: function (){
         	
-        	$( ".dx-visibility-change-handler" ).append( "<div class='rangeselector__back'></div>");
-        	$('.rangeselector__back').width($('.rangeselector .dxrs-range-selector-line').width());
+        	$( ".rangeselector .dx-visibility-change-handler" ).append( "<div class='rangeselector__back'></div>");
+        	// $('.rangeselector__back').width($('.rangeselector .dxrs-range-selector-line').width());
         }
 
     });

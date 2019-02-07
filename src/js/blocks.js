@@ -209,6 +209,435 @@ $(function () {
 		uploadFailedMessage: "",
     });
 });
+var orders = [{
+    "ID": 1,
+    "OrderNumber": 35703,
+    "OrderDate": "2017/04/10",
+    "DeliveryDate": "2017/04/13 9:00",
+    "SaleAmount": 11800,
+    "Terms": "15 Days",
+    "CustomerStoreCity": "Los Angeles, CA",
+    "Employee": "Harv Mudd"
+}, {
+    "ID": 4,
+    "OrderNumber": 35711,
+    "OrderDate": "2017/01/12",
+    "DeliveryDate": "2017/01/13 9:00",
+    "SaleAmount": 16050,
+    "Terms": "15 Days",
+    "CustomerStoreCity": "San Jose, CA",
+    "Employee": "Jim Packard"
+}, {
+    "ID": 5,
+    "OrderNumber": 35714,
+    "OrderDate": "2017/01/22",
+    "DeliveryDate": "2017/01/27 9:00",
+    "SaleAmount": 14750,
+    "Terms": "15 Days",
+    "CustomerStoreCity": "Las Vegas, NV",
+    "Employee": "Harv Mudd"
+}, {
+    "ID": 7,
+    "OrderNumber": 35983,
+    "OrderDate": "2017/02/07",
+    "DeliveryDate": "2017/02/10 13:00",
+    "SaleAmount": 3725,
+    "Terms": "15 Days",
+    "CustomerStoreCity": "Denver, CO",
+    "Employee": "Todd Hoffman"
+}, {
+    "ID": 11,
+    "OrderNumber": 38466,
+    "OrderDate": "2017/03/01",
+    "DeliveryDate": "2017/03/03 17:45",
+    "SaleAmount": 7800,
+    "Terms": "15 Days",
+    "CustomerStoreCity": "Los Angeles, CA",
+    "Employee": "Harv Mudd"
+}, {
+    "ID": 14,
+    "OrderNumber": 39420,
+    "OrderDate": "2017/02/15",
+    "DeliveryDate": "2017/02/17 11:45",
+    "SaleAmount": 20500,
+    "Terms": "15 Days",
+    "CustomerStoreCity": "San Jose, CA",
+    "Employee": "Jim Packard"
+}, {
+    "ID": 15,
+    "OrderNumber": 39874,
+    "OrderDate": "2017/02/04",
+    "DeliveryDate": "2017/02/10 15:00",
+    "SaleAmount": 9050,
+    "Terms": "30 Days",
+    "CustomerStoreCity": "Las Vegas, NV",
+    "Employee": "Harv Mudd"
+}, {
+    "ID": 18,
+    "OrderNumber": 42847,
+    "OrderDate": "2017/02/15",
+    "DeliveryDate": "2017/02/17 8:30",    
+    "SaleAmount": 20400,
+    "Terms": "30 Days",
+    "CustomerStoreCity": "Casper, WY",
+    "Employee": "Todd Hoffman"
+}, {
+    "ID": 30,
+    "OrderNumber": 57429,
+    "OrderDate": "2017/05/16",
+    "DeliveryDate": "2017/05/19 11:45",
+    "SaleAmount": 11050,
+    "Terms": "30 Days",
+    "CustomerStoreCity": "Phoenix, AZ",
+    "Employee": "Clark Morgan"
+}, {
+    "ID": 32,
+    "OrderNumber": 58292,
+    "OrderDate": "2017/05/13",
+    "DeliveryDate": "2017/05/19 14:30",
+    "SaleAmount": 13500,
+    "Terms": "15 Days",
+    "CustomerStoreCity": "Los Angeles, CA",
+    "Employee": "Harv Mudd"
+}, {
+    "ID": 36,
+    "OrderNumber": 62427,
+    "OrderDate": "2017/01/27",
+    "DeliveryDate": "2017/02/03 18:00",
+    "SaleAmount": 23500,
+    "Terms": "15 Days",
+    "CustomerStoreCity": "Las Vegas, NV",
+    "Employee": "Harv Mudd"
+}, {
+    "ID": 39,
+    "OrderNumber": 65977,
+    "OrderDate": "2017/02/05",
+    "DeliveryDate": "2017/02/10 13:15",
+    "SaleAmount": 2550,
+    "Terms": "15 Days",
+    "CustomerStoreCity": "Casper, WY",
+    "Employee": "Todd Hoffman"
+}, {
+    "ID": 42,
+    "OrderNumber": 68428,
+    "OrderDate": "2017/04/10",
+    "DeliveryDate": "2017/04/14 11:30",
+    "SaleAmount": 10500,
+    "Terms": "15 Days",
+    "CustomerStoreCity": "Los Angeles, CA",
+    "Employee": "Harv Mudd"
+}, {
+    "ID": 43,
+    "OrderNumber": 69477,
+    "OrderDate": "2017/03/09",
+    "DeliveryDate": "2017/03/10 12:00",
+    "SaleAmount": 14200,
+    "Terms": "15 Days",
+    "CustomerStoreCity": "Anaheim, CA",
+    "Employee": "Harv Mudd"
+}, {
+    "ID": 46,
+    "OrderNumber": 72947,
+    "OrderDate": "2017/01/14",
+    "DeliveryDate": "2017/01/20 9:00",
+    "SaleAmount": 13350,
+    "Terms": "30 Days",
+    "CustomerStoreCity": "Las Vegas, NV",
+    "Employee": "Harv Mudd"
+}, {
+    "ID": 47,
+    "OrderNumber": 73088,
+    "OrderDate": "2017/03/25",
+    "DeliveryDate": "2017/03/31 17:15",
+    "SaleAmount": 8600,
+    "Terms": "30 Days",
+    "CustomerStoreCity": "Reno, NV",
+    "Employee": "Clark Morgan"
+}, {
+    "ID": 51,
+    "OrderNumber": 77297,
+    "OrderDate": "2017/04/30",
+    "DeliveryDate": "2017/05/05 18:00",
+    "SaleAmount": 10850,
+    "Terms": "30 Days",
+    "CustomerStoreCity": "Phoenix, AZ",
+    "Employee": "Clark Morgan"
+}, {
+    "ID": 56,
+    "OrderNumber": 84744,
+    "OrderDate": "2017/02/10",
+    "DeliveryDate": "2017/02/17 14:00",
+    "SaleAmount": 4650,
+    "Terms": "30 Days",
+    "CustomerStoreCity": "Las Vegas, NV",
+    "Employee": "Harv Mudd"
+}, {
+    "ID": 57,
+    "OrderNumber": 85028,
+    "OrderDate": "2017/05/17",
+    "DeliveryDate": "2017/05/19 12:00",
+    "SaleAmount": 2575,
+    "Terms": "30 Days",
+    "CustomerStoreCity": "Reno, NV",
+    "Employee": "Clark Morgan"
+}, {
+    "ID": 59,
+    "OrderNumber": 87297,
+    "OrderDate": "2017/04/21",
+    "DeliveryDate": "2017/04/28 9:00",
+    "SaleAmount": 14200,
+    "Terms": "30 Days",
+    "CustomerStoreCity": "Casper, WY",
+    "Employee": "Todd Hoffman"
+}, {
+    "ID": 65,
+    "OrderNumber": 94726,
+    "OrderDate": "2017/05/22",
+    "DeliveryDate": "2017/05/26 13:30",
+    "SaleAmount": 20500,
+    "Terms": "15 Days",
+    "CustomerStoreCity": "San Jose, CA",
+    "Employee": "Jim Packard"
+}, {
+    "ID": 66,
+    "OrderNumber": 95266,
+    "OrderDate": "2017/03/10",
+    "DeliveryDate": "2017/03/17 11:45",
+    "SaleAmount": 9050,
+    "Terms": "15 Days",
+    "CustomerStoreCity": "Las Vegas, NV",
+    "Employee": "Harv Mudd"
+}, {
+    "ID": 69,
+    "OrderNumber": 98477,
+    "OrderDate": "2017/01/01",
+    "DeliveryDate": "2017/01/06 9:00",
+    "SaleAmount": 23500,
+    "Terms": "15 Days",
+    "CustomerStoreCity": "Casper, WY",
+    "Employee": "Todd Hoffman"
+}, {
+    "ID": 78,
+    "OrderNumber": 174884,
+    "OrderDate": "2017/04/10",
+    "DeliveryDate": "2017/04/14 8:30",
+    "SaleAmount": 7200,
+    "Terms": "30 Days",
+    "CustomerStoreCity": "Denver, CO",
+    "Employee": "Todd Hoffman"
+}, {
+    "ID": 81,
+    "OrderNumber": 188877,
+    "OrderDate": "2017/02/11",
+    "DeliveryDate": "2017/02/17 16:00",
+    "SaleAmount": 8750,
+    "Terms": "30 Days",
+    "CustomerStoreCity": "Phoenix, AZ",
+    "Employee": "Clark Morgan"
+}, {
+    "ID": 82,
+    "OrderNumber": 191883,
+    "OrderDate": "2017/02/05",
+    "DeliveryDate": "2017/02/10 18:30",
+    "SaleAmount": 9900,
+    "Terms": "30 Days",
+    "CustomerStoreCity": "Los Angeles, CA",
+    "Employee": "Harv Mudd"
+}, {
+    "ID": 83,
+    "OrderNumber": 192474,
+    "OrderDate": "2017/01/21",
+    "DeliveryDate": "2017/01/27 12:45",
+    "SaleAmount": 12800,
+    "Terms": "30 Days",
+    "CustomerStoreCity": "Anaheim, CA",
+    "Employee": "Harv Mudd"
+}, {
+    "ID": 84,
+    "OrderNumber": 193847,
+    "OrderDate": "2017/03/21",
+    "DeliveryDate": "2017/03/24 9:00",
+    "SaleAmount": 14100,
+    "Terms": "30 Days",
+    "CustomerStoreCity": "San Diego, CA",
+    "Employee": "Harv Mudd"
+}, {
+    "ID": 85,
+    "OrderNumber": 194877,
+    "OrderDate": "2017/03/06",
+    "DeliveryDate": "2017/03/10 18:15",
+    "SaleAmount": 4750,
+    "Terms": "30 Days",
+    "CustomerStoreCity": "San Jose, CA",
+    "Employee": "Jim Packard"
+}, {
+    "ID": 86,
+    "OrderNumber": 195746,
+    "OrderDate": "2017/05/26",
+    "DeliveryDate": "2017/06/02 17:00",
+    "SaleAmount": 9050,
+    "Terms": "30 Days",
+    "CustomerStoreCity": "Las Vegas, NV",
+    "Employee": "Harv Mudd"
+}, {
+    "ID": 87,
+    "OrderNumber": 197474,
+    "OrderDate": "2017/03/02",
+    "DeliveryDate": "2017/03/03 11:00",
+    "SaleAmount": 6400,
+    "Terms": "30 Days",
+    "CustomerStoreCity": "Reno, NV",
+    "Employee": "Clark Morgan"
+}, {
+    "ID": 88,
+    "OrderNumber": 198746,
+    "OrderDate": "2017/05/09",
+    "DeliveryDate": "2017/05/12 15:45",
+    "SaleAmount": 15700,
+    "Terms": "30 Days",
+    "CustomerStoreCity": "Denver, CO",
+    "Employee": "Todd Hoffman"
+}, {
+    "ID": 91,
+    "OrderNumber": 214222,
+    "OrderDate": "2017/02/08",
+    "DeliveryDate": "2017/02/10 9:45",
+    "SaleAmount": 11050,
+    "Terms": "30 Days",
+    "CustomerStoreCity": "Phoenix, AZ",
+    "Employee": "Clark Morgan"
+}];
+
+    var dataGrid = $("#gridContainer").dxDataGrid({
+        dataSource: orders,
+        columnsAutoWidth: true,
+        showBorders: true,
+        filterRow: {
+            visible: true,
+            applyFilter: "auto"
+        },
+        searchPanel: {
+            visible: true,
+            width: 240,
+            placeholder: "Search..."
+        },
+        headerFilter: {
+            visible: true
+        },
+        columns: [{
+            dataField: "OrderNumber",
+            caption: "Invoice Number",
+            width: 140,
+            headerFilter: {
+                groupInterval: 10000
+            }
+        }, {
+            dataField: "OrderDate",
+            alignment: "right",
+            dataType: "date",
+            width: 120,
+            calculateFilterExpression: function(value, selectedFilterOperations, target) {
+                if(target === "headerFilter" && value === "weekends") {
+                    return [[getOrderDay, "=", 0], "or", [getOrderDay, "=", 6]];
+                }
+                return this.defaultCalculateFilterExpression.apply(this, arguments);
+            },
+            headerFilter: {
+                dataSource: function(data) {
+                    data.dataSource.postProcess = function(results) {
+                        results.push({
+                            text: "Weekends",
+                            value: "weekends"
+                        });                        
+                        return results;
+                    };
+                }
+            }
+        }, {
+            dataField: "DeliveryDate",
+            alignment: "right",
+            dataType: "datetime",
+            width: 180,
+            format: "M/d/yyyy, HH:mm"
+        }, {
+            dataField: "SaleAmount",
+            alignment: "right",
+            format: "currency",
+            editorOptions: {
+                format: "currency",
+                showClearButton: true
+            },
+            headerFilter: {
+                dataSource: [ {
+                    text: "Less than $3000",
+                    value: ["SaleAmount", "<", 3000]
+                }, {
+                    
+                    text: "$3000 - $5000",
+                    value: [["SaleAmount", ">=", 3000], ["SaleAmount", "<", 5000]]
+                }, {
+                    
+                    text: "$5000 - $10000",
+                    value: [["SaleAmount", ">=", 5000], ["SaleAmount", "<", 10000]]
+                }, {
+                    
+                    text: "$10000 - $20000",
+                    value: [["SaleAmount", ">=", 10000], ["SaleAmount", "<", 20000]]
+                }, {                    
+                    text: "Greater than $20000",
+                    value: ["SaleAmount", ">=", 20000]
+                }]
+            }
+        }, "Employee", {
+            caption: "City",
+            dataField: "CustomerStoreCity",
+            headerFilter: {
+                allowSearch: true
+            }
+            }]
+    }).dxDataGrid('instance');
+    
+    var applyFilterTypes = [{
+        key: "auto",
+        name: "Immediately"
+    }, {
+        key: "onClick",
+        name: "On Button Click"
+    }];
+    
+    var applyFilterModeEditor = $("#useFilterApplyButton").dxSelectBox({
+        items: applyFilterTypes,
+        value: applyFilterTypes[0].key,
+        valueExpr: "key",
+        displayExpr: "name",
+        onValueChanged: function(data) {
+            dataGrid.option("filterRow.applyFilter", data.value);
+        }
+    }).dxSelectBox("instance");
+    
+    $("#filterRow").dxCheckBox({
+        text: "Filter Row",
+        value: true,
+        onValueChanged: function(data) {
+            dataGrid.clearFilter();
+            dataGrid.option("filterRow.visible", data.value);
+            applyFilterModeEditor.option("disabled", !data.value);
+        }
+    });
+    
+    $("#headerFilter").dxCheckBox({
+        text: "Header Filter",
+        value: true,
+        onValueChanged: function(data) {
+            dataGrid.clearFilter();
+            dataGrid.option("headerFilter.visible", data.value);
+        }
+    });
+    
+    function getOrderDay(rowData) {
+        return (new Date(rowData.OrderDate)).getDay();
+    }
+
 
 //название запроса
 $("#requestName").dxTextBox({
@@ -373,59 +802,69 @@ $("#departButton").dxButton({
 
 
 });
-// $(".navbar").scroll (function () {
+// //close modal
+// $('.modal__btn-close').click( function () {
+// 	$('#modal-city').hide();
+// });
 
-//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
-
-//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
-//     $(".navbar-ul").addClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-sticky')[0].scrollIntoView(true);
-
-// }  
-// if ( $(this).scrollTop() == 0) {
-
-//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
-//     $(".navbar-ul").removeClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-currency')[0].scrollIntoView(true);
-//  }
-
-//  });
-$('.progress-bar__step').hover (function(){
-	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
-},
-function (){
-	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
-}
-);
+// $('.modal-city__footer-close-btn').click( function () {
+//   $('#modal-city').hide();
+// });
 
 
-var progressPercentValue=10;
-  
-$('.header-progress').click(function() {
 
-	// progressPercentValue=Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100);
-	console.log('do='+progressPercentValue);
-	if (progressPercentValue < 100) {
-		$('.progress-bar__status').width((progressPercentValue + 5)+'%');
-		// console.log('posle='+ Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100));
-		if(progressPercentValue == 45){
-			$('.progress-bar__second-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
-			$('.progress-bar__second-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+//  const $stepContainer = $('.modal-city__step-container'),
+//        $steps         = $('.modal-city__step'),
+//        numSteps       = $steps.length,
+//        $form          = $('.modal-city__content'),
+//        $next          = $('.modal-city__block-item'),
+//        $prev          = $('.modal-city__block-cap--link');
 
-		}
+// var stepWidth = $form.width();
+// var currentSlide = 0;
+ 
+//   $steps.css({
+//     width: stepWidth + "px"
+//   });
+//   $stepContainer.css("width", stepWidth*numSteps + "px");
 
-		if(progressPercentValue == 95){
-			$('.progress-bar__third-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
-			$('.progress-bar__third-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+//   animateSlider();
 
-		}
-	progressPercentValue+=5;	
-	}
+// function animateSlider() {
+//   $stepContainer.css('transform', `translateX(${-stepWidth * currentSlide}px)`);
+// }
 
+// $next.on('click', function() {
+//   if(currentSlide < numSteps-1){
+//   currentSlide ++;
+//   animateSlider();
+//   }
+//   if(currentSlide != 0) {
+//     $prev.removeClass('disabled');
+//   }
+//   if(currentSlide === numSteps -1 ) {
+//     $(this).addClass('disabled');
+//   }
+//   $('.modal-city__block-href-back').text($(this).text());
+// });
 
-});
+// $prev.on('click', function() {
+//   if(currentSlide > 0) {
+//     currentSlide --;
+//     animateSlider();
+//   } 
+//   if(currentSlide === 0) {
+//     $(this).addClass('disabled');
+//   }
+//   if(currentSlide != numSteps -1 ) {
+//     $next.removeClass('disabled');
+//   }
+// });
+
+// //ощщибка заполнения города
+// $('.modal-city__title').click(function() {
+//   $('.modal-city__search-err').toggleClass('modal-city__search-err--show');;
+// });
 var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
 $("#type-deal__radioGroup").dxRadioGroup({
         items: typeDealitem,
@@ -512,11 +951,45 @@ $(function() {
         redrawOnResize: function (){alert($('.rangeselector .dxrs-range-selector-line').offset());},
         onDrawn: function (){
         	
-        	$( ".dx-visibility-change-handler" ).append( "<div class='rangeselector__back'></div>");
-        	$('.rangeselector__back').width($('.rangeselector .dxrs-range-selector-line').width());
+        	$( ".rangeselector .dx-visibility-change-handler" ).append( "<div class='rangeselector__back'></div>");
+        	// $('.rangeselector__back').width($('.rangeselector .dxrs-range-selector-line').width());
         }
 
     });
+});
+$('.progress-bar__step').hover (function(){
+	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
+},
+function (){
+	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
+}
+);
+
+
+var progressPercentValue=10;
+  
+$('.header-progress').click(function() {
+
+	// progressPercentValue=Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100);
+	console.log('do='+progressPercentValue);
+	if (progressPercentValue < 100) {
+		$('.progress-bar__status').width((progressPercentValue + 5)+'%');
+		// console.log('posle='+ Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100));
+		if(progressPercentValue == 45){
+			$('.progress-bar__second-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
+			$('.progress-bar__second-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+
+		}
+
+		if(progressPercentValue == 95){
+			$('.progress-bar__third-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
+			$('.progress-bar__third-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+
+		}
+	progressPercentValue+=5;	
+	}
+
+
 });
 //add consignment block
 function cnstCargoCheracter (count) { return "<field-set id='field-set__cargo-cheracter--part"+ count + "' class='field-set field-set__cargo-cheracter'><legend class='field-set__cap'>Характеристики груза</legend><div class='field-set__items'><div id='cargo-cheracter__radioGroup' class='radiogroup'></div></div></field-set>"};
@@ -591,32 +1064,6 @@ $(document.body).on('click', '.step-block__sep-btn-close' ,function(){
 	if ($( ".consignment" ).length == 1 )
 		$( ".consignment .step-block__sep .step-block__sep-btn-close").remove();
 });
-    $("#period__switch").dxSwitch({
-        value: false
-    });
-    var simpleProducts = [
-    "HD Video Player",
-    "SuperHD Video Player",
-    "SuperPlasma 50",
-    "SuperLED 50",
-    "SuperLED 42",
-    "SuperLCD 55",
-    "SuperLCD 42",
-    "SuperPlasma 65",
-    "SuperLCD 70",
-    "Projector Plus",
-    "Projector PlusHT",
-    "ExcelRemote IR",
-    "ExcelRemote Bluetooth",
-    "ExcelRemote IP"
-];
-    $("#productsSelection").dxTagBox({
-        items: simpleProducts,
-        showSelectionControls: true,
-        placeholder: "Выберите",
-        showDropDownButton: true
-        // applyValueMode: "useButtons"
-    });
 $('.timezone-popup-menu__title-btn').click(function(){
 // console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
 // if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
@@ -645,6 +1092,51 @@ function timezonePopupClose(e) {
 }
 
 
+    $("#period__switch").dxSwitch({
+        value: false
+    });
+// $(".navbar").scroll (function () {
+
+//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
+
+//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
+//     $(".navbar-ul").addClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-sticky')[0].scrollIntoView(true);
+
+// }  
+// if ( $(this).scrollTop() == 0) {
+
+//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
+//     $(".navbar-ul").removeClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-currency')[0].scrollIntoView(true);
+//  }
+
+//  });
+    var simpleProducts = [
+    "HD Video Player",
+    "SuperHD Video Player",
+    "SuperPlasma 50",
+    "SuperLED 50",
+    "SuperLED 42",
+    "SuperLCD 55",
+    "SuperLCD 42",
+    "SuperPlasma 65",
+    "SuperLCD 70",
+    "Projector Plus",
+    "Projector PlusHT",
+    "ExcelRemote IR",
+    "ExcelRemote Bluetooth",
+    "ExcelRemote IP"
+];
+    $("#productsSelection").dxTagBox({
+        items: simpleProducts,
+        showSelectionControls: true,
+        placeholder: "Выберите",
+        showDropDownButton: true
+        // applyValueMode: "useButtons"
+    });
 $('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
 	// $(this).toggleClass('user-popup-menu__title-btn--up');
 	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
@@ -669,69 +1161,6 @@ function userPopupClose() {
 		$('.app-lnk-disable').toggleClass('app-lnk-disable');
 	}
 }
-// //close modal
-// $('.modal__btn-close').click( function () {
-// 	$('#modal-city').hide();
-// });
-
-// $('.modal-city__footer-close-btn').click( function () {
-//   $('#modal-city').hide();
-// });
-
-
-
-//  const $stepContainer = $('.modal-city__step-container'),
-//        $steps         = $('.modal-city__step'),
-//        numSteps       = $steps.length,
-//        $form          = $('.modal-city__content'),
-//        $next          = $('.modal-city__block-item'),
-//        $prev          = $('.modal-city__block-cap--link');
-
-// var stepWidth = $form.width();
-// var currentSlide = 0;
- 
-//   $steps.css({
-//     width: stepWidth + "px"
-//   });
-//   $stepContainer.css("width", stepWidth*numSteps + "px");
-
-//   animateSlider();
-
-// function animateSlider() {
-//   $stepContainer.css('transform', `translateX(${-stepWidth * currentSlide}px)`);
-// }
-
-// $next.on('click', function() {
-//   if(currentSlide < numSteps-1){
-//   currentSlide ++;
-//   animateSlider();
-//   }
-//   if(currentSlide != 0) {
-//     $prev.removeClass('disabled');
-//   }
-//   if(currentSlide === numSteps -1 ) {
-//     $(this).addClass('disabled');
-//   }
-//   $('.modal-city__block-href-back').text($(this).text());
-// });
-
-// $prev.on('click', function() {
-//   if(currentSlide > 0) {
-//     currentSlide --;
-//     animateSlider();
-//   } 
-//   if(currentSlide === 0) {
-//     $(this).addClass('disabled');
-//   }
-//   if(currentSlide != numSteps -1 ) {
-//     $next.removeClass('disabled');
-//   }
-// });
-
-// //ощщибка заполнения города
-// $('.modal-city__title').click(function() {
-//   $('.modal-city__search-err').toggleClass('modal-city__search-err--show');;
-// });
 $("#destButton").dxButton({
     text: "",
     onClick: function() {
@@ -918,6 +1347,38 @@ $("#modal__region-list").dxSelectBox({
            class:"input-field__value"
          }
 });
+ $(".popup__info-newmsg").dxToast({
+        message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
+        displayTime: 300000,
+        position: {my: 'center right', at: 'center right', offset: '-50 0'},
+        width: 375,
+		onShowing: function () {
+			//for left separate line on block message
+			$('.dx-toast-message').height($('.dx-toast-content').height());
+		}
+    });
+
+  $(".popup__info-newmsg").dxToast("show");
+//эффект на иконке при hover тк заголовок всегда 1
+$('.navbar__item-header').hover(  
+function(){
+	$(this).find(".navbar__item-icon").css('opacity','1')
+},
+function(){
+	$(this).find(".navbar__item-icon").css('opacity','0.6')
+
+});
+
+$('.navbar__item-header').click(function(){
+	if (!$('.navbar').hasClass('navbar--open')){
+		openNavbar ();
+		///$('.footer').toggleClass('footer--fix313');
+	}
+	$(this).parents(".navbar__item").find('.navbar__submenu').toggleClass('navbar__submenu--open');
+	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
+
+});
+
 //эффект на иконке при hover тк заголовок всегда 1
 $('.navbar__header-link').hover(  
 function(){
@@ -973,35 +1434,3 @@ function openNavbar () {
     /// }
 
 }
-//эффект на иконке при hover тк заголовок всегда 1
-$('.navbar__item-header').hover(  
-function(){
-	$(this).find(".navbar__item-icon").css('opacity','1')
-},
-function(){
-	$(this).find(".navbar__item-icon").css('opacity','0.6')
-
-});
-
-$('.navbar__item-header').click(function(){
-	if (!$('.navbar').hasClass('navbar--open')){
-		openNavbar ();
-		///$('.footer').toggleClass('footer--fix313');
-	}
-	$(this).parents(".navbar__item").find('.navbar__submenu').toggleClass('navbar__submenu--open');
-	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
-
-});
-
- $(".popup__info-newmsg").dxToast({
-        message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
-        displayTime: 300000,
-        position: {my: 'center right', at: 'center right', offset: '-50 0'},
-        width: 375,
-		onShowing: function () {
-			//for left separate line on block message
-			$('.dx-toast-message').height($('.dx-toast-content').height());
-		}
-    });
-
-  $(".popup__info-newmsg").dxToast("show");
