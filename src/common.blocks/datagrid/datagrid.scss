@@ -1,0 +1,20 @@
+.datagrid {
+	width: 700px;
+	@include font-lucida ($clr-dark-light, 13px, normal);
+
+	& tr.dx-row-lines.dx-column-lines:nth-child(2n) {
+		background-color: rgba(243, 243, 243, 0.5);
+	}
+
+	& tr.dx-row-lines.dx-column-lines {
+		color: rgba(0, 0, 0, 0.7);
+		@include font-lucida ($clr-dark-light, 14px, normal);
+	}
+
+	& .dx-header-row {
+		background-color: #F3F3F3;
+	}
+
+
+	 
+}
