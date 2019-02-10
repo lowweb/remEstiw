@@ -2,7 +2,7 @@
 $("#requestName").dxTextBox({
   inputAttr: {
    		 id: "requestName__id",
-   		 class:"input-field__value"
+   		 class:"input-field__value" 
    }
 }).dxValidator({
         validationRules: [{
@@ -20,6 +20,16 @@ $("#requestName").dxTextBox({
         validationGroup: "validateItems" //обязательный параметр для валидации
     });
 
+
+$("#input-field__totalWeight").dxTextBox({
+  inputAttr: {
+       id: "input-field__totalWeight-id",
+       class:"input-field__value" 
+   },
+   width: 128,
+   readOnly: true,
+   value: "100",
+})
 
 
 
