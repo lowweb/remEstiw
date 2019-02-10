@@ -1,5 +1,5 @@
 .datagrid {
-	width: 700px;
+	width: 984px;
 	@include font-lucida ($clr-dark-light, 13px, normal);
 
 	& tr.dx-row-lines.dx-column-lines:nth-child(2n) {
@@ -7,14 +7,50 @@
 	}
 
 	& tr.dx-row-lines.dx-column-lines {
-		color: rgba(0, 0, 0, 0.7);
-		@include font-lucida ($clr-dark-light, 14px, normal);
+		// color: rgba(0, 0, 0, 0.7);
+		@include font-lucida (rgba(0, 0, 0, 0.7), 14px, normal);
 	}
 
 	& .dx-header-row {
 		background-color: #F3F3F3;
 	}
 
+	& .dx-texteditor.dx-editor-outlined {
+	   	 border-radius: 0px;
+	}
 
-	 
+	& .dx-texteditor-buttons-container {
+		background-color: transparent;
+	}
+
+	& .dx-widget input, &.dx-widget textarea {
+		@include font-lucida (rgba(0, 0, 0, 0.7), 13px, normal);
+	}
+
+	.dx-datagrid-headers {
+  	  color: $clr-dark-light;
+	}
+	
+	.dx-data-row &__link-cell{ 
+
+		white-space: normal;
+
+		 a {
+			cursor: pointer;
+			color: $clr-blue;	
+
+			&:hover{
+				color: $clr-purple;
+			}
+		}
+	}
+
+	&__custom-radio-cell {
+		display: flex;
+	}
+
+
 }
+
+
+

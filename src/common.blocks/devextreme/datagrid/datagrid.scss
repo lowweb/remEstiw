@@ -6,6 +6,11 @@
     border-bottom: 0px solid $clr-grey-v2;
 }
 
+.dx-row.dx-column-lines.dx-header-row > td {
+    border-left: 0px solid $clr-grey-v2;
+    border-right: 0px solid $clr-grey-v2;
+}
+
 .dx-datagrid .dx-column-lines > td {
     border-left: 1px solid $clr-grey-v2;
     border-right: 1px solid $clr-grey-v2;
@@ -32,4 +37,33 @@
 .dx-datagrid-rowsview .dx-selection.dx-row:hover > tr > td {
   	background-color: #ECF4FA;
     color: $clr-dark-light;
+}
+.dx-datagrid-rowsview .dx-selection.dx-row:not(.dx-row-lines) > td, .dx-datagrid-rowsview .dx-selection.dx-row:hover:not(.dx-row-lines) > td, .dx-datagrid-rowsview .dx-selection.dx-row:not(.dx-row-focused) > td, .dx-datagrid-rowsview .dx-selection.dx-row:hover:not(.dx-row-focused) > td {
+    border-top: none;
+}
+
+.dx-dropdowneditor.dx-dropdowneditor-active .dx-dropdowneditor-icon, .dx-dropdowneditor-button.dx-state-active .dx-dropdowneditor-icon {
+    background-color: transparent;
+    border-color: transparent;
+    color: #333;
+    opacity: 1;
+}
+
+.dx-datagrid-content .dx-datagrid-table .dx-row .dx-editor-cell .dx-dropdowneditor {
+     margin-left: 0px; 
+    padding-left: 1px;
+}
+
+.datagrid .dx-dropdowneditor.dx-state-hover .dx-dropdowneditor-icon,
+.datagrid .dx-dropdowneditor.dx-state-active .dx-dropdowneditor-icon {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.dx-datagrid-focus-overlay {
+    border: none;
+}
+
+.dx-datagrid-content .dx-datagrid-table .dx-row > td, .dx-datagrid-content .dx-datagrid-table .dx-row > tr > td {
+     vertical-align: middle; 
 }
