@@ -1,0 +1,42 @@
+.dx-numberbox-spin-up-icon:before, .dx-numberbox-spin-down-icon:before {
+    color: $clr-blue;
+}
+.dx-numberbox-spin-container {
+    overflow: hidden;
+    width: 24px;
+    border: 1px solid $clr-grey-v2;
+	box-sizing: border-box;
+	border-radius: 3px;
+}
+
+.dx-numberbox-spin-up {
+	    border-bottom: 0.5px solid $clr-grey-v2;
+}
+
+.dx-numberbox-spin-down {
+	    // border-top: 0.5px solid $clr-grey-v2;
+}
+
+.dx-state-hover.dx-numberbox-spin-button .dx-numberbox-spin-down-icon,
+.dx-state-hover.dx-numberbox-spin-button .dx-numberbox-spin-up-icon {
+  border: 0px solid transparent;
+  background-color: #ffffff;
+}
+
+.dx-state-active.dx-numberbox-spin-button .dx-numberbox-spin-down-icon,
+.dx-state-active.dx-numberbox-spin-button .dx-numberbox-spin-up-icon {
+  background-color: #ECF4FA;
+  color: #333;
+}
+
+.dx-state-hover.dx-numberbox-spin-button .dx-numberbox-spin-down-icon:before,
+.dx-state-hover.dx-numberbox-spin-button .dx-numberbox-spin-up-icon:before {
+  color: $clr-purple;
+}
+
+
+.dx-numberbox-spin-up-icon, .dx-numberbox-spin-down-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

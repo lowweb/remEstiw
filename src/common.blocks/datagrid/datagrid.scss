@@ -33,7 +33,7 @@
 	
 	.dx-data-row &__link-cell{ 
 
-		white-space: normal;
+		// white-space: normal;
 
 		 a {
 			cursor: pointer;
@@ -43,6 +43,10 @@
 				color: $clr-purple;
 			}
 		}
+	}
+	
+	& .dx-data-row > td {
+		white-space: normal;
 	}
 
 	&__custom-radio-cell {

@@ -14,10 +14,17 @@
     "ExcelRemote Bluetooth",
     "ExcelRemote IP"
 ];
-    $("#productsSelection").dxTagBox({
-        items: simpleProducts,
+function tagBoxInit (idElement,idAttrName, itemsElement, widthElement) {
+     $("#"+idElement).dxTagBox({
+        items: itemsElement,
         showSelectionControls: true,
         placeholder: "Выберите",
-        showDropDownButton: true
-        // applyValueMode: "useButtons"
+        showDropDownButton: true,
+        inputAttr: {
+         id: idAttrName
+        },
+        width: widthElement
     });
+};
+  
+tagBoxInit ("input-field__accompOnPlot","input-field__accompOnPlot-id",simpleProducts, 710);  

@@ -587,6 +587,22 @@ $("#departButton").dxButton({
 //  }
 
 //  });
+ 
+function numberBoxInit (idElement,idAttrName, widthElement) {
+	 $("#"+idElement).dxNumberBox({
+        value: 15,
+        min: 10,
+        max: 100,
+        showSpinButtons: true,
+        inputAttr: {
+   		 id: idAttrName,
+   		 class:"input-field__value" 
+   		},
+   		width: widthElement
+    });
+};
+
+numberBoxInit ("input-field__cargoPlace","input-field__cargoPlace-id", 128);
 $('.progress-bar__step').hover (function(){
 	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
 },
@@ -805,13 +821,20 @@ $(document.body).on('click', '.step-block__sep-btn-close' ,function(){
     "ExcelRemote Bluetooth",
     "ExcelRemote IP"
 ];
-    $("#productsSelection").dxTagBox({
-        items: simpleProducts,
+function tagBoxInit (idElement,idAttrName, itemsElement, widthElement) {
+     $("#"+idElement).dxTagBox({
+        items: itemsElement,
         showSelectionControls: true,
         placeholder: "Выберите",
-        showDropDownButton: true
-        // applyValueMode: "useButtons"
+        showDropDownButton: true,
+        inputAttr: {
+         id: idAttrName
+        },
+        width: widthElement
     });
+};
+  
+tagBoxInit ("input-field__accompOnPlot","input-field__accompOnPlot-id",simpleProducts, 710);  
 $('.timezone-popup-menu__title-btn').click(function(){
 // console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
 // if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
