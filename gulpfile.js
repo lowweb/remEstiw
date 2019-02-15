@@ -25,15 +25,15 @@ var path = {
     src: {
         html: 'src/html/*.html', 
         jsGlobal: 'src/js/app.js',
-        js: 'src/common.blocks/**/*.js',
-        style: 'src/common.blocks/**/*.scss',
+        js: 'src/blocks/**/*.js',
+        style: 'src/blocks/**/*.scss',
         img: 'src/**/img/*.*', 
         fonts: 'src/fonts/**/*.*'
     },
     watch: { 
         html: 'src/html/**/*.html',
-        js: 'src/common.blocks/**/*.js',
-        style: 'src/common.blocks/**/*.scss',
+        js: 'src/blocks/**/*.js',
+        style: 'src/blocks/**/*.scss',
         img: 'src/**/img/*.*',
         fonts: 'src/fonts/**/*.*'
     },

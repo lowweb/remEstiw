@@ -98,47 +98,6 @@ $('.input-field__cont').change ( function () {
 	 	$(this).parent().find('.input-field__label').removeClass('input-field__label--err');
 	 }
 });
-// $('#footer__button-save').click(function () {
-// 	
-// });
-
-$('#footer__button-save').dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-					$('.footer__saved-msg').show();                
-				}
-            });
-
-$('#footer__button-next').dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-
-				}
-            });
-
-    //button init
-    $('.modal-city__footer-ok-btn').dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-
-                }
-            });
-
-    $('.modal-city__footer-close-btn').dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-
-                }
-            });
-    
 
 
     $("#deliver-cargo__checkbox").dxCheckBox({
@@ -186,6 +145,47 @@ $("#used-cargo__checkbox").dxCheckBox({
         value: false,
     });
         
+// $('#footer__button-save').click(function () {
+// 	
+// });
+
+$('#footer__button-save').dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+					$('.footer__saved-msg').show();                
+				}
+            });
+
+$('#footer__button-next').dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+
+				}
+            });
+
+    //button init
+    $('.modal-city__footer-ok-btn').dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+
+                }
+            });
+
+    $('.modal-city__footer-close-btn').dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+
+                }
+            });
+    
 var employees = [{
     "ID": 1,
     "Forma": "ООО",
@@ -201,7 +201,7 @@ var employees = [{
     "Name": "Простое название контрагента",
     "Tel": "+ 7 923 456 78 90",
     "Email": "mymail@mail.com",
-    "Location": "г.Петропавловск -Камчатский, ул. Бассейная, 666",
+    "Location": "Елизово ул. Бассейная, 666",
     "Inn": "123456789012",
     "state": false
 },{
@@ -308,30 +308,6 @@ var employees = [{
     }).data("dxDataGrid");
 
 
-$(function () {
-    $("#fileUploader").dxFileUploader({
-        accept:"image/*,*.zip,*.pdf,*.mp4",
-        width: 424,
-	    // height: auto,
-	    multiple: true,
-	    allowCanceling: true,
-	    selectButtonText: "выбрать",
-		showFileList: true,
-		labelText: "Перенесите сюда файл (xls, word, pdf) или нажмите",
-		onUploadStarted: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploaded: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploadError: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
-		},
-		uploadedMessage: "",
-		uploadFailedMessage: "",
-    });
-});
-
 //название запроса
 $("#requestName").dxTextBox({
   inputAttr: {
@@ -368,6 +344,29 @@ $("#input-field__totalWeight").dxTextBox({
 
 
 
+$(function () {
+    $("#fileUploader").dxFileUploader({
+        accept:"image/*,*.zip,*.pdf,*.mp4",
+        width: 424,
+	    // height: auto,
+	    multiple: true,
+	    allowCanceling: true,
+	    selectButtonText: "выбрать",
+		showFileList: true,
+		labelText: "Перенесите сюда файл (xls, word, pdf) или нажмите",
+		onUploadStarted: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploaded: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploadError: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
+		},
+		uploadedMessage: "",
+		uploadFailedMessage: "",
+    });
+});
 $("#departButton").dxButton({
     text: "",
     onClick: function() {
@@ -505,6 +504,22 @@ $("#departButton").dxButton({
 
 
 });
+ 
+function numberBoxInit (idElement,idAttrName, widthElement) {
+	 $("#"+idElement).dxNumberBox({
+        value: 15,
+        min: 10,
+        max: 100,
+        showSpinButtons: true,
+        inputAttr: {
+   		 id: idAttrName,
+   		 class:"input-field__value" 
+   		},
+   		width: widthElement
+    });
+};
+
+numberBoxInit ("input-field__cargoPlace","input-field__cargoPlace-id", 128);
 // //close modal
 // $('.modal__btn-close').click( function () {
 // 	$('#modal-city').hide();
@@ -568,41 +583,6 @@ $("#departButton").dxButton({
 // $('.modal-city__title').click(function() {
 //   $('.modal-city__search-err').toggleClass('modal-city__search-err--show');;
 // });
-// $(".navbar").scroll (function () {
-
-//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
-
-//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
-//     $(".navbar-ul").addClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-sticky')[0].scrollIntoView(true);
-
-// }  
-// if ( $(this).scrollTop() == 0) {
-
-//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
-//     $(".navbar-ul").removeClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-currency')[0].scrollIntoView(true);
-//  }
-
-//  });
- 
-function numberBoxInit (idElement,idAttrName, widthElement) {
-	 $("#"+idElement).dxNumberBox({
-        value: 15,
-        min: 10,
-        max: 100,
-        showSpinButtons: true,
-        inputAttr: {
-   		 id: idAttrName,
-   		 class:"input-field__value" 
-   		},
-   		width: widthElement
-    });
-};
-
-numberBoxInit ("input-field__cargoPlace","input-field__cargoPlace-id", 128);
 $('.progress-bar__step').hover (function(){
 	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
 },
@@ -835,58 +815,26 @@ function tagBoxInit (idElement,idAttrName, itemsElement, widthElement) {
 };
   
 tagBoxInit ("input-field__accompOnPlot","input-field__accompOnPlot-id",simpleProducts, 710);  
-$('.timezone-popup-menu__title-btn').click(function(){
-// console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
-// if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
-		$(this).parents(".timezone-popup-menu__title").toggleClass('timezone-popup-menu__title--active');
-		$(this).parents(".timezone-popup-menu").find('.timezone-popup-menu__add').toggleClass('timezone-popup-menu__add--active');
-		$(this).toggleClass('btn-rotate180');
-		$(this).toggleClass('app-lnk-disable');
 
-	// }
-});
+// $(".navbar").scroll (function () {
 
+//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
 
-$(".timezone-popup-menu__title-btn").click(function(e) {
-  e.stopPropagation(); 
-});
+//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
+//     $(".navbar-ul").addClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-sticky')[0].scrollIntoView(true);
 
-function timezonePopupClose(e) {
-   // if (!$(e.target).closest("timezone-popup-menu").length) {
-	if ($('.timezone-popup-menu__title').hasClass('timezone-popup-menu__title--active')){
-		$(".timezone-popup-menu__title").toggleClass('timezone-popup-menu__title--active');
-		$(".timezone-popup-menu").find('.timezone-popup-menu__add').toggleClass('timezone-popup-menu__add--active');
-		$('.timezone-popup-menu__title-btn').toggleClass('btn-rotate180');
-		$('.timezone-popup-menu__title-btn').toggleClass('app-lnk-disable');
-	}
-	// }
-}
+// }  
+// if ( $(this).scrollTop() == 0) {
 
+//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
+//     $(".navbar-ul").removeClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-currency')[0].scrollIntoView(true);
+//  }
 
-$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
-	// $(this).toggleClass('user-popup-menu__title-btn--up');
-	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
-		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
-		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
-		$(this).toggleClass('btn-rotate180');
-		$(this).toggleClass('app-lnk-disable');
-	// }
-});
-
-
-$(".user-popup-menu__title-btn").click(function(e) {
-  e.stopPropagation(); 
-});
-
-
-function userPopupClose() {
-	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
-		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
-		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
-		$('.app-lnk-disable').toggleClass('btn-rotate180');
-		$('.app-lnk-disable').toggleClass('app-lnk-disable');
-	}
-}
+//  });
 $("#destButton").dxButton({
     text: "",
     onClick: function() {
@@ -901,10 +849,6 @@ $("#destButton").dxButton({
 //         // $('#modal-city').show();
 //     }
 // });
-$('.header-currency__lang').click( function () {
-	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
-	$('.header-currency__lang').toggleClass('header-currency__lang--en');
-});
 var cityData = [{
     id: 1,
     name: "Владивосток, Приморский край, Россия",
@@ -1073,6 +1017,70 @@ $("#modal__region-list").dxSelectBox({
            class:"input-field__value"
          }
 });
+ $(".popup__info-newmsg").dxToast({
+        message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
+        displayTime: 300000,
+        position: {my: 'center right', at: 'center right', offset: '-50 0'},
+        width: 375,
+		onShowing: function () {
+			//for left separate line on block message
+			$('.dx-toast-message').height($('.dx-toast-content').height());
+		}
+    });
+
+  $(".popup__info-newmsg").dxToast("show");
+$('.timezone-popup-menu__title-btn').click(function(){
+// console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
+// if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
+		$(this).parents(".timezone-popup-menu__title").toggleClass('timezone-popup-menu__title--active');
+		$(this).parents(".timezone-popup-menu").find('.timezone-popup-menu__add').toggleClass('timezone-popup-menu__add--active');
+		$(this).toggleClass('btn-rotate180');
+		$(this).toggleClass('app-lnk-disable');
+
+	// }
+});
+
+
+$(".timezone-popup-menu__title-btn").click(function(e) {
+  e.stopPropagation(); 
+});
+
+function timezonePopupClose(e) {
+   // if (!$(e.target).closest("timezone-popup-menu").length) {
+	if ($('.timezone-popup-menu__title').hasClass('timezone-popup-menu__title--active')){
+		$(".timezone-popup-menu__title").toggleClass('timezone-popup-menu__title--active');
+		$(".timezone-popup-menu").find('.timezone-popup-menu__add').toggleClass('timezone-popup-menu__add--active');
+		$('.timezone-popup-menu__title-btn').toggleClass('btn-rotate180');
+		$('.timezone-popup-menu__title-btn').toggleClass('app-lnk-disable');
+	}
+	// }
+}
+
+
+$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
+	// $(this).toggleClass('user-popup-menu__title-btn--up');
+	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
+		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
+		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
+		$(this).toggleClass('btn-rotate180');
+		$(this).toggleClass('app-lnk-disable');
+	// }
+});
+
+
+$(".user-popup-menu__title-btn").click(function(e) {
+  e.stopPropagation(); 
+});
+
+
+function userPopupClose() {
+	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
+		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
+		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
+		$('.app-lnk-disable').toggleClass('btn-rotate180');
+		$('.app-lnk-disable').toggleClass('app-lnk-disable');
+	}
+}
 //эффект на иконке при hover тк заголовок всегда 1
 $('.navbar__header-link').hover(  
 function(){
@@ -1148,15 +1156,7 @@ $('.navbar__item-header').click(function(){
 
 });
 
- $(".popup__info-newmsg").dxToast({
-        message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
-        displayTime: 300000,
-        position: {my: 'center right', at: 'center right', offset: '-50 0'},
-        width: 375,
-		onShowing: function () {
-			//for left separate line on block message
-			$('.dx-toast-message').height($('.dx-toast-content').height());
-		}
-    });
-
-  $(".popup__info-newmsg").dxToast("show");
+$('.header-currency__lang').click( function () {
+	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
+	$('.header-currency__lang').toggleClass('header-currency__lang--en');
+});
