@@ -44,4 +44,15 @@ $("#used-cargo__checkbox").dxCheckBox({
         text: "Бывший в употреблении",
         value: false,
     });
+
+function checkboxInit (element, text) {
+    $("#" + element).dxCheckBox({
+        text: text,
+        value: false,
+    });
+};
+
+checkboxInit ("safer__checkbox", "Надежнёе");
+checkboxInit ("faster__checkbox", "Быстрее");
+checkboxInit ("cheaper__checkbox", "Дешевле");
         

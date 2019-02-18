@@ -1,5 +1,5 @@
 .basic-button {
-	outline: none; height: 36px; width: 155px; background: $clr-white; border: 1px solid $clr-purple; box-sizing: border-box; box-shadow: inset 0px -3px 0px rgba(97, 93, 162, 0.3); border-radius: 3px; font-family: Lucida Grande; font-style: normal; font-weight: bold; line-height: normal; font-size: 14px; color: $clr-purple;cursor: pointer;
+	outline: none; height: 36px; background: $clr-white; border: 1px solid $clr-purple; box-sizing: border-box; box-shadow: inset 0px -3px 0px rgba(97, 93, 162, 0.3); border-radius: 3px; font-family: Lucida Grande; font-style: normal; font-weight: bold; line-height: normal; font-size: 14px; color: $clr-purple;cursor: pointer;
 }
 .basic-button:hover{
 	background: #F8F7FF;
@@ -9,12 +9,18 @@
 	box-shadow: none;
 }
 
+.button-prev {
+		&__arrow{
+		margin-right: 17px;
+	}
+}
+
+
 .purple-button {
 	height: 36px; min-width: 70px; background: #5C2D91; box-shadow: inset 0px -3px 0px rgba(0, 0, 0, 0.3); border-radius: 3px; font-family: Lucida Grande; font-style: normal; font-weight: bold; line-height: normal; font-size: 14px; color: #FFFFFF; cursor: pointer;
 	&__arrow{
 		transform: rotate(180deg);
 		margin-left: 17px;
-		transform: rotate(180deg);
 	}
 }
 .purple-button:hover {
@@ -25,18 +31,40 @@
 	box-shadow: none;
 }
 
+.green-button {
+	outline: none; height: 36px; background: $clr-green; border: 1px solid $clr-green; box-sizing: border-box; box-shadow: inset 0px -3px 0px rgba(97, 93, 162, 0.3); border-radius: 3px; font-family: Lucida Grande; font-style: normal; font-weight: bold; line-height: normal; font-size: 14px; color: #FFFFFF;cursor: pointer;
+}
+.green-button:hover{
+	background: #02A884;
+}
+
+.green-button:active {
+	box-shadow: none;
+}
+
+
 .button {
+	display: flex;
+	align-items: center;
 	&-ok {
+		
 
 	}
 	&-cancel{
+	
 
 	}
 	&-next {
-		padding-left: 24px; padding-right: 14px;
+		padding-left: 24px; padding-right: 22px;
+		
 	}
 	&-save {
-
+	
+		padding-left: 24px; padding-right: 24px;
+	}
+	&-prev {
+		padding-left: 22px; padding-right: 24px;
+		margin-right: 24px;
 	}
 }
 //эффект поворота кнопок угольных

@@ -31,5 +31,13 @@ $("#input-field__totalWeight").dxTextBox({
    value: "100",
 })
 
-
+function inputFieldInit (element, elementId ) {
+  $("#"+ element).dxTextBox({
+  inputAttr: {
+       id: elementId,
+       class:"input-field__value" 
+   }
+  });
+};
+inputFieldInit ("pseudoElement","pseudoElement__id");
 

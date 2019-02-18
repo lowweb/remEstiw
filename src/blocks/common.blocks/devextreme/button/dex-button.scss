@@ -7,6 +7,10 @@
 
 }
 
+.button.dx-button .dx-button-content {
+    height: 36px;
+}
+
 //сброс стилей
 .basic-button.dx-button-mode-text.dx-state-hover,.basic-button.dx-button-mode-text.dx-state-focused  {
   background: #F8F7FF;
@@ -16,4 +20,23 @@
 .purple-button.dx-button-mode-text.dx-state-hover,.purple-button.dx-button-mode-text.dx-state-focused  {
   background: #615DA2;
   border: 1px solid $clr-purple;
+}
+
+.green-button.dx-button-mode-text.dx-state-hover,.green-button.dx-button-mode-text.dx-state-focused  {
+  background: #02A884;
+  border: 1px solid #02A884;
+}
+
+.red-button.dx-button-mode-text.dx-state-hover,.red-button.dx-button-mode-text.dx-state-focused  {
+  background: #BA323D;
+  border: 1px solid #BA323D;
+}
+
+
+.basic-button.dx-button-mode-text.dx-state-active {
+  color: $clr-purple;
+}
+
+.purple-button.dx-button-mode-text.dx-state-active,.green-button.dx-button-mode-text.dx-state-active,.red-button.dx-button-mode-text.dx-state-active {
+  color: $clr-white;
 }

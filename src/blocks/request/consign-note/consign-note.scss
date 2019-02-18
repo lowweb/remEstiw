@@ -1,0 +1,16 @@
+.request__consign-note {
+	display: flex;
+	margin-bottom: 41px;
+}
+.consign-note {
+	&__item {
+		margin-right: 30px;
+
+		&-cap{
+			@include font-lucida (#999999,12px,normal);
+		}
+		&-text{
+			@include font-lucida (rgba(0, 0, 0, 0.7),12px,normal);
+		}
+	}
+}

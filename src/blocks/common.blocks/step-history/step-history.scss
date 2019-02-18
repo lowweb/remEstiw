@@ -1,0 +1,48 @@
+.step-history {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	top: 40px;
+	right: 27px;
+
+	&__cap{
+		@include font-fira ($clr-dark-light, 17px, normal);
+		letter-spacing: 0.01em;
+		margin-left: 16px;
+
+	}
+
+	&__items{
+		background: #FFFFFF;
+		box-shadow: 0px 8px 16px rgba(55, 63, 81, 0.16);
+		border-radius: 3px;
+		width: 444px;
+		margin-top: 16px;
+		padding: 16px 16px 20px 16px;
+	}
+
+	&__item {
+		@include font-lucida (rgba(0, 0, 0, 0.4), 14px, normal);
+		
+
+		&-sep-line{
+		    flex: 1;
+    		top: 0;
+    		left: 0;
+    		width: 100%;
+    		height: 1px;
+    		background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, transparent), color-stop(50%, #D5D7E1));
+            background-image: linear-gradient(to right, transparent 50%, #D5D7E1 50%);
+            background-size: 4px 100%;
+            margin: 16px 0;
+		}
+
+		&-text {
+			color: $clr-dark;
+			margin-left: 5px;
+		}
+
+
+	}
+
+}

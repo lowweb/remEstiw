@@ -4,10 +4,29 @@
 		display: block;
 	}
 
+	&__capsep {
+		display: flex;
+    	align-items: center;
+    	width: 100%;
+    	margin: 40px 0 20px 0;
+
+    	&--first {
+    		margin: 0 0 20px 0;
+    	}
+    }
+
+
 	&__sep {
 		display: flex;
     	align-items: center;
     	width: 100%;
+    	margin: 40px 0 30px 0;
+
+    	&--first {
+    		margin: 0 0 30px 0;
+    	}
+
+
 
     	&-line{
 		flex: 1;
@@ -17,9 +36,11 @@
     	height: 1px;
         background-image: linear-gradient(to right, transparent 50%, $clr-grey-v2 50%);
     	background-size: 4px 100%;
-		margin: 40px 0;
-		}
+		// margin: 40px 0;
 
+
+		}
+		
 		&-cap,&-cap--add {
 		flex: 0 1 auto;
 		margin-right: 18px;
@@ -48,6 +69,7 @@
 			background-repeat: no-repeat;
 		}
 	}
+	
 
 	 
 	&__type-need-volume {
@@ -56,3 +78,4 @@
 	}
 
 }
+

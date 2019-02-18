@@ -20,6 +20,16 @@ $('#footer__button-next').dxButton({
 				}
             });
 
+$('#footer__button-prev').dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+
+                }
+            });
+
+
     //button init
     $('.modal-city__footer-ok-btn').dxButton({
                 stylingMode: 'text',

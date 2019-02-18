@@ -120,6 +120,16 @@ $('#footer__button-next').dxButton({
 				}
             });
 
+$('#footer__button-prev').dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+
+                }
+            });
+
+
     //button init
     $('.modal-city__footer-ok-btn').dxButton({
                 stylingMode: 'text',
@@ -185,6 +195,17 @@ $("#used-cargo__checkbox").dxCheckBox({
         text: "Бывший в употреблении",
         value: false,
     });
+
+function checkboxInit (element, text) {
+    $("#" + element).dxCheckBox({
+        text: text,
+        value: false,
+    });
+};
+
+checkboxInit ("safer__checkbox", "Надежнёе");
+checkboxInit ("faster__checkbox", "Быстрее");
+checkboxInit ("cheaper__checkbox", "Дешевле");
         
 var employees = [{
     "ID": 1,
@@ -308,6 +329,29 @@ var employees = [{
     }).data("dxDataGrid");
 
 
+$(function () {
+    $("#fileUploader").dxFileUploader({
+        accept:"image/*,*.zip,*.pdf,*.mp4",
+        width: 424,
+	    // height: auto,
+	    multiple: true,
+	    allowCanceling: true,
+	    selectButtonText: "выбрать",
+		showFileList: true,
+		labelText: "Перенесите сюда файл (xls, word, pdf) или нажмите",
+		onUploadStarted: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploaded: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploadError: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
+		},
+		uploadedMessage: "",
+		uploadFailedMessage: "",
+    });
+});
 //название запроса
 $("#requestName").dxTextBox({
   inputAttr: {
@@ -341,7 +385,15 @@ $("#input-field__totalWeight").dxTextBox({
    value: "100",
 })
 
-
+function inputFieldInit (element, elementId ) {
+  $("#"+ element).dxTextBox({
+  inputAttr: {
+       id: elementId,
+       class:"input-field__value" 
+   }
+  });
+};
+inputFieldInit ("pseudoElement","pseudoElement__id");
 
 
 $("#departButton").dxButton({
@@ -626,6 +678,23 @@ var specialConditionsItem = ["На верхней палубе судна", "О�
 $("#special-conditions__radioGroup").dxRadioGroup({
         items: specialConditionsItem
     });
+
+
+function radiogroupInit (idRadio, items, layout) {
+$("#"+idRadio).dxRadioGroup({
+        items: items,
+        layout: layout
+    });
+};
+
+radiogroupInit ("HBL__radioGroup", ["Уже выпущен и имеется", "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("сargo-escort__radioGroup", ["Уже выпущен и имеется", "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("сargo-exam__radioGroup", ["Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("сargo-insura__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("custom-clear__radioGroup", ["Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("product-exam__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("сargo-payment__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("product-payment__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
 $(function() {
     $("#rangeSelector").dxRangeSelector({
         size: {
@@ -864,29 +933,6 @@ function userPopupClose() {
 		$('.app-lnk-disable').toggleClass('app-lnk-disable');
 	}
 }
-$(function () {
-    $("#fileUploader").dxFileUploader({
-        accept:"image/*,*.zip,*.pdf,*.mp4",
-        width: 424,
-	    // height: auto,
-	    multiple: true,
-	    allowCanceling: true,
-	    selectButtonText: "выбрать",
-		showFileList: true,
-		labelText: "Перенесите сюда файл (xls, word, pdf) или нажмите",
-		onUploadStarted: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploaded: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploadError: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
-		},
-		uploadedMessage: "",
-		uploadFailedMessage: "",
-    });
-});
 $("#destButton").dxButton({
     text: "",
     onClick: function() {
