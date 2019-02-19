@@ -66,8 +66,8 @@ var employees = [{
             caption: "Наименование контрагента",
              width: 249,
 
-            cellTemplate: function(cellElement, cellInfo) {
-            $('<div class="datagrid__custom-radio-cell">')
+            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку, навешиваем элемент radiogroup
+            $('<div class="datagrid__custom-radio-cell">')    //навешиваем  template иницилизируем его как radiogroup
             .appendTo(cellElement)
             .dxRadioGroup({ 
                 items: [{id: 1}],
@@ -81,7 +81,7 @@ var employees = [{
                 .append($("<a href='#''>"+cellInfo.data.Name+"</a>"))
              }, 
 
-            cssClass: "datagrid__link-cell"
+            cssClass: "datagrid__link-cell" //обязательный класс
         }, 
         {
             dataField: "Tel",

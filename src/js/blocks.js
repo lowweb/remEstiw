@@ -98,6 +98,51 @@ $('.input-field__cont').change ( function () {
 	 	$(this).parent().find('.input-field__label').removeClass('input-field__label--err');
 	 }
 });
+function initButton (idElement) {
+    $('#' + idElement).dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+             
+                }
+            });
+};
+
+initButton("footer__button-next");
+initButton("footer__button-prev");
+initButton("modal-city__footer-ok-btn");
+initButton("modal-city__footer-close-btn");
+
+
+$('#footer__button-save').dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+                    $('.footer__saved-msg').show();                
+                }
+            });
+          
+function checkboxInit (element, text) {
+    $("#" + element).dxCheckBox({
+        text: text,
+        value: false,
+    });
+};
+
+checkboxInit ("used-cargo__checkbox", "Бывший в употреблении");
+checkboxInit ("home-cargo__checkbox", "Домашние вещи");
+checkboxInit ("humane-cargo__checkbox", "Гуманитарная помощь");
+checkboxInit ("oversize-cargo__checkbox", "Негабаритный");
+checkboxInit ("danger-cargo__checkbox", "Опасный груз");
+checkboxInit ("law-cargo__checkbox", "Юридическое сопровождение (ваши интересы в суде)");
+checkboxInit ("bay-cargo__checkbox", "Купить");
+checkboxInit ("deliver-cargo__checkbox", "Доставить груз");
+checkboxInit ("safer__checkbox", "Надежнёе");
+checkboxInit ("faster__checkbox", "Быстрее");
+checkboxInit ("cheaper__checkbox", "Дешевле");
+        
 var employees = [{
     "ID": 1,
     "Forma": "ООО",
@@ -166,8 +211,8 @@ var employees = [{
             caption: "Наименование контрагента",
              width: 249,
 
-            cellTemplate: function(cellElement, cellInfo) {
-            $('<div class="datagrid__custom-radio-cell">')
+            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку, навешиваем элемент radiogroup
+            $('<div class="datagrid__custom-radio-cell">')    //навешиваем  template иницилизируем его как radiogroup
             .appendTo(cellElement)
             .dxRadioGroup({ 
                 items: [{id: 1}],
@@ -181,7 +226,7 @@ var employees = [{
                 .append($("<a href='#''>"+cellInfo.data.Name+"</a>"))
              }, 
 
-            cssClass: "datagrid__link-cell"
+            cssClass: "datagrid__link-cell" //обязательный класс
         }, 
         {
             dataField: "Tel",
@@ -220,64 +265,6 @@ var employees = [{
     }).data("dxDataGrid");
 
 
-
-
-    $("#deliver-cargo__checkbox").dxCheckBox({
-        text: "Доставить груз",
-        value: false,
-        onValueChanged: function (e) {
-            // alert(e.value);
-        }
-    });
-
-    $("#bay-cargo__checkbox").dxCheckBox({
-        text: "Купить",
-        value: false,
-        onValueChanged: function (e) {
-            // alert(e.value);
-        }
-    });
-
-    $("#law-cargo__checkbox").dxCheckBox({
-        text: "Юридическое сопровождение (ваши интересы в суде)",
-        value: false,
-        onValueChanged: function (e) {
-            // alert(e.value);
-        }
-    });
-
-$("#danger-cargo__checkbox").dxCheckBox({
-        text: "Опасный груз",
-        value: false,
-    });
-$("#oversize-cargo__checkbox").dxCheckBox({
-        text: "Негабаритный",
-        value: false,
-    });
-$("#humane-cargo__checkbox").dxCheckBox({
-        text: "Гуманитарная помощь",
-        value: false,
-    });
-$("#home-cargo__checkbox").dxCheckBox({
-        text: "Домашние вещи",
-        value: false,
-    });
-$("#used-cargo__checkbox").dxCheckBox({
-        text: "Бывший в употреблении",
-        value: false,
-    });
-
-function checkboxInit (element, text) {
-    $("#" + element).dxCheckBox({
-        text: text,
-        value: false,
-    });
-};
-
-checkboxInit ("safer__checkbox", "Надежнёе");
-checkboxInit ("faster__checkbox", "Быстрее");
-checkboxInit ("cheaper__checkbox", "Дешевле");
-        
 $(function () {
     $("#fileUploader").dxFileUploader({
         accept:"image/*,*.zip,*.pdf,*.mp4",
@@ -301,6 +288,55 @@ $(function () {
 		uploadFailedMessage: "",
     });
 });
+//название запроса
+$("#requestName").dxTextBox({
+  inputAttr: {
+   		 id: "requestName__id",  //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
+   		 class:"input-field__value" //обязятельный класс
+   }
+}).dxValidator({
+        validationRules: [{
+            type: "required",
+            message: "Обязательно к заполнению"
+        }, {
+            type: "pattern",
+            pattern: /^[^0-9]+$/,
+            message: "Строка не может содержать цифры"
+        }, {
+            type: "stringLength",
+            min: 2,
+            message: "Длина строки не меньше 2 символов"
+        }],
+        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
+    });
+
+
+$("#input-field__totalWeight").dxTextBox({
+  inputAttr: {
+       id: "input-field__totalWeight-id",
+       class:"input-field__value" 
+   },
+   width: 128,
+   readOnly: true,
+   value: "100",
+})
+
+
+//инициализировать элементы необходимо по id элемента
+//в верстке реализованна инициализация по классу, для массовости, класс pseudoClassTextEditor на инициализируемом элементе можно удалить, если таковой не применяется
+function inputFieldInit (element, elementId ) {
+  $("."+ element).dxTextBox({
+  inputAttr: {
+       id: elementId,
+       class:"input-field__value" 
+   }
+  });
+};
+
+inputFieldInit ("pseudoClassTextEditor","pseudoElement__id");
+
+
+
 $("#departButton").dxButton({
     text: "",
     onClick: function() {
@@ -311,14 +347,17 @@ $("#departButton").dxButton({
         height:"auto",
         width: 500,
         titleTemplate: function() {
+        	//обязательный template
          	return $("<div class='modal-city__title'><div class='modal-city__title-cap'>Выберите пункт отправления</div><div class='modal__btn-close'>&times;</div></div><div class='modal-city__search-block'><div class='modal-city__search'> <div class='input-field input-field__city-search'><div id='citySearch' class='input-field__cont'></div></div></div><div class='modal-city__search-err'>Такого населенного пункта нет в нашей базе. Пожалуйста, выберите ближайшее к нему местоположение</div></div>");
           },
           contentTemplate: function () {
-          	return $("<div class='modal-city__step-container'><div class='modal-city__step'><div class='modal-city__block-cap'>Наиболее популярные направления:</div><ul class='modal-city__block-items'><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Россия</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Китай (КНР)</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Республика Корея</a></li></ul><div class='modal-city__block-cap'>Части света:</div><ul class='modal-city__block-items'><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Европа</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Азия</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Америка</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Африка</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Австралия</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Андарктида</a></li></ul></div><div class='modal-city__step'><div class='modal-city__block-cap--link'><a class='modal-city__block-href-back'>Европа</a></div><div class='input-field input-field__country-list'><div id='modal__country-list' class='input-field__cont input-field__icn-dropdown'></div><div class='input-field__label'><label for='modal__country-list__id'>Страна:</label> </div></div> <div class='input-field input-field__region-list'><div id='modal__region-list' class='input-field__cont input-field__icn-dropdown'></div><div class='input-field__label'><label for='modal__region-list__id'>Край, район, область, штат:</label> </div></div><div class='input-field input-field__modal-city'><div id='modalCity' class='input-field__cont'></div><div class='input-field__label'><label for='modalCity__id'>Город, населенный пункт::</label> </div>  </div> </div> </div> <div class='modal-city__footer'><button class='purple-button button-ok modal-city__footer-ok-btn'>Ok</button><button class='basic-button button-cancel modal-city__footer-close-btn'>Отмена</button></div>");
+          	//обязательный template
+          	return $("<div class='modal-city__step-container'><div class='modal-city__step'><div class='modal-city__block-cap'>Наиболее популярные направления:</div><ul class='modal-city__block-items'><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Россия</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Китай (КНР)</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Республика Корея</a></li></ul><div class='modal-city__block-cap'>Части света:</div><ul class='modal-city__block-items'><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Европа</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Азия</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Америка</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Африка</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Австралия</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Андарктида</a></li></ul></div><div class='modal-city__step'><div class='modal-city__block-cap--link'><a class='modal-city__block-href-back'>Европа</a></div><div class='input-field input-field__country-list'><div id='modal__country-list' class='input-field__cont input-field__icn-dropdown'></div><div class='input-field__label'><label for='modal__country-list__id'>Страна:</label> </div></div> <div class='input-field input-field__region-list'><div id='modal__region-list' class='input-field__cont input-field__icn-dropdown'></div><div class='input-field__label'><label for='modal__region-list__id'>Край, район, область, штат:</label> </div></div><div class='input-field input-field__modal-city'><div id='modalCity' class='input-field__cont'></div><div class='input-field__label'><label for='modalCity__id'>Город, населенный пункт::</label> </div>  </div> </div> </div> <div class='modal-city__footer'><button id='modal-city__footer-ok-btn' class='purple-button button-ok modal-city__footer-ok-btn'>Ok</button><button id='modal-city__footer-close-btn' class='basic-button button-cancel modal-city__footer-close-btn'>Отмена</button></div>");
           } 
     });
 
-// //make slidecontent for modal
+//make slidecontent for modal
+//обязательный код для перехода между псевдо окон
 	const $stepContainer = $('.modal-city__step-container'),
        	  $steps         = $('.modal-city__step'),
       	  numSteps       = $steps.length,
@@ -352,89 +391,33 @@ $("#departButton").dxButton({
 	    animateSlider();
 	  } 
 	});
+//конец обязательного кода для псевдо окон
 
-	//ошибка заполнения города
-	$('.modal-city__title').click(function() {
-	  $('.modal-city__search-err').toggleClass('modal-city__search-err--show');;
-	});	
+		initButton("modal-city__footer-ok-btn");
+		initButton("modal-city__footer-close-btn");
+		//страна в модальном окне
+		selectBoxInit("modal__country-list",[ "Приморский край", "Камчатский край"],"modal__country-list__id","input-field__value");
+		//край район область в модальном окне
+		selectBoxInit("modal__region-list",[ "Приморский край", "Камчатский край"],"modal__region-list__id","input-field__value");
+		//необходимо заново инициализировать элемент
+		autocompleteInit ("citySearch","citySearch__id","input-field__value");
+		autocompleteInit ("modalCity","modalCity__id","input-field__value");
 
-	//close modal
-	$('.modal__btn-close').click( function () {
-		$('.modal-city.dx-popup-wrapper').remove();
+		//ошибка заполнения города
+		$('.modal-city__title').click(function() {
+		  $('.modal-city__search-err').toggleClass('modal-city__search-err--show');;
+		});		
+
+		//close modal
+		$('.modal__btn-close').click( function () {
+			$('.modal-city.dx-popup-wrapper').remove();
+		});
+		//closemodal btn
+		$('.modal-city__footer-close-btn').click( function () {
+	  		$('.modal-city.dx-popup-wrapper').remove();
 	});
-	//closemodal btn
-	$('.modal-city__footer-close-btn').click( function () {
-  		$('.modal-city.dx-popup-wrapper').remove();
-	});
 
-	//button init
-	$('.modal-city__footer-ok-btn').dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-
-                }
-            });
-
-	$('.modal-city__footer-close-btn').dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-
-                }
-            });
-	//init inpu-field
-	//страна в модальном окне
-	$("#modal__country-list").dxSelectBox({
-	        dataSource: [ "Россия", "Америка"],
-	        placeholder: "",
-	        inputAttr: {
-	           id: "modal__country-list__id",
-	           class:"input-field__value"
-	         }
-	});
-	//край район область в модальном окне
-	$("#modal__region-list").dxSelectBox({
-	        dataSource: [ "Приморский край", "Камчатский край"],
-	        placeholder: "",
-	        inputAttr: {
-	           id: "modal__region-list__id",
-	           class:"input-field__value"
-	         }
-	});
-	$("#citySearch").dxAutocomplete({
-	   placeholder: "Начните вводить название",
-	  inputAttr: {
-	       id: "citySearch__id",
-	       class:"input-field__value"
-	   },
-	   dataSource: cityData,
-	   valueExpr: 'name',
-	   itemTemplate: function(data) {
-	            return $("<div class='input-field__autocomplete-item'><img class='input-field__autocomplete-item--flag' src='" + data.imgSrc +
-	                "'>" + data.name + "</div>");
-	         }
-	    
-	});	
-	
-
-	$("#modalCity").dxAutocomplete({
-	   placeholder: "Начните вводить название",
-	  inputAttr: {
-	       id: "modalCity__id",
-	       class:"input-field__value"
-	   },
-	   dataSource: cityData,
-	   valueExpr: 'name',
-	   itemTemplate: function(data) {
-	            return $("<div class='input-field__autocomplete-item'><img class='input-field__autocomplete-item--flag' src='" + data.imgSrc +
-	                "'>" + data.name + "</div>");
-	         }
-	    
-	});
-    }
+   }
 
 
 });
@@ -517,106 +500,6 @@ function numberBoxInit (idElement,idAttrName, widthElement) {
 };
 
 numberBoxInit ("input-field__cargoPlace","input-field__cargoPlace-id", 128);
-// $('#footer__button-save').click(function () {
-// 	
-// });
-
-$('#footer__button-save').dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-					$('.footer__saved-msg').show();                
-				}
-            });
-
-$('#footer__button-next').dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-
-				}
-            });
-
-$('#footer__button-prev').dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-
-                }
-            });
-
-
-    //button init
-    $('.modal-city__footer-ok-btn').dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-
-                }
-            });
-
-    $('.modal-city__footer-close-btn').dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-
-                }
-            });
-    
-//название запроса
-$("#requestName").dxTextBox({
-  inputAttr: {
-   		 id: "requestName__id",
-   		 class:"input-field__value" 
-   }
-}).dxValidator({
-        validationRules: [{
-            type: "required",
-            message: "Обязательно к заполнению"
-        }, {
-            type: "pattern",
-            pattern: /^[^0-9]+$/,
-            message: "Строка не может содержать цифры"
-        }, {
-            type: "stringLength",
-            min: 2,
-            message: "Длина строки не меньше 2 символов"
-        }],
-        validationGroup: "validateItems" //обязательный параметр для валидации
-    });
-
-
-$("#input-field__totalWeight").dxTextBox({
-  inputAttr: {
-       id: "input-field__totalWeight-id",
-       class:"input-field__value" 
-   },
-   width: 128,
-   readOnly: true,
-   value: "100",
-})
-
-
-//инициализировать элементы необходимо по id элемента
-//в верстке реализованна инициализация по классу, для массовости, класс pseudoClassTextEditor на инициализируемом элементе можно удалить, если таковой не применяется
-function inputFieldInit (element, elementId ) {
-  $("."+ element).dxTextBox({
-  inputAttr: {
-       id: elementId,
-       class:"input-field__value" 
-   }
-  });
-};
-
-inputFieldInit ("pseudoClassTextEditor","pseudoElement__id");
-
-
-
 $('.progress-bar__step').hover (function(){
 	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
 },
@@ -651,6 +534,35 @@ $('.header-progress').click(function() {
 
 
 });
+var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
+var cargoReceiverItem = ["Физическое лицо", "Юридическое лицо"];
+var volumeItem = ["До 5 м", "Свыше 5 м"];
+var cargoCheracterItem = ["Однородный (массовый)", "Однородный (не массовый)","Однородный в упаковке", "Не однородный в/без упаковки/и", "Одно грузовое место", "Жидкость без упаковки"];
+var transportModItem = ["Груз навалом", "Загрузить в контейнер", "Уже загружен в контейнер", "По решению исполнителя"];
+var specialConditionsItem = ["На верхней палубе судна", "Открытое хранение", "Крытое хранение", "Температурный режим"];
+
+
+function radiogroupInit (idRadio, items, layout) {
+$("#"+idRadio).dxRadioGroup({
+        items: items,
+        layout: layout
+    });
+};
+
+radiogroupInit ("type-deal__radioGroup",typeDealitem,"");
+radiogroupInit ("volume-cargo__radioGroup",volumeItem);
+radiogroupInit ("cargo-cheracter__radioGroup",cargoCheracterItem,"");
+radiogroupInit ("transport-mod__radioGroup",transportModItem,"");
+radiogroupInit ("special-conditions__radioGroup",specialConditionsItem,"");
+radiogroupInit ("cargo-receiver__radioGroup",cargoReceiverItem,"horizontal");
+radiogroupInit ("HBL__radioGroup", ["Уже выпущен и имеется", "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("сargo-escort__radioGroup", ["Уже выпущен и имеется", "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("сargo-exam__radioGroup", ["Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("сargo-insura__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("custom-clear__radioGroup", ["Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("product-exam__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("сargo-payment__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("product-payment__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
 $(function() {
     $("#rangeSelector").dxRangeSelector({
         size: {
@@ -702,16 +614,17 @@ $(function() {
         	
         	
         },
-        redrawOnResize: function (){alert($('.rangeselector .dxrs-range-selector-line').offset());},
-        onDrawn: function (){
-        	
+        // redrawOnResize: function (){alert($('.rangeselector .dxrs-range-selector-line').offset());},
+        onDrawn: function (){    	
+            //обязательный вызов для backgroud элмента радуга
         	$( ".rangeselector.dx-visibility-change-handler" ).append( "<div class='rangeselector__back'></div>");
-        	// $('.rangeselector__back').width($('.rangeselector .dxrs-range-selector-line').width());
         }
 
     });
 });
 //add consignment block
+
+//реализация добавление блоков на первом шаге
 function cnstCargoCheracter (count) { return "<field-set id='field-set__cargo-cheracter--part"+ count + "' class='field-set field-set__cargo-cheracter'><legend class='field-set__cap'>Характеристики груза</legend><div class='field-set__items'><div id='cargo-cheracter__radioGroup' class='radiogroup'></div></div></field-set>"};
 function cnstTransportMod (count) { return "<field-set id='field-set__transport-mod--part"+ count + "' class='field-set field-set__transport-mod'><legend class='field-set__cap'>Способ перевозки</legend><div class='field-set__items'><div id='transport-mod__radioGroup' class='radiogroup'></div></div></field-set>"};
 function cnstSpecialConditions (count) { return "<field-set id='field-set__special-conditions--part"+ count + "' class='field-set field-set__special-conditions'><legend class='field-set__cap'>Особые условия хранения и перевозки</legend><div class='field-set__items'><div id='special-conditions__radioGroup' class='radiogroup'></div></div></field-set>"};
@@ -784,55 +697,9 @@ $(document.body).on('click', '.step-block__sep-btn-close' ,function(){
 	if ($( ".consignment" ).length == 1 )
 		$( ".consignment .step-block__sep .step-block__sep-btn-close").remove();
 });
-var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
-$("#type-deal__radioGroup").dxRadioGroup({
-        items: typeDealitem,
-     });
-
-var volumeItem = ["До 5 м", "Свыше 5 м"];
-$("#volume-cargo__radioGroup").dxRadioGroup({
-        items: volumeItem,
-        // value: volumeItem[0]
+    $("#period__switch").dxSwitch({
+        value: false
     });
-
-var cargoReceiverItem = ["Физическое лицо", "Юридическое лицо"];
-$("#cargo-receiver__radioGroup").dxRadioGroup({
-        items: cargoReceiverItem,
-        // value: cargoReceiverItem[0],
-        layout: "horizontal"
-    });
-
-var cargoCheracterItem = ["Однородный (массовый)", "Однородный (не массовый)","Однородный в упаковке", "Не однородный в/без упаковки/и", "Одно грузовое место", "Жидкость без упаковки"];
-$("#cargo-cheracter__radioGroup").dxRadioGroup({
-        items: cargoCheracterItem
-    });
-
-var transportModItem = ["Груз навалом", "Загрузить в контейнер", "Уже загружен в контейнер", "По решению исполнителя"];
-$("#transport-mod__radioGroup").dxRadioGroup({
-        items: transportModItem
-  
-    });
-var specialConditionsItem = ["На верхней палубе судна", "Открытое хранение", "Крытое хранение", "Температурный режим"];
-$("#special-conditions__radioGroup").dxRadioGroup({
-        items: specialConditionsItem
-    });
-
-
-function radiogroupInit (idRadio, items, layout) {
-$("#"+idRadio).dxRadioGroup({
-        items: items,
-        layout: layout
-    });
-};
-
-radiogroupInit ("HBL__radioGroup", ["Уже выпущен и имеется", "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-radiogroupInit ("сargo-escort__radioGroup", ["Уже выпущен и имеется", "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-radiogroupInit ("сargo-exam__radioGroup", ["Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-radiogroupInit ("сargo-insura__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-radiogroupInit ("custom-clear__radioGroup", ["Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-radiogroupInit ("product-exam__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-radiogroupInit ("сargo-payment__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-radiogroupInit ("product-payment__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
     var simpleProducts = [
     "HD Video Player",
     "SuperHD Video Player",
@@ -882,33 +749,6 @@ tagBoxInit ("input-field__accompOnPlot","input-field__accompOnPlot-id",simplePro
 //  }
 
 //  });
-    $("#period__switch").dxSwitch({
-        value: false
-    });
-$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
-	// $(this).toggleClass('user-popup-menu__title-btn--up');
-	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
-		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
-		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
-		$(this).toggleClass('btn-rotate180');
-		$(this).toggleClass('app-lnk-disable');
-	// }
-});
-
-
-$(".user-popup-menu__title-btn").click(function(e) {
-  e.stopPropagation(); 
-});
-
-
-function userPopupClose() {
-	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
-		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
-		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
-		$('.app-lnk-disable').toggleClass('btn-rotate180');
-		$('.app-lnk-disable').toggleClass('app-lnk-disable');
-	}
-}
 $('.timezone-popup-menu__title-btn').click(function(){
 // console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
 // if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
@@ -937,32 +777,31 @@ function timezonePopupClose(e) {
 }
 
 
- $(".popup__info-newmsg").dxToast({
-        message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
-        displayTime: 300000,
-        position: {my: 'center right', at: 'center right', offset: '-50 0'},
-        width: 375,
-		onShowing: function () {
-			//for left separate line on block message
-			$('.dx-toast-message').height($('.dx-toast-content').height());
-		}
-    });
-
-  $(".popup__info-newmsg").dxToast("show");
-$("#destButton").dxButton({
-    text: "",
-    onClick: function() {
-  		// $('#modal-city').show();
-    }
+$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
+	// $(this).toggleClass('user-popup-menu__title-btn--up');
+	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
+		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
+		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
+		$(this).toggleClass('btn-rotate180');
+		$(this).toggleClass('app-lnk-disable');
+	// }
 });
 
-//перенесли в блок с модальным окном
-// $("#departButton").dxButton({
-//     text: "",
-//     onClick: function() {
-//         // $('#modal-city').show();
-//     }
-// });
+
+$(".user-popup-menu__title-btn").click(function(e) {
+  e.stopPropagation(); 
+});
+
+
+function userPopupClose() {
+	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
+		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
+		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
+		$('.app-lnk-disable').toggleClass('btn-rotate180');
+		$('.app-lnk-disable').toggleClass('app-lnk-disable');
+	}
+}
+initButton ('destButton');
 var cityData = [{
     id: 1,
     name: "Владивосток, Приморский край, Россия",
@@ -994,12 +833,12 @@ var cityData = [{
 }
 ];
 
+function autocompleteInit (idElement,attrId, attrVal,) {
 
-//отправление назначеие
-$("#departName").dxAutocomplete({
+$("#"+idElement).dxAutocomplete({
   inputAttr: {
-       id: "departName__id",
-       class:"input-field__value"
+       id: attrId,
+       class: attrVal
    },
    dataSource: cityData,
    valueExpr: 'name',
@@ -1008,64 +847,21 @@ $("#departName").dxAutocomplete({
                 "'>" + data.name + "</div>");
          }
     
-}).dxValidator({
+}).dxValidator({                         //необходим если есть валидация
         validationRules: [{
             type: "required",
             message: "Обязательно к заполнению"
         }],
         validationGroup: "validateItems" //обязательный параметр для валидации
     });
-$("#destName").dxAutocomplete({
-  inputAttr: {
-       id: "destName__id",
-       class:"input-field__value"
-   },
-   dataSource: cityData,
-   valueExpr: 'name',
-   itemTemplate: function(data) {
-            return $("<div class='input-field__autocomplete-item'><img class='input-field__autocomplete-item--flag' src='" + data.imgSrc +
-                "'>" + data.name + "</div>");
-         }
-    
-}).dxValidator({
-        validationRules: [{
-            type: "required",
-            message: "Обязательно к заполнению"
-        }],
-        validationGroup: "validateItems" //обязательный параметр для валидации
-});
+};
 
 
-$("#citySearch").dxAutocomplete({
-   placeholder: "Начните вводить название",
-  inputAttr: {
-       id: "citySearch__id",
-       class:"input-field__value"
-   },
-   dataSource: cityData,
-   valueExpr: 'name',
-   itemTemplate: function(data) {
-            return $("<div class='input-field__autocomplete-item'><img class='input-field__autocomplete-item--flag' src='" + data.imgSrc +
-                "'>" + data.name + "</div>");
-         }
-    
-});
+autocompleteInit ("departName","departName__id","input-field__value");
+autocompleteInit ("destName","destName__id","input-field__value");
+autocompleteInit ("citySearch","citySearch__id","input-field__value");
+autocompleteInit ("modalCity","modalCity__id","input-field__value");
 
-
-$("#modalCity").dxAutocomplete({
-   placeholder: "Начните вводить название",
-  inputAttr: {
-       id: "modalCity__id",
-       class:"input-field__value"
-   },
-   dataSource: cityData,
-   valueExpr: 'name',
-   itemTemplate: function(data) {
-            return $("<div class='input-field__autocomplete-item'><img class='input-field__autocomplete-item--flag' src='" + data.imgSrc +
-                "'>" + data.name + "</div>");
-         }
-    
-});
 
 
 //Выберите дату
@@ -1087,50 +883,38 @@ var now = new Date();
            class:"input-field__value"
          }
     });
-$("#conditionDest").dxSelectBox({
-        dataSource: [ "FCA", "FAS", "FOB" ],
+function selectBoxInit (idElement, dataS, inputAttrId, inputAttrVal ) {
+$("#" + idElement).dxSelectBox({
+        dataSource: dataS,
         placeholder: "",
         inputAttr: {
-          id: "conditionDepart__id",
-          class:"input-field__value"
+          id: inputAttrId, //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
+          class: inputAttrVal //обязятельный класс
          }
     });
+};
 
-$("#conditionDepart").dxSelectBox({
-        dataSource: [ "FCA", "FAS", "FOB" ],
-        placeholder: "",
-        inputAttr: {
-           id: "conditionDest__id",
-           class:"input-field__value"
-         }
-});
+selectBoxInit("conditionDest",[ "FCA", "FAS", "FOB" ],"conditionDepart__id","input-field__value");
+selectBoxInit("conditionDepart",[ "FCA", "FAS", "FOB" ],"conditionDest__id","input-field__value");
 //в какой валюте расчитать
-$("#currency-calc").dxSelectBox({
-        dataSource: [ "Доллары США (USD)", "Рубли (RUB)"],
-        placeholder: "",
-        inputAttr: {
-           id: "currency-calc__id",
-           class:"input-field__value"
-         }
-});
+selectBoxInit("currency-calc",[ "Доллары США (USD)", "Рубли (RUB)"],"currency-calc__id","input-field__value");
 //страна в модальном окне
-$("#modal__country-list").dxSelectBox({
-        dataSource: [ "Россия", "Америка"],
-        placeholder: "",
-        inputAttr: {
-           id: "modal__country-list__id",
-           class:"input-field__value"
-         }
-});
+selectBoxInit('modal__country-list',[ "Россия", "Америка"],"modal__country-list__id","input-field__value");
 //край район область в модальном окне
-$("#modal__region-list").dxSelectBox({
-        dataSource: [ "Приморский край", "Камчатский край"],
-        placeholder: "",
-        inputAttr: {
-           id: "modal__region-list__id",
-           class:"input-field__value"
-         }
-});
+selectBoxInit('modal__region-list',[ "Приморский край", "Камчатский край"],"modal__region-list__id","input-field__value");
+
+ $(".popup__info-newmsg").dxToast({
+        message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
+        displayTime: 300000,
+        position: {my: 'center right', at: 'center right', offset: '-50 0'},
+        width: 375,
+		onShowing: function () {
+			//for left separate line on block message
+			$('.dx-toast-message').height($('.dx-toast-content').height());
+		}
+    });
+
+  $(".popup__info-newmsg").dxToast("show");
 $('.header-currency__lang').click( function () {
 	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
 	$('.header-currency__lang').toggleClass('header-currency__lang--en');

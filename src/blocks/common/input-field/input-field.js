@@ -1,8 +1,8 @@
 //название запроса
 $("#requestName").dxTextBox({
   inputAttr: {
-   		 id: "requestName__id",
-   		 class:"input-field__value" 
+   		 id: "requestName__id",  //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
+   		 class:"input-field__value" //обязятельный класс
    }
 }).dxValidator({
         validationRules: [{
@@ -17,7 +17,7 @@ $("#requestName").dxTextBox({
             min: 2,
             message: "Длина строки не меньше 2 символов"
         }],
-        validationGroup: "validateItems" //обязательный параметр для валидации
+        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
     });
 
 

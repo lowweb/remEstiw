@@ -1,2 +1,11 @@
 >tooltip по alt
 >допустим описание field-set__cargo-description где делать в fieldset или cargo
+
+
+
+/*********Классы при инициализации компонентов devextreme *********/
+1. datagrid.js
+2. inputfield.js
+3. input-field__autocomplete.js 
+4. modal.js
+5. rangeselector.js
