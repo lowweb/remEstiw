@@ -31,13 +31,18 @@ $("#input-field__totalWeight").dxTextBox({
    value: "100",
 })
 
+
+//инициализировать элементы необходимо по id элемента
+//в верстке реализованна инициализация по классу, для массовости, класс pseudoClassTextEditor на инициализируемом элементе можно удалить, если таковой не применяется
 function inputFieldInit (element, elementId ) {
-  $("#"+ element).dxTextBox({
+  $("."+ element).dxTextBox({
   inputAttr: {
        id: elementId,
        class:"input-field__value" 
    }
   });
 };
-inputFieldInit ("pseudoElement","pseudoElement__id");
+
+inputFieldInit ("pseudoClassTextEditor","pseudoElement__id");
+
 

@@ -3,7 +3,7 @@
 	display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-end;
+    // justify-content: flex-end;
 
 	&__label {
 		@include font-lucida ($clr-dark-light, 13px, normal);
@@ -25,6 +25,7 @@
 	&__cont{
 		height: 36px;
 		flex: 1 0 auto;
+		width: inherit;
 		// border-radius: 3px !important;
 
 		border: 1px solid $clr-grey-v4; //перекрываем свойство dexpr

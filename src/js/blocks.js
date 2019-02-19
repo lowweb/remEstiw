@@ -98,115 +98,6 @@ $('.input-field__cont').change ( function () {
 	 	$(this).parent().find('.input-field__label').removeClass('input-field__label--err');
 	 }
 });
-// $('#footer__button-save').click(function () {
-// 	
-// });
-
-$('#footer__button-save').dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-					$('.footer__saved-msg').show();                
-				}
-            });
-
-$('#footer__button-next').dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-
-				}
-            });
-
-$('#footer__button-prev').dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-
-                }
-            });
-
-
-    //button init
-    $('.modal-city__footer-ok-btn').dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-
-                }
-            });
-
-    $('.modal-city__footer-close-btn').dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-
-                }
-            });
-    
-
-
-    $("#deliver-cargo__checkbox").dxCheckBox({
-        text: "Доставить груз",
-        value: false,
-        onValueChanged: function (e) {
-            // alert(e.value);
-        }
-    });
-
-    $("#bay-cargo__checkbox").dxCheckBox({
-        text: "Купить",
-        value: false,
-        onValueChanged: function (e) {
-            // alert(e.value);
-        }
-    });
-
-    $("#law-cargo__checkbox").dxCheckBox({
-        text: "Юридическое сопровождение (ваши интересы в суде)",
-        value: false,
-        onValueChanged: function (e) {
-            // alert(e.value);
-        }
-    });
-
-$("#danger-cargo__checkbox").dxCheckBox({
-        text: "Опасный груз",
-        value: false,
-    });
-$("#oversize-cargo__checkbox").dxCheckBox({
-        text: "Негабаритный",
-        value: false,
-    });
-$("#humane-cargo__checkbox").dxCheckBox({
-        text: "Гуманитарная помощь",
-        value: false,
-    });
-$("#home-cargo__checkbox").dxCheckBox({
-        text: "Домашние вещи",
-        value: false,
-    });
-$("#used-cargo__checkbox").dxCheckBox({
-        text: "Бывший в употреблении",
-        value: false,
-    });
-
-function checkboxInit (element, text) {
-    $("#" + element).dxCheckBox({
-        text: text,
-        value: false,
-    });
-};
-
-checkboxInit ("safer__checkbox", "Надежнёе");
-checkboxInit ("faster__checkbox", "Быстрее");
-checkboxInit ("cheaper__checkbox", "Дешевле");
-        
 var employees = [{
     "ID": 1,
     "Forma": "ООО",
@@ -329,6 +220,64 @@ var employees = [{
     }).data("dxDataGrid");
 
 
+
+
+    $("#deliver-cargo__checkbox").dxCheckBox({
+        text: "Доставить груз",
+        value: false,
+        onValueChanged: function (e) {
+            // alert(e.value);
+        }
+    });
+
+    $("#bay-cargo__checkbox").dxCheckBox({
+        text: "Купить",
+        value: false,
+        onValueChanged: function (e) {
+            // alert(e.value);
+        }
+    });
+
+    $("#law-cargo__checkbox").dxCheckBox({
+        text: "Юридическое сопровождение (ваши интересы в суде)",
+        value: false,
+        onValueChanged: function (e) {
+            // alert(e.value);
+        }
+    });
+
+$("#danger-cargo__checkbox").dxCheckBox({
+        text: "Опасный груз",
+        value: false,
+    });
+$("#oversize-cargo__checkbox").dxCheckBox({
+        text: "Негабаритный",
+        value: false,
+    });
+$("#humane-cargo__checkbox").dxCheckBox({
+        text: "Гуманитарная помощь",
+        value: false,
+    });
+$("#home-cargo__checkbox").dxCheckBox({
+        text: "Домашние вещи",
+        value: false,
+    });
+$("#used-cargo__checkbox").dxCheckBox({
+        text: "Бывший в употреблении",
+        value: false,
+    });
+
+function checkboxInit (element, text) {
+    $("#" + element).dxCheckBox({
+        text: text,
+        value: false,
+    });
+};
+
+checkboxInit ("safer__checkbox", "Надежнёе");
+checkboxInit ("faster__checkbox", "Быстрее");
+checkboxInit ("cheaper__checkbox", "Дешевле");
+        
 $(function () {
     $("#fileUploader").dxFileUploader({
         accept:"image/*,*.zip,*.pdf,*.mp4",
@@ -352,50 +301,6 @@ $(function () {
 		uploadFailedMessage: "",
     });
 });
-//название запроса
-$("#requestName").dxTextBox({
-  inputAttr: {
-   		 id: "requestName__id",
-   		 class:"input-field__value" 
-   }
-}).dxValidator({
-        validationRules: [{
-            type: "required",
-            message: "Обязательно к заполнению"
-        }, {
-            type: "pattern",
-            pattern: /^[^0-9]+$/,
-            message: "Строка не может содержать цифры"
-        }, {
-            type: "stringLength",
-            min: 2,
-            message: "Длина строки не меньше 2 символов"
-        }],
-        validationGroup: "validateItems" //обязательный параметр для валидации
-    });
-
-
-$("#input-field__totalWeight").dxTextBox({
-  inputAttr: {
-       id: "input-field__totalWeight-id",
-       class:"input-field__value" 
-   },
-   width: 128,
-   readOnly: true,
-   value: "100",
-})
-
-function inputFieldInit (element, elementId ) {
-  $("#"+ element).dxTextBox({
-  inputAttr: {
-       id: elementId,
-       class:"input-field__value" 
-   }
-  });
-};
-inputFieldInit ("pseudoElement","pseudoElement__id");
-
-
 $("#departButton").dxButton({
     text: "",
     onClick: function() {
@@ -612,6 +517,106 @@ function numberBoxInit (idElement,idAttrName, widthElement) {
 };
 
 numberBoxInit ("input-field__cargoPlace","input-field__cargoPlace-id", 128);
+// $('#footer__button-save').click(function () {
+// 	
+// });
+
+$('#footer__button-save').dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+					$('.footer__saved-msg').show();                
+				}
+            });
+
+$('#footer__button-next').dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+
+				}
+            });
+
+$('#footer__button-prev').dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+
+                }
+            });
+
+
+    //button init
+    $('.modal-city__footer-ok-btn').dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+
+                }
+            });
+
+    $('.modal-city__footer-close-btn').dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+
+                }
+            });
+    
+//название запроса
+$("#requestName").dxTextBox({
+  inputAttr: {
+   		 id: "requestName__id",
+   		 class:"input-field__value" 
+   }
+}).dxValidator({
+        validationRules: [{
+            type: "required",
+            message: "Обязательно к заполнению"
+        }, {
+            type: "pattern",
+            pattern: /^[^0-9]+$/,
+            message: "Строка не может содержать цифры"
+        }, {
+            type: "stringLength",
+            min: 2,
+            message: "Длина строки не меньше 2 символов"
+        }],
+        validationGroup: "validateItems" //обязательный параметр для валидации
+    });
+
+
+$("#input-field__totalWeight").dxTextBox({
+  inputAttr: {
+       id: "input-field__totalWeight-id",
+       class:"input-field__value" 
+   },
+   width: 128,
+   readOnly: true,
+   value: "100",
+})
+
+
+//инициализировать элементы необходимо по id элемента
+//в верстке реализованна инициализация по классу, для массовости, класс pseudoClassTextEditor на инициализируемом элементе можно удалить, если таковой не применяется
+function inputFieldInit (element, elementId ) {
+  $("."+ element).dxTextBox({
+  inputAttr: {
+       id: elementId,
+       class:"input-field__value" 
+   }
+  });
+};
+
+inputFieldInit ("pseudoClassTextEditor","pseudoElement__id");
+
+
+
 $('.progress-bar__step').hover (function(){
 	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
 },
@@ -646,55 +651,6 @@ $('.header-progress').click(function() {
 
 
 });
-var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
-$("#type-deal__radioGroup").dxRadioGroup({
-        items: typeDealitem,
-     });
-
-var volumeItem = ["До 5 м", "Свыше 5 м"];
-$("#volume-cargo__radioGroup").dxRadioGroup({
-        items: volumeItem,
-        // value: volumeItem[0]
-    });
-
-var cargoReceiverItem = ["Физическое лицо", "Юридическое лицо"];
-$("#cargo-receiver__radioGroup").dxRadioGroup({
-        items: cargoReceiverItem,
-        // value: cargoReceiverItem[0],
-        layout: "horizontal"
-    });
-
-var cargoCheracterItem = ["Однородный (массовый)", "Однородный (не массовый)","Однородный в упаковке", "Не однородный в/без упаковки/и", "Одно грузовое место", "Жидкость без упаковки"];
-$("#cargo-cheracter__radioGroup").dxRadioGroup({
-        items: cargoCheracterItem
-    });
-
-var transportModItem = ["Груз навалом", "Загрузить в контейнер", "Уже загружен в контейнер", "По решению исполнителя"];
-$("#transport-mod__radioGroup").dxRadioGroup({
-        items: transportModItem
-  
-    });
-var specialConditionsItem = ["На верхней палубе судна", "Открытое хранение", "Крытое хранение", "Температурный режим"];
-$("#special-conditions__radioGroup").dxRadioGroup({
-        items: specialConditionsItem
-    });
-
-
-function radiogroupInit (idRadio, items, layout) {
-$("#"+idRadio).dxRadioGroup({
-        items: items,
-        layout: layout
-    });
-};
-
-radiogroupInit ("HBL__radioGroup", ["Уже выпущен и имеется", "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-radiogroupInit ("сargo-escort__radioGroup", ["Уже выпущен и имеется", "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-radiogroupInit ("сargo-exam__radioGroup", ["Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-radiogroupInit ("сargo-insura__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-radiogroupInit ("custom-clear__radioGroup", ["Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-radiogroupInit ("product-exam__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-radiogroupInit ("сargo-payment__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-radiogroupInit ("product-payment__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
 $(function() {
     $("#rangeSelector").dxRangeSelector({
         size: {
@@ -828,9 +784,55 @@ $(document.body).on('click', '.step-block__sep-btn-close' ,function(){
 	if ($( ".consignment" ).length == 1 )
 		$( ".consignment .step-block__sep .step-block__sep-btn-close").remove();
 });
-    $("#period__switch").dxSwitch({
-        value: false
+var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
+$("#type-deal__radioGroup").dxRadioGroup({
+        items: typeDealitem,
+     });
+
+var volumeItem = ["До 5 м", "Свыше 5 м"];
+$("#volume-cargo__radioGroup").dxRadioGroup({
+        items: volumeItem,
+        // value: volumeItem[0]
     });
+
+var cargoReceiverItem = ["Физическое лицо", "Юридическое лицо"];
+$("#cargo-receiver__radioGroup").dxRadioGroup({
+        items: cargoReceiverItem,
+        // value: cargoReceiverItem[0],
+        layout: "horizontal"
+    });
+
+var cargoCheracterItem = ["Однородный (массовый)", "Однородный (не массовый)","Однородный в упаковке", "Не однородный в/без упаковки/и", "Одно грузовое место", "Жидкость без упаковки"];
+$("#cargo-cheracter__radioGroup").dxRadioGroup({
+        items: cargoCheracterItem
+    });
+
+var transportModItem = ["Груз навалом", "Загрузить в контейнер", "Уже загружен в контейнер", "По решению исполнителя"];
+$("#transport-mod__radioGroup").dxRadioGroup({
+        items: transportModItem
+  
+    });
+var specialConditionsItem = ["На верхней палубе судна", "Открытое хранение", "Крытое хранение", "Температурный режим"];
+$("#special-conditions__radioGroup").dxRadioGroup({
+        items: specialConditionsItem
+    });
+
+
+function radiogroupInit (idRadio, items, layout) {
+$("#"+idRadio).dxRadioGroup({
+        items: items,
+        layout: layout
+    });
+};
+
+radiogroupInit ("HBL__radioGroup", ["Уже выпущен и имеется", "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("сargo-escort__radioGroup", ["Уже выпущен и имеется", "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("сargo-exam__radioGroup", ["Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("сargo-insura__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("custom-clear__radioGroup", ["Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("product-exam__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("сargo-payment__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("product-payment__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
     var simpleProducts = [
     "HD Video Player",
     "SuperHD Video Player",
@@ -861,7 +863,6 @@ function tagBoxInit (idElement,idAttrName, itemsElement, widthElement) {
 };
   
 tagBoxInit ("input-field__accompOnPlot","input-field__accompOnPlot-id",simpleProducts, 710);  
-
 // $(".navbar").scroll (function () {
 
 //  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
@@ -881,6 +882,33 @@ tagBoxInit ("input-field__accompOnPlot","input-field__accompOnPlot-id",simplePro
 //  }
 
 //  });
+    $("#period__switch").dxSwitch({
+        value: false
+    });
+$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
+	// $(this).toggleClass('user-popup-menu__title-btn--up');
+	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
+		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
+		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
+		$(this).toggleClass('btn-rotate180');
+		$(this).toggleClass('app-lnk-disable');
+	// }
+});
+
+
+$(".user-popup-menu__title-btn").click(function(e) {
+  e.stopPropagation(); 
+});
+
+
+function userPopupClose() {
+	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
+		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
+		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
+		$('.app-lnk-disable').toggleClass('btn-rotate180');
+		$('.app-lnk-disable').toggleClass('app-lnk-disable');
+	}
+}
 $('.timezone-popup-menu__title-btn').click(function(){
 // console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
 // if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
@@ -909,30 +937,18 @@ function timezonePopupClose(e) {
 }
 
 
-$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
-	// $(this).toggleClass('user-popup-menu__title-btn--up');
-	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
-		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
-		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
-		$(this).toggleClass('btn-rotate180');
-		$(this).toggleClass('app-lnk-disable');
-	// }
-});
+ $(".popup__info-newmsg").dxToast({
+        message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
+        displayTime: 300000,
+        position: {my: 'center right', at: 'center right', offset: '-50 0'},
+        width: 375,
+		onShowing: function () {
+			//for left separate line on block message
+			$('.dx-toast-message').height($('.dx-toast-content').height());
+		}
+    });
 
-
-$(".user-popup-menu__title-btn").click(function(e) {
-  e.stopPropagation(); 
-});
-
-
-function userPopupClose() {
-	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
-		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
-		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
-		$('.app-lnk-disable').toggleClass('btn-rotate180');
-		$('.app-lnk-disable').toggleClass('app-lnk-disable');
-	}
-}
+  $(".popup__info-newmsg").dxToast("show");
 $("#destButton").dxButton({
     text: "",
     onClick: function() {
@@ -1115,18 +1131,6 @@ $("#modal__region-list").dxSelectBox({
            class:"input-field__value"
          }
 });
- $(".popup__info-newmsg").dxToast({
-        message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
-        displayTime: 300000,
-        position: {my: 'center right', at: 'center right', offset: '-50 0'},
-        width: 375,
-		onShowing: function () {
-			//for left separate line on block message
-			$('.dx-toast-message').height($('.dx-toast-content').height());
-		}
-    });
-
-  $(".popup__info-newmsg").dxToast("show");
 $('.header-currency__lang').click( function () {
 	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
 	$('.header-currency__lang').toggleClass('header-currency__lang--en');
