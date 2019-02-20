@@ -124,48 +124,6 @@ $('#footer__button-save').dxButton({
                 }
             });
           
-$(function () {
-    $("#fileUploader").dxFileUploader({
-        accept:"image/*,*.zip,*.pdf,*.mp4",
-        width: 424,
-	    // height: auto,
-	    multiple: true,
-	    allowCanceling: true,
-	    selectButtonText: "выбрать",
-		showFileList: true,
-		labelText: "Перенесите сюда файл (xls, word, pdf) или нажмите",
-		onUploadStarted: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploaded: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploadError: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
-		},
-		uploadedMessage: "",
-		uploadFailedMessage: "",
-    });
-});
-function checkboxInit (element, text) {
-    $("#" + element).dxCheckBox({
-        text: text,
-        value: false,
-    });
-};
-
-checkboxInit ("used-cargo__checkbox", "Бывший в употреблении");
-checkboxInit ("home-cargo__checkbox", "Домашние вещи");
-checkboxInit ("humane-cargo__checkbox", "Гуманитарная помощь");
-checkboxInit ("oversize-cargo__checkbox", "Негабаритный");
-checkboxInit ("danger-cargo__checkbox", "Опасный груз");
-checkboxInit ("law-cargo__checkbox", "Юридическое сопровождение (ваши интересы в суде)");
-checkboxInit ("bay-cargo__checkbox", "Купить");
-checkboxInit ("deliver-cargo__checkbox", "Доставить груз");
-checkboxInit ("safer__checkbox", "Надежнёе");
-checkboxInit ("faster__checkbox", "Быстрее");
-checkboxInit ("cheaper__checkbox", "Дешевле");
-        
 var employees = [{
     "ID": 1,
     "Forma": "ООО",
@@ -288,6 +246,162 @@ var employees = [{
     }).data("dxDataGrid");
 
 
+$(function () {
+    $("#fileUploader").dxFileUploader({
+        accept:"image/*,*.zip,*.pdf,*.mp4",
+        width: 424,
+	    // height: auto,
+	    multiple: true,
+	    allowCanceling: true,
+	    selectButtonText: "выбрать",
+		showFileList: true,
+		labelText: "Перенесите сюда файл (xls, word, pdf) или нажмите",
+		onUploadStarted: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploaded: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploadError: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
+		},
+		uploadedMessage: "",
+		uploadFailedMessage: "",
+    });
+});
+//название запроса
+$("#requestName").dxTextBox({
+  inputAttr: {
+   		 id: "requestName__id",  //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
+   		 class:"input-field__value" //обязятельный класс
+   }
+}).dxValidator({
+        validationRules: [{
+            type: "required",
+            message: "Обязательно к заполнению"
+        }, {
+            type: "pattern",
+            pattern: /^[^0-9]+$/,
+            message: "Строка не может содержать цифры"
+        }, {
+            type: "stringLength",
+            min: 2,
+            message: "Длина строки не меньше 2 символов"
+        }],
+        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
+    });
+
+
+$("#input-field__totalWeight").dxTextBox({
+  inputAttr: {
+       id: "input-field__totalWeight-id",
+       class:"input-field__value" 
+   },
+   width: 128,
+   readOnly: true,
+   value: "100",
+})
+
+
+//инициализировать элементы необходимо по id элемента
+//в верстке реализованна инициализация по классу, для массовости, класс pseudoClassTextEditor на инициализируемом элементе можно удалить, если таковой не применяется
+function inputFieldInit (element, elementId ) {
+  $("."+ element).dxTextBox({
+  inputAttr: {
+       id: elementId,
+       class:"input-field__value" 
+   }
+  });
+};
+
+inputFieldInit ("pseudoClassTextEditor","pseudoElement__id");
+
+
+
+$("#departButton").dxButton({
+    text: "",
+    onClick: function() {
+        // $('#modal-city').show();
+//init modal			
+    $(".modal").dxPopup({
+        visible: true,
+        height:"auto",
+        width: 500,
+        titleTemplate: function() {
+        	//обязательный template
+         	return $("<div class='modal-city__title'><div class='modal-city__title-cap'>Выберите пункт отправления</div><div class='modal__btn-close'>&times;</div></div><div class='modal-city__search-block'><div class='modal-city__search'> <div class='input-field input-field__city-search'><div id='citySearch' class='input-field__cont'></div></div></div><div class='modal-city__search-err'>Такого населенного пункта нет в нашей базе. Пожалуйста, выберите ближайшее к нему местоположение</div></div>");
+          },
+          contentTemplate: function () {
+          	//обязательный template
+          	return $("<div class='modal-city__step-container'><div class='modal-city__step'><div class='modal-city__block-cap'>Наиболее популярные направления:</div><ul class='modal-city__block-items'><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Россия</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Китай (КНР)</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Республика Корея</a></li></ul><div class='modal-city__block-cap'>Части света:</div><ul class='modal-city__block-items'><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Европа</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Азия</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Америка</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Африка</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Австралия</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Андарктида</a></li></ul></div><div class='modal-city__step'><div class='modal-city__block-cap--link'><a class='modal-city__block-href-back'>Европа</a></div><div class='input-field input-field__country-list'><div id='modal__country-list' class='input-field__cont input-field__icn-dropdown'></div><div class='input-field__label'><label for='modal__country-list__id'>Страна:</label> </div></div> <div class='input-field input-field__region-list'><div id='modal__region-list' class='input-field__cont input-field__icn-dropdown'></div><div class='input-field__label'><label for='modal__region-list__id'>Край, район, область, штат:</label> </div></div><div class='input-field input-field__modal-city'><div id='modalCity' class='input-field__cont'></div><div class='input-field__label'><label for='modalCity__id'>Город, населенный пункт::</label> </div>  </div> </div> </div> <div class='modal-city__footer'><button id='modal-city__footer-ok-btn' class='purple-button button-ok modal-city__footer-ok-btn'>Ok</button><button id='modal-city__footer-close-btn' class='basic-button button-cancel modal-city__footer-close-btn'>Отмена</button></div>");
+          } 
+    });
+
+//make slidecontent for modal
+//обязательный код для перехода между псевдо окон
+	const $stepContainer = $('.modal-city__step-container'),
+       	  $steps         = $('.modal-city__step'),
+      	  numSteps       = $steps.length,
+       	  $form          = $('.modal'),
+          $next          = $('.modal-city__block-item'),
+          $prev          = $('.modal-city__block-cap--link');
+
+	var stepWidth = 500;
+	var currentSlide = 0;
+	 
+	$steps.css({ width: stepWidth + "px" });
+	$stepContainer.css("width", stepWidth*numSteps + "px");
+
+	animateSlider();	
+	function animateSlider() {
+	  $stepContainer.css('transform', 'translateX('+ (-stepWidth * currentSlide)+'px)');
+	}
+	
+
+	$next.on('click', function() {
+	  if(currentSlide < numSteps-1){
+	  currentSlide ++;
+	  animateSlider();
+	  }
+	  $('.modal-city__block-href-back').text($(this).text());
+	});	
+
+	$prev.on('click', function() {
+	  if(currentSlide > 0) {
+	    currentSlide --;
+	    animateSlider();
+	  } 
+	});
+//конец обязательного кода для псевдо окон
+
+		initButton("modal-city__footer-ok-btn");
+		initButton("modal-city__footer-close-btn");
+		//страна в модальном окне
+		selectBoxInit("modal__country-list",[ "Приморский край", "Камчатский край"],"modal__country-list__id","input-field__value");
+		//край район область в модальном окне
+		selectBoxInit("modal__region-list",[ "Приморский край", "Камчатский край"],"modal__region-list__id","input-field__value");
+		//необходимо заново инициализировать элемент
+		autocompleteInit ("citySearch","citySearch__id","input-field__value");
+		autocompleteInit ("modalCity","modalCity__id","input-field__value");
+
+		//ошибка заполнения города
+		$('.modal-city__title').click(function() {
+		  $('.modal-city__search-err').toggleClass('modal-city__search-err--show');;
+		});		
+
+		//close modal
+		$('.modal__btn-close').click( function () {
+			$('.modal-city.dx-popup-wrapper').remove();
+		});
+		//closemodal btn
+		$('.modal-city__footer-close-btn').click( function () {
+	  		$('.modal-city.dx-popup-wrapper').remove();
+	});
+
+   }
+
+
+});
 // //close modal
 // $('.modal__btn-close').click( function () {
 // 	$('#modal-city').hide();
@@ -352,21 +466,23 @@ var employees = [{
 //   $('.modal-city__search-err').toggleClass('modal-city__search-err--show');;
 // });
  
-function numberBoxInit (idElement,idAttrName, widthElement) {
-	 $("#"+idElement).dxNumberBox({
+function numberBoxInit (idElement,idAttrName) {
+	 $("."+idElement).dxNumberBox({
         value: 15,
         min: 10,
         max: 100,
         showSpinButtons: true,
         inputAttr: {
    		 id: idAttrName,
-   		 class:"input-field__value" 
-   		},
-   		width: widthElement
+   		 class: "input-field__value" 
+   		}
+   		//width: widthElement
     });
 };
 
-numberBoxInit ("input-field__cargoPlace","input-field__cargoPlace-id", 128);
+numberBoxInit ("pseudoClassNumberBox","pseudoNameElementNumberBox__id");
+
+
 $('.progress-bar__step').hover (function(){
 	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
 },
@@ -564,139 +680,6 @@ $(function() {
 // 	if ($( ".consignment" ).length == 1 )
 // 		$( ".consignment .step-block__sep .step-block__sep-btn-close").remove();
 // });
-$("#departButton").dxButton({
-    text: "",
-    onClick: function() {
-        // $('#modal-city').show();
-//init modal			
-    $(".modal").dxPopup({
-        visible: true,
-        height:"auto",
-        width: 500,
-        titleTemplate: function() {
-        	//обязательный template
-         	return $("<div class='modal-city__title'><div class='modal-city__title-cap'>Выберите пункт отправления</div><div class='modal__btn-close'>&times;</div></div><div class='modal-city__search-block'><div class='modal-city__search'> <div class='input-field input-field__city-search'><div id='citySearch' class='input-field__cont'></div></div></div><div class='modal-city__search-err'>Такого населенного пункта нет в нашей базе. Пожалуйста, выберите ближайшее к нему местоположение</div></div>");
-          },
-          contentTemplate: function () {
-          	//обязательный template
-          	return $("<div class='modal-city__step-container'><div class='modal-city__step'><div class='modal-city__block-cap'>Наиболее популярные направления:</div><ul class='modal-city__block-items'><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Россия</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Китай (КНР)</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Республика Корея</a></li></ul><div class='modal-city__block-cap'>Части света:</div><ul class='modal-city__block-items'><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Европа</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Азия</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Америка</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Африка</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Австралия</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Андарктида</a></li></ul></div><div class='modal-city__step'><div class='modal-city__block-cap--link'><a class='modal-city__block-href-back'>Европа</a></div><div class='input-field input-field__country-list'><div id='modal__country-list' class='input-field__cont input-field__icn-dropdown'></div><div class='input-field__label'><label for='modal__country-list__id'>Страна:</label> </div></div> <div class='input-field input-field__region-list'><div id='modal__region-list' class='input-field__cont input-field__icn-dropdown'></div><div class='input-field__label'><label for='modal__region-list__id'>Край, район, область, штат:</label> </div></div><div class='input-field input-field__modal-city'><div id='modalCity' class='input-field__cont'></div><div class='input-field__label'><label for='modalCity__id'>Город, населенный пункт::</label> </div>  </div> </div> </div> <div class='modal-city__footer'><button id='modal-city__footer-ok-btn' class='purple-button button-ok modal-city__footer-ok-btn'>Ok</button><button id='modal-city__footer-close-btn' class='basic-button button-cancel modal-city__footer-close-btn'>Отмена</button></div>");
-          } 
-    });
-
-//make slidecontent for modal
-//обязательный код для перехода между псевдо окон
-	const $stepContainer = $('.modal-city__step-container'),
-       	  $steps         = $('.modal-city__step'),
-      	  numSteps       = $steps.length,
-       	  $form          = $('.modal'),
-          $next          = $('.modal-city__block-item'),
-          $prev          = $('.modal-city__block-cap--link');
-
-	var stepWidth = 500;
-	var currentSlide = 0;
-	 
-	$steps.css({ width: stepWidth + "px" });
-	$stepContainer.css("width", stepWidth*numSteps + "px");
-
-	animateSlider();	
-	function animateSlider() {
-	  $stepContainer.css('transform', 'translateX('+ (-stepWidth * currentSlide)+'px)');
-	}
-	
-
-	$next.on('click', function() {
-	  if(currentSlide < numSteps-1){
-	  currentSlide ++;
-	  animateSlider();
-	  }
-	  $('.modal-city__block-href-back').text($(this).text());
-	});	
-
-	$prev.on('click', function() {
-	  if(currentSlide > 0) {
-	    currentSlide --;
-	    animateSlider();
-	  } 
-	});
-//конец обязательного кода для псевдо окон
-
-		initButton("modal-city__footer-ok-btn");
-		initButton("modal-city__footer-close-btn");
-		//страна в модальном окне
-		selectBoxInit("modal__country-list",[ "Приморский край", "Камчатский край"],"modal__country-list__id","input-field__value");
-		//край район область в модальном окне
-		selectBoxInit("modal__region-list",[ "Приморский край", "Камчатский край"],"modal__region-list__id","input-field__value");
-		//необходимо заново инициализировать элемент
-		autocompleteInit ("citySearch","citySearch__id","input-field__value");
-		autocompleteInit ("modalCity","modalCity__id","input-field__value");
-
-		//ошибка заполнения города
-		$('.modal-city__title').click(function() {
-		  $('.modal-city__search-err').toggleClass('modal-city__search-err--show');;
-		});		
-
-		//close modal
-		$('.modal__btn-close').click( function () {
-			$('.modal-city.dx-popup-wrapper').remove();
-		});
-		//closemodal btn
-		$('.modal-city__footer-close-btn').click( function () {
-	  		$('.modal-city.dx-popup-wrapper').remove();
-	});
-
-   }
-
-
-});
-//название запроса
-$("#requestName").dxTextBox({
-  inputAttr: {
-   		 id: "requestName__id",  //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
-   		 class:"input-field__value" //обязятельный класс
-   }
-}).dxValidator({
-        validationRules: [{
-            type: "required",
-            message: "Обязательно к заполнению"
-        }, {
-            type: "pattern",
-            pattern: /^[^0-9]+$/,
-            message: "Строка не может содержать цифры"
-        }, {
-            type: "stringLength",
-            min: 2,
-            message: "Длина строки не меньше 2 символов"
-        }],
-        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
-    });
-
-
-$("#input-field__totalWeight").dxTextBox({
-  inputAttr: {
-       id: "input-field__totalWeight-id",
-       class:"input-field__value" 
-   },
-   width: 128,
-   readOnly: true,
-   value: "100",
-})
-
-
-//инициализировать элементы необходимо по id элемента
-//в верстке реализованна инициализация по классу, для массовости, класс pseudoClassTextEditor на инициализируемом элементе можно удалить, если таковой не применяется
-function inputFieldInit (element, elementId ) {
-  $("."+ element).dxTextBox({
-  inputAttr: {
-       id: elementId,
-       class:"input-field__value" 
-   }
-  });
-};
-
-inputFieldInit ("pseudoClassTextEditor","pseudoElement__id");
-
-
-
     $("#period__switch").dxSwitch({
         value: false
     });
@@ -801,19 +784,26 @@ function userPopupClose() {
 		$('.app-lnk-disable').toggleClass('app-lnk-disable');
 	}
 }
-initButton ('destButton');
- $(".popup__info-newmsg").dxToast({
-        message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
-        displayTime: 300000,
-        position: {my: 'center right', at: 'center right', offset: '-50 0'},
-        width: 375,
-		onShowing: function () {
-			//for left separate line on block message
-			$('.dx-toast-message').height($('.dx-toast-content').height());
-		}
+function checkboxInit (element, text) {
+    $("#" + element).dxCheckBox({
+        text: text,
+        value: false,
     });
+};
 
-  $(".popup__info-newmsg").dxToast("show");
+checkboxInit ("used-cargo__checkbox", "Бывший в употреблении");
+checkboxInit ("home-cargo__checkbox", "Домашние вещи");
+checkboxInit ("humane-cargo__checkbox", "Гуманитарная помощь");
+checkboxInit ("oversize-cargo__checkbox", "Негабаритный");
+checkboxInit ("danger-cargo__checkbox", "Опасный груз");
+checkboxInit ("law-cargo__checkbox", "Юридическое сопровождение (ваши интересы в суде)");
+checkboxInit ("bay-cargo__checkbox", "Купить");
+checkboxInit ("deliver-cargo__checkbox", "Доставить груз");
+checkboxInit ("safer__checkbox", "Надежнёе");
+checkboxInit ("faster__checkbox", "Быстрее");
+checkboxInit ("cheaper__checkbox", "Дешевле");
+        
+initButton ('destButton');
 var cityData = [{
     id: 1,
     name: "Владивосток, Приморский край, Россия",
@@ -855,6 +845,7 @@ $("#"+idElement).dxAutocomplete({
    dataSource: cityData,
    valueExpr: 'name',
    itemTemplate: function(data) {
+            //обязательный шаблон
             return $("<div class='input-field__autocomplete-item'><img class='input-field__autocomplete-item--flag' src='" + data.imgSrc +
                 "'>" + data.name + "</div>");
          }
@@ -895,7 +886,7 @@ var now = new Date();
            class:"input-field__value"
          }
     });
-function selectBoxInit (idElement, dataS, inputAttrId, inputAttrVal ) {
+function selectBoxInitForId (idElement, dataS, inputAttrId, inputAttrVal ) {
 $("#" + idElement).dxSelectBox({
         dataSource: dataS,
         placeholder: "",
@@ -906,15 +897,40 @@ $("#" + idElement).dxSelectBox({
     });
 };
 
-selectBoxInit("conditionDest",[ "FCA", "FAS", "FOB" ],"conditionDepart__id","input-field__value");
-selectBoxInit("conditionDepart",[ "FCA", "FAS", "FOB" ],"conditionDest__id","input-field__value");
+selectBoxInitForId("conditionDest",[ "FCA", "FAS", "FOB" ],"conditionDepart__id","input-field__value");
+selectBoxInitForId("conditionDepart",[ "FCA", "FAS", "FOB" ],"conditionDest__id","input-field__value");
 //в какой валюте расчитать
-selectBoxInit("currency-calc",[ "Доллары США (USD)", "Рубли (RUB)"],"currency-calc__id","input-field__value");
+selectBoxInitForId("currency-calc",[ "Доллары США (USD)", "Рубли (RUB)"],"currency-calc__id","input-field__value");
 //страна в модальном окне
-selectBoxInit('modal__country-list',[ "Россия", "Америка"],"modal__country-list__id","input-field__value");
+selectBoxInitForId('modal__country-list',[ "Россия", "Америка"],"modal__country-list__id","input-field__value");
 //край район область в модальном окне
-selectBoxInit('modal__region-list',[ "Приморский край", "Камчатский край"],"modal__region-list__id","input-field__value");
+selectBoxInitForId('modal__region-list',[ "Приморский край", "Камчатский край"],"modal__region-list__id","input-field__value");
 
+function selectBoxInitForClass (classElement, dataS, inputAttrId, inputAttrVal ) {
+$("." + classElement).dxSelectBox({
+        dataSource: dataS,
+        placeholder: "",
+        inputAttr: {
+          id: inputAttrId, //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
+          class: inputAttrVal //обязятельный класс
+         }
+    });
+};
+
+selectBoxInitForClass("pseudoClassSelectBox",[ "значение", "значение", "значенадывжлавдылажвылаие123456789" ],"pseudoNameElementSelectBox__id","input-field__value");
+
+ $(".popup__info-newmsg").dxToast({
+        message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
+        displayTime: 300000,
+        position: {my: 'center right', at: 'center right', offset: '-50 0'},
+        width: 375,
+		onShowing: function () {
+			//for left separate line on block message
+			$('.dx-toast-message').height($('.dx-toast-content').height());
+		}
+    });
+
+  $(".popup__info-newmsg").dxToast("show");
 $('.header-currency__lang').click( function () {
 	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
 	$('.header-currency__lang').toggleClass('header-currency__lang--en');

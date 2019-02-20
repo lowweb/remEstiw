@@ -39,6 +39,7 @@ $("#"+idElement).dxAutocomplete({
    dataSource: cityData,
    valueExpr: 'name',
    itemTemplate: function(data) {
+            //обязательный шаблон
             return $("<div class='input-field__autocomplete-item'><img class='input-field__autocomplete-item--flag' src='" + data.imgSrc +
                 "'>" + data.name + "</div>");
          }

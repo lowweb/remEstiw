@@ -74,6 +74,19 @@
 	    grid-template-areas: "a   b   c"
 	    					 "d   e   f"
 	    					 "g   h   i";
-	}	
+	}
+
+	&__common-cargo-params {
+		 display: grid;
+		 grid-gap: 20px;
+		 width: fit-content;
+		 // width: 100%;
+		 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+		 grid-template-rows: 1fr 1fr 1fr;		
+		 grid-template-areas:
+		   "a   b   b   c   d   e"
+		   "f   g   h   i   k  l"
+		   "m   m   m   n   n  n";			
+		}	
 
 }
