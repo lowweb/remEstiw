@@ -15,7 +15,6 @@
 
 .common-cargo-param {
 &__grid {
- display: -ms-grid;
  display: grid;
  grid-gap: 20px;
  width: 100%;
@@ -24,10 +23,10 @@
 
  // -ms-grid-rows: 1fr 1fr 1fr;
  // -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
- // grid-template-areas:
- //   "a   b   b   c   d   e"
- //   "f   g   h   i   k  l"
- //   "m  m  m  n  n  n";
+ grid-template-areas:
+   "a   b   b   c   d   e"
+   "f   g   h   i   k  l"
+   "m  m  m  n  n  n";
 
 
 }
@@ -36,10 +35,12 @@
 	// padding: 10px;
 	// max-width: 128px;
 	&-1{
-		grid-area: 1 / 1 / 2 / 2;
+		// grid-area: 1 / 1 / 2 / 2;
+		grid-area: a;
 	}
 	&-2{
-		grid-area: 1 / 2 / 2 / 4;
+		// grid-area: 1 / 2 / 2 / 4;
+		grid-area: b;
 	}
 	&-3{
 		grid-area: c;

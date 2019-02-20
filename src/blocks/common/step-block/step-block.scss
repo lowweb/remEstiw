@@ -70,12 +70,18 @@
 		}
 	}
 	
-
 	 
 	&__type-need-volume {
-		display: flex;
-		flex-direction: row;
-	}
+		    display: grid;
+		    grid-gap: 30px;
+		    width: fit-content;
+		    grid-column: 1fr 1fr 1fr;
+		    grid-template-columns: auto auto auto;
+		    align-items: flex-start;
+		    grid-template-areas: "a   b   c";
+
+		}
+	
 
 }
 

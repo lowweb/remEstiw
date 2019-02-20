@@ -29,7 +29,7 @@ var cityData = [{
 }
 ];
 
-function autocompleteInit (idElement,attrId, attrVal,) {
+function autocompleteInit (idElement,attrId, attrVal) {
 
 $("#"+idElement).dxAutocomplete({
   inputAttr: {
