@@ -124,6 +124,25 @@ $('#footer__button-save').dxButton({
                 }
             });
           
+function checkboxInit (element, text) {
+    $("#" + element).dxCheckBox({
+        text: text,
+        value: false,
+    });
+};
+
+checkboxInit ("used-cargo__checkbox", "Бывший в употреблении");
+checkboxInit ("home-cargo__checkbox", "Домашние вещи");
+checkboxInit ("humane-cargo__checkbox", "Гуманитарная помощь");
+checkboxInit ("oversize-cargo__checkbox", "Негабаритный");
+checkboxInit ("danger-cargo__checkbox", "Опасный груз");
+checkboxInit ("law-cargo__checkbox", "Юридическое сопровождение (ваши интересы в суде)");
+checkboxInit ("bay-cargo__checkbox", "Купить");
+checkboxInit ("deliver-cargo__checkbox", "Доставить груз");
+checkboxInit ("safer__checkbox", "Надежнёе");
+checkboxInit ("faster__checkbox", "Быстрее");
+checkboxInit ("cheaper__checkbox", "Дешевле");
+        
 var employees = [{
     "ID": 1,
     "Forma": "ООО",
@@ -246,8 +265,8 @@ var employees = [{
     }).data("dxDataGrid");
 
 
-$(function () {
-    $("#fileUploader").dxFileUploader({
+
+    $(".fileUploader").dxFileUploader({
         accept:"image/*,*.zip,*.pdf,*.mp4",
         width: 424,
 	    // height: auto,
@@ -268,7 +287,7 @@ $(function () {
 		uploadedMessage: "",
 		uploadFailedMessage: "",
     });
-});
+
 //название запроса
 $("#requestName").dxTextBox({
   inputAttr: {
@@ -292,30 +311,32 @@ $("#requestName").dxTextBox({
     });
 
 
-$("#input-field__totalWeight").dxTextBox({
-  inputAttr: {
-       id: "input-field__totalWeight-id",
-       class:"input-field__value" 
-   },
-   width: 128,
-   readOnly: true,
-   value: "100",
-})
+// $("#input-field__totalWeight").dxTextBox({
+//   inputAttr: {
+//        id: "input-field__totalWeight-id",
+//        class:"input-field__value" 
+//    },
+//    width: 128,
+//    readOnly: true,
+//    value: "100",
+// })
 
 
 //инициализировать элементы необходимо по id элемента
 //в верстке реализованна инициализация по классу, для массовости, класс pseudoClassTextEditor на инициализируемом элементе можно удалить, если таковой не применяется
-function inputFieldInit (element, elementId ) {
+function inputFieldInit (element, elementId, defValue, readOnlyFlag ) {
   $("."+ element).dxTextBox({
   inputAttr: {
        id: elementId,
        class:"input-field__value" 
-   }
+   },
+   value: defValue,
+   readOnly: readOnlyFlag
   });
 };
 
-inputFieldInit ("pseudoClassTextEditor","pseudoElement__id");
-
+inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
+inputFieldInit ("pseudoClassTextEditorReadOnly","pseudoClassTextEditorReadOnly__id","100",true);
 
 
 $("#departButton").dxButton({
@@ -784,25 +805,6 @@ function userPopupClose() {
 		$('.app-lnk-disable').toggleClass('app-lnk-disable');
 	}
 }
-function checkboxInit (element, text) {
-    $("#" + element).dxCheckBox({
-        text: text,
-        value: false,
-    });
-};
-
-checkboxInit ("used-cargo__checkbox", "Бывший в употреблении");
-checkboxInit ("home-cargo__checkbox", "Домашние вещи");
-checkboxInit ("humane-cargo__checkbox", "Гуманитарная помощь");
-checkboxInit ("oversize-cargo__checkbox", "Негабаритный");
-checkboxInit ("danger-cargo__checkbox", "Опасный груз");
-checkboxInit ("law-cargo__checkbox", "Юридическое сопровождение (ваши интересы в суде)");
-checkboxInit ("bay-cargo__checkbox", "Купить");
-checkboxInit ("deliver-cargo__checkbox", "Доставить груз");
-checkboxInit ("safer__checkbox", "Надежнёе");
-checkboxInit ("faster__checkbox", "Быстрее");
-checkboxInit ("cheaper__checkbox", "Дешевле");
-        
 initButton ('destButton');
 var cityData = [{
     id: 1,

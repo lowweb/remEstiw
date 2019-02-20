@@ -21,28 +21,30 @@ $("#requestName").dxTextBox({
     });
 
 
-$("#input-field__totalWeight").dxTextBox({
-  inputAttr: {
-       id: "input-field__totalWeight-id",
-       class:"input-field__value" 
-   },
-   width: 128,
-   readOnly: true,
-   value: "100",
-})
+// $("#input-field__totalWeight").dxTextBox({
+//   inputAttr: {
+//        id: "input-field__totalWeight-id",
+//        class:"input-field__value" 
+//    },
+//    width: 128,
+//    readOnly: true,
+//    value: "100",
+// })
 
 
 //инициализировать элементы необходимо по id элемента
 //в верстке реализованна инициализация по классу, для массовости, класс pseudoClassTextEditor на инициализируемом элементе можно удалить, если таковой не применяется
-function inputFieldInit (element, elementId ) {
+function inputFieldInit (element, elementId, defValue, readOnlyFlag ) {
   $("."+ element).dxTextBox({
   inputAttr: {
        id: elementId,
        class:"input-field__value" 
-   }
+   },
+   value: defValue,
+   readOnly: readOnlyFlag
   });
 };
 
-inputFieldInit ("pseudoClassTextEditor","pseudoElement__id");
-
+inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
+inputFieldInit ("pseudoClassTextEditorReadOnly","pseudoClassTextEditorReadOnly__id","100",true);
 

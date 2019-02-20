@@ -1,0 +1,17 @@
+.form-calc {
+	&__cont {
+		display: flex;
+		align-items: center;
+	}
+
+	&__input {
+		flex: 0 0 128px;
+		max-width: 128px;
+	}
+
+	&__text {
+		@include font-lucida ($clr-dark-light, 13px, normal);
+		margin-left: 27px;
+		margin-top: 23px;
+	}
+}

@@ -1,5 +1,5 @@
-$(function () {
-    $("#fileUploader").dxFileUploader({
+
+    $(".fileUploader").dxFileUploader({
         accept:"image/*,*.zip,*.pdf,*.mp4",
         width: 424,
 	    // height: auto,
@@ -20,4 +20,3 @@ $(function () {
 		uploadedMessage: "",
 		uploadFailedMessage: "",
     });
-});
