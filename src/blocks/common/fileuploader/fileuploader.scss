@@ -18,10 +18,12 @@
 
 }
 
-.dx-fileuploader-input-label:before {
+.dx-fileuploader-input-label::before {
 	width: 38px;
 	height: 26px;
-	content: url(#{$imgFolder}fileupload-downloadbox.svg);
+	background-image: url(#{$imgFolder}fileupload-downloadbox.svg);
+  background-repeat: no-repeat;
+  background-position: left;
 	position: relative;
 	top: 0;
 	padding-right: 20px;
@@ -37,7 +39,7 @@
     position: relative;
 }
 
-.dx-fileuploader-button {
+.dx-fileuploader-input-wrapper .dx-fileuploader-button {
 	border-radius: 0px; 
     border-width: 0px; 
     border-style: none;
@@ -66,6 +68,33 @@
     &.dx-button-mode-contained.dx-state-hover {
     	background-color: $clr-white;
     }
+}
+
+
+.dx-fileuploader-files-container .dx-fileuploader-button{
+      
+      content: url(../img/fileuploader__btn-close.svg);
+  border-radius: 50%;
+    border: 2px solid $clr-red;
+
+    width: 16px;
+    height: 16px;
+
+    & .dx-button-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    & .dx-icon-close{
+      color: $clr-red;
+    }
+}
+
+.dx-fileuploader-file-container {
+    display: flex;    
+    flex-direction: row-reverse;
+    align-items: center;
 }
 
 
@@ -104,7 +133,9 @@
 }
 
 .dx-fileuploader-dragover .dx-fileuploader-input-label:before {
-	content: url(#{$imgFolder}fileupload-downloadbox--hover.svg);
+	background-image: url(#{$imgFolder}fileupload-downloadbox--hover.svg);
+  background-repeat: no-repeat;
+  background-position: left;
 }
 
 .dx-button-normal.dx-state-hover .dx-button-content,
