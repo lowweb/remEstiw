@@ -73,10 +73,10 @@
 
 .dx-fileuploader-files-container .dx-fileuploader-button{
       
-      content: url(../img/fileuploader__btn-close.svg);
-  border-radius: 50%;
-    border: 2px solid $clr-red;
-
+    content: url(#{$imgFolder}fileuploader__btn-close.svg);
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;
     width: 16px;
     height: 16px;
 
@@ -89,12 +89,22 @@
     & .dx-icon-close{
       color: $clr-red;
     }
+
+    &.dx-state-focused {
+      background-color: transparent;
+    }
+}
+
+.dx-fileuploader-button-container{
+  width: inherit;
+  margin-left: 20px;
 }
 
 .dx-fileuploader-file-container {
     display: flex;    
     flex-direction: row-reverse;
     align-items: center;
+    justify-content: flex-end;
 }
 
 
@@ -204,6 +214,9 @@
          background-color: #02BE96;
   		 background-repeat: repeat;
 		}	
-
+  
+    & .dx-progressbar {
+      width: 180px;
+    }
 
 }

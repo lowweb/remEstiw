@@ -1,5 +1,5 @@
-function initButton (idElement) {
-    $('#' + idElement).dxButton({
+function initButton (Element) {
+    $('.' + Element).dxButton({
                 stylingMode: 'text',
                 text: '',
                 type: 'normal',
@@ -9,10 +9,11 @@ function initButton (idElement) {
             });
 };
 
-initButton("footer__button-next");
-initButton("footer__button-prev");
-initButton("modal-city__footer-ok-btn");
-initButton("modal-city__footer-close-btn");
+initButton("button");
+// initButton("footer__button-next");
+// initButton("footer__button-prev");
+// initButton("modal-city__footer-ok-btn");
+// initButton("modal-city__footer-close-btn");
 
 
 $('#footer__button-save').dxButton({

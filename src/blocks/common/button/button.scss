@@ -46,25 +46,14 @@
 .button {
 	display: flex;
 	align-items: center;
-	&-ok {
-		
+	padding-left: 24px; padding-right: 24px;
 
-	}
-	&-cancel{
-	
-
-	}
 	&-next {
 		padding-left: 24px; padding-right: 22px;
-		
 	}
-	&-save {
-	
-		padding-left: 24px; padding-right: 24px;
-	}
+
 	&-prev {
 		padding-left: 22px; padding-right: 24px;
-		margin-right: 24px;
 	}
 }
 //эффект поворота кнопок угольных

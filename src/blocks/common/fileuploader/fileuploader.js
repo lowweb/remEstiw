@@ -8,6 +8,7 @@
 	    selectButtonText: "выбрать",
 		showFileList: true,
 		labelText: "Перенесите сюда файл (xls, word, pdf) или нажмите",
+		uploadFailedMessage: "dsfs",
 		onUploadStarted: function () {
 			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
 		},
@@ -20,3 +21,4 @@
 		uploadedMessage: "",
 		uploadFailedMessage: "",
     });
+
