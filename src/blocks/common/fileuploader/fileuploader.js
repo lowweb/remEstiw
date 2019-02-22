@@ -5,9 +5,9 @@
 	    // height: auto,
 	    multiple: true,
 	    allowCanceling: true,
-	    selectButtonText: "выбрать",
+	    selectButtonText: "нажмите выбрать",
 		showFileList: true,
-		labelText: "Перенесите сюда файл (xls, word, pdf) или нажмите",
+		labelText: "Перенесите сюда файл (xls, word, pdf) или",
 		uploadFailedMessage: "dsfs",
 		onUploadStarted: function () {
 			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
