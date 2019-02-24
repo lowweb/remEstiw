@@ -771,8 +771,8 @@ $(function() {
     "ExcelRemote Bluetooth",
     "ExcelRemote IP"
 ];
-function tagBoxInit (idElement,idAttrName, itemsElement, widthElement) {
-     $("#"+idElement).dxTagBox({
+function tagBoxInit (idElement,idAttrName, itemsElement) {
+     $("."+idElement).dxTagBox({
         items: itemsElement,
         showSelectionControls: true,
         placeholder: "Выберите",
@@ -780,11 +780,11 @@ function tagBoxInit (idElement,idAttrName, itemsElement, widthElement) {
         inputAttr: {
          id: idAttrName
         },
-        width: widthElement
+        // width: widthElement
     });
 };
   
-tagBoxInit ("input-field__accompOnPlot","input-field__accompOnPlot-id",simpleProducts, 710);  
+tagBoxInit ("input-field__tagbox","input-field__tagbox-id",simpleProducts);  
 // $(".navbar").scroll (function () {
 
 //  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {

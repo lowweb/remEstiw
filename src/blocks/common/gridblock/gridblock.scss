@@ -99,6 +99,19 @@
 		   "a   b"
 		   "c   d";		
 		}
+
+	&__cargo-insurance {
+		 grid-gap: 20px;
+		 width: fit-content;
+		 // width: 100%;
+		 grid-template-columns: 2fr 4fr;
+		 grid-template-rows: auto auto auto auto;		
+		 grid-template-areas:
+		 "a   b"
+		 "c   d"
+		 "e   e"
+		 "f   f";				
+	}
 				
 
 }
