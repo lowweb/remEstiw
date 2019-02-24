@@ -110,11 +110,16 @@ function initButton (Element) {
 };
 
 initButton("button");
+
 // initButton("footer__button-next");
 // initButton("footer__button-prev");
 // initButton("modal-city__footer-ok-btn");
 // initButton("modal-city__footer-close-btn");
 
+$(".input-field__btn").dxButton({
+    text: "",
+    onClick: function() {}
+});
 
 $('#footer__button-save').dxButton({
                 stylingMode: 'text',
@@ -124,7 +129,7 @@ $('#footer__button-save').dxButton({
                     $('.footer__saved-msg').show();                
                 }
             });
-          
+     
 function checkboxInit (element, text) {
     $("#" + element).dxCheckBox({
         text: text,
@@ -143,7 +148,14 @@ checkboxInit ("deliver-cargo__checkbox", "Доставить груз");
 checkboxInit ("safer__checkbox", "Надежнёе");
 checkboxInit ("faster__checkbox", "Быстрее");
 checkboxInit ("cheaper__checkbox", "Дешевле");
-        
+
+checkboxInit ("custom-clearence__import-checkbox", "При импорте");
+checkboxInit ("custom-clearence__export-checkbox", "При экспорте");
+
+checkboxInit ("cargo-escort__gun-checkbox", "С огнестрельным оружием");
+
+checkboxInit ("cargo-expertise__accept-checkbox ", "При приёмке");
+checkboxInit ("cargo-expertise__delivery-checkbox ", "При сдаче");       
 var employees = [{
     "ID": 1,
     "Forma": "ООО",
@@ -592,6 +604,20 @@ radiogroupInit ("custom-clear__radioGroup", ["Самостоятельно", "Н
 radiogroupInit ("product-exam__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
 radiogroupInit ("сargo-payment__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
 radiogroupInit ("product-payment__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+
+radiogroupInit ("custom-clearence__export-radio",["Самостоятельно", "Оформить"],"horizontal");
+radiogroupInit ("custom-clearence__import-radio",["Самостоятельно", "Оформить"],"horizontal");
+
+radiogroupInit ("delivery-invoice-form__radioGroup",["Полная предоплата", "Частичная оплата ", "Ценные бумаги", "Уставной капитал", "Бартер", "Фьючерс (будущие расчёты)"],"horizontal");
+
+radiogroupInit ("cargo-expertise__point-radio",["В пункте отправления", "В другом месте"],"horizontal");
+radiogroupInit ("cargo-expertise__point2-radio",["В пункте отправления", "В другом месте"],"horizontal");
+
+
+
+
+
+
 $(function() {
     $("#rangeSelector").dxRangeSelector({
         size: {
@@ -891,6 +917,35 @@ autocompleteInit ("departName","departName__id","input-field__value");
 autocompleteInit ("destName","destName__id","input-field__value");
 autocompleteInit ("citySearch","citySearch__id","input-field__value");
 autocompleteInit ("modalCity","modalCity__id","input-field__value");
+
+
+
+function autocompleteInitClass (idElement,attrId, attrVal) {
+
+$("."+idElement).dxAutocomplete({
+  inputAttr: {
+       id: attrId,
+       class: attrVal
+   },
+   dataSource: cityData,
+   valueExpr: 'name',
+   itemTemplate: function(data) {
+            //обязательный шаблон
+            return $("<div class='input-field__autocomplete-item'><img class='input-field__autocomplete-item--flag' src='" + data.imgSrc +
+                "'>" + data.name + "</div>");
+         }
+    
+}).dxValidator({                         //необходим если есть валидация
+        validationRules: [{
+            type: "required",
+            message: "Обязательно к заполнению"
+        }],
+        validationGroup: "validateItems" //обязательный параметр для валидации
+    });
+};
+autocompleteInitClass ("input-field__city-select-and-btn","city-select-and-btn__id","input-field__value");
+
+
 
 
 

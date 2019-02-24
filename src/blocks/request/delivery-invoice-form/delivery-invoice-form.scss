@@ -1,0 +1,7 @@
+.delivery-invoice-form{
+	&__radioGroup {
+		& .dx-radiobutton:last-child {
+			padding-top: 10px;
+		}
+	}
+}

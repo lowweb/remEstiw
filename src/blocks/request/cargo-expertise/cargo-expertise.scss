@@ -1,0 +1,20 @@
+.cargo-expertise {
+	&__cont {
+		display: flex;
+		flex-direction: column;
+	}
+	&__row {
+
+		display: flex;
+		align-items: center;
+		margin-bottom: 20px;
+		& .checkbox{
+			padding: 0;
+			margin-right: 20px
+		}
+
+		&:last-child{
+			margin-bottom: 0px;
+		}
+	}
+}

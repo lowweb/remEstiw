@@ -16,4 +16,11 @@ checkboxInit ("deliver-cargo__checkbox", "Доставить груз");
 checkboxInit ("safer__checkbox", "Надежнёе");
 checkboxInit ("faster__checkbox", "Быстрее");
 checkboxInit ("cheaper__checkbox", "Дешевле");
-        
+
+checkboxInit ("custom-clearence__import-checkbox", "При импорте");
+checkboxInit ("custom-clearence__export-checkbox", "При экспорте");
+
+checkboxInit ("cargo-escort__gun-checkbox", "С огнестрельным оружием");
+
+checkboxInit ("cargo-expertise__accept-checkbox ", "При приёмке");
+checkboxInit ("cargo-expertise__delivery-checkbox ", "При сдаче");       

@@ -277,7 +277,7 @@
 
 //progress bar 
 .dx-fileuploader-file {
-  width: fit-content;
+  width: min-content;
 	& .dx-progressbar-container {
 		  height: 2px;
 		  border: 1px solid #ddd;

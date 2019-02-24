@@ -10,11 +10,16 @@ function initButton (Element) {
 };
 
 initButton("button");
+
 // initButton("footer__button-next");
 // initButton("footer__button-prev");
 // initButton("modal-city__footer-ok-btn");
 // initButton("modal-city__footer-close-btn");
 
+$(".input-field__btn").dxButton({
+    text: "",
+    onClick: function() {}
+});
 
 $('#footer__button-save').dxButton({
                 stylingMode: 'text',
@@ -24,4 +29,4 @@ $('#footer__button-save').dxButton({
                     $('.footer__saved-msg').show();                
                 }
             });
-          
+     
