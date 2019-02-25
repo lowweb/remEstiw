@@ -155,7 +155,10 @@ checkboxInit ("custom-clearence__export-checkbox", "При экспорте");
 checkboxInit ("cargo-escort__gun-checkbox", "С огнестрельным оружием");
 
 checkboxInit ("cargo-expertise__accept-checkbox ", "При приёмке");
-checkboxInit ("cargo-expertise__delivery-checkbox ", "При сдаче");       
+checkboxInit ("cargo-expertise__delivery-checkbox ", "При сдаче");  
+
+checkboxInit ("documentary-credit__add-checkbox", "Данные аккредитива сообщу дополнительно");  
+
 var employees = [{
     "ID": 1,
     "Forma": "ООО",
@@ -609,9 +612,17 @@ radiogroupInit ("custom-clearence__export-radio",["Самостоятельно"
 radiogroupInit ("custom-clearence__import-radio",["Самостоятельно", "Оформить"],"horizontal");
 
 radiogroupInit ("delivery-invoice-form__radioGroup",["Полная предоплата", "Частичная оплата ", "Ценные бумаги", "Уставной капитал", "Бартер", "Фьючерс (будущие расчёты)"],"horizontal");
+radiogroupInit ("delivery-invoice-form__radioGroup2",["Полная предоплата", "Частичная оплата ", "Ценные бумаги", "Уставной капитал", "Бартер", "Фьючерс (будущие расчёты)"],"horizontal");
+radiogroupInit ("delivery-invoice-form__radioGroup3",["Полная предоплата", "Частичная оплата ", "Ценные бумаги", "Уставной капитал", "Бартер", "Фьючерс (будущие расчёты)"],"horizontal");
+
+
 
 radiogroupInit ("cargo-expertise__point-radio",["В пункте отправления", "В другом месте"],"horizontal");
 radiogroupInit ("cargo-expertise__point2-radio",["В пункте отправления", "В другом месте"],"horizontal");
+
+radiogroupInit ("payment-delivery__radioGroup",["Согласно подписанному ДС №3 c Исполнителем", "Подписать ДС №3 c Исполнителем", "Будет подписано ДС №3 c Исполнителем позже"],"");
+
+
 
 
 
@@ -948,6 +959,26 @@ autocompleteInitClass ("input-field__city-select-and-btn","city-select-and-btn__
 
 
 
+
+//Выберите дату
+var now = new Date();   
+    $("#cargoBeginDate").dxDateBox({
+        type: "date",
+        placeholder: "Введите дату",
+        inputAttr: {
+           id: "cargoBeginDate__id",
+           class:"input-field__value"
+         }
+    });
+    $("#cargoExpDate").dxDateBox({
+        type: "date",
+        placeholder: "Введите дату",
+        disabled: true,
+        inputAttr: {
+           id: "cargoExpDate__id",
+           class:"input-field__value"
+         }
+    });
 function selectBoxInitForId (idElement, dataS, inputAttrId, inputAttrVal ) {
 $("#" + idElement).dxSelectBox({
         dataSource: dataS,
@@ -981,26 +1012,6 @@ $("." + classElement).dxSelectBox({
 
 selectBoxInitForClass("pseudoClassSelectBox",[ "значение", "значение", "значенадывжлавдылажвылаие123456789" ],"pseudoNameElementSelectBox__id","input-field__value");
 
-
-//Выберите дату
-var now = new Date();   
-    $("#cargoBeginDate").dxDateBox({
-        type: "date",
-        placeholder: "Введите дату",
-        inputAttr: {
-           id: "cargoBeginDate__id",
-           class:"input-field__value"
-         }
-    });
-    $("#cargoExpDate").dxDateBox({
-        type: "date",
-        placeholder: "Введите дату",
-        disabled: true,
-        inputAttr: {
-           id: "cargoExpDate__id",
-           class:"input-field__value"
-         }
-    });
  $(".popup__info-newmsg").dxToast({
         message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
         displayTime: 300000,

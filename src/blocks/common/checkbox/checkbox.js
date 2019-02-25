@@ -23,4 +23,6 @@ checkboxInit ("custom-clearence__export-checkbox", "При экспорте");
 checkboxInit ("cargo-escort__gun-checkbox", "С огнестрельным оружием");
 
 checkboxInit ("cargo-expertise__accept-checkbox ", "При приёмке");
-checkboxInit ("cargo-expertise__delivery-checkbox ", "При сдаче");       
+checkboxInit ("cargo-expertise__delivery-checkbox ", "При сдаче");  
+
+checkboxInit ("documentary-credit__add-checkbox", "Данные аккредитива сообщу дополнительно");  

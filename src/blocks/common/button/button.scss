@@ -66,3 +66,17 @@
 	transition: transform .3s;
 
 }
+
+.button__round {
+	border: none;
+	margin-top:29px;
+	cursor: pointer;
+}
+.button__del-ovl {
+
+	background-image: url(#{$imgFolder}del-btn-ovl.svg);
+    width: 22px;
+    height: 22px;
+    background-repeat: no-repeat;
+
+}
