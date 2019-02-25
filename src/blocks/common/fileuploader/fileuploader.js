@@ -24,7 +24,7 @@
 
     $(".fileUploader--fullWidth").dxFileUploader({
         accept:"image/*,*.zip,*.pdf,*.mp4",
-        // width: 918,
+        width: 700,
 	    // height: auto,
 	    multiple: true,
 	    allowCanceling: true,

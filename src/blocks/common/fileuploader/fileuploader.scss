@@ -107,6 +107,8 @@
    }
 
 .dx-fileuploader-input-container {
+   display: block;
+    border: none;
     height: 100%;
     width: fit-content;
     position: relative;
@@ -151,7 +153,7 @@
 
 .dx-fileuploader-files-container .dx-fileuploader-button{
       
-    content: url(#{$imgFolder}fileuploader__btn-close.svg);
+    background-image: url(#{$imgFolder}fileuploader__btn-close.svg);
     border-radius: 50%;
     border: none;
     background-color: transparent;
@@ -164,9 +166,10 @@
       justify-content: center;
     }
 
-    & .dx-icon-close{
-      color: $clr-red;
+    & .dx-icon-close:before{
+      content: "";
     }
+
 
     &.dx-state-focused {
       background-color: transparent;
@@ -174,7 +177,7 @@
 }
 
 .dx-fileuploader-button-container{
-  width: inherit;
+  width: auto;
   margin-left: 20px;
 }
 

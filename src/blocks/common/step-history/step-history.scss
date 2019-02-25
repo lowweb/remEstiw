@@ -4,6 +4,12 @@
 	flex-direction: column;
 	top: 40px;
 	right: 27px;
+	opacity: 0.5;
+
+	&:hover {
+		opacity: 1;
+		transition: opacity 0.5s
+	}
 
 	&__cap{
 		@include font-fira ($clr-dark-light, 17px, normal);
