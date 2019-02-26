@@ -78,6 +78,10 @@ color: $clr-dark;
 
 }
 
+.lu-fnt {
+	@include font-lucida ($clr-dark, 12px, normal);
+}
+
 .app-lnk {
 	color: $clr-blue;
 	text-decoration: none;

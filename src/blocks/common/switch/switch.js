@@ -1,3 +1,3 @@
-    $("#period__switch").dxSwitch({
+    $(".init-switch").dxSwitch({
         value: false
     });

@@ -21,6 +21,11 @@ checkboxInit ("custom-clearence__import-checkbox", "При импорте");
 checkboxInit ("custom-clearence__export-checkbox", "При экспорте");
 
 checkboxInit ("cargo-escort__gun-checkbox", "С огнестрельным оружием");
+checkboxInit ("cargo-escort__gun-checkbox2", "С огнестрельным оружием");
+checkboxInit ("cargo-escort__gun-checkbox3", "С огнестрельным оружием");
+checkboxInit ("cargo-escort__gun-checkbox4", "С огнестрельным оружием");
+checkboxInit ("cargo-escort__gun-checkbox5", "С огнестрельным оружием");
+
 
 checkboxInit ("cargo-expertise__accept-checkbox ", "При приёмке");
 checkboxInit ("cargo-expertise__delivery-checkbox ", "При сдаче");  

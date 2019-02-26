@@ -1,18 +1,10 @@
     var simpleProducts = [
-    "HD Video Player",
-    "SuperHD Video Player",
-    "SuperPlasma 50",
-    "SuperLED 50",
-    "SuperLED 42",
-    "SuperLCD 55",
-    "SuperLCD 42",
-    "SuperPlasma 65",
-    "SuperLCD 70",
-    "Projector Plus",
-    "Projector PlusHT",
-    "ExcelRemote IR",
-    "ExcelRemote Bluetooth",
-    "ExcelRemote IP"
+    "Выбор 1",
+    "Выбор 12",
+    "Выбор 15",
+    "Выбор 111",
+    "Выбор Выбор 1",
+    "Выбор Выбор 2"
 ];
 function tagBoxInit (idElement,idAttrName, itemsElement) {
      $("."+idElement).dxTagBox({

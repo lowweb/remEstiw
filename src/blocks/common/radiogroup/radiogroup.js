@@ -31,17 +31,18 @@ radiogroupInit ("product-payment__radioGroup", [ "Самостоятельно",
 radiogroupInit ("custom-clearence__export-radio",["Самостоятельно", "Оформить"],"horizontal");
 radiogroupInit ("custom-clearence__import-radio",["Самостоятельно", "Оформить"],"horizontal");
 
-radiogroupInit ("delivery-invoice-form__radioGroup",["Полная предоплата", "Частичная оплата ", "Ценные бумаги", "Уставной капитал", "Бартер", "Фьючерс (будущие расчёты)"],"horizontal");
-radiogroupInit ("delivery-invoice-form__radioGroup2",["Полная предоплата", "Частичная оплата ", "Ценные бумаги", "Уставной капитал", "Бартер", "Фьючерс (будущие расчёты)"],"horizontal");
-radiogroupInit ("delivery-invoice-form__radioGroup3",["Полная предоплата", "Частичная оплата ", "Ценные бумаги", "Уставной капитал", "Бартер", "Фьючерс (будущие расчёты)"],"horizontal");
+radiogroupInit ("deliver-byself__radioGroup",["Полная предоплата", "Частичная оплата ", "Ценные бумаги", "Уставной капитал", "Бартер", "Фьючерс (будущие расчёты)"],"horizontal");
+radiogroupInit ("deliver-byself__radioGroup2",["Полная предоплата", "Частичная оплата ", "Ценные бумаги", "Уставной капитал", "Бартер", "Фьючерс (будущие расчёты)"],"horizontal");
+radiogroupInit ("deliver-byself__radioGroup3",["Полная предоплата", "Частичная оплата ", "Ценные бумаги", "Уставной капитал", "Бартер", "Фьючерс (будущие расчёты)"],"horizontal");
 
 
 
 radiogroupInit ("cargo-expertise__point-radio",["В пункте отправления", "В другом месте"],"horizontal");
 radiogroupInit ("cargo-expertise__point2-radio",["В пункте отправления", "В другом месте"],"horizontal");
 
-radiogroupInit ("payment-delivery__radioGroup",["Согласно подписанному ДС №3 c Исполнителем", "Подписать ДС №3 c Исполнителем", "Будет подписано ДС №3 c Исполнителем позже"],"");
+radiogroupInit ("deliver-executor__radioGroup",["Согласно подписанному ДС №3 c Исполнителем", "Подписать ДС №3 c Исполнителем", "Будет подписано ДС №3 c Исполнителем позже"],"");
 
+radiogroupInit ("cargo-escort-byself__doc-radio",["Да, нужно на всём маршруте", "Да, нужно на выбранных пунктах", "Нет, организую самостоятельно"],"horizontal");
 
 
 
