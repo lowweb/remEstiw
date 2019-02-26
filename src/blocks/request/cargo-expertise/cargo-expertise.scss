@@ -1,7 +1,11 @@
 .cargo-expertise {
+	&-fldst {
+		width: 677px;
+	}
 	&__cont {
 		display: flex;
 		flex-direction: column;
+		width: 100%;
 	}
 	&__row {
 

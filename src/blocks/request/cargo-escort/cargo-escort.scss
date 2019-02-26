@@ -1,4 +1,8 @@
 .cargo-escort {
+	&-fldst {
+		width: 587px;
+	}
+
 	&__cont {
 		display: flex;
 		align-items: center;
@@ -17,6 +21,6 @@
 
 	&__gun{
 		margin-left: 43px;
-		margin-top: 23px;
+		margin-top: 25px;
 	}
 }

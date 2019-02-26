@@ -84,7 +84,7 @@ $("."+idElement).dxAutocomplete({
         validationGroup: "validateItems" //обязательный параметр для валидации
     });
 };
-autocompleteInitClass ("input-field__city-select-and-btn","city-select-and-btn__id","input-field__value");
+autocompleteInitClass ("input-field__city-btn","city-btn__id","input-field__value");
 
 
 
