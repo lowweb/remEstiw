@@ -69,14 +69,28 @@
 
 .button__round {
 	border: none;
-	margin-top:29px;
-	cursor: pointer;
-}
-.button__del-ovl {
-
-	background-image: url(#{$imgFolder}del-btn-ovl.svg);
-    width: 22px;
+    cursor: pointer;
     height: 22px;
-    background-repeat: no-repeat;
+    flex: 1 0 22px;
+    align-self: flex-end;
+    background-color: transparent;
+    margin-bottom: 7px;
 
+	&--add {
+	    background-image: url(#{$imgFolder}btn__rnd--add.svg);
+	    background-repeat: no-repeat;
+	}
+
+	&--del {
+	    background-image: url(#{$imgFolder}btn__rnd--del.svg);
+	    background-repeat: no-repeat;
+	}
 }
+// .button__del-ovl {
+
+// 	background-image: url(#{$imgFolder}del-btn-ovl.svg);
+//     width: 22px;
+//     height: 22px;
+//     background-repeat: no-repeat;
+
+// }
