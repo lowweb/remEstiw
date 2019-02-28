@@ -2,12 +2,40 @@
 	display: flex;
 	align-items: center;
 
+	&__double {
+
+		&.dx-switch-on-value ~ .switch__title {
+			color: $clr-dark;
+		}
+		&.dx-switch-on-value ~ .switch__pre-title {
+			color: #999999;
+		}
+
+		& + .switch__pre-title {
+			color: $clr-dark;
+		}
+	}
+
+	
+
 	&__title {
 		@include font-lucida (#999999, 12px, normal);
 		margin-left: 10px;
+		order: 3;
 	}
+
 
 	&__pre-title{
 		margin-right: 12px;
+		color: #999999;
+		order: 1;
 	}
+}
+
+.init-switch {
+	order: 2;
+
+	&:not(.switch__double).dx-switch-on-value ~ .switch__pre-title {
+			color: $clr-dark;
+		}
 }
