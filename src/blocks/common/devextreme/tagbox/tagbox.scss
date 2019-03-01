@@ -1,5 +1,6 @@
 .tagbox 
-{	width: 710px;
+{	
+    // width: 710px;
 	 @include font-lucida ($clr-white, 13px, normal);
 	& .dx-tag-content {
     margin: 4px 0 0px 4px;

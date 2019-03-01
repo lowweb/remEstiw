@@ -52,7 +52,11 @@
  }
 
 .dx-radiogroup-horizontal .dx-radiobutton {
-    margin-right: 17px !important;
+    margin-right: 30px !important;
+
+    &:last-child{
+       margin-right: 0 !important;  
+    }
 }
 .dx-radiogroup .dx-radiobutton,.dx-radiogroup .dx-radiobutton-icon {
     margin: 0px 0; 

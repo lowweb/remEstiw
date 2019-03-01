@@ -14,9 +14,22 @@
 		display: flex;
 		align-items: center;
 		margin-bottom: 20px;
+
 		& .checkbox{
 			padding: 0;
-			margin-right: 20px
+			margin-right: 30px;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+		& .radiogroup {
+			padding: 0;
+			margin-right: 30px;
+
+			&:last-child {
+				margin-right: 0;
+			}
 		}
 
 		&:last-child{
@@ -24,7 +37,7 @@
 		}
 
 		& .radiogroup {
-			margin-top: 10px;
+			// margin-top: 10px;
 		}
 		& .checkbox {
 			margin-top: 10px;
@@ -45,6 +58,7 @@
 			@include font-lucida ($clr-dark, 14px, normal);
 			width: 100%;
 		}
+
 	}
 
 	&__row--wrap {
