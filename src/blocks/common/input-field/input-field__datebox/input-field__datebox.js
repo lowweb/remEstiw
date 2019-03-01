@@ -1,5 +1,18 @@
 
 //Выберите дату
+function dateInit (element,attrId, attrVal) {
+$("[id="+element+"]").dxDateBox({
+      type: "date",
+      placeholder: "Введите дату",
+      inputAttr: {
+         id: attrId,
+         class: attrVal
+       }   
+});
+};
+
+dateInit("date-field","date-field__id","input-field__value");
+
 var now = new Date();   
     $("#cargoBeginDate").dxDateBox({
         type: "date",
@@ -18,3 +31,5 @@ var now = new Date();
            class:"input-field__value"
          }
     });
+
+

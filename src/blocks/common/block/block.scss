@@ -2,6 +2,12 @@
 	&__cont {
 		display: flex;
 		flex-direction: column;
+		width: 100%;
+
+		& p {
+			@include font-lucida ($clr-dark, 14px, normal);
+			width: 100%;
+		}
 	}
 	&__row {
 
@@ -16,10 +22,49 @@
 		&:last-child{
 			margin-bottom: 0px;
 		}
+
+		& .radiogroup {
+			margin-top: 10px;
+		}
+		& .checkbox {
+			margin-top: 10px;
+		}
+
+		& .button__round {
+			margin-left: 20px;
+		}
+
+		&--w670{
+			width: 670px;
+		}
+		&--w627{
+			width: 627px;
+		}
+
+		& p {
+			@include font-lucida ($clr-dark, 14px, normal);
+			width: 100%;
+		}
+	}
+
+	&__row--wrap {
+		flex-wrap: wrap;
+	}
+
+	&__row--gap30 {
+		& .input-field {
+			margin-right: 30px;
+
+		&:last-child {
+				margin-right: 0;
+			}
+		}
 	}
 
 	&__city:first-child {
 		margin-right: 20px;
 	}	
+
+
 
 }

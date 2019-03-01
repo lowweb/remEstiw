@@ -1,5 +1,5 @@
 function checkboxInit (element, text) {
-    $("#" + element).dxCheckBox({
+    $("[id="+element+"]").dxCheckBox({
         text: text,
         value: false,
     });
@@ -21,13 +21,13 @@ checkboxInit ("custom-clearence__import-checkbox", "При импорте");
 checkboxInit ("custom-clearence__export-checkbox", "При экспорте");
 
 checkboxInit ("cargo-escort__gun-checkbox", "С огнестрельным оружием");
-checkboxInit ("cargo-escort__gun-checkbox2", "С огнестрельным оружием");
-checkboxInit ("cargo-escort__gun-checkbox3", "С огнестрельным оружием");
-checkboxInit ("cargo-escort__gun-checkbox4", "С огнестрельным оружием");
-checkboxInit ("cargo-escort__gun-checkbox5", "С огнестрельным оружием");
 
 
-checkboxInit ("cargo-expertise__accept-checkbox ", "При приёмке");
-checkboxInit ("cargo-expertise__delivery-checkbox ", "При сдаче");  
+checkboxInit ("expertise__accept-checkbox ", "При приёмке");
+checkboxInit ("expertise__delivery-checkbox ", "При сдаче");  
 
-checkboxInit ("documentary-credit__add-checkbox", "Данные аккредитива сообщу дополнительно");  
+checkboxInit ("documentary-credit__add-checkbox", "Данные аккредитива сообщу дополнительно"); 
+
+checkboxInit ("expertise-optionally__depart-checkbox", "В пункте отправления");
+checkboxInit ("expertise-optionally__dest-checkbox", " В пункте назначения");
+checkboxInit ("expertise-optionally__anotherplace-checkbox", "Дополнительно в другом месте");
