@@ -67,24 +67,52 @@
 
 }
 
-.button__round {
+.btn__rnd {
 	border: none;
     cursor: pointer;
     height: 22px;
-    flex: 1 0 22px;
+    flex:0 0 22px;
     align-self: flex-end;
-    background-color: transparent;
-    margin-bottom: 7px;
+    background-color: $clr-white;
+    display: flex;
+    align-items: center;
 
-	&--add {
-	    background-image: url(#{$imgFolder}btn__rnd--add.svg);
-	    background-repeat: no-repeat;
+    &--crn {
+    	position: absolute;
+    	top: 0;
+    	right: 0;
+    	width: 42px;
+    	height: 42px;
+    	display: flex;
+    	align-items: center;
+    	justify-content: center;
+    	transform: translate(50%,-50%);;
+    }
+
+    &--mrg-b7 {
+    	margin-bottom: 7px;
+    }
+
+	&--add:hover {
+	    & path {
+	    	fill: $clr-purple;
+	    }
 	}
 
-	&--del {
-	    background-image: url(#{$imgFolder}btn__rnd--del.svg);
-	    background-repeat: no-repeat;
+	&--del:hover {
+	    & path {
+	    	fill: $clr-red;
+	    }
 	}
+
+	&-cap {
+		// @include font-lucida ($clr-blue, 12px, normal);
+		font-size: 14px;
+		border-bottom: 1px dashed $clr-blue;
+		margin-right: 8px;
+	}
+
+
 }
 // .button__del-ovl {
 

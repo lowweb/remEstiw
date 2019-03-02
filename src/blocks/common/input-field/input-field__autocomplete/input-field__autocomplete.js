@@ -84,7 +84,11 @@ $("."+idElement).dxAutocomplete({
         validationGroup: "validateItems" //обязательный параметр для валидации
     });
 };
-autocompleteInitClass ("input-field__city-btn","city-btn__id","input-field__value");
+autocompleteInitClass ("input-field__city","input-field__city-id","input-field__value");
+autocompleteInitClass ("input-field__search","input-field__search-id","input-field__value"); //инициализировали как город только для примера
+
+
+
 
 
 

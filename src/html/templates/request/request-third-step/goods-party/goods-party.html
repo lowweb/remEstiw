@@ -1,14 +1,59 @@
-	<field-set class="field-set field-set--tween-bottom field-set__common-cargo-params">
-		<legend class="field-set__cap">
-			Общие параметры груза и размеры грузовых мест в упаковке
-		</legend>
-		<div class="field-set__items">
-			<div class="gridblock gridblock__common-cargo-params"> 
+<field-set class="field-set field-set--tween-top">
+<legend class="field-set__cap">
+	№ п/п. Код и наименование товара
+</legend>
+<button class="btn__rnd--del btn__rnd btn__rnd--crn"><img src="img/btn__rnd--del.svg" class="svg"></button>
+<div class="field-set__items">
+	<div class="input-field">
+		<div class="block__cont">
+        <div class="block__row block__row--gap30">
+        	<div class="input-field">
+			    <div class="input-field__cont input-field__search"></div>
+			    <div class="input-field__btn">
+			    	<img src="img/btn__search.svg" class="svg">
+			    </div>
+			    <div class="input-field__label">
+			    	<label for="input-field__search-id">Код товара согласно ТН ВЭД:</label> 
+			    </div>
+			</div>
+			<div class="input-field" style='min-width:562px;'>
+			    <div id="pseudoElementTextEditor" class="input-field__cont pseudoClassTextEditor" tooltip="Наименование груза в свободной форме" flow="right"></div>
+			    <div class="input-field__label">
+			    	<label for="pseudoElementTextEditor__id">Наименование товара согласно справочнику ТН ВЭД:</label> 
+			    </div>
+			</div>
+		</div>
+		<div class="block__row block__row--gap30">
+			<div class="input-field">
+			    <div id="pseudoElementTextEditor" class="input-field__cont pseudoClassTextEditor" style='min-height: 72px;'></div>
+			    <div class="input-field__label">
+			    	<label for="pseudoElementTextEditor__id">Описание товара в свободной форме:</label> 
+			    </div>
+			</div>
+			<div class="input-field">
+			    <div class="fileUploader"></div>
+			    <div class="input-field__label">
+			    	<label>Вложить спецификацию на товар:</label> 
+			    </div>
+			</div>
+		</div>
+			
+		</div>
+    </div>
+	</div>
+</field-set>
+
+<field-set class="field-set field-set--tween-bottom">
+	<legend class="field-set__cap">
+		Общие параметры товара и размеры грузовых мест в упаковке
+	</legend>
+	<div class="field-set__items">
+			<div class="gridblock gridblock__common-goods-params"> 
 				<div class="gridblock__cell--1">
 					<div class="input-field">
 					    <div id="" class="numberbox input-field__cont pseudoClassNumberBox" tooltip="Кол-во грузовых мест" flow="right"></div>
 					    <div class="input-field__label">
-					    	<label for="pseudoNameElementNumberBox__id">Кол-во груз. мест:</label> 
+					    	<label for="pseudoNameElementNumberBox__id">Кол-во штук::</label> 
 					    </div>
 					</div>
 				</div>
@@ -92,22 +137,8 @@
 					    </div>
 					</div>
 				</div>
-				<div class="gridblock__cell--12">
-					<div class="input-field">
-			   		 <div class="fileUploader"></div>
-			    		<div class="input-field__label">
-			    			<label>Вложить спецификацию на груз:</label> 
-			    		</div>
-					</div>
-				</div>
-				<div class="gridblock__cell--13">
-					<div class="input-field">
-			   		 <div class="fileUploader"></div>
-			    		<div class="input-field__label">
-			    			<label>Вложить инструкции по обработке груза:</label> 
-			    		</div>
-					</div>
-				</div>
 			</div>
-		</div>
-	</field-set>
+	</div>
+</field-set>	
+
+	

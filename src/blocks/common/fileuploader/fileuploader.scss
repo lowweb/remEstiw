@@ -30,9 +30,11 @@
 }
 
 .dx-fileuploader-container {
-    display: block;
+
+    display: flex;
     height: 100%;
     width: 100%;
+    align-items: center;
 
 }
 
@@ -83,8 +85,8 @@
     background-position: left;
    }
 
-.fileUploader--fullWidth {
-
+.fileUploader--full {
+    width: 100%;
   & .dx-fileuploader-input-wrapper {
     padding: 0;
     border: 3px dashed transparent;
@@ -137,11 +139,12 @@
     }
 
     & .dx-button-text{
-    	border-bottom: 1px dashed $clr-blue;
+      text-decoration: underline dashed;
+    	// border-bottom: 1px dashed $clr-blue;
     	background-color: $clr-grey-v4;
     	&:hover {
     		color: $clr-purple;
-    		border-bottom: 1px dashed $clr-purple;
+    		// border-bottom: 1px dashed $clr-purple;
     	}	
     }
 

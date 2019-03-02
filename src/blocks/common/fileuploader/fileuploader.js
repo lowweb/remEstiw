@@ -22,9 +22,9 @@
 		uploadFailedMessage: "",
     });
 
-    $(".fileUploader--fullWidth").dxFileUploader({
+    $(".fileUploader--full").dxFileUploader({
         accept:"image/*,*.zip,*.pdf,*.mp4",
-        width: 700,
+        // width: 700,
 	    // height: auto,
 	    multiple: true,
 	    allowCanceling: true,

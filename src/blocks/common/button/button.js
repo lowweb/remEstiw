@@ -10,6 +10,7 @@ function initButton (Element) {
 };
 
 initButton("button");
+initButton ('destButton');
 
 // initButton("footer__button-next");
 // initButton("footer__button-prev");

@@ -1,3 +1,4 @@
+
 .input-field {
 	position: relative;
 	display: flex;
@@ -34,9 +35,10 @@
 			border: 1px solid #E63946 !important;
 		}
 
-		&.input-field__city-btn{
+		&.input-field__city, &.input-field__search{
 			width: auto;
 		}
+
 
 	}
 
@@ -96,15 +98,27 @@
 		justify-content: center;
 		margin-left: 10px;
 
-		&-img{
-			background: url(#{$imgFolder}input-field__btn-world.svg);;
-    		width: 22px;
-			height: 22px;
-   			&:hover {
-   				background: url(#{$imgFolder}input-field__btn-world--hover.svg);
-   			}
+		&:hover path {
+			fill: $clr-purple;
+			// transition: fill .3s;
 		}
-	}
+
+		&.dx-button .dx-button-content {
+			padding: 0;
+    		display: flex;
+	     	align-items: center;
+    		justify-content: center;
+		}
+
+		&.dx-button-mode-contained.dx-state-hover {
+  			background-color: $clr-white;
+		}		
+
+		&.dx-button-normal.dx-state-hover .dx-button-content,
+		&.dx-button-back.dx-state-hover .dx-button-content {
+			border-radius: 0px;
+			}
+		}
 
 	&__currency-calc {
 		width: 480px;

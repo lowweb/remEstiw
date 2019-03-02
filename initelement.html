@@ -4,7 +4,7 @@
 
 // простой input
 <div class="input-field">
-    <div id="pseudoElementTextEditor" class="input-field__cont pseudoClassTextEditor" tooltip="Наименование груза в свободной форме" flow="right"></div>
+    <div id="pseudoElementTextEditor" class="input-field__cont pseudoClassTextEditor"></div>
     <div class="input-field__label">
     	<label for="pseudoElementTextEditor__id">Наименование груза в свободной форме:</label> 
     </div>
@@ -19,21 +19,33 @@
 </div>
 
 //City btn
-<div class="input-field">
-    <div id="" class="input-field__cont input-field__city-btn"></div>
-    <div id="" class="input-field__btn dex-button__earth"></div>
-    <div class="input-field__label">
-    	<label for="city-btn__id">Укажите адрес:</label> 
-    </div>
-</div>	
+            <div class="input-field">
+                <div id="" class="input-field__cont input-field__city"></div>
+                <div class="input-field__btn">
+                    <img src="/img/btn__earth.svg" class="svg">
+                </div>
+                <div class="input-field__label">
+                    <label for="city-btn__id">Укажите адрес:</label> 
+                </div>
+            </div>
 
-//drop down input
+//btn search
 <div class="input-field">
-    <div id="" class="input-field__cont input-field__city-btn"></div>
-    <div id="" class="input-field__btn dex-button__earth"></div>
-    <div class="input-field__label">
-    	<label for="city-btn__id">Укажите адрес:</label> 
+    <div class="input-field__cont input-field__search"></div>
+    <div class="input-field__btn">
+        <img src="/img/btn__search.svg" class="svg">
     </div>
+    <div class="input-field__label">
+        <label for="input-field__search-id">Код груза согласно ТН ВЭД:</label> 
+    </div>
+</div>
+
+//selectbox
+<div class="input-field">
+    <div id="" class="input-field__cont input-field__icn-dropdown pseudoClassSelectBox"></div>          
+    <div class="input-field__label">
+        <label for="pseudoClassSelectBox__id">Тип упаковки:</label> 
+    </div>        
 </div>
 
 //readonly input

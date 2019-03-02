@@ -19,6 +19,8 @@ checkboxInit ("cheaper__checkbox", "Дешевле");
 
 checkboxInit ("custom-clearence__import-checkbox", "При импорте");
 checkboxInit ("custom-clearence__export-checkbox", "При экспорте");
+checkboxInit ("custom-clearence-gd__import-checkbox", "Для экспорта из России");
+checkboxInit ("custom-clearence-gd__export-checkbox", "Для импорта в России");
 
 checkboxInit ("cargo-escort__gun-checkbox", "С огнестрельным оружием");
 
@@ -31,3 +33,8 @@ checkboxInit ("documentary-credit__add-checkbox", "Данные аккредит
 checkboxInit ("expertise-optionally__depart-checkbox", "В пункте отправления");
 checkboxInit ("expertise-optionally__dest-checkbox", " В пункте назначения");
 checkboxInit ("expertise-optionally__anotherplace-checkbox", "Дополнительно в другом месте");
+
+checkboxInit ("coast-incoterms__1checkbox", "Есть готовые");
+checkboxInit ("coast-incoterms__2checkbox", "Будут выпущены");
+checkboxInit ("coast-incoterms__3checkbox", "Выпустить");
+checkboxInit ("coast-incoterms__4checkbox", "По решению исполнителя");

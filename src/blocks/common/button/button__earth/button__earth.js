@@ -1,1 +1,0 @@
-initButton ('destButton');

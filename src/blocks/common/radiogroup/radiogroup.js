@@ -34,6 +34,8 @@ radiogroupInit ("product-payment__radioGroup", [ "Самостоятельно",
 radiogroupInit ("custom-clearence__export-radio",["Самостоятельно", "Оформить"],"horizontal");
 radiogroupInit ("custom-clearence__import-radio",["Самостоятельно", "Оформить"],"horizontal");
 
+radiogroupInit ("custom-clearence-gd__radio",["Не имеет значения", "В месте отправления","На границе"],"horizontal");
+
 radiogroupInit ("deliver-byself__radioGroup",["Полная предоплата", "Частичная оплата ", "Ценные бумаги", "Уставной капитал", "Бартер", "Фьючерс (будущие расчёты)"],"horizontal");
 
 radiogroupInit ("expertise__point-radio",["В пункте отправления", "В другом месте"],"horizontal");

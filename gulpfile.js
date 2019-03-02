@@ -85,7 +85,13 @@ gulp.task('js:rigger', ['js:cnct'], function () {
         .pipe(reload({stream: true}));       
 });
 
- gulp.task('js:build', ['js:cnct', 'js:rigger']);
+gulp.task ('js:justCopy',function () {
+    return gulp.src('src/js/justCopy/*.js')
+        .pipe(gulp.dest(path.build.js));
+}); 
+
+
+ gulp.task('js:build', ['js:cnct', 'js:rigger','js:justCopy']);
 
 
 
