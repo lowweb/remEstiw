@@ -139,12 +139,13 @@
     }
 
     & .dx-button-text{
-      text-decoration: underline dashed;
+      // text-decoration: underline dashed;
     	// border-bottom: 1px dashed $clr-blue;
     	background-color: $clr-grey-v4;
+      border-bottom: 1px dashed $clr-blue;
     	&:hover {
     		color: $clr-purple;
-    		// border-bottom: 1px dashed $clr-purple;
+    		border-bottom: 1px dashed $clr-purple;
     	}	
     }
 

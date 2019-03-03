@@ -38,3 +38,6 @@ checkboxInit ("coast-incoterms__1checkbox", "Есть готовые");
 checkboxInit ("coast-incoterms__2checkbox", "Будут выпущены");
 checkboxInit ("coast-incoterms__3checkbox", "Выпустить");
 checkboxInit ("coast-incoterms__4checkbox", "По решению исполнителя");
+
+checkboxInit ("common-cargo-params-bulk", "Указать размеры фракций или составляющих массу");
+

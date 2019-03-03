@@ -72,7 +72,6 @@
     cursor: pointer;
     height: 22px;
     flex:0 0 22px;
-    align-self: flex-end;
     background-color: $clr-white;
     display: flex;
     align-items: center;
@@ -91,6 +90,7 @@
 
     &--mrg-b7 {
     	margin-bottom: 7px;
+    	align-self: flex-end;
     }
 
 	&--add:hover {

@@ -172,6 +172,9 @@ checkboxInit ("coast-incoterms__2checkbox", "Будут выпущены");
 checkboxInit ("coast-incoterms__3checkbox", "Выпустить");
 checkboxInit ("coast-incoterms__4checkbox", "По решению исполнителя");
 
+checkboxInit ("common-cargo-params-bulk", "Указать размеры фракций или составляющих массу");
+
+
 var employees = [{
     "ID": 1,
     "Forma": "ООО",
