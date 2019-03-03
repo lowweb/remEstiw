@@ -1,4 +1,8 @@
-.field-set__common-cargo-params {
-	width: 100%;
-	margin-right: 0px;
+.common-cargo-params {
+	&__total {
+		@include font-lucida (rgba(0, 0, 0, 0.7), 14px, 21px);
+		& span {
+			color: $clr-dark;
+		}
+	}
 }
