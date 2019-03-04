@@ -1,5 +1,5 @@
 $(function() {
-    $("#rangeSelector").dxRangeSelector({
+    $("[id=rangeSelector]").dxRangeSelector({
         size: {
             height: 70,
             width: 744
