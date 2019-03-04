@@ -1,7 +1,8 @@
 >tooltip по alt
 >допустим описание field-set__cargo-description где делать в fieldset или cargo
 
-
+>кнопка выбрать
+>круглая кнопка
 
 /*********Классы при инициализации компонентов devextreme *********/
 1. datagrid.js
