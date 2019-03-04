@@ -92,45 +92,57 @@
 		   "m   m   m   n   n  n";			
 		}
 
-		&__common-cargo-params-bulk {
-		 grid-gap: 20px;
-		 width: fit-content;
-		 // width: 100%;
-		 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-		 grid-template-rows: auto auto auto;		
-		 grid-template-areas:
-		   "a   a   a   a   a  a"
-		   "b   c   d   e   f  g"
-		   "h   h   h   i   i  i";			
+		&__ccp {
+
+			&-sim-many-nopack {
+				 grid-gap: 20px;
+				 width: fit-content;
+				 // width: 100%;
+				 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+				 grid-template-rows: auto auto auto;		
+				 grid-template-areas:
+				   "a   a   a   a   a  a"
+				   "b   c   d   e   f  g"
+				   "h   h   h   i   i  i";			
+				}
+
+				&-sim-nmany-npack-cont {
+				 grid-gap: 20px;
+				 width: fit-content;
+				 // width: 100%;
+				 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+				 grid-template-rows: auto auto auto auto;		
+				 grid-template-areas:
+				   "a   b   c   d   e  f"
+				   "g   h   i   k   k  k"
+				   "l   l   l   l   z  z"
+				   "m   m   m   n   n  n";			
+				}
+				&-loaded-cont-soc {
+					 grid-gap: 20px;
+					 width: fit-content;
+					 // width: 100%;
+					 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+					 grid-template-rows: auto auto auto;		
+					 grid-template-areas:
+					   "a   b   b   c   d   e"
+					   "f   g   g   h   i  k"
+					   "l   l   m   m   m  m";			
+					}
+				&-loaded-cont-coc {
+					 grid-gap: 20px;
+					 width: fit-content;
+					 // width: 100%;
+					 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+					 grid-template-rows: auto auto auto;		
+					 grid-template-areas:
+					   "a   b   b   c   d   e"
+					   "f   g   g   h   i  k"
+					   "l   l   l   l   l  l";			
+					}	
 		}
 
-		&__common-cargo-params-container {
-		 grid-gap: 20px;
-		 width: fit-content;
-		 // width: 100%;
-		 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-		 grid-template-rows: auto auto auto;		
-		 grid-template-areas:
-		   "a   b   b   c   d   e"
-		   "f   g   g   h   i  k"
-		   "l   l   m   m   m  m";			
-		}
-
-		&__common-cargo-params-container-v2 {
-		 grid-gap: 20px;
-		 width: fit-content;
-		 // width: 100%;
-		 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-		 grid-template-rows: auto auto auto;		
-		 grid-template-areas:
-		   "a   b   b   c   d   e"
-		   "f   g   g   h   i  k"
-		   "l   l   l   l   l  l";
-		   // "m   m    m   m   m  m"
-		   // "n   n    n   n   n  n"
-		   // "o   o    o   p   p  p"
-		   // "r   r    r   r   r  r";			
-		}
+	
 
 
 

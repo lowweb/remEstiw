@@ -3,9 +3,14 @@
 			Общие параметры груза и размеры грузовых мест в упаковке
 		</legend>
 		<div class="field-set__items">
-			<div class="gridblock gridblock__common-cargo-params-bulk"> 
+			<div class="gridblock gridblock__ccp-sim-nmany-npack-cont"> 
 				<div class="gridblock__cell--1">
-					<div id="common-cargo-params-bulk" class="checkbox"></div>
+					<div class="input-field">
+					    <div id="" class="numberbox input-field__cont pseudoClassNumberBox" tooltip="Кол-во груз. мест" flow="right"></div>
+					    <div class="input-field__label">
+					    	<label for="pseudoNameElementNumberBox__id">Кол-во груз. мест:</label> 
+					    </div>
+					</div>
 				</div>
 				<div class="gridblock__cell--2">
 					<div class="input-field">
@@ -13,7 +18,7 @@
 					    <div class="input-field__label">
 					    	<label for="pseudoElementTextEditor__id">Диаметр (мм):</label> 
 					    </div>
-					</div>					
+					</div>
 				</div>
 				<div class="gridblock__cell--3">
 					<div class="input-field">
@@ -37,25 +42,60 @@
 					    <div class="input-field__label">
 					    	<label for="pseudoElementTextEditor__id">Высота (мм):</label> 
 					    </div>
-					</div>					
+					</div>
 				</div>
 				<div class="gridblock__cell--6">
 					<div class="input-field input-field--readonly">
 					    <div id="" class="input-field__cont pseudoClassTextEditorReadOnly" tooltip="Объём места, м³" flow="right"></div>
 					    <div class="input-field__label">
-					    	<label for="pseudoClassTextEditorReadOnly__id">Общий объём, м³:</label> 
+					    	<label for="pseudoClassTextEditorReadOnly__id">Объём места, м³:</label> 
 					    </div>
-					</div>						
+					</div>					
 				</div>
 				<div class="gridblock__cell--7">
+					<div class="input-field">
+					    <div id="" class="numberbox input-field__cont pseudoClassNumberBox" tooltip="Масса г-места (кг)" flow="right"></div>
+					    <div class="input-field__label">
+					    	<label for="pseudoNameElementNumberBox__id">Масса г-места (кг):</label> 
+					    </div>
+					</div>					
+				</div>
+				<div class="gridblock__cell--8">
 					<div class="input-field input-field--readonly">
-					    <div id="" class="input-field__cont pseudoClassTextEditorReadOnly" tooltip="Общий объём" flow="right"></div>
+					    <div id="" class="input-field__cont pseudoClassTextEditorReadOnly" tooltip="Объём места, м³" flow="right"></div>
+					    <div class="input-field__label">
+					    	<label for="pseudoClassTextEditorReadOnly__id">Общая масса, кг:</label> 
+					    </div>
+					</div>					
+				</div>
+				<div class="gridblock__cell--9">
+					<div class="input-field input-field--readonly">
+					    <div id="" class="input-field__cont pseudoClassTextEditorReadOnly" tooltip="Объём места, м³" flow="right"></div>
 					    <div class="input-field__label">
 					    	<label for="pseudoClassTextEditorReadOnly__id">Общий объём, м³:</label> 
 					    </div>
-					</div>
+					</div>					
 				</div>
-				<div class="gridblock__cell--8">
+				<div class="gridblock__cell--10">
+					<div class="input-field">
+					    <div id="" class="input-field__cont input-field__icn-dropdown pseudoClassSelectBox"></div>          
+					    <div class="input-field__label">
+					        <label for="pseudoClassSelectBox__id">При погрузке в контейнер:</label> 
+					    </div>        
+					</div>						
+				</div>
+				<div class="gridblock__cell--11">
+					<div class="input-field">
+		                <div id="" class="input-field__cont input-field__city"></div>
+		                <div class="input-field__btn">
+		                    <img src="/img/btn__earth.svg" class="svg">
+		                </div>
+		                <div class="input-field__label">
+		                    <label for="city-btn__id">Пункт приёма:</label> 
+		                </div>
+		            </div>
+				</div>
+				<div class="gridblock__cell--12">
 					<div class="input-field">
 			   		 <div class="fileUploader"></div>
 			    		<div class="input-field__label">
@@ -63,7 +103,7 @@
 			    		</div>
 					</div>
 				</div>
-				<div class="gridblock__cell--9">
+				<div class="gridblock__cell--13">
 					<div class="input-field">
 			   		 <div class="fileUploader"></div>
 			    		<div class="input-field__label">
