@@ -131,6 +131,50 @@ $('#footer__button-save').dxButton({
                 }
             });
      
+function checkboxInit (element, text) {
+    $("[id="+element+"]").dxCheckBox({
+        text: text,
+        value: false,
+    });
+};
+
+checkboxInit ("used-cargo__checkbox", "Бывший в употреблении");
+checkboxInit ("home-cargo__checkbox", "Домашние вещи");
+checkboxInit ("humane-cargo__checkbox", "Гуманитарная помощь");
+checkboxInit ("oversize-cargo__checkbox", "Негабаритный");
+checkboxInit ("danger-cargo__checkbox", "Опасный груз");
+checkboxInit ("law-cargo__checkbox", "Юридическое сопровождение (ваши интересы в суде)");
+checkboxInit ("bay-cargo__checkbox", "Купить");
+checkboxInit ("deliver-cargo__checkbox", "Доставить груз");
+checkboxInit ("safer__checkbox", "Надежнёе");
+checkboxInit ("faster__checkbox", "Быстрее");
+checkboxInit ("cheaper__checkbox", "Дешевле");
+
+checkboxInit ("custom-clearence__import-checkbox", "При импорте");
+checkboxInit ("custom-clearence__export-checkbox", "При экспорте");
+checkboxInit ("custom-clearence-gd__import-checkbox", "Для экспорта из России");
+checkboxInit ("custom-clearence-gd__export-checkbox", "Для импорта в России");
+
+checkboxInit ("cargo-escort__gun-checkbox", "С огнестрельным оружием");
+
+
+checkboxInit ("expertise__accept-checkbox ", "При приёмке");
+checkboxInit ("expertise__delivery-checkbox ", "При сдаче");  
+
+checkboxInit ("documentary-credit__add-checkbox", "Данные аккредитива сообщу дополнительно"); 
+
+checkboxInit ("expertise-optionally__depart-checkbox", "В пункте отправления");
+checkboxInit ("expertise-optionally__dest-checkbox", " В пункте назначения");
+checkboxInit ("expertise-optionally__anotherplace-checkbox", "Дополнительно в другом месте");
+
+checkboxInit ("coast-incoterms__1checkbox", "Есть готовые");
+checkboxInit ("coast-incoterms__2checkbox", "Будут выпущены");
+checkboxInit ("coast-incoterms__3checkbox", "Выпустить");
+checkboxInit ("coast-incoterms__4checkbox", "По решению исполнителя");
+
+checkboxInit ("common-cargo-params-bulk", "Указать размеры фракций или составляющих массу");
+checkboxInit ("common-cargo-params-container__checkbox", "Не возражаю против перегрузки в другие контейнера в транзитных пунктах");
+
 var employees = [{
     "ID": 1,
     "Forma": "ООО",
@@ -253,49 +297,52 @@ var employees = [{
     }).data("dxDataGrid");
 
 
-function checkboxInit (element, text) {
-    $("[id="+element+"]").dxCheckBox({
-        text: text,
-        value: false,
+
+    $(".fileUploader").dxFileUploader({
+        accept:"image/*,*.zip,*.pdf,*.mp4",
+        width: 424,
+	    // height: auto,
+	    multiple: true,
+	    allowCanceling: true,
+	    selectButtonText: "нажмите выбрать",
+		showFileList: true,
+		labelText: "Перенесите сюда файл (xls, word, pdf) или",
+		uploadFailedMessage: "dsfs",
+		onUploadStarted: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploaded: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploadError: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
+		},
+		uploadedMessage: "",
+		uploadFailedMessage: "",
     });
-};
 
-checkboxInit ("used-cargo__checkbox", "Бывший в употреблении");
-checkboxInit ("home-cargo__checkbox", "Домашние вещи");
-checkboxInit ("humane-cargo__checkbox", "Гуманитарная помощь");
-checkboxInit ("oversize-cargo__checkbox", "Негабаритный");
-checkboxInit ("danger-cargo__checkbox", "Опасный груз");
-checkboxInit ("law-cargo__checkbox", "Юридическое сопровождение (ваши интересы в суде)");
-checkboxInit ("bay-cargo__checkbox", "Купить");
-checkboxInit ("deliver-cargo__checkbox", "Доставить груз");
-checkboxInit ("safer__checkbox", "Надежнёе");
-checkboxInit ("faster__checkbox", "Быстрее");
-checkboxInit ("cheaper__checkbox", "Дешевле");
-
-checkboxInit ("custom-clearence__import-checkbox", "При импорте");
-checkboxInit ("custom-clearence__export-checkbox", "При экспорте");
-checkboxInit ("custom-clearence-gd__import-checkbox", "Для экспорта из России");
-checkboxInit ("custom-clearence-gd__export-checkbox", "Для импорта в России");
-
-checkboxInit ("cargo-escort__gun-checkbox", "С огнестрельным оружием");
-
-
-checkboxInit ("expertise__accept-checkbox ", "При приёмке");
-checkboxInit ("expertise__delivery-checkbox ", "При сдаче");  
-
-checkboxInit ("documentary-credit__add-checkbox", "Данные аккредитива сообщу дополнительно"); 
-
-checkboxInit ("expertise-optionally__depart-checkbox", "В пункте отправления");
-checkboxInit ("expertise-optionally__dest-checkbox", " В пункте назначения");
-checkboxInit ("expertise-optionally__anotherplace-checkbox", "Дополнительно в другом месте");
-
-checkboxInit ("coast-incoterms__1checkbox", "Есть готовые");
-checkboxInit ("coast-incoterms__2checkbox", "Будут выпущены");
-checkboxInit ("coast-incoterms__3checkbox", "Выпустить");
-checkboxInit ("coast-incoterms__4checkbox", "По решению исполнителя");
-
-checkboxInit ("common-cargo-params-bulk", "Указать размеры фракций или составляющих массу");
-checkboxInit ("common-cargo-params-container__checkbox", "Не возражаю против перегрузки в другие контейнера в транзитных пунктах");
+    $(".fileUploader--full").dxFileUploader({
+        accept:"image/*,*.zip,*.pdf,*.mp4",
+        // width: 700,
+	    // height: auto,
+	    multiple: true,
+	    allowCanceling: true,
+	    selectButtonText: "нажмите выбрать",
+		showFileList: true,
+		labelText: "Перенесите сюда файл (xls, word, pdf) или",
+		uploadFailedMessage: "dsfs",
+		onUploadStarted: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploaded: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploadError: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
+		},
+		uploadedMessage: "",
+		uploadFailedMessage: "",
+    });
 
 //название запроса
 $("#requestName").dxTextBox({
@@ -348,6 +395,90 @@ inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
 inputFieldInit ("pseudoClassTextEditorReadOnly","pseudoClassTextEditorReadOnly__id","100",true);
 
 
+$("#departButton").dxButton({
+    text: "",
+    onClick: function() {
+        // $('#modal-city').show();
+//init modal			
+    $(".modal").dxPopup({
+        visible: true,
+        height:"auto",
+        width: 500,
+        titleTemplate: function() {
+        	//обязательный template
+         	return $("<div class='modal-city__title'><div class='modal-city__title-cap'>Выберите пункт отправления</div><div class='modal__btn-close'>&times;</div></div><div class='modal-city__search-block'><div class='modal-city__search'> <div class='input-field input-field__city-search'><div id='citySearch' class='input-field__cont'></div></div></div><div class='modal-city__search-err'>Такого населенного пункта нет в нашей базе. Пожалуйста, выберите ближайшее к нему местоположение</div></div>");
+          },
+          contentTemplate: function () {
+          	//обязательный template
+          	return $("<div class='modal-city__step-container'><div class='modal-city__step'><div class='modal-city__block-cap'>Наиболее популярные направления:</div><ul class='modal-city__block-items'><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Россия</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Китай (КНР)</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Республика Корея</a></li></ul><div class='modal-city__block-cap'>Части света:</div><ul class='modal-city__block-items'><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Европа</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Азия</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Америка</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Африка</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Австралия</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Андарктида</a></li></ul></div><div class='modal-city__step'><div class='modal-city__block-cap--link'><a class='modal-city__block-href-back'>Европа</a></div><div class='input-field input-field__country-list'><div id='modal__country-list' class='input-field__cont input-field__icn-dropdown'></div><div class='input-field__label'><label for='modal__country-list__id'>Страна:</label> </div></div> <div class='input-field input-field__region-list'><div id='modal__region-list' class='input-field__cont input-field__icn-dropdown'></div><div class='input-field__label'><label for='modal__region-list__id'>Край, район, область, штат:</label> </div></div><div class='input-field input-field__modal-city'><div id='modalCity' class='input-field__cont'></div><div class='input-field__label'><label for='modalCity__id'>Город, населенный пункт::</label> </div>  </div> </div> </div> <div class='modal-city__footer'><button id='modal-city__footer-ok-btn' class='purple-button button-ok modal-city__footer-ok-btn'>Ok</button><button id='modal-city__footer-close-btn' class='basic-button button-cancel modal-city__footer-close-btn'>Отмена</button></div>");
+          } 
+    });
+
+//make slidecontent for modal
+//обязательный код для перехода между псевдо окон
+	const $stepContainer = $('.modal-city__step-container'),
+       	  $steps         = $('.modal-city__step'),
+      	  numSteps       = $steps.length,
+       	  $form          = $('.modal'),
+          $next          = $('.modal-city__block-item'),
+          $prev          = $('.modal-city__block-cap--link');
+
+	var stepWidth = 500;
+	var currentSlide = 0;
+	 
+	$steps.css({ width: stepWidth + "px" });
+	$stepContainer.css("width", stepWidth*numSteps + "px");
+
+	animateSlider();	
+	function animateSlider() {
+	  $stepContainer.css('transform', 'translateX('+ (-stepWidth * currentSlide)+'px)');
+	}
+	
+
+	$next.on('click', function() {
+	  if(currentSlide < numSteps-1){
+	  currentSlide ++;
+	  animateSlider();
+	  }
+	  $('.modal-city__block-href-back').text($(this).text());
+	});	
+
+	$prev.on('click', function() {
+	  if(currentSlide > 0) {
+	    currentSlide --;
+	    animateSlider();
+	  } 
+	});
+//конец обязательного кода для псевдо окон
+
+		initButton("modal-city__footer-ok-btn");
+		initButton("modal-city__footer-close-btn");
+		//страна в модальном окне
+		selectBoxInit("modal__country-list",[ "Приморский край", "Камчатский край"],"modal__country-list__id","input-field__value");
+		//край район область в модальном окне
+		selectBoxInit("modal__region-list",[ "Приморский край", "Камчатский край"],"modal__region-list__id","input-field__value");
+		//необходимо заново инициализировать элемент
+		autocompleteInit ("citySearch","citySearch__id","input-field__value");
+		autocompleteInit ("modalCity","modalCity__id","input-field__value");
+
+		//ошибка заполнения города
+		$('.modal-city__title').click(function() {
+		  $('.modal-city__search-err').toggleClass('modal-city__search-err--show');;
+		});		
+
+		//close modal
+		$('.modal__btn-close').click( function () {
+			$('.modal-city.dx-popup-wrapper').remove();
+		});
+		//closemodal btn
+		$('.modal-city__footer-close-btn').click( function () {
+	  		$('.modal-city.dx-popup-wrapper').remove();
+	});
+
+   }
+
+
+});
 // //close modal
 // $('.modal__btn-close').click( function () {
 // 	$('#modal-city').hide();
@@ -429,53 +560,40 @@ function numberBoxInit (idElement,idAttrName) {
 numberBoxInit ("pseudoClassNumberBox","pseudoNameElementNumberBox__id");
 
 
+$('.progress-bar__step').hover (function(){
+	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
+},
+function (){
+	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
+}
+);
 
-    $(".fileUploader").dxFileUploader({
-        accept:"image/*,*.zip,*.pdf,*.mp4",
-        width: 424,
-	    // height: auto,
-	    multiple: true,
-	    allowCanceling: true,
-	    selectButtonText: "нажмите выбрать",
-		showFileList: true,
-		labelText: "Перенесите сюда файл (xls, word, pdf) или",
-		uploadFailedMessage: "dsfs",
-		onUploadStarted: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploaded: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploadError: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
-		},
-		uploadedMessage: "",
-		uploadFailedMessage: "",
-    });
 
-    $(".fileUploader--full").dxFileUploader({
-        accept:"image/*,*.zip,*.pdf,*.mp4",
-        // width: 700,
-	    // height: auto,
-	    multiple: true,
-	    allowCanceling: true,
-	    selectButtonText: "нажмите выбрать",
-		showFileList: true,
-		labelText: "Перенесите сюда файл (xls, word, pdf) или",
-		uploadFailedMessage: "dsfs",
-		onUploadStarted: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploaded: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploadError: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
-		},
-		uploadedMessage: "",
-		uploadFailedMessage: "",
-    });
+var progressPercentValue=10;
+  
+$('.header-progress').click(function() {
 
+	// progressPercentValue=Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100);
+	console.log('do='+progressPercentValue);
+	if (progressPercentValue < 100) {
+		$('.progress-bar__status').width((progressPercentValue + 5)+'%');
+		// console.log('posle='+ Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100));
+		if(progressPercentValue == 45){
+			$('.progress-bar__second-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
+			$('.progress-bar__second-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+
+		}
+
+		if(progressPercentValue == 95){
+			$('.progress-bar__third-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
+			$('.progress-bar__third-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+
+		}
+	progressPercentValue+=5;	
+	}
+
+
+});
 var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
 var cargoReceiverItem = ["Физическое лицо", "Юридическое лицо"];
 var volumeItem = ["До 5 м", "Свыше 5 м"];
@@ -524,11 +642,70 @@ radiogroupInit ("cargo-escort-byself__doc-radio",["Да, нужно на всё�
 
 radiogroupInit ("documentary-credit-shiping__radio",["Безотзывный", "Отзывный", "Акцептный", "Безакцептный"],"horizontal");
 
+radiogroupInit ("cargo-descript__hmanygoods-radio",["Один товар", "Два и более (сборное грузовое место)"],"horizontal");
 
 
 
 
+$(function() {
+    $("[id=rangeSelector]").dxRangeSelector({
+        size: {
+            height: 70,
+            width: 744
+        },
+        selectedRangeColor: "rgba(55, 63, 81, 0.4)",
+        scale: {
+            startValue: -30,
+            endValue: +30,
+            // minorTickInterval: 5,
+            tickInterval: 10,
+            // minorTick: {
+                // visible: false,
+            // },
+            label: {
+                // format: "currency",
+                customizeText: function () {
+                return this.valueText + " ˚C";
+            	},
+            	font: {
+					color: "#373F51",
+					family: "Lucida Grande, Tahoma, Arial",
+					opacity: 1,
+					size: 13,
+					weight: 400
+				}
+            }
+        },
+        sliderMarker: {
+            // format: "currency",
+            color: "#373F51",
+            customizeText: function () {
+                return this.valueText + " ˚C";
+            },
+            font: {
+				color: "#FFFFFF",
+				family: "Lucida Grande, Tahoma, Arial",
+				opacity: 1,
+				size: 13,
+				weight: 400
+			},
+           	invalidRangeColor: "red",
+			paddingLeftRight: 10,
+			paddingTopBottom: 2,
+        },
+        value: [4, 8],
+        onInitialized: function () {      	
+        	
+        	
+        },
+        // redrawOnResize: function (){alert($('.rangeselector .dxrs-range-selector-line').offset());},
+        onDrawn: function (){    	
+            //обязательный вызов для backgroud элмента радуга
+        	$( ".rangeselector.dx-visibility-change-handler" ).append( "<div class='rangeselector__back'></div>");
+        }
 
+    });
+});
 //add consignment block
 
 //реализация добавление блоков на первом шаге. убрали тк по идеи не нужна
@@ -629,40 +806,6 @@ function tagBoxInit (idElement,idAttrName, itemsElement) {
 };
   
 tagBoxInit ("input-field__tagbox","input-field__tagbox-id",simpleProducts);  
-$('.progress-bar__step').hover (function(){
-	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
-},
-function (){
-	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
-}
-);
-
-
-var progressPercentValue=10;
-  
-$('.header-progress').click(function() {
-
-	// progressPercentValue=Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100);
-	console.log('do='+progressPercentValue);
-	if (progressPercentValue < 100) {
-		$('.progress-bar__status').width((progressPercentValue + 5)+'%');
-		// console.log('posle='+ Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100));
-		if(progressPercentValue == 45){
-			$('.progress-bar__second-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
-			$('.progress-bar__second-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
-
-		}
-
-		if(progressPercentValue == 95){
-			$('.progress-bar__third-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
-			$('.progress-bar__third-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
-
-		}
-	progressPercentValue+=5;	
-	}
-
-
-});
 // $(".navbar").scroll (function () {
 
 //  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
@@ -682,173 +825,6 @@ $('.header-progress').click(function() {
 //  }
 
 //  });
-$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
-	// $(this).toggleClass('user-popup-menu__title-btn--up');
-	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
-		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
-		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
-		$(this).toggleClass('btn-rotate180');
-		$(this).toggleClass('app-lnk-disable');
-	// }
-});
-
-
-$(".user-popup-menu__title-btn").click(function(e) {
-  e.stopPropagation(); 
-});
-
-
-function userPopupClose() {
-	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
-		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
-		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
-		$('.app-lnk-disable').toggleClass('btn-rotate180');
-		$('.app-lnk-disable').toggleClass('app-lnk-disable');
-	}
-}
-$(function() {
-    $("#rangeSelector").dxRangeSelector({
-        size: {
-            height: 70,
-            width: 744
-        },
-        selectedRangeColor: "rgba(55, 63, 81, 0.4)",
-        scale: {
-            startValue: -30,
-            endValue: +30,
-            // minorTickInterval: 5,
-            tickInterval: 10,
-            // minorTick: {
-                // visible: false,
-            // },
-            label: {
-                // format: "currency",
-                customizeText: function () {
-                return this.valueText + " ˚C";
-            	},
-            	font: {
-					color: "#373F51",
-					family: "Lucida Grande, Tahoma, Arial",
-					opacity: 1,
-					size: 13,
-					weight: 400
-				}
-            }
-        },
-        sliderMarker: {
-            // format: "currency",
-            color: "#373F51",
-            customizeText: function () {
-                return this.valueText + " ˚C";
-            },
-            font: {
-				color: "#FFFFFF",
-				family: "Lucida Grande, Tahoma, Arial",
-				opacity: 1,
-				size: 13,
-				weight: 400
-			},
-           	invalidRangeColor: "red",
-			paddingLeftRight: 10,
-			paddingTopBottom: 2,
-        },
-        value: [4, 8],
-        onInitialized: function () {      	
-        	
-        	
-        },
-        // redrawOnResize: function (){alert($('.rangeselector .dxrs-range-selector-line').offset());},
-        onDrawn: function (){    	
-            //обязательный вызов для backgroud элмента радуга
-        	$( ".rangeselector.dx-visibility-change-handler" ).append( "<div class='rangeselector__back'></div>");
-        }
-
-    });
-});
-$("#departButton").dxButton({
-    text: "",
-    onClick: function() {
-        // $('#modal-city').show();
-//init modal			
-    $(".modal").dxPopup({
-        visible: true,
-        height:"auto",
-        width: 500,
-        titleTemplate: function() {
-        	//обязательный template
-         	return $("<div class='modal-city__title'><div class='modal-city__title-cap'>Выберите пункт отправления</div><div class='modal__btn-close'>&times;</div></div><div class='modal-city__search-block'><div class='modal-city__search'> <div class='input-field input-field__city-search'><div id='citySearch' class='input-field__cont'></div></div></div><div class='modal-city__search-err'>Такого населенного пункта нет в нашей базе. Пожалуйста, выберите ближайшее к нему местоположение</div></div>");
-          },
-          contentTemplate: function () {
-          	//обязательный template
-          	return $("<div class='modal-city__step-container'><div class='modal-city__step'><div class='modal-city__block-cap'>Наиболее популярные направления:</div><ul class='modal-city__block-items'><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Россия</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Китай (КНР)</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Республика Корея</a></li></ul><div class='modal-city__block-cap'>Части света:</div><ul class='modal-city__block-items'><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Европа</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Азия</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Америка</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Африка</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Австралия</a></li><li class='modal-city__block-item'><a class='modal-city__block-href-next'>Андарктида</a></li></ul></div><div class='modal-city__step'><div class='modal-city__block-cap--link'><a class='modal-city__block-href-back'>Европа</a></div><div class='input-field input-field__country-list'><div id='modal__country-list' class='input-field__cont input-field__icn-dropdown'></div><div class='input-field__label'><label for='modal__country-list__id'>Страна:</label> </div></div> <div class='input-field input-field__region-list'><div id='modal__region-list' class='input-field__cont input-field__icn-dropdown'></div><div class='input-field__label'><label for='modal__region-list__id'>Край, район, область, штат:</label> </div></div><div class='input-field input-field__modal-city'><div id='modalCity' class='input-field__cont'></div><div class='input-field__label'><label for='modalCity__id'>Город, населенный пункт::</label> </div>  </div> </div> </div> <div class='modal-city__footer'><button id='modal-city__footer-ok-btn' class='purple-button button-ok modal-city__footer-ok-btn'>Ok</button><button id='modal-city__footer-close-btn' class='basic-button button-cancel modal-city__footer-close-btn'>Отмена</button></div>");
-          } 
-    });
-
-//make slidecontent for modal
-//обязательный код для перехода между псевдо окон
-	const $stepContainer = $('.modal-city__step-container'),
-       	  $steps         = $('.modal-city__step'),
-      	  numSteps       = $steps.length,
-       	  $form          = $('.modal'),
-          $next          = $('.modal-city__block-item'),
-          $prev          = $('.modal-city__block-cap--link');
-
-	var stepWidth = 500;
-	var currentSlide = 0;
-	 
-	$steps.css({ width: stepWidth + "px" });
-	$stepContainer.css("width", stepWidth*numSteps + "px");
-
-	animateSlider();	
-	function animateSlider() {
-	  $stepContainer.css('transform', 'translateX('+ (-stepWidth * currentSlide)+'px)');
-	}
-	
-
-	$next.on('click', function() {
-	  if(currentSlide < numSteps-1){
-	  currentSlide ++;
-	  animateSlider();
-	  }
-	  $('.modal-city__block-href-back').text($(this).text());
-	});	
-
-	$prev.on('click', function() {
-	  if(currentSlide > 0) {
-	    currentSlide --;
-	    animateSlider();
-	  } 
-	});
-//конец обязательного кода для псевдо окон
-
-		initButton("modal-city__footer-ok-btn");
-		initButton("modal-city__footer-close-btn");
-		//страна в модальном окне
-		selectBoxInit("modal__country-list",[ "Приморский край", "Камчатский край"],"modal__country-list__id","input-field__value");
-		//край район область в модальном окне
-		selectBoxInit("modal__region-list",[ "Приморский край", "Камчатский край"],"modal__region-list__id","input-field__value");
-		//необходимо заново инициализировать элемент
-		autocompleteInit ("citySearch","citySearch__id","input-field__value");
-		autocompleteInit ("modalCity","modalCity__id","input-field__value");
-
-		//ошибка заполнения города
-		$('.modal-city__title').click(function() {
-		  $('.modal-city__search-err').toggleClass('modal-city__search-err--show');;
-		});		
-
-		//close modal
-		$('.modal__btn-close').click( function () {
-			$('.modal-city.dx-popup-wrapper').remove();
-		});
-		//closemodal btn
-		$('.modal-city__footer-close-btn').click( function () {
-	  		$('.modal-city.dx-popup-wrapper').remove();
-	});
-
-   }
-
-
-});
 $('.timezone-popup-menu__title-btn').click(function(){
 // console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
 // if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
@@ -877,6 +853,30 @@ function timezonePopupClose(e) {
 }
 
 
+$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
+	// $(this).toggleClass('user-popup-menu__title-btn--up');
+	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
+		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
+		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
+		$(this).toggleClass('btn-rotate180');
+		$(this).toggleClass('app-lnk-disable');
+	// }
+});
+
+
+$(".user-popup-menu__title-btn").click(function(e) {
+  e.stopPropagation(); 
+});
+
+
+function userPopupClose() {
+	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
+		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
+		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
+		$('.app-lnk-disable').toggleClass('btn-rotate180');
+		$('.app-lnk-disable').toggleClass('app-lnk-disable');
+	}
+}
 var cityData = [{
     id: 1,
     name: "Владивосток, Приморский край, Россия",
@@ -1041,6 +1041,23 @@ $("." + classElement).dxSelectBox({
 
 selectBoxInitForClass("pseudoClassSelectBox",[ "значение", "значение", "значенадывжлавдылажвылаие123456789" ],"pseudoNameElementSelectBox__id","input-field__value");
 
+$(".pseudoClassTextAria").dxTextArea({
+        spellcheck: false,
+        inputAttr: {
+       id: "pseudoElementTextAria__id",
+       class:"input-field__value" 
+   }
+    });
+// function inputTextAria (element, elementId, defValue, readOnlyFlag ) {
+//   $("."+ element).dxTextAria({
+//   inputAttr: {
+//        id: elementId,
+//        class:"input-field__value" 
+//    },
+//    value: defValue,
+//    readOnly: readOnlyFlag
+//   });
+// };
  $(".popup__info-newmsg").dxToast({
         message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
         displayTime: 300000,
@@ -1131,21 +1148,3 @@ $('.navbar__item-header').click(function(){
 	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
 
 });
-
-$(".pseudoClassTextAria").dxTextArea({
-        spellcheck: false,
-        inputAttr: {
-       id: "pseudoElementTextAria__id",
-       class:"input-field__value" 
-   }
-    });
-// function inputTextAria (element, elementId, defValue, readOnlyFlag ) {
-//   $("."+ element).dxTextAria({
-//   inputAttr: {
-//        id: elementId,
-//        class:"input-field__value" 
-//    },
-//    value: defValue,
-//    readOnly: readOnlyFlag
-//   });
-// };

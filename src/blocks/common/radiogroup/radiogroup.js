@@ -46,7 +46,7 @@ radiogroupInit ("cargo-escort-byself__doc-radio",["Да, нужно на всё�
 
 radiogroupInit ("documentary-credit-shiping__radio",["Безотзывный", "Отзывный", "Акцептный", "Безакцептный"],"horizontal");
 
-
+radiogroupInit ("cargo-descript__hmanygoods-radio",["Один товар", "Два и более (сборное грузовое место)"],"horizontal");
 
 
 
