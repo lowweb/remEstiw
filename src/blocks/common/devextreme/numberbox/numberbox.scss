@@ -1,5 +1,16 @@
 .dx-numberbox-spin-up-icon:before, .dx-numberbox-spin-down-icon:before {
     color: $clr-blue;
+     position: relative;
+    display: flex;
+    align-items: center;
+    // width: 20px;
+    // height: 100%;
+    margin-top: 0px;
+    margin-left: 0px;
+    justify-content: center;
+    top: 0; 
+    left: 0;
+
 }
 .dx-numberbox-spin-container {
     overflow: hidden;
