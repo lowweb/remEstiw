@@ -4,6 +4,8 @@
 >кнопка выбрать
 >круглая кнопка
 
+>fileiploader длинные имена overflov hidden
+
 /*********Классы при инициализации компонентов devextreme *********/
 1. datagrid.js
 2. inputfield.js
