@@ -40,4 +40,7 @@ checkboxInit ("coast-incoterms__3checkbox", "Выпустить");
 checkboxInit ("coast-incoterms__4checkbox", "По решению исполнителя");
 
 checkboxInit ("common-cargo-params-bulk", "Указать размеры фракций или составляющих массу");
-checkboxInit ("common-cargo-params-container__checkbox", "Не возражаю против перегрузки в другие контейнера в транзитных пунктах");
+
+checkboxInit ("common-goodies-params__checkbox", "Будет выпущено классификационное решение ФТС РФ");
+
+ 
