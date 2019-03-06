@@ -121,6 +121,10 @@
 		font-size: 14px;
 		border-bottom: 1px dashed $clr-blue;
 		margin-right: 8px;
+
+		&:hover {
+			border-bottom: 1px dashed $clr-purple;
+		}
 	}
 
 

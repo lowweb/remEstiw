@@ -98,9 +98,32 @@
 			}
 		}
 	}
+	&__row--gap20 {
+		& .input-field {
+			margin-right: 20px;
+
+		&:last-child {
+				margin-right: 0;
+			}
+		}
+
+		& .switch {
+			margin-right: 20px;
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+
+
 
 	&__city:first-child {
 		margin-right: 20px;
+	}
+
+
+	&__cln--2 {
+		min-width: 276px;
 	}	
 
 
