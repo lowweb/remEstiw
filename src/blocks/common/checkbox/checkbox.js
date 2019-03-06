@@ -47,6 +47,8 @@ checkboxInit ("common-cargo-params-container__checkbox", "Не возражаю 
 
 checkboxInit ("oversize-rzd__checkbox", "Не уверен, прошу определить по чертежу");
 
+checkboxInit ("ccp-mass-bulk-open__checkbox", "Указать размеры фракций или составляющих массу");
+
 
 
  

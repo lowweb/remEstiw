@@ -21,7 +21,12 @@
     	align-items: center;
     	width: 100%;
     	margin: 40px 0 30px 0;
-
+		
+		&20 {
+			&--blank{
+				margin: 0 0 20px 0;
+			}
+		}
     	&--first {
     		margin: 0 0 30px 0;
     	}
