@@ -57,9 +57,9 @@ $("#departButton").dxButton({
 		initButton("modal-city__footer-ok-btn");
 		initButton("modal-city__footer-close-btn");
 		//страна в модальном окне
-		selectBoxInit("modal__country-list",[ "Приморский край", "Камчатский край"],"modal__country-list__id","input-field__value");
+		selectBoxInitForId("modal__country-list",[ "Приморский край", "Камчатский край"],"modal__country-list__id","input-field__value");
 		//край район область в модальном окне
-		selectBoxInit("modal__region-list",[ "Приморский край", "Камчатский край"],"modal__region-list__id","input-field__value");
+		selectBoxInitForId("modal__region-list",[ "Приморский край", "Камчатский край"],"modal__region-list__id","input-field__value");
 		//необходимо заново инициализировать элемент
 		autocompleteInit ("citySearch","citySearch__id","input-field__value");
 		autocompleteInit ("modalCity","modalCity__id","input-field__value");

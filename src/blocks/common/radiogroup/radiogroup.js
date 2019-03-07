@@ -12,7 +12,13 @@ $("[id="+idRadio+"]").dxRadioGroup({
         layout: layout
     });
 };
-
+function radiogroupClassInit (idRadio, items, layout) {
+$("."+idRadio).dxRadioGroup({
+        items: items,
+        layout: layout
+    });
+};
+radiogroupClassInit ("radio--empt",[""],"");
 radiogroupInit ("type-deal__radioGroup",typeDealitem,"");
 radiogroupInit ("volume-cargo__radioGroup",volumeItem);
 radiogroupInit ("cargo-cheracter__radioGroup",cargoCheracterItem,"");
