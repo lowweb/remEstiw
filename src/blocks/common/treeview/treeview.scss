@@ -7,7 +7,6 @@
 	 &__code {
 	 	color: #000000;
 	 	margin-right: 8px;
-
 	 }
 
 	 &__radio {
@@ -20,14 +19,21 @@
     	align-items: center;
 	 }
 	 &__tx {
-	 	margin-right: 8px;	
+	 	margin-right: 8px;
+	 	border-bottom: 1px dashed  $clr-blue;
+	 	color: $clr-blue;	
+
+	 	// &:hover {
+	 	// 	border-bottom: 1px dashed $clr-purple;
+	 	// 	color: $clr-purple;
+	 	// }
 	 }
 	
 }
 
 .dx-treeview-toggle-item-visibility {
 
-	background-image: url(/img/custom-tree-btn.svg);
+	background-image: url(#{$imgFolder}custom-tree-btn.svg);
 	background-repeat: no-repeat;
 	background-position: center;
 	// border: 2px solid blue;
@@ -46,6 +52,8 @@
   	}
 }
 
+
+
 .dx-treeview-toggle-item-visibility.dx-treeview-toggle-item-visibility-opened {
 
 	transform: rotate(180deg);
@@ -60,37 +68,67 @@
 
 
 
-.dx-treeview-item-without-checkbox.dx-state-selected > .dx-treeview-item {
-  color: #333;
-  background-color: #e6e6e6;
+.dx-treeview-node.dx-state-selected > .dx-treeview-item {
+  background-color: yellow;
+
 }
 
-.dx-treeview-item-without-checkbox.dx-state-selected > .dx-treeview-toggle-item-visibility {
-  background-color: #e6e6e6;
-}
+// .dx-treeview-node.dx-state-selected > .dx-treeview-toggle-item-visibility {
+//   background-color: #e6e6e6;
+// }
 
-.dx-treeview-item-without-checkbox.dx-state-focused  > .dx-treeview-toggle-item-visibility {
- background-color: #ECF4FA;
-}
+// .dx-treeview-node.dx-state-focused  > .dx-treeview-toggle-item-visibility {
+//  background-color: #ECF4FA;
+
+// }
 
 
 
-.dx-treeview-item-without-checkbox.dx-state-focused > .dx-treeview-item {
+.dx-treeview-node.dx-state-focused > .dx-treeview-item {
   background-color: #ECF4FA;
 
 	 & .treeview__code {
 	 	color: #000000;
 	 }
-
-	 & .treeview__tx {
-	 	color: rgba(0, 0, 0, 0.7);
+	
+	  & .treeview__tx {
+	 	border-bottom: 1px dashed $clr-purple;
+	 	 color: $clr-purple;	
 	 }
 
 
 }
 
 .dx-treeview-item {
-    padding: 5px 36px;
-    transform: translate(-20px,0);
-    min-height: 32px;
+    // padding: 5px 36px;
+    // transform: translate(-20px,0);
+    // min-height: 32px;
+
+
+    &.dx-state-hover {
+    	& .treeview__tx {
+	 	border-bottom: 1px dashed $clr-purple;
+	 		color: $clr-purple;	
+	 }
+    }
+
 }
+
+
+// .dx-treeview-node-container dx-treeview-node-container-opened
+// ul:not([class]) li { /* красота */ }
+.dx-treeview-node[aria-expanded="true"]{
+
+	& > .dx-item .treeview__tx {
+		border-bottom: none;
+	 	color: rgba(0, 0, 0, 0.7);;
+	}
+}
+
+
+.dx-treeview-node.dx-treeview-node-is-leaf  > .dx-item .treeview__tx {
+		color: rgba(0, 23, 31, 0.6);
+		border-bottom: none;
+}
+
+

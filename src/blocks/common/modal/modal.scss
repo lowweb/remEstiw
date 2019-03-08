@@ -175,3 +175,36 @@
   }
 }
 
+
+.modal {
+  width: 738px;
+  height: auto;
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid #D5D7E1;
+  box-sizing: border-box;
+  box-shadow: 0px 8px 30px rgba(55, 63, 81, 0.2);
+  border-radius: 3px;
+  
+  &__title {
+    padding: 20px 20px 30px 20px;
+    border-bottom: 1px solid #D5D7E1;
+
+    &-cap {
+      padding-bottom: 30px;
+    }
+  }
+
+  &__view {
+    padding: 20px 20px 30px 20px;
+  }
+    
+  &__foo{
+    border-top: 1px solid #D5D7E1;
+    padding: 20px 20px 20px 20px;
+    display: flex;
+  }  
+
+
+}
+
