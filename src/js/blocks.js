@@ -152,39 +152,189 @@ checkboxInit ("ccp-mass-bulk-open__checkbox", "Указать размеры ф�
 
 
  
-function initButton (Element) {
-    $('.' + Element).dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-             
-                }
-            });
+var employees = [{
+    "ID": 1,
+    "Forma": "ООО",
+    "Name": "Достаточно длинное наименование контрагента «Корпорация Креветка»",
+    "Tel": "+ 7 923 456 78 90",
+    "Email": "mymail@mail.com",
+    "Location": "г. Москва, ул. Стрельникова, 12, офис 23",
+    "Inn": "123456789012",
+    "state": false
+},{
+    "ID": 2,
+    "Forma": "ЗАО",
+    "Name": "Простое название контрагента",
+    "Tel": "+ 7 923 456 78 90",
+    "Email": "mymail@mail.com",
+    "Location": "Елизово ул. Бассейная, 76",
+    "Inn": "123456789012",
+    "state": false
+},{
+    "ID": 3,
+    "Forma": "ПАО",
+    "Name": "Достаточно длинное наименование контрагента «Корпорация Креветка»",
+    "Tel": "+ 7 923 456 78 90",
+    "Email": "mymail@mail.com",
+    "Location": "Мохачкала",
+    "Inn": "123456789012",
+    "state": false
+},{
+    "ID": 4,
+    "Forma": "ООО",
+    "Name": "Достаточно длинное наименование контрагента «Корпорация Креветка»",
+    "Tel": "+ 7 923 456 78 90",
+    "Email": "mymail@mail.com",
+    "Location": "г. Москва, ул. Стрельникова, 12, офис 23",
+    "Inn": "123456789012",
+    "state": false
+},{
+    "ID": 5,
+    "Forma": "ООО",
+    "Name": "Достаточно длинное наименование контрагента «Корпорация Креветка»",
+    "Tel": "+ 7 923 456 78 90",
+    "Email": "mymail@mail.com",
+    "Location": "г. Москва, ул. Стрельникова, 12, офис 23",
+    "Inn": "123456789012",
+    "state": false
+} ];
+
+
+ var dataGrid =  $("#gridContainer").dxDataGrid({
+        dataSource: employees,
+        keyExpr: "ID",
+        selection: {
+            mode: "single"
+        },
+        scrolling: {
+            mode: "virtual"
+        },
+        hoverStateEnabled: true,
+        showBorders: true,
+        columns: 
+
+        [{
+            dataField: "Forma",
+            caption: "Форма собств.",
+            width: 115
+        },
+        {
+            dataField: "Name",
+            caption: "Наименование контрагента",
+             width: 249,
+
+            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку, навешиваем элемент radiogroup
+            $('<div class="datagrid__custom-radio-cell">')    //навешиваем  template иницилизируем его как radiogroup
+            .appendTo(cellElement)
+            .dxRadioGroup({ 
+                items: [{id: 1}],
+                valueExpr: 'id',
+                value: cellInfo.data.state ? 1 : null,
+                onValueChanged: function(e) {                    
+                    clearState(dataGrid.option("dataSource"), cellInfo.data.id);
+                    dataGrid.refresh();
+                    }
+                })
+                .append($("<a href='#''>"+cellInfo.data.Name+"</a>"))
+             }, 
+
+            cssClass: "datagrid__link-cell" //обязательный класс
+        }, 
+        {
+            dataField: "Tel",
+            caption: "Телефон",
+            width: 153
+         
+        },   
+        {
+            dataField: "Email",
+            caption: "Email",
+            width: 144
+        }, 
+        {
+            dataField: "Location",
+            caption: "Местоположение",
+            width: 180
+        }, 
+        {
+            dataField: "Inn",
+            caption: "ИНН",
+            width: 138
+        }],
+
+        filterRow: {
+            applyFilter: "auto",
+            applyFilterText: "Apply filter",
+            betweenEndText: "End",
+            betweenStartText: "Start",
+            resetOperationText: "Reset",
+            showAllText: "",
+            showOperationChooser: true,
+            visible: true
+            },
+        showColumnLines: true,
+        showRowLines: true,    
+    }).data("dxDataGrid");
+
+
+
+
+
+
+var s = 123456789;
+var random = function() {
+    s = (1103515245 * s + 12345) % 2147483647;
+    return s % (10 - 1);
 };
 
-initButton("button");
-initButton ('destButton');
+var generateData = function (count) {
+    var i;
+    var surnames = ['Smith', 'Johnson', 'Brown', 'Taylor', 'Anderson', 'Harris', 'Clark', 'Allen', 'Scott', 'Carter'];
+    var names = ['James', 'John', 'Robert', 'Christopher', 'George', 'Mary', 'Nancy', 'Sandra', 'Michelle', 'Betty'];
+    var gender = ['Male', 'Female'];
+    var items = [],
+        startBirthDate = Date.parse('1/1/1975'),
+        endBirthDate = Date.parse('1/1/1992');
 
-// initButton("footer__button-next");
-// initButton("footer__button-prev");
-// initButton("modal-city__footer-ok-btn");
-// initButton("modal-city__footer-close-btn");
+    for (i = 0; i < count; i++) {
+        var birthDate = new Date(startBirthDate + Math.floor(
+                random() * 
+                (endBirthDate - startBirthDate) / 10));
+        birthDate.setHours(12);
 
-$(".input-field__btn").dxButton({
-    text: "",
-    onClick: function() {}
-});
+        var nameIndex = random();
+        var item = {
+            id: i + 1,
+            firstName: names[nameIndex],
+            lastName: surnames[random()],
+            gender: gender[Math.floor(nameIndex / 5)],
+            birthDate: birthDate
+        };
+        items.push(item);
+    }
+    return items;
+};
 
-$('#footer__button-save').dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-                    $('.footer__saved-msg').show();                
-                }
-            });
-     
+$("#gridContainerr").dxDataGrid({
+        dataSource: generateData(1000),
+        showBorders: true,
+        customizeColumns: function (columns) {
+            columns[0].width = 70;
+        },
+        loadPanel: {
+            enabled: true
+        },
+        scrolling: {
+            mode: "virtual"
+        },
+        sorting: {
+            mode: "none"
+        },
+        onContentReady: function(e) {
+            e.component.option("loadPanel.enabled", false);
+        }
+    });
+
 
     $(".fileUploader").dxFileUploader({
         accept:"image/*,*.zip,*.pdf,*.mp4",
@@ -306,10 +456,10 @@ inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
 inputFieldInit ("pseudoClassTextEditorReadOnly","pseudoClassTextEditorReadOnly__id","100",true);
 
 
-function initModal (width, tTempl, cTempl) {
-	$(".modal").dxPopup({
+function initModal (clName,width, height, tTempl, cTempl) {
+	$("." + clName).dxPopup({
         visible: true,
-        height:"auto",
+        height:height,
         width: width,
         titleTemplate: function() {
         	//обязательный template
@@ -320,82 +470,146 @@ function initModal (width, tTempl, cTempl) {
           	return $($('.' + cTempl).html());
           } 
     });
+	initButton("button");
 };
 
-$("#departButton").dxButton({
-    text: "",
-    onClick: function() {
-        // $('#modal-city').show();
-//init modal
-
-initModal(500, 'modal__title-templ','modal__content-templ');			
-    
-
-//make slidecontent for modal
-//обязательный код для перехода между псевдо окон
-	const $stepContainer = $('.modal-city__step-container'),
-       	  $steps         = $('.modal-city__step'),
+initModal("custom-clearance-modal", 768 , "80%", 'modal__title-templ','modal__content-templ');
+initModal("custom-clearance-3agent-modal", 1024 , "80%", 'modal__title-templ','modal__content-templ');
+initModal("modal-location", 500 , "auto", 'modal__title-templ','modal__content-templ');			
+	if ($('.modal').hasClass('modal-location')) {
+		const $stepContainer = $('.modal-location__step-container'),
+       	  $steps         = $('.modal-location__step'),
       	  numSteps       = $steps.length,
        	  $form          = $('.modal'),
-          $next          = $('.modal-city__block-item'),
-          $prev          = $('.modal-city__block-cap--link');
+          $next          = $('.modal-location__block-item'),
+          $prev          = $('.modal-location__block-cap--link');
 
-	var stepWidth = 500;
-	var currentSlide = 0;
-	 
-	$steps.css({ width: stepWidth + "px" });
-	$stepContainer.css("width", stepWidth*numSteps + "px");
-
-	animateSlider();	
-	function animateSlider() {
-	  $stepContainer.css('transform', 'translateX('+ (-stepWidth * currentSlide)+'px)');
-	}
-	
-
-	$next.on('click', function() {
-	  if(currentSlide < numSteps-1){
-	  currentSlide ++;
-	  animateSlider();
-	  }
-	  $('.modal-city__block-href-back').text($(this).text());
-	});	
-
-	$prev.on('click', function() {
-	  if(currentSlide > 0) {
-	    currentSlide --;
-	    animateSlider();
-	  } 
-	});
-//конец обязательного кода для псевдо окон
-
-		initButton("modal-city__footer-ok-btn");
-		initButton("modal-city__footer-close-btn");
-		//страна в модальном окне
-		selectBoxInitForId("modal__country-list",[ "Приморский край", "Камчатский край"],"modal__country-list__id","input-field__value");
-		//край район область в модальном окне
-		selectBoxInitForId("modal__region-list",[ "Приморский край", "Камчатский край"],"modal__region-list__id","input-field__value");
-		//необходимо заново инициализировать элемент
-		autocompleteInit ("citySearch","citySearch__id","input-field__value");
-		autocompleteInit ("modalCity","modalCity__id","input-field__value");
-
-		//ошибка заполнения города
-		$('.modal-city__title').click(function() {
-		  $('.modal-city__search-err').toggleClass('modal-city__search-err--show');;
-		});		
-
-		//close modal
-		$('.modal__btn-close').click( function () {
-			$('.modal-city.dx-popup-wrapper').remove();
+		var stepWidth = 500;
+		var currentSlide = 0;
+		 
+		$steps.css({ width: stepWidth + "px" });
+		$stepContainer.css("width", stepWidth*numSteps + "px");		
+		animateSlider();	
+		function animateSlider() {
+		  $stepContainer.css('transform', 'translateX('+ (-stepWidth * currentSlide)+'px)');
+		}
+				
+		$next.on('click', function() {
+		  if(currentSlide < numSteps-1){
+		  currentSlide ++;
+		  animateSlider();
+		  }
+		  $('.modal-location__block-href-back').text($(this).text());
+		});			
+		$prev.on('click', function() {
+		  if(currentSlide > 0) {
+		    currentSlide --;
+		    animateSlider();
+		  } 
 		});
-		//closemodal btn
-		$('.modal-city__footer-close-btn').click( function () {
-	  		$('.modal-city.dx-popup-wrapper').remove();
-	});
+		//конец обязательного кода для псевдо окон	
+			
+			initButton("modal-location__footer-ok-btn");
+			initButton("modal-location__footer-close-btn");
+			//страна в модальном окне
+			selectBoxInitForId("modal__country-list",[ "Приморский край", "Камчатский край"],"modal__country-list__id","input-field__value");
+			//край район область в модальном окне
+			selectBoxInitForId("modal__region-list",[ "Приморский край", "Камчатский край"],"modal__region-list__id","input-field__value");
+			//необходимо заново инициализировать элемент
+			autocompleteInit ("locationSearch","locationSearch__id","input-field__value");
+			autocompleteInit ("modallocation","modallocation__id","input-field__value");		
+			//ошибка заполнения города
+			$('.modal-location__title').click(function() {
+			  $('.modal-location__search-err').toggleClass('modal-location__search-err--show');;
+			});				
+			//close modal
+			$('.modal__btn-close').click( function () {
+				$('.modal-location.dx-popup-wrapper').remove();
+			});
+			//closemodal btn
+			$('.modal-location__footer-close-btn').click( function () {
+		  		$('.modal-location.dx-popup-wrapper').remove();
+		});
+	};
 
-   }
+if ($('.modal').hasClass('custom-clearance-3agent-modal')) {
+ var dataGrid =  $("#gridContainer").dxDataGrid({
+        dataSource: employees,
+        keyExpr: "ID",
+        selection: {
+            mode: "single"
+        },
+        scrolling: {
+            mode: "virtual"
+        },
+        hoverStateEnabled: true,
+        showBorders: true,
+        columns: 
 
+        [{
+            dataField: "Forma",
+            caption: "Форма собств.",
+            width: 115
+        },
+        {
+            dataField: "Name",
+            caption: "Наименование контрагента",
+             width: 249,
 
-});
+            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку, навешиваем элемент radiogroup
+            $('<div class="datagrid__custom-radio-cell">')    //навешиваем  template иницилизируем его как radiogroup
+            .appendTo(cellElement)
+            .dxRadioGroup({ 
+                items: [{id: 1}],
+                valueExpr: 'id',
+                value: cellInfo.data.state ? 1 : null,
+                onValueChanged: function(e) {                    
+                    clearState(dataGrid.option("dataSource"), cellInfo.data.id);
+                    dataGrid.refresh();
+                    }
+                })
+                .append($("<a href='#''>"+cellInfo.data.Name+"</a>"))
+             }, 
+
+            cssClass: "datagrid__link-cell" //обязательный класс
+        }, 
+        {
+            dataField: "Tel",
+            caption: "Телефон",
+            width: 153
+         
+        },   
+        {
+            dataField: "Email",
+            caption: "Email",
+            width: 144
+        }, 
+        {
+            dataField: "Location",
+            caption: "Местоположение",
+            width: 180
+        }, 
+        {
+            dataField: "Inn",
+            caption: "ИНН",
+            width: 138
+        }],
+
+        filterRow: {
+            applyFilter: "auto",
+            applyFilterText: "Apply filter",
+            betweenEndText: "End",
+            betweenStartText: "Start",
+            resetOperationText: "Reset",
+            showAllText: "",
+            showOperationChooser: true,
+            visible: true
+            },
+        showColumnLines: true,
+        showRowLines: true,    
+    }).data("dxDataGrid");
+
+};
 
 
 
@@ -714,6 +928,16 @@ $(function() {
     $(".init-switch").dxSwitch({
         value: false
     });
+$('.tabs__link a').click(function (e) {
+  e.preventDefault();
+  $('.tabs__link').removeClass('tabs__link--active');
+  $(this).parent().addClass('tabs__link--active');
+  $('.tabs__cont').removeClass('tabs__cont--active');
+  $('#'+ $(this).attr('href')).addClass('tabs__cont--active');
+
+});
+
+
     var simpleProducts = [
     "Выбор 1",
     "Выбор 12",
@@ -1146,189 +1370,34 @@ function userPopupClose() {
 		$('.app-lnk-disable').toggleClass('app-lnk-disable');
 	}
 }
-var employees = [{
-    "ID": 1,
-    "Forma": "ООО",
-    "Name": "Достаточно длинное наименование контрагента «Корпорация Креветка»",
-    "Tel": "+ 7 923 456 78 90",
-    "Email": "mymail@mail.com",
-    "Location": "г. Москва, ул. Стрельникова, 12, офис 23",
-    "Inn": "123456789012",
-    "state": false
-},{
-    "ID": 2,
-    "Forma": "ЗАО",
-    "Name": "Простое название контрагента",
-    "Tel": "+ 7 923 456 78 90",
-    "Email": "mymail@mail.com",
-    "Location": "Елизово ул. Бассейная, 76",
-    "Inn": "123456789012",
-    "state": false
-},{
-    "ID": 3,
-    "Forma": "ПАО",
-    "Name": "Достаточно длинное наименование контрагента «Корпорация Креветка»",
-    "Tel": "+ 7 923 456 78 90",
-    "Email": "mymail@mail.com",
-    "Location": "Мохачкала",
-    "Inn": "123456789012",
-    "state": false
-},{
-    "ID": 4,
-    "Forma": "ООО",
-    "Name": "Достаточно длинное наименование контрагента «Корпорация Креветка»",
-    "Tel": "+ 7 923 456 78 90",
-    "Email": "mymail@mail.com",
-    "Location": "г. Москва, ул. Стрельникова, 12, офис 23",
-    "Inn": "123456789012",
-    "state": false
-},{
-    "ID": 5,
-    "Forma": "ООО",
-    "Name": "Достаточно длинное наименование контрагента «Корпорация Креветка»",
-    "Tel": "+ 7 923 456 78 90",
-    "Email": "mymail@mail.com",
-    "Location": "г. Москва, ул. Стрельникова, 12, офис 23",
-    "Inn": "123456789012",
-    "state": false
-} ];
-
-
- var dataGrid =  $("#gridContainer").dxDataGrid({
-        dataSource: employees,
-        keyExpr: "ID",
-        selection: {
-            mode: "single"
-        },
-        scrolling: {
-            mode: "virtual"
-        },
-        hoverStateEnabled: true,
-        showBorders: true,
-        columns: 
-
-        [{
-            dataField: "Forma",
-            caption: "Форма собств.",
-            width: 115
-        },
-        {
-            dataField: "Name",
-            caption: "Наименование контрагента",
-             width: 249,
-
-            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку, навешиваем элемент radiogroup
-            $('<div class="datagrid__custom-radio-cell">')    //навешиваем  template иницилизируем его как radiogroup
-            .appendTo(cellElement)
-            .dxRadioGroup({ 
-                items: [{id: 1}],
-                valueExpr: 'id',
-                value: cellInfo.data.state ? 1 : null,
-                onValueChanged: function(e) {                    
-                    clearState(dataGrid.option("dataSource"), cellInfo.data.id);
-                    dataGrid.refresh();
-                    }
-                })
-                .append($("<a href='#''>"+cellInfo.data.Name+"</a>"))
-             }, 
-
-            cssClass: "datagrid__link-cell" //обязательный класс
-        }, 
-        {
-            dataField: "Tel",
-            caption: "Телефон",
-            width: 153
-         
-        },   
-        {
-            dataField: "Email",
-            caption: "Email",
-            width: 144
-        }, 
-        {
-            dataField: "Location",
-            caption: "Местоположение",
-            width: 180
-        }, 
-        {
-            dataField: "Inn",
-            caption: "ИНН",
-            width: 138
-        }],
-
-        filterRow: {
-            applyFilter: "auto",
-            applyFilterText: "Apply filter",
-            betweenEndText: "End",
-            betweenStartText: "Start",
-            resetOperationText: "Reset",
-            showAllText: "",
-            showOperationChooser: true,
-            visible: true
-            },
-        showColumnLines: true,
-        showRowLines: true,    
-    }).data("dxDataGrid");
-
-
-
-
-
-
-var s = 123456789;
-var random = function() {
-    s = (1103515245 * s + 12345) % 2147483647;
-    return s % (10 - 1);
+function initButton (Element) {
+    $('.' + Element).dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+             
+                }
+            });
 };
 
-var generateData = function (count) {
-    var i;
-    var surnames = ['Smith', 'Johnson', 'Brown', 'Taylor', 'Anderson', 'Harris', 'Clark', 'Allen', 'Scott', 'Carter'];
-    var names = ['James', 'John', 'Robert', 'Christopher', 'George', 'Mary', 'Nancy', 'Sandra', 'Michelle', 'Betty'];
-    var gender = ['Male', 'Female'];
-    var items = [],
-        startBirthDate = Date.parse('1/1/1975'),
-        endBirthDate = Date.parse('1/1/1992');
 
-    for (i = 0; i < count; i++) {
-        var birthDate = new Date(startBirthDate + Math.floor(
-                random() * 
-                (endBirthDate - startBirthDate) / 10));
-        birthDate.setHours(12);
-
-        var nameIndex = random();
-        var item = {
-            id: i + 1,
-            firstName: names[nameIndex],
-            lastName: surnames[random()],
-            gender: gender[Math.floor(nameIndex / 5)],
-            birthDate: birthDate
-        };
-        items.push(item);
-    }
-    return items;
-};
-
-$("#gridContainerr").dxDataGrid({
-        dataSource: generateData(1000),
-        showBorders: true,
-        customizeColumns: function (columns) {
-            columns[0].width = 70;
-        },
-        loadPanel: {
-            enabled: true
-        },
-        scrolling: {
-            mode: "virtual"
-        },
-        sorting: {
-            mode: "none"
-        },
-        onContentReady: function(e) {
-            e.component.option("loadPanel.enabled", false);
-        }
-    });
-
+initButton("button");
+//button like earth
+$(".input-field__btn").dxButton({
+    text: "",
+    onClick: function() {}
+});
+//special onclick
+$('#footer__button-save').dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+                    $('.footer__saved-msg').show();                
+                }
+            });
+     
 var cityData = [{
     id: 1,
     name: "Владивосток, Приморский край, Россия",

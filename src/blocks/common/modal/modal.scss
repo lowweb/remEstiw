@@ -29,8 +29,8 @@
 
 }
 
-.modal-city {
-  // width: 500px !important;
+.modal-location {
+
   &__title {
     display: flex;
 
@@ -187,8 +187,16 @@
   // border-radius: 3px;
   
   &__title {
-    padding: 20px 20px 30px 20px;
+    padding: 20px 20px 0px 20px;
     border-bottom: 1px solid #D5D7E1;
+    &-cont{
+      margin-bottom: 30px;
+
+      &--mb12{
+        margin-bottom: 12px;
+      }
+    }
+
 
     &-cap {
       padding-bottom: 30px;
@@ -197,14 +205,23 @@
 
   &__view {
     padding: 20px 20px 30px 20px;
+    flex: 1 1 auto;
+    overflow: auto;
+    min-height: 100px;
   }
     
   &__foo{
     border-top: 1px solid #D5D7E1;
     padding: 20px 20px 20px 20px;
     display: flex;
+    flex: 0 0 76px;
+    max-height: 76px;
   }  
-
+  
+  & .dx-popup-content {
+    display: flex;
+    flex-direction: column;
+  }
 
 }
 

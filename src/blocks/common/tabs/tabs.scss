@@ -1,0 +1,42 @@
+.tabs {
+	&__cont {
+		display: none;
+
+		&--active {
+			display: block;
+		}
+	}
+
+	&__links{
+		display: flex;
+    	flex-direction: row;
+    	
+    	
+	}
+
+	&__link {
+		margin-right: 40px;
+
+		& a {
+			@include font-fira ($clr-blue, 17px, normal);
+			padding-bottom: 12px;
+			position: relative; 
+		}
+		&--active a{
+			color: $clr-dark-light;
+
+			&:after {
+				content: '';
+				position: absolute;
+				bottom: 0px;
+				left: 0; right: 0;
+				height: 3px;
+				background-color: $clr-blue;
+			}
+		}
+
+
+	}
+
+
+}

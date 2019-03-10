@@ -9,19 +9,14 @@ function initButton (Element) {
             });
 };
 
+
 initButton("button");
-initButton ('destButton');
-
-// initButton("footer__button-next");
-// initButton("footer__button-prev");
-// initButton("modal-city__footer-ok-btn");
-// initButton("modal-city__footer-close-btn");
-
+//button like earth
 $(".input-field__btn").dxButton({
     text: "",
     onClick: function() {}
 });
-
+//special onclick
 $('#footer__button-save').dxButton({
                 stylingMode: 'text',
                 text: '',
