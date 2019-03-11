@@ -45,6 +45,7 @@ function inputFieldInit (element, elementId, defValue, readOnlyFlag ) {
   });
 };
 
+
 inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
 inputFieldInit ("pseudoClassTextEditorReadOnly","pseudoClassTextEditorReadOnly__id","100",true);
 

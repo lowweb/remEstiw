@@ -10,14 +10,19 @@ function initModal (clName,width, height, tTempl, cTempl) {
           contentTemplate: function () {
           	//обязательный template
           	return $($('.' + cTempl).html());
-          } 
+          },
+          onShown: function (e) {                                      
+
+e.element.dxScrollView();             
+} 
     });
 	initButton("button");
 };
 
-initModal("custom-clearance-modal", 768 , "80%", 'modal__title-templ','modal__content-templ');
 initModal("custom-clearance-3agent-modal", 1024 , "80%", 'modal__title-templ','modal__content-templ');
-initModal("modal-location", 500 , "auto", 'modal__title-templ','modal__content-templ');			
+initModal("modal-location", 500 , "auto", 'modal__title-templ','modal__content-templ');	
+initModal("custom-clearance-modal", 768 , "80%", 'modal__title-templ','modal__content-templ');
+
 	if ($('.modal').hasClass('modal-location')) {
 		const $stepContainer = $('.modal-location__step-container'),
        	  $steps         = $('.modal-location__step'),
@@ -76,6 +81,7 @@ initModal("modal-location", 500 , "auto", 'modal__title-templ','modal__content-t
 
 if ($('.modal').hasClass('custom-clearance-3agent-modal')) {
  initDataGrid ();
+ inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
 
 };
 

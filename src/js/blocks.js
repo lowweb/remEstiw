@@ -98,77 +98,6 @@ $('.input-field__cont').change ( function () {
 	 	$(this).parent().find('.input-field__label').removeClass('input-field__label--err');
 	 }
 });
-// $(".navbar").scroll (function () {
-
-//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
-
-//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
-//     $(".navbar-ul").addClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-sticky')[0].scrollIntoView(true);
-
-// }  
-// if ( $(this).scrollTop() == 0) {
-
-//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
-//     $(".navbar-ul").removeClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-currency')[0].scrollIntoView(true);
-//  }
-
-//  });
-$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
-	// $(this).toggleClass('user-popup-menu__title-btn--up');
-	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
-		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
-		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
-		$(this).toggleClass('btn-rotate180');
-		$(this).toggleClass('app-lnk-disable');
-	// }
-});
-
-
-$(".user-popup-menu__title-btn").click(function(e) {
-  e.stopPropagation(); 
-});
-
-
-function userPopupClose() {
-	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
-		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
-		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
-		$('.app-lnk-disable').toggleClass('btn-rotate180');
-		$('.app-lnk-disable').toggleClass('app-lnk-disable');
-	}
-}
-$('.timezone-popup-menu__title-btn').click(function(){
-// console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
-// if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
-		$(this).parents(".timezone-popup-menu__title").toggleClass('timezone-popup-menu__title--active');
-		$(this).parents(".timezone-popup-menu").find('.timezone-popup-menu__add').toggleClass('timezone-popup-menu__add--active');
-		$(this).toggleClass('btn-rotate180');
-		$(this).toggleClass('app-lnk-disable');
-
-	// }
-});
-
-
-$(".timezone-popup-menu__title-btn").click(function(e) {
-  e.stopPropagation(); 
-});
-
-function timezonePopupClose(e) {
-   // if (!$(e.target).closest("timezone-popup-menu").length) {
-	if ($('.timezone-popup-menu__title').hasClass('timezone-popup-menu__title--active')){
-		$(".timezone-popup-menu__title").toggleClass('timezone-popup-menu__title--active');
-		$(".timezone-popup-menu").find('.timezone-popup-menu__add').toggleClass('timezone-popup-menu__add--active');
-		$('.timezone-popup-menu__title-btn').toggleClass('btn-rotate180');
-		$('.timezone-popup-menu__title-btn').toggleClass('app-lnk-disable');
-	}
-	// }
-}
-
-
 function initButton (Element) {
     $('.' + Element).dxButton({
                 stylingMode: 'text',
@@ -554,6 +483,7 @@ function inputFieldInit (element, elementId, defValue, readOnlyFlag ) {
   });
 };
 
+
 inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
 inputFieldInit ("pseudoClassTextEditorReadOnly","pseudoClassTextEditorReadOnly__id","100",true);
 
@@ -577,14 +507,19 @@ function initModal (clName,width, height, tTempl, cTempl) {
           contentTemplate: function () {
           	//обязательный template
           	return $($('.' + cTempl).html());
-          } 
+          },
+          onShown: function (e) {                                      
+
+e.element.dxScrollView();             
+} 
     });
 	initButton("button");
 };
 
-initModal("custom-clearance-modal", 768 , "80%", 'modal__title-templ','modal__content-templ');
 initModal("custom-clearance-3agent-modal", 1024 , "80%", 'modal__title-templ','modal__content-templ');
-initModal("modal-location", 500 , "auto", 'modal__title-templ','modal__content-templ');			
+initModal("modal-location", 500 , "auto", 'modal__title-templ','modal__content-templ');	
+initModal("custom-clearance-modal", 768 , "80%", 'modal__title-templ','modal__content-templ');
+
 	if ($('.modal').hasClass('modal-location')) {
 		const $stepContainer = $('.modal-location__step-container'),
        	  $steps         = $('.modal-location__step'),
@@ -643,6 +578,7 @@ initModal("modal-location", 500 , "auto", 'modal__title-templ','modal__content-t
 
 if ($('.modal').hasClass('custom-clearance-3agent-modal')) {
  initDataGrid ();
+ inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
 
 };
 
@@ -1334,84 +1270,171 @@ var products = [{
 radiogroupClassInit ("radio--empt",[""],"");
 
 
-$('.header-currency__lang').click( function () {
-	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
-	$('.header-currency__lang').toggleClass('header-currency__lang--en');
-});
-//эффект на иконке при hover тк заголовок всегда 1
-$('.navbar__header-link').hover(  
-function(){
-    $(this).find(".navbar__header-icon").css('opacity','1')
-},
-function(){
-    $(this).find(".navbar__header-icon").css('opacity','0.6')
+$('.timezone-popup-menu__title-btn').click(function(){
+// console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
+// if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
+		$(this).parents(".timezone-popup-menu__title").toggleClass('timezone-popup-menu__title--active');
+		$(this).parents(".timezone-popup-menu").find('.timezone-popup-menu__add').toggleClass('timezone-popup-menu__add--active');
+		$(this).toggleClass('btn-rotate180');
+		$(this).toggleClass('app-lnk-disable');
 
+	// }
 });
 
 
-
-//open close menu
-  $('.navbar__header-close-btn').on('click', function() {
-  	openNavbar ();
-    //ширина footer
-    ///$('.footer').toggleClass('footer--fix313');
-  });
-
-function openNavbar () {
-     $('.navbar__header-close-btn').toggleClass('btn-rotate180');
-     $('.navbar__header-main-menu').toggleClass('navbar-el--hide');
-     $('.navbar__header-copyright').toggleClass('navbar-el--hide');
-     //показываем caption и  кнопку раскрытия субменю
-     $('.navbar__item-caption').toggleClass('navbar-item-el--hide');
-     $('.navbar__item-btn-submenu').toggleClass('navbar-item-el--hide');
-     $('.navbar__item-icon').css('margin','0 10px 0 27px'); //отступ от иконки при раскрытом меню
-    
- 
-
-     //сворачиваем все  submenu
-     if ($('.navbar').hasClass('navbar--open'))//меню открыо
-	 { 
-        if ($('.navbar__submenu').hasClass('navbar__submenu--open')){
-          $('.navbar__submenu--open').parent().find('.navbar__item-header').find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
-        }
-        
-        //убрали sticky  и закрыли все  submenu
-        $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
-        $(".navbar-ul").removeClass("navbar-ul--understicky");
-    	$('.navbar__submenu').removeClass('navbar__submenu--open');
-        $('.navbar__header-roll')[0].scrollIntoView(true);
-
-	 } 
-
-
-	$('.navbar').toggleClass('navbar--open'); //после всех тк ориентир на класс
-    //правим ширину для fix header после тк safari не корректно обрабатывает
-    /// if ($('.header-sticky').hasClass('header-sticky--active'))
-    /// {   
-    ///     $('.header-sticky').toggleClass('header-sticky--fix78');
-    ///     $('.header-sticky').toggleClass('header-sticky--fix313');
-    /// }
-
-}
-//эффект на иконке при hover тк заголовок всегда 1
-$('.navbar__item-header').hover(  
-function(){
-	$(this).find(".navbar__item-icon").css('opacity','1')
-},
-function(){
-	$(this).find(".navbar__item-icon").css('opacity','0.6')
-
+$(".timezone-popup-menu__title-btn").click(function(e) {
+  e.stopPropagation(); 
 });
 
-$('.navbar__item-header').click(function(){
-	if (!$('.navbar').hasClass('navbar--open')){
-		openNavbar ();
-		///$('.footer').toggleClass('footer--fix313');
+function timezonePopupClose(e) {
+   // if (!$(e.target).closest("timezone-popup-menu").length) {
+	if ($('.timezone-popup-menu__title').hasClass('timezone-popup-menu__title--active')){
+		$(".timezone-popup-menu__title").toggleClass('timezone-popup-menu__title--active');
+		$(".timezone-popup-menu").find('.timezone-popup-menu__add').toggleClass('timezone-popup-menu__add--active');
+		$('.timezone-popup-menu__title-btn').toggleClass('btn-rotate180');
+		$('.timezone-popup-menu__title-btn').toggleClass('app-lnk-disable');
 	}
-	$(this).parents(".navbar__item").find('.navbar__submenu').toggleClass('navbar__submenu--open');
-	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
+	// }
+}
 
+
+// $(".navbar").scroll (function () {
+
+//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
+
+//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
+//     $(".navbar-ul").addClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-sticky')[0].scrollIntoView(true);
+
+// }  
+// if ( $(this).scrollTop() == 0) {
+
+//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
+//     $(".navbar-ul").removeClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-currency')[0].scrollIntoView(true);
+//  }
+
+//  });
+$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
+	// $(this).toggleClass('user-popup-menu__title-btn--up');
+	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
+		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
+		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
+		$(this).toggleClass('btn-rotate180');
+		$(this).toggleClass('app-lnk-disable');
+	// }
 });
+
+
+$(".user-popup-menu__title-btn").click(function(e) {
+  e.stopPropagation(); 
+});
+
+
+function userPopupClose() {
+	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
+		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
+		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
+		$('.app-lnk-disable').toggleClass('btn-rotate180');
+		$('.app-lnk-disable').toggleClass('app-lnk-disable');
+	}
+}
+var cityData = [{
+    id: 1,
+    name: "Владивосток, Приморский край, Россия",
+    flag: "RU",
+    imgSrc: "img/flag-russia.svg"
+},
+{
+    id: 2,
+    name: "Владивосток, Приморский край, Россия",
+    flag: "RU",
+    imgSrc: "img/flag-russia.svg"
+},
+{
+    id: 3,
+    name: "Владивосток, Приморский край, Россия",
+    flag: "RU",
+    imgSrc: "img/flag-russia.svg"
+},
+{
+    id: 4,
+    name: "Владивосток, Приморский край, Россия",
+    flag: "RU",
+    imgSrc: "img/flag-russia.svg"
+}, {
+    id: 5,
+    name: "Находка",
+    flag: "RU",
+    imgSrc: "img/flag-russia.svg"
+}
+];
+
+function autocompleteInit (idElement,attrId, attrVal) {
+
+$("#"+idElement).dxAutocomplete({
+  inputAttr: {
+       id: attrId,
+       class: attrVal
+   },
+   dataSource: cityData,
+   valueExpr: 'name',
+   itemTemplate: function(data) {
+            //обязательный шаблон
+            return $("<div class='input-field__autocomplete-item'><img class='input-field__autocomplete-item--flag' src='" + data.imgSrc +
+                "'>" + data.name + "</div>");
+         }
+    
+}).dxValidator({                         //необходим если есть валидация
+        validationRules: [{
+            type: "required",
+            message: "Обязательно к заполнению"
+        }],
+        validationGroup: "validateItems" //обязательный параметр для валидации
+    });
+};
+
+
+autocompleteInit ("departName","departName__id","input-field__value");
+autocompleteInit ("destName","destName__id","input-field__value");
+autocompleteInit ("citySearch","citySearch__id","input-field__value");
+autocompleteInit ("modalCity","modalCity__id","input-field__value");
+
+
+
+function autocompleteInitClass (idElement,attrId, attrVal) {
+
+$("."+idElement).dxAutocomplete({
+  inputAttr: {
+       id: attrId,
+       class: attrVal
+   },
+   dataSource: cityData,
+   valueExpr: 'name',
+   itemTemplate: function(data) {
+            //обязательный шаблон
+            return $("<div class='input-field__autocomplete-item'><img class='input-field__autocomplete-item--flag' src='" + data.imgSrc +
+                "'>" + data.name + "</div>");
+         }
+    
+}).dxValidator({                         //необходим если есть валидация
+        validationRules: [{
+            type: "required",
+            message: "Обязательно к заполнению"
+        }],
+        validationGroup: "validateItems" //обязательный параметр для валидации
+    });
+};
+autocompleteInitClass ("input-field__city","input-field__city-id","input-field__value");
+autocompleteInitClass ("input-field__search","input-field__search-id","input-field__value"); //инициализировали как город только для примера
+
+
+
+
+
+
 
 
 //Выберите дату
@@ -1511,97 +1534,81 @@ $(".pseudoClassTextAria").dxTextArea({
     });
 
   $(".popup__info-newmsg").dxToast("show");
-var cityData = [{
-    id: 1,
-    name: "Владивосток, Приморский край, Россия",
-    flag: "RU",
-    imgSrc: "img/flag-russia.svg"
+$('.header-currency__lang').click( function () {
+	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
+	$('.header-currency__lang').toggleClass('header-currency__lang--en');
+});
+//эффект на иконке при hover тк заголовок всегда 1
+$('.navbar__header-link').hover(  
+function(){
+    $(this).find(".navbar__header-icon").css('opacity','1')
 },
-{
-    id: 2,
-    name: "Владивосток, Приморский край, Россия",
-    flag: "RU",
-    imgSrc: "img/flag-russia.svg"
-},
-{
-    id: 3,
-    name: "Владивосток, Приморский край, Россия",
-    flag: "RU",
-    imgSrc: "img/flag-russia.svg"
-},
-{
-    id: 4,
-    name: "Владивосток, Приморский край, Россия",
-    flag: "RU",
-    imgSrc: "img/flag-russia.svg"
-}, {
-    id: 5,
-    name: "Находка",
-    flag: "RU",
-    imgSrc: "img/flag-russia.svg"
+function(){
+    $(this).find(".navbar__header-icon").css('opacity','0.6')
+
+});
+
+
+
+//open close menu
+  $('.navbar__header-close-btn').on('click', function() {
+  	openNavbar ();
+    //ширина footer
+    ///$('.footer').toggleClass('footer--fix313');
+  });
+
+function openNavbar () {
+     $('.navbar__header-close-btn').toggleClass('btn-rotate180');
+     $('.navbar__header-main-menu').toggleClass('navbar-el--hide');
+     $('.navbar__header-copyright').toggleClass('navbar-el--hide');
+     //показываем caption и  кнопку раскрытия субменю
+     $('.navbar__item-caption').toggleClass('navbar-item-el--hide');
+     $('.navbar__item-btn-submenu').toggleClass('navbar-item-el--hide');
+     $('.navbar__item-icon').css('margin','0 10px 0 27px'); //отступ от иконки при раскрытом меню
+    
+ 
+
+     //сворачиваем все  submenu
+     if ($('.navbar').hasClass('navbar--open'))//меню открыо
+	 { 
+        if ($('.navbar__submenu').hasClass('navbar__submenu--open')){
+          $('.navbar__submenu--open').parent().find('.navbar__item-header').find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
+        }
+        
+        //убрали sticky  и закрыли все  submenu
+        $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
+        $(".navbar-ul").removeClass("navbar-ul--understicky");
+    	$('.navbar__submenu').removeClass('navbar__submenu--open');
+        $('.navbar__header-roll')[0].scrollIntoView(true);
+
+	 } 
+
+
+	$('.navbar').toggleClass('navbar--open'); //после всех тк ориентир на класс
+    //правим ширину для fix header после тк safari не корректно обрабатывает
+    /// if ($('.header-sticky').hasClass('header-sticky--active'))
+    /// {   
+    ///     $('.header-sticky').toggleClass('header-sticky--fix78');
+    ///     $('.header-sticky').toggleClass('header-sticky--fix313');
+    /// }
+
 }
-];
+//эффект на иконке при hover тк заголовок всегда 1
+$('.navbar__item-header').hover(  
+function(){
+	$(this).find(".navbar__item-icon").css('opacity','1')
+},
+function(){
+	$(this).find(".navbar__item-icon").css('opacity','0.6')
 
-function autocompleteInit (idElement,attrId, attrVal) {
+});
 
-$("#"+idElement).dxAutocomplete({
-  inputAttr: {
-       id: attrId,
-       class: attrVal
-   },
-   dataSource: cityData,
-   valueExpr: 'name',
-   itemTemplate: function(data) {
-            //обязательный шаблон
-            return $("<div class='input-field__autocomplete-item'><img class='input-field__autocomplete-item--flag' src='" + data.imgSrc +
-                "'>" + data.name + "</div>");
-         }
-    
-}).dxValidator({                         //необходим если есть валидация
-        validationRules: [{
-            type: "required",
-            message: "Обязательно к заполнению"
-        }],
-        validationGroup: "validateItems" //обязательный параметр для валидации
-    });
-};
+$('.navbar__item-header').click(function(){
+	if (!$('.navbar').hasClass('navbar--open')){
+		openNavbar ();
+		///$('.footer').toggleClass('footer--fix313');
+	}
+	$(this).parents(".navbar__item").find('.navbar__submenu').toggleClass('navbar__submenu--open');
+	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
 
-
-autocompleteInit ("departName","departName__id","input-field__value");
-autocompleteInit ("destName","destName__id","input-field__value");
-autocompleteInit ("citySearch","citySearch__id","input-field__value");
-autocompleteInit ("modalCity","modalCity__id","input-field__value");
-
-
-
-function autocompleteInitClass (idElement,attrId, attrVal) {
-
-$("."+idElement).dxAutocomplete({
-  inputAttr: {
-       id: attrId,
-       class: attrVal
-   },
-   dataSource: cityData,
-   valueExpr: 'name',
-   itemTemplate: function(data) {
-            //обязательный шаблон
-            return $("<div class='input-field__autocomplete-item'><img class='input-field__autocomplete-item--flag' src='" + data.imgSrc +
-                "'>" + data.name + "</div>");
-         }
-    
-}).dxValidator({                         //необходим если есть валидация
-        validationRules: [{
-            type: "required",
-            message: "Обязательно к заполнению"
-        }],
-        validationGroup: "validateItems" //обязательный параметр для валидации
-    });
-};
-autocompleteInitClass ("input-field__city","input-field__city-id","input-field__value");
-autocompleteInitClass ("input-field__search","input-field__search-id","input-field__value"); //инициализировали как город только для примера
-
-
-
-
-
-
+});
