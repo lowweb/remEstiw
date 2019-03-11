@@ -45,8 +45,8 @@ var employees = [{
     "state": false
 } ];
 
-
- var dataGrid =  $("#gridContainer").dxDataGrid({
+function initDataGrid () {
+    var dataGrid =  $("#gridContainer").dxDataGrid({
         dataSource: employees,
         keyExpr: "ID",
         selection: {
@@ -121,6 +121,9 @@ var employees = [{
         showColumnLines: true,
         showRowLines: true,    
     }).data("dxDataGrid");
+};
+
+ 
 
 
 

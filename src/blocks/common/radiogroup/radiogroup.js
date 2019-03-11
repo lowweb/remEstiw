@@ -54,5 +54,5 @@ radiogroupInit ("documentary-credit-shiping__radio",["Безотзывный", "
 
 radiogroupInit ("cargo-descript__hmanygoods-radio",["Один товар", "Два и более (сборное грузовое место)"],"horizontal");
 
-
+radiogroupInit ("custom-clearence__3agent-radio",["Резидент", "Нерезидент"],"horizontal");
 
