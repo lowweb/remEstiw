@@ -73,11 +73,15 @@
 .dx-loadpanel-content {
   display: flex;
   align-items: center;
-  flex-direction: column;
+  justify-content: center;
   box-shadow: none;
-  // border:none;
+  border:none;
+  background: transparent;
 }
 
 .dx-loadpanel-indicator {
+  display: none;
+}
+.dx-loadpanel-content-wrapper {
   display: none;
 }

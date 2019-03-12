@@ -15,24 +15,34 @@
 }
 
 
-/* The container */
-.container {
+
+//for tree view checkbox
+
+.chkbox-cont {
   display: block;
   position: relative;
   cursor: pointer;
   user-select: none;
-  margin-right: 8px;
+  margin-right: 10px;
+
+
+
+  & input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
 }
 
-/* Hide the browser's default radio button */
-.container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
+.chkbox-empty {
+  min-width: 20px;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+
 }
 
-/* Create a custom radio button */
-.checkmark {
+.chkbox-chkmrk {
   height: 20px;
   width: 20px;
   background-color: #eee;
@@ -40,33 +50,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
 }
 
-/* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
-  // background-color: #ccc;
+.chkbox-cont :hover input ~ .chkbox-chkmrk {
   border: 1px solid $clr-blue;
 }
 
-/* When the radio button is checked*/
-.container input:checked ~ .checkmark {
+
+.chkbox-cont input:checked ~ .chkbox-chkmrk {
   background-color: $clr-blue;
 }
 
-/* Create the indicator (the dot/circle - hidden when not checked) */
-.checkmark:after {
+
+
+.chkbox-chkmrk:after {
   content: "";
   position: absolute;
   display: none;
 }
 
-/* Show the indicator (dot/circle) when checked */
-.container input:checked ~ .checkmark:after {
+
+.chkbox-cont  input:checked ~ .chkbox-chkmrk:after {
   display: block;
 }
 
-/* Style the indicator (dot/circle) */
-.container .checkmark:after {
+
+.chkbox-cont  .chkbox-chkmrk:after {
 	width: 8px;
 	height: 8px;
 	border-radius: 50%;

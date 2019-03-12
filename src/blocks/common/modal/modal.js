@@ -12,9 +12,8 @@ function initModal (clName,width, height, tTempl, cTempl) {
           	return $($('.' + cTempl).html());
           },
           onShown: function (e) {                                      
-
 			$(".scrollView").dxScrollView({
-		        height: "auto",
+		        height: "100%",
 		        width: "auto",
 		        direction: "vertical"
 		    });            

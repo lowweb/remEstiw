@@ -2,11 +2,13 @@
 
 	display: flex;
 	flex-wrap: no-wrap;
-	align-items: center;
+	align-items: flex-start;
 	 @include font-lucida (rgba(0, 0, 0, 0.7), 14px, normal);
 	 &__code {
 	 	color: #000000;
-	 	margin-right: 8px;
+	 	// margin-right: 0px;
+	 	// margin-left: 10px;
+	 	min-width: 72px;
 	 }
 
 	 &__radio {
@@ -20,16 +22,24 @@
 	 }
 	 &__tx {
 	 	margin-right: 8px;
-	 	border-bottom: 1px dashed  $clr-blue;
-	 	color: $clr-blue;	
-
-	 	// &:hover {
-	 	// 	border-bottom: 1px dashed $clr-purple;
-	 	// 	color: $clr-purple;
-	 	// }
+	 	// border-bottom: 1px dashed  $clr-blue;
+	 	// color: $clr-blue;
+	 	color: rgba(0, 0, 0, 0.7);	
 	 }
+
+	 &__last {
+	 	
+	 	& > .treeview__code{
+			margin-right: 5px;
+	 	} 
+	 }
+
+	 // & 
 	
 }
+.chkbox-cont input:checked .treeview__last .treeview__tx {
+      color: yellow !important;
+    }
 
 .dx-treeview-toggle-item-visibility {
 
@@ -50,6 +60,11 @@
   	&:before {
   		content: '';
   	}
+
+  	&:hover {
+		background-image: url(#{$imgFolder}custom-tree-btn-hov.svg);
+		
+  	}
 }
 
 
@@ -57,6 +72,7 @@
 .dx-treeview-toggle-item-visibility.dx-treeview-toggle-item-visibility-opened {
 
 	transform: rotate(180deg);
+	background-image: url(#{$imgFolder}custom-tree-btn-opn.svg);
     font: 14px/1 DXIcons;
     font-size:0px;
     text-align: center;
@@ -68,19 +84,6 @@
 
 
 
-.dx-treeview-node.dx-state-selected > .dx-treeview-item {
-  background-color: yellow;
-
-}
-
-// .dx-treeview-node.dx-state-selected > .dx-treeview-toggle-item-visibility {
-//   background-color: #e6e6e6;
-// }
-
-// .dx-treeview-node.dx-state-focused  > .dx-treeview-toggle-item-visibility {
-//  background-color: #ECF4FA;
-
-// }
 
 
 
@@ -92,23 +95,25 @@
 	 }
 	
 	  & .treeview__tx {
-	 	border-bottom: 1px dashed $clr-purple;
-	 	 color: $clr-purple;	
+	  	//убрали линию
+	 	// border-bottom: 1px dashed $clr-purple;
+	 	  // color: $clr-purple;
+	 	  color: rgba(0, 0, 0, 0.7);	
 	 }
 
 
 }
 
 .dx-treeview-item {
-    // padding: 5px 36px;
-    // transform: translate(-20px,0);
-    // min-height: 32px;
+    margin-left: 10px;
 
 
     &.dx-state-hover {
     	& .treeview__tx {
-	 	border-bottom: 1px dashed $clr-purple;
-	 		color: $clr-purple;	
+	 	//убрали линию
+	 	// border-bottom: 1px dashed $clr-purple;
+	 	  // color: $clr-purple;
+	 	  color: rgba(0, 0, 0, 0.7);
 	 }
     }
 
@@ -121,7 +126,7 @@
 
 	& > .dx-item .treeview__tx {
 		border-bottom: none;
-	 	color: rgba(0, 0, 0, 0.7);;
+	 	color: #000000;
 	}
 }
 
