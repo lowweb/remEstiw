@@ -13,8 +13,12 @@ function initModal (clName,width, height, tTempl, cTempl) {
           },
           onShown: function (e) {                                      
 
-e.element.dxScrollView();             
-} 
+			$(".scrollView").dxScrollView({
+		        height: "auto",
+		        width: "auto",
+		        direction: "vertical"
+		    });            
+		} 
     });
 	initButton("button");
 };
@@ -82,6 +86,7 @@ initModal("custom-clearance-modal", 768 , "80%", 'modal__title-templ','modal__co
 if ($('.modal').hasClass('custom-clearance-3agent-modal')) {
  initDataGrid ();
  inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
+ radiogroupInit ("custom-clearence__3agent-radio",["Резидент", "Нерезидент"],"horizontal");
 
 };
 

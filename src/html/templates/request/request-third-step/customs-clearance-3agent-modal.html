@@ -20,6 +20,7 @@
 </template>
 
 <template class="modal__content-templ">
+  <div class="scrollView">
   <div class="modal__view">
     
      <div id="tabs-3agent-list" class="tabs__cont tabs__cont--active">
@@ -27,7 +28,7 @@
      </div>     
 
      <div id="tabs-3agent-newcontr" class="tabs__cont"> 
-      <!-- <div class="block__cont"> -->
+      <div class="block__cont" style="width: 790px;">
           <div class="block__row block__row--gapb30">
              <div id="custom-clearence__3agent-radio" class="radiogroup"></div>
          </div>
@@ -88,7 +89,7 @@
                       </div>
                   </div>
                   </div>
-                  <div class="block__row">
+                  <div class="block__row block__row--gap20">
                     <div class="input-field">
                       <div id="pseudoElementTextEditor" class="input-field__cont pseudoClassTextEditor"></div>
                       <div class="input-field__label">
@@ -102,7 +103,7 @@
                       </div>
                   </div>
                   </div>
-                  <div class="block__row">
+                  <div class="block__row block__row--gap20">
                     <div class="input-field">
                       <div id="pseudoElementTextEditor" class="input-field__cont pseudoClassTextEditor"></div>
                       <div class="input-field__label">
@@ -121,11 +122,64 @@
 
             </div>
           </field-set>
+          <div class="step-block__sep step-block__sep--blank"></div>
+          <fieldset class="field-set">
+          <legend class="field-set__cap">
+            Контактное лицо в офисе
+          </legend>
+            <div class="field-set__items">
+                <div class="block__cont">
+                <div class="block__row block__row--gap20">
+                  <div class="input-field">
+                      <div id="pseudoElementTextEditor" class="input-field__cont pseudoClassTextEditor"></div>
+                      <div class="input-field__label">
+                        <label for="pseudoElementTextEditor__id">Имя:</label> 
+                      </div>
+                  </div>
+                  <div class="input-field">
+                      <div id="pseudoElementTextEditor" class="input-field__cont pseudoClassTextEditor"></div>
+                      <div class="input-field__label">
+                        <label for="pseudoElementTextEditor__id">Фамилия:</label> 
+                      </div>
+                  </div>
+                </div>
+                <div class="block__row block__row--gap20">
+                  <div class="input-field">
+                      <div id="pseudoElementTextEditor" class="input-field__cont pseudoClassTextEditor"></div>
+                      <div class="input-field__label">
+                        <label for="pseudoElementTextEditor__id">Занимаемая должность:</label> 
+                      </div>
+                  </div>
+                  <div class="input-field">
+                      <div id="pseudoElementTextEditor" class="input-field__cont pseudoClassTextEditor"></div>
+                      <div class="input-field__label">
+                        <label for="pseudoElementTextEditor__id">Как к вам обращаться:</label> 
+                      </div>
+                  </div>
+                </div>
+                <div class="block__row block__row--gap20">
+                  <div class="input-field">
+                      <div id="pseudoElementTextEditor" class="input-field__cont pseudoClassTextEditor"></div>
+                      <div class="input-field__label">
+                        <label for="pseudoElementTextEditor__id">Контактный телефон:</label> 
+                      </div>
+                  </div>
+                  <div class="input-field">
+                      <div id="pseudoElementTextEditor" class="input-field__cont pseudoClassTextEditor"></div>
+                      <div class="input-field__label">
+                        <label for="pseudoElementTextEditor__id">E-mail:</label> 
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
 
-
+        </div>
       </div>
 
   </div> 
+</div>
 
 
   <div class="modal__foo">
