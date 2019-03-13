@@ -33,11 +33,9 @@
 			margin-right: 5px;
 	 	} 
 	 }
-
-	 // & 
 	
 }
-.chkbox-cont input:checked .treeview__last .treeview__tx {
+.treeview > .chkbox-cont input:checked  + .treeview > .treeview__last > .treeview__tx {
       color: yellow !important;
     }
 

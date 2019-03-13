@@ -1,16 +1,20 @@
-.modal {
+.modal-location {
+  &__search {
+ 
+     &-err {
+      @include font-lucida (#999999, 12px, normal);
+      padding: 6px 0px 0px 0px;
+      display: none;
 
-  &-city__content {
-    margin: 5% auto; 
-    width: 500px; 
-    background: #FFFFFF;
-    border: 1px solid $clr-grey-v2;
-    box-sizing: border-box;
-    box-shadow: 0px 8px 30px rgba(55, 63, 81, 0.2);
-    border-radius: 3px;
-    overflow: hidden;
+      &--show {
+        display: block;
+      }
+    }
   }
+}
 
+
+.modal {
   &__btn-close {
     color: $clr-dark-light;
     // float: right;
@@ -25,167 +29,8 @@
       text-decoration: none;
       cursor: pointer;
     }
-}
-
-}
-
-.modal-location {
-
-  &__title {
-    display: flex;
-
-    position: relative;
-
-    &-cap {
-      flex: 1;
-      height: 77px;
-      @include font-lucida ($clr-dark-light, 22px, normal);
-      padding-left: 20px;
-      padding-top: 20px;
-    }
   }
-
-  &__search {
-    padding: 0 20px 0px 20px;
-
-    &-block{
-      min-height: 33px;
-      margin-bottom: 30px;
-
-    }
-
-    &-err {
-      @include font-lucida (#999999, 12px, normal);
-      padding: 6px 103px 0px 20px;
-      display: none;
-
-      &--show {
-        display: block;
-      }
-    }
-
-  }
-
-  &__block-cap{
-    height: 50px;
-    background: #F2F3FB;
-    @include font-lucida ($clr-dark-light, 13px, normal);
-    display: flex;
-    align-items: center;
-    padding-left: 19px;
-    border-top: 1px solid $clr-grey-v2;
-
-    &--link{
-      height: 50px;
-      background: #F2F3FB;
-      display: flex;
-      align-items: center;
-      padding-left: 19px;
-      border-top: 1px solid $clr-grey-v2;
-      border-bottom: 1px solid $clr-grey-v2;
-      cursor: pointer;
-      @include font-lucida ($clr-blue, 15px, normal);
-      &:hover {
-        color: $clr-purple;
-      }
-    }
-  }
-
-  &__block-item {
-    height: 44px;
-    background-color: $clr-white;
-    border-top: 1px solid $clr-grey-v2;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-     @include font-lucida ($clr-blue, 15px, normal);
-     cursor: pointer;
-     padding: 0 20px 0 28px;
-     position: relative;
-      &:hover {
-        color: $clr-purple;
-
-      }
-
-
-  }
-  &__block-href-next {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      &:after {
-        content: url(#{$imgFolder}modal-city--next-btn.svg);
-        float: right;
-     }
-     &:hover::after{
-        content: url(#{$imgFolder}modal-city--next-btn--hov.svg);
-     }
-  }
-    &__block-href-back {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-
-      &:before {
-        content: url(#{$imgFolder}modal-city--next-btn.svg);
-        float: left;
-        transform: rotate(180deg);
-        margin-right: 18px; 
-     }
-     &:hover::before{
-        content: url(#{$imgFolder}modal-city--next-btn--hov.svg);
-     }
-  }
-
-
-  &__footer {
-    height: 96px;
-    display: flex;
-    align-items: center;
-    border-top: 1px solid $clr-grey-v2; 
-    
-    &-ok-btn {
-      margin-left: 20px;
-      margin-right: 20px;
-    }
-  }
-
-  &__step-container {
-      display: block;
-      // align-items: center;
-      transition: .5s ease-in-out;
-      height: 100%;
-      display: flex;
-  }
-
-  &__content {
-        // display: none;
-    // height: 100%;
-  }
-
-  &__step {
-    & .input-field {
-      padding: 20px 120px 10px 20px;
-    }
-  }
-}
-
-
-.modal {
-  // width: 738px;
-  // height: auto;
-  // position: relative;
-  // background: #FFFFFF;
-  // border: 1px solid #D5D7E1;
-  // box-sizing: border-box;
-  // box-shadow: 0px 8px 30px rgba(55, 63, 81, 0.2);
-  // border-radius: 3px;
-  
+ 
   &__title {
     padding: 20px 20px 0px 20px;
     border-bottom: 1px solid #D5D7E1;
@@ -224,5 +69,87 @@
     flex-direction: column;
   }
 
+   &__step-container {
+       display: block;
+       transition: .5s ease-in-out;
+       height: 100%;
+       display: flex;
+   }
+
+   &__block {
+
+      &-cap{
+         height: 50px;
+         background: #F2F3FB;
+         @include font-lucida ($clr-dark-light, 13px, normal);
+         display: flex;
+         align-items: center;
+         padding-left: 19px;
+         border-top: 1px solid $clr-grey-v2;
+         border-bottom: 1px solid $clr-grey-v2;
+           &:first-child {
+             border-top: none;
+           }
+           &--link{
+             height: 50px;
+             background: #F2F3FB;
+             display: flex;
+             align-items: center;
+             padding-left: 19px;
+             border-top: 1px solid $clr-grey-v2;
+             border-bottom: 1px solid $clr-grey-v2;
+             cursor: pointer;
+             @include font-lucida ($clr-blue, 15px, normal);
+             &:hover {
+               color: $clr-purple;
+             }
+           }
+         }
+
+         &-item {
+             height: 44px;
+             background-color: $clr-white;
+             border-bottom: 1px solid $clr-grey-v2;
+             display: flex;
+             align-items: center;
+             justify-content: space-between;
+             @include font-lucida ($clr-blue, 15px, normal);
+             cursor: pointer;
+             padding: 0 28px 0 20px;
+             position: relative;
+               &:hover {
+                 color: $clr-purple;
+               }
+
+               &:last-child{
+                border-bottom:none;
+               }
+          }
+
+          &-tx {
+              width: 100%;
+              height: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;       
+
+              &:after {
+                content: url(#{$imgFolder}modal-city--next-btn.svg);
+                float: right;
+             }
+             &:hover::after{
+                content: url(#{$imgFolder}modal-city--next-btn--hov.svg);
+             }
+          }
+
+        &-prev {
+          transform: rotate(180deg);
+          margin-right: 18px;
+
+          &:hover path{
+            fill: $clr-purple;
+          }
+        }
+   }
 }
 

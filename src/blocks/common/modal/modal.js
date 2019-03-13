@@ -1,15 +1,14 @@
-function initModalSpecialBlock (){
-	if ($('.modal').hasClass('modal-location')) {
-		const $stepContainer = $('.modal-location__step-container'),
-       	  $steps         = $('.modal-location__step'),
+function initModalStep () {
+			const $stepContainer = $('.modal__step-container'),
+       	  $steps         = $('.modal__step'),
       	  numSteps       = $steps.length,
-       	  $form          = $('.modal'),
-          $next          = $('.modal-location__block-item'),
-          $prev          = $('.modal-location__block-cap--link');
+       	  $form          = $('.modal .dx-popup-normal'),
+          $next          = $('.modal__block-item'),
+          $prev          = $('.modal__block-prev');
 
-		var stepWidth = 500;
+		var stepWidth = $form.width();
 		var currentSlide = 0;
-		 
+		 // alert ($form.width());
 		$steps.css({ width: stepWidth + "px" });
 		$stepContainer.css("width", stepWidth*numSteps + "px");		
 		animateSlider();	
@@ -22,7 +21,7 @@ function initModalSpecialBlock (){
 		  currentSlide ++;
 		  animateSlider();
 		  }
-		  $('.modal-location__block-href-back').text($(this).text());
+		  $('.modal__block-back').text($(this).text());
 		});			
 		$prev.on('click', function() {
 		  if(currentSlide > 0) {
@@ -30,30 +29,28 @@ function initModalSpecialBlock (){
 		    animateSlider();
 		  } 
 		});
+};
+
+function initModalCustom () {
+	if ($('.modal').hasClass('modal-location')) {
+		initModalStep();
 		//конец обязательного кода для псевдо окон	
-			
-			initButton("modal-location__footer-ok-btn");
-			initButton("modal-location__footer-close-btn");
-			//страна в модальном окне
-			selectBoxInitForId("modal__country-list",[ "Приморский край", "Камчатский край"],"modal__country-list__id","input-field__value");
-			//край район область в модальном окне
-			selectBoxInitForId("modal__region-list",[ "Приморский край", "Камчатский край"],"modal__region-list__id","input-field__value");
-			//необходимо заново инициализировать элемент
-			autocompleteInit ("locationSearch","locationSearch__id","input-field__value");
-			autocompleteInit ("modallocation","modallocation__id","input-field__value");		
-			//ошибка заполнения города
-			$('.modal-location__title').click(function() {
-			  $('.modal-location__search-err').toggleClass('modal-location__search-err--show');;
-			});				
-			//close modal
-			$('.modal__btn-close').click( function () {
-				$('.modal-location.dx-popup-wrapper').remove();
-			});
-			//closemodal btn
-			$('.modal-location__footer-close-btn').click( function () {
-		  		$('.modal-location.dx-popup-wrapper').remove();
+		//страна в модальном окне
+		selectBoxInitForId("modal__country-list",[ "Приморский край", "Камчатский край"],"modal__country-list__id","input-field__value");
+		//край район область в модальном окне
+		selectBoxInitForId("modal__region-list",[ "Приморский край", "Камчатский край"],"modal__region-list__id","input-field__value");
+		//необходимо заново инициализировать элемент
+		autocompleteInit ("locationSearch","locationSearch__id","input-field__value");
+		autocompleteInit ("modallocation","modallocation__id","input-field__value");		
+		//ошибка заполнения города
+		$('.modal__title-cap').click(function() {
+		  $('.modal-location__search-err').toggleClass('modal-location__search-err--show');;
+		});				
+		//close modal
+		$('.modal__btn-close').click( function () {
+			$('.modal-location.dx-popup-wrapper').remove();
 		});
-	};
+};
 
 if ($('.modal').hasClass('custom-clearance-3agent-modal')) {
  initDataGrid ();
@@ -62,6 +59,7 @@ if ($('.modal').hasClass('custom-clearance-3agent-modal')) {
 
 };
 };
+
 
 function initModal (clName,width, height, tTempl, cTempl) {
 	$("." + clName).dxPopup({
@@ -82,21 +80,15 @@ function initModal (clName,width, height, tTempl, cTempl) {
 		        width: "auto",
 		        direction: "vertical"
 		    }); 
-
-		    initModalSpecialBlock();          
+			initModalCustom();
+			initButton("button");            
 		} 
     });
-	initButton("button");
 };
 
 initModal("custom-clearance-3agent-modal", 1024 , "80%", 'modal__title-templ','modal__content-templ');
 initModal("modal-location", 500 , "auto", 'modal__title-templ','modal__content-templ');	
 initModal("custom-clearance-modal", 768 , "80%", 'modal__title-templ','modal__content-templ');
 
-
-
-
-
-	// initModal(500, 'modal__title-templ','modal__content-templ');
 
 
