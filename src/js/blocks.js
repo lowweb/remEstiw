@@ -126,60 +126,6 @@ $('#footer__button-save').dxButton({
                 }
             });
      
-function checkboxInit (element, text) {
-    $("[id="+element+"]").dxCheckBox({
-        text: text,
-        value: false,
-    });
-};
-
-checkboxInit ("used-cargo__checkbox", "Бывший в употреблении");
-checkboxInit ("home-cargo__checkbox", "Домашние вещи");
-checkboxInit ("humane-cargo__checkbox", "Гуманитарная помощь");
-checkboxInit ("oversize-cargo__checkbox", "Негабаритный");
-checkboxInit ("danger-cargo__checkbox", "Опасный груз");
-checkboxInit ("law-cargo__checkbox", "Юридическое сопровождение (ваши интересы в суде)");
-checkboxInit ("bay-cargo__checkbox", "Купить");
-checkboxInit ("deliver-cargo__checkbox", "Доставить груз");
-checkboxInit ("safer__checkbox", "Надежнёе");
-checkboxInit ("faster__checkbox", "Быстрее");
-checkboxInit ("cheaper__checkbox", "Дешевле");
-
-checkboxInit ("custom-clearence__import-checkbox", "При импорте");
-checkboxInit ("custom-clearence__export-checkbox", "При экспорте");
-checkboxInit ("custom-clearence-gd__import-checkbox", "Для экспорта из России");
-checkboxInit ("custom-clearence-gd__export-checkbox", "Для импорта в России");
-
-checkboxInit ("cargo-escort__gun-checkbox", "С огнестрельным оружием");
-
-
-checkboxInit ("expertise__accept-checkbox ", "При приёмке");
-checkboxInit ("expertise__delivery-checkbox ", "При сдаче");  
-
-checkboxInit ("documentary-credit__add-checkbox", "Данные аккредитива сообщу дополнительно"); 
-
-checkboxInit ("expertise-optionally__depart-checkbox", "В пункте отправления");
-checkboxInit ("expertise-optionally__dest-checkbox", " В пункте назначения");
-checkboxInit ("expertise-optionally__anotherplace-checkbox", "Дополнительно в другом месте");
-
-checkboxInit ("coast-incoterms__1checkbox", "Есть готовые");
-checkboxInit ("coast-incoterms__2checkbox", "Будут выпущены");
-checkboxInit ("coast-incoterms__3checkbox", "Выпустить");
-checkboxInit ("coast-incoterms__4checkbox", "По решению исполнителя");
-
-checkboxInit ("common-cargo-params-bulk", "Указать размеры фракций или составляющих массу");
-
-checkboxInit ("common-goodies-params__checkbox", "Будет выпущено классификационное решение ФТС РФ");
-
-checkboxInit ("common-cargo-params-container__checkbox", "Не возражаю против перегрузки в другие контейнера в транзитных пунктах");
-
-checkboxInit ("oversize-rzd__checkbox", "Не уверен, прошу определить по чертежу");
-
-checkboxInit ("ccp-mass-bulk-open__checkbox", "Указать размеры фракций или составляющих массу");
-
-
-
- 
 var employees = [{
     "ID": 1,
     "Forma": "ООО",
@@ -546,6 +492,60 @@ inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
 inputFieldInit ("pseudoClassTextEditorReadOnly","pseudoClassTextEditorReadOnly__id","100",true);
 
 
+function checkboxInit (element, text) {
+    $("[id="+element+"]").dxCheckBox({
+        text: text,
+        value: false,
+    });
+};
+
+checkboxInit ("used-cargo__checkbox", "Бывший в употреблении");
+checkboxInit ("home-cargo__checkbox", "Домашние вещи");
+checkboxInit ("humane-cargo__checkbox", "Гуманитарная помощь");
+checkboxInit ("oversize-cargo__checkbox", "Негабаритный");
+checkboxInit ("danger-cargo__checkbox", "Опасный груз");
+checkboxInit ("law-cargo__checkbox", "Юридическое сопровождение (ваши интересы в суде)");
+checkboxInit ("bay-cargo__checkbox", "Купить");
+checkboxInit ("deliver-cargo__checkbox", "Доставить груз");
+checkboxInit ("safer__checkbox", "Надежнёе");
+checkboxInit ("faster__checkbox", "Быстрее");
+checkboxInit ("cheaper__checkbox", "Дешевле");
+
+checkboxInit ("custom-clearence__import-checkbox", "При импорте");
+checkboxInit ("custom-clearence__export-checkbox", "При экспорте");
+checkboxInit ("custom-clearence-gd__import-checkbox", "Для экспорта из России");
+checkboxInit ("custom-clearence-gd__export-checkbox", "Для импорта в России");
+
+checkboxInit ("cargo-escort__gun-checkbox", "С огнестрельным оружием");
+
+
+checkboxInit ("expertise__accept-checkbox ", "При приёмке");
+checkboxInit ("expertise__delivery-checkbox ", "При сдаче");  
+
+checkboxInit ("documentary-credit__add-checkbox", "Данные аккредитива сообщу дополнительно"); 
+
+checkboxInit ("expertise-optionally__depart-checkbox", "В пункте отправления");
+checkboxInit ("expertise-optionally__dest-checkbox", " В пункте назначения");
+checkboxInit ("expertise-optionally__anotherplace-checkbox", "Дополнительно в другом месте");
+
+checkboxInit ("coast-incoterms__1checkbox", "Есть готовые");
+checkboxInit ("coast-incoterms__2checkbox", "Будут выпущены");
+checkboxInit ("coast-incoterms__3checkbox", "Выпустить");
+checkboxInit ("coast-incoterms__4checkbox", "По решению исполнителя");
+
+checkboxInit ("common-cargo-params-bulk", "Указать размеры фракций или составляющих массу");
+
+checkboxInit ("common-goodies-params__checkbox", "Будет выпущено классификационное решение ФТС РФ");
+
+checkboxInit ("common-cargo-params-container__checkbox", "Не возражаю против перегрузки в другие контейнера в транзитных пунктах");
+
+checkboxInit ("oversize-rzd__checkbox", "Не уверен, прошу определить по чертежу");
+
+checkboxInit ("ccp-mass-bulk-open__checkbox", "Указать размеры фракций или составляющих массу");
+
+
+
+ 
 $("#loadPanel").dxLoadPanel({
         closeOnOutsideClick: true,
         visible: true,
@@ -553,103 +553,6 @@ $("#loadPanel").dxLoadPanel({
 		shadingColor: "rgba(255,255,255, 0.8)",
 		message: ""
     });
-function initModal (clName,width, height, tTempl, cTempl) {
-	$("." + clName).dxPopup({
-        visible: true,
-        height:height,
-        width: width,
-        titleTemplate: function() {
-        	//обязательный template
-         	return $($('.' + tTempl).html());
-          },
-          contentTemplate: function () {
-          	//обязательный template
-          	return $($('.' + cTempl).html());
-          },
-          onShown: function (e) {                                      
-			$(".scrollView").dxScrollView({
-		        height: "100%",
-		        width: "auto",
-		        direction: "vertical"
-		    });            
-		} 
-    });
-	initButton("button");
-};
-
-initModal("custom-clearance-3agent-modal", 1024 , "80%", 'modal__title-templ','modal__content-templ');
-initModal("modal-location", 500 , "auto", 'modal__title-templ','modal__content-templ');	
-initModal("custom-clearance-modal", 768 , "80%", 'modal__title-templ','modal__content-templ');
-
-	if ($('.modal').hasClass('modal-location')) {
-		const $stepContainer = $('.modal-location__step-container'),
-       	  $steps         = $('.modal-location__step'),
-      	  numSteps       = $steps.length,
-       	  $form          = $('.modal'),
-          $next          = $('.modal-location__block-item'),
-          $prev          = $('.modal-location__block-cap--link');
-
-		var stepWidth = 500;
-		var currentSlide = 0;
-		 
-		$steps.css({ width: stepWidth + "px" });
-		$stepContainer.css("width", stepWidth*numSteps + "px");		
-		animateSlider();	
-		function animateSlider() {
-		  $stepContainer.css('transform', 'translateX('+ (-stepWidth * currentSlide)+'px)');
-		}
-				
-		$next.on('click', function() {
-		  if(currentSlide < numSteps-1){
-		  currentSlide ++;
-		  animateSlider();
-		  }
-		  $('.modal-location__block-href-back').text($(this).text());
-		});			
-		$prev.on('click', function() {
-		  if(currentSlide > 0) {
-		    currentSlide --;
-		    animateSlider();
-		  } 
-		});
-		//конец обязательного кода для псевдо окон	
-			
-			initButton("modal-location__footer-ok-btn");
-			initButton("modal-location__footer-close-btn");
-			//страна в модальном окне
-			selectBoxInitForId("modal__country-list",[ "Приморский край", "Камчатский край"],"modal__country-list__id","input-field__value");
-			//край район область в модальном окне
-			selectBoxInitForId("modal__region-list",[ "Приморский край", "Камчатский край"],"modal__region-list__id","input-field__value");
-			//необходимо заново инициализировать элемент
-			autocompleteInit ("locationSearch","locationSearch__id","input-field__value");
-			autocompleteInit ("modallocation","modallocation__id","input-field__value");		
-			//ошибка заполнения города
-			$('.modal-location__title').click(function() {
-			  $('.modal-location__search-err').toggleClass('modal-location__search-err--show');;
-			});				
-			//close modal
-			$('.modal__btn-close').click( function () {
-				$('.modal-location.dx-popup-wrapper').remove();
-			});
-			//closemodal btn
-			$('.modal-location__footer-close-btn').click( function () {
-		  		$('.modal-location.dx-popup-wrapper').remove();
-		});
-	};
-
-if ($('.modal').hasClass('custom-clearance-3agent-modal')) {
- initDataGrid ();
- inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
- radiogroupInit ("custom-clearence__3agent-radio",["Резидент", "Нерезидент"],"horizontal");
-
-};
-
-
-
-	// initModal(500, 'modal__title-templ','modal__content-templ');
-
-
-
 // //close modal
 // $('.modal__btn-close').click( function () {
 // 	$('#modal-city').hide();
@@ -961,38 +864,109 @@ $(function() {
     $(".init-switch").dxSwitch({
         value: false
     });
-$('.tabs__link a').click(function (e) {
-  e.preventDefault();
-  $('.tabs__link').removeClass('tabs__link--active');
-  $(this).parent().addClass('tabs__link--active');
-  $('.tabs__cont').removeClass('tabs__cont--active');
-  $('#'+ $(this).attr('href')).addClass('tabs__cont--active');
+function initModalSpecialBlock (){
+	if ($('.modal').hasClass('modal-location')) {
+		const $stepContainer = $('.modal-location__step-container'),
+       	  $steps         = $('.modal-location__step'),
+      	  numSteps       = $steps.length,
+       	  $form          = $('.modal'),
+          $next          = $('.modal-location__block-item'),
+          $prev          = $('.modal-location__block-cap--link');
 
-});
+		var stepWidth = 500;
+		var currentSlide = 0;
+		 
+		$steps.css({ width: stepWidth + "px" });
+		$stepContainer.css("width", stepWidth*numSteps + "px");		
+		animateSlider();	
+		function animateSlider() {
+		  $stepContainer.css('transform', 'translateX('+ (-stepWidth * currentSlide)+'px)');
+		}
+				
+		$next.on('click', function() {
+		  if(currentSlide < numSteps-1){
+		  currentSlide ++;
+		  animateSlider();
+		  }
+		  $('.modal-location__block-href-back').text($(this).text());
+		});			
+		$prev.on('click', function() {
+		  if(currentSlide > 0) {
+		    currentSlide --;
+		    animateSlider();
+		  } 
+		});
+		//конец обязательного кода для псевдо окон	
+			
+			initButton("modal-location__footer-ok-btn");
+			initButton("modal-location__footer-close-btn");
+			//страна в модальном окне
+			selectBoxInitForId("modal__country-list",[ "Приморский край", "Камчатский край"],"modal__country-list__id","input-field__value");
+			//край район область в модальном окне
+			selectBoxInitForId("modal__region-list",[ "Приморский край", "Камчатский край"],"modal__region-list__id","input-field__value");
+			//необходимо заново инициализировать элемент
+			autocompleteInit ("locationSearch","locationSearch__id","input-field__value");
+			autocompleteInit ("modallocation","modallocation__id","input-field__value");		
+			//ошибка заполнения города
+			$('.modal-location__title').click(function() {
+			  $('.modal-location__search-err').toggleClass('modal-location__search-err--show');;
+			});				
+			//close modal
+			$('.modal__btn-close').click( function () {
+				$('.modal-location.dx-popup-wrapper').remove();
+			});
+			//closemodal btn
+			$('.modal-location__footer-close-btn').click( function () {
+		  		$('.modal-location.dx-popup-wrapper').remove();
+		});
+	};
 
+if ($('.modal').hasClass('custom-clearance-3agent-modal')) {
+ initDataGrid ();
+ inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
+ radiogroupInit ("custom-clearence__3agent-radio",["Резидент", "Нерезидент"],"horizontal");
 
-    var simpleProducts = [
-    "Выбор 1",
-    "Выбор 12",
-    "Выбор 15",
-    "Выбор 111",
-    "Выбор Выбор 1",
-    "Выбор Выбор 2"
-];
-function tagBoxInit (idElement,idAttrName, itemsElement) {
-     $("."+idElement).dxTagBox({
-        items: itemsElement,
-        showSelectionControls: true,
-        placeholder: "Выберите",
-        showDropDownButton: true,
-        inputAttr: {
-         id: idAttrName
-        },
-        // width: widthElement
-    });
 };
-  
-tagBoxInit ("input-field__tagbox","input-field__tagbox-id",simpleProducts);  
+};
+
+function initModal (clName,width, height, tTempl, cTempl) {
+	$("." + clName).dxPopup({
+        visible: true,
+        height:height,
+        width: width,
+        titleTemplate: function() {
+        	//обязательный template
+         	return $($('.' + tTempl).html());
+          },
+          contentTemplate: function () {
+          	//обязательный template
+          	return $($('.' + cTempl).html());
+          },
+          onShown: function (e) {                                      
+			$(".scrollView").dxScrollView({
+		        height: "100%",
+		        width: "auto",
+		        direction: "vertical"
+		    }); 
+
+		    initModalSpecialBlock();          
+		} 
+    });
+	initButton("button");
+};
+
+initModal("custom-clearance-3agent-modal", 1024 , "80%", 'modal__title-templ','modal__content-templ');
+initModal("modal-location", 500 , "auto", 'modal__title-templ','modal__content-templ');	
+initModal("custom-clearance-modal", 768 , "80%", 'modal__title-templ','modal__content-templ');
+
+
+
+
+
+	// initModal(500, 'modal__title-templ','modal__content-templ');
+
+
+
 var tnvd= [
   {
     "key": 1,
@@ -1588,6 +1562,40 @@ var tnvd= [
 
 
 
+$('.tabs__link a').click(function (e) {
+  e.preventDefault();
+  $('.tabs__link').removeClass('tabs__link--active');
+  $(this).parent().addClass('tabs__link--active');
+  $('.tabs__cont').removeClass('tabs__cont--active');
+  $('#'+ $(this).attr('href')).addClass('tabs__cont--active');
+
+});
+
+
+$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
+	// $(this).toggleClass('user-popup-menu__title-btn--up');
+	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
+		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
+		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
+		$(this).toggleClass('btn-rotate180');
+		$(this).toggleClass('app-lnk-disable');
+	// }
+});
+
+
+$(".user-popup-menu__title-btn").click(function(e) {
+  e.stopPropagation(); 
+});
+
+
+function userPopupClose() {
+	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
+		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
+		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
+		$('.app-lnk-disable').toggleClass('btn-rotate180');
+		$('.app-lnk-disable').toggleClass('app-lnk-disable');
+	}
+}
 // $(".navbar").scroll (function () {
 
 //  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
@@ -1607,6 +1615,28 @@ var tnvd= [
 //  }
 
 //  });
+    var simpleProducts = [
+    "Выбор 1",
+    "Выбор 12",
+    "Выбор 15",
+    "Выбор 111",
+    "Выбор Выбор 1",
+    "Выбор Выбор 2"
+];
+function tagBoxInit (idElement,idAttrName, itemsElement) {
+     $("."+idElement).dxTagBox({
+        items: itemsElement,
+        showSelectionControls: true,
+        placeholder: "Выберите",
+        showDropDownButton: true,
+        inputAttr: {
+         id: idAttrName
+        },
+        // width: widthElement
+    });
+};
+  
+tagBoxInit ("input-field__tagbox","input-field__tagbox-id",simpleProducts);  
 $('.timezone-popup-menu__title-btn').click(function(){
 // console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
 // if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
@@ -1635,30 +1665,6 @@ function timezonePopupClose(e) {
 }
 
 
-$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
-	// $(this).toggleClass('user-popup-menu__title-btn--up');
-	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
-		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
-		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
-		$(this).toggleClass('btn-rotate180');
-		$(this).toggleClass('app-lnk-disable');
-	// }
-});
-
-
-$(".user-popup-menu__title-btn").click(function(e) {
-  e.stopPropagation(); 
-});
-
-
-function userPopupClose() {
-	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
-		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
-		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
-		$('.app-lnk-disable').toggleClass('btn-rotate180');
-		$('.app-lnk-disable').toggleClass('app-lnk-disable');
-	}
-}
 var cityData = [{
     id: 1,
     name: "Владивосток, Приморский край, Россия",
@@ -1823,39 +1829,44 @@ $("." + classElement).dxSelectBox({
 
 selectBoxInitForClass("pseudoClassSelectBox",[ "значение", "значение", "значенадывжлавдылажвылаие123456789" ],"pseudoNameElementSelectBox__id","input-field__value");
 
-$(".pseudoClassTextAria").dxTextArea({
+function textAriaInit (className, width,height) {
+	$("." + className).dxTextArea({
         spellcheck: false,
+        width: width,
+        height: height,
         inputAttr: {
        id: "pseudoElementTextAria__id",
        class:"input-field__value" 
    }
     });
-// function inputTextAria (element, elementId, defValue, readOnlyFlag ) {
-//   $("."+ element).dxTextAria({
-//   inputAttr: {
-//        id: elementId,
-//        class:"input-field__value" 
-//    },
-//    value: defValue,
-//    readOnly: readOnlyFlag
-//   });
-// };
- $(".popup__info-newmsg").dxToast({
-        message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
-        displayTime: 300000,
-        position: {my: 'center right', at: 'center right', offset: '-50 0'},
-        width: 375,
-		onShowing: function () {
-			//for left separate line on block message
-			$('.dx-toast-message').height($('.dx-toast-content').height());
-		}
-    });
+};
 
-  $(".popup__info-newmsg").dxToast("show");
+
+textAriaInit('pseudoClassTextAria', "auto", 72);
 $('.header-currency__lang').click( function () {
 	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
 	$('.header-currency__lang').toggleClass('header-currency__lang--en');
 });
+//эффект на иконке при hover тк заголовок всегда 1
+$('.navbar__item-header').hover(  
+function(){
+	$(this).find(".navbar__item-icon").css('opacity','1')
+},
+function(){
+	$(this).find(".navbar__item-icon").css('opacity','0.6')
+
+});
+
+$('.navbar__item-header').click(function(){
+	if (!$('.navbar').hasClass('navbar--open')){
+		openNavbar ();
+		///$('.footer').toggleClass('footer--fix313');
+	}
+	$(this).parents(".navbar__item").find('.navbar__submenu').toggleClass('navbar__submenu--open');
+	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
+
+});
+
 //эффект на иконке при hover тк заголовок всегда 1
 $('.navbar__header-link').hover(  
 function(){
@@ -1911,22 +1922,15 @@ function openNavbar () {
     /// }
 
 }
-//эффект на иконке при hover тк заголовок всегда 1
-$('.navbar__item-header').hover(  
-function(){
-	$(this).find(".navbar__item-icon").css('opacity','1')
-},
-function(){
-	$(this).find(".navbar__item-icon").css('opacity','0.6')
+ $(".popup__info-newmsg").dxToast({
+        message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
+        displayTime: 300000,
+        position: {my: 'center right', at: 'center right', offset: '-50 0'},
+        width: 375,
+		onShowing: function () {
+			//for left separate line on block message
+			$('.dx-toast-message').height($('.dx-toast-content').height());
+		}
+    });
 
-});
-
-$('.navbar__item-header').click(function(){
-	if (!$('.navbar').hasClass('navbar--open')){
-		openNavbar ();
-		///$('.footer').toggleClass('footer--fix313');
-	}
-	$(this).parents(".navbar__item").find('.navbar__submenu').toggleClass('navbar__submenu--open');
-	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
-
-});
+  $(".popup__info-newmsg").dxToast("show");

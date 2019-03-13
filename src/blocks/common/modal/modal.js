@@ -1,31 +1,4 @@
-function initModal (clName,width, height, tTempl, cTempl) {
-	$("." + clName).dxPopup({
-        visible: true,
-        height:height,
-        width: width,
-        titleTemplate: function() {
-        	//обязательный template
-         	return $($('.' + tTempl).html());
-          },
-          contentTemplate: function () {
-          	//обязательный template
-          	return $($('.' + cTempl).html());
-          },
-          onShown: function (e) {                                      
-			$(".scrollView").dxScrollView({
-		        height: "100%",
-		        width: "auto",
-		        direction: "vertical"
-		    });            
-		} 
-    });
-	initButton("button");
-};
-
-initModal("custom-clearance-3agent-modal", 1024 , "80%", 'modal__title-templ','modal__content-templ');
-initModal("modal-location", 500 , "auto", 'modal__title-templ','modal__content-templ');	
-initModal("custom-clearance-modal", 768 , "80%", 'modal__title-templ','modal__content-templ');
-
+function initModalSpecialBlock (){
 	if ($('.modal').hasClass('modal-location')) {
 		const $stepContainer = $('.modal-location__step-container'),
        	  $steps         = $('.modal-location__step'),
@@ -88,6 +61,39 @@ if ($('.modal').hasClass('custom-clearance-3agent-modal')) {
  radiogroupInit ("custom-clearence__3agent-radio",["Резидент", "Нерезидент"],"horizontal");
 
 };
+};
+
+function initModal (clName,width, height, tTempl, cTempl) {
+	$("." + clName).dxPopup({
+        visible: true,
+        height:height,
+        width: width,
+        titleTemplate: function() {
+        	//обязательный template
+         	return $($('.' + tTempl).html());
+          },
+          contentTemplate: function () {
+          	//обязательный template
+          	return $($('.' + cTempl).html());
+          },
+          onShown: function (e) {                                      
+			$(".scrollView").dxScrollView({
+		        height: "100%",
+		        width: "auto",
+		        direction: "vertical"
+		    }); 
+
+		    initModalSpecialBlock();          
+		} 
+    });
+	initButton("button");
+};
+
+initModal("custom-clearance-3agent-modal", 1024 , "80%", 'modal__title-templ','modal__content-templ');
+initModal("modal-location", 500 , "auto", 'modal__title-templ','modal__content-templ');	
+initModal("custom-clearance-modal", 768 , "80%", 'modal__title-templ','modal__content-templ');
+
+
 
 
 
