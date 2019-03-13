@@ -51,7 +51,7 @@
   &__view {
     padding: 20px 20px 30px 20px;
     flex: 1 1 auto;
-    overflow: auto;
+    // overflow: auto;
     min-height: 100px;
     height: 100%;
   }
@@ -150,6 +150,11 @@
             fill: $clr-purple;
           }
         }
+   }
+
+   &__foget {
+    cursor: pointer;
+    @include font-lucida ($clr-blue, 15px, normal);
    }
 }
 

@@ -85,9 +85,9 @@ color: $clr-dark;
 .app-lnk {
 	color: $clr-blue;
 	text-decoration: none;
-}
-.app-lnk:hover {
-	color: $clr-purple;
+	&:hover {
+		color: $clr-purple;
+	}
 }
 
 .app-lnk-disable {
@@ -97,11 +97,19 @@ color: $clr-dark;
 
 .app-lnk-img {
 	background-color: $clr-blue;
-}
-.app-lnk-img:hover {
-	background-color: $clr-purple;
+	&:hover {
+		background-color: $clr-purple;
+	}
 }
 
+.app-dash-lnk {
+	color: $clr-blue;
+	border-bottom: 1px dashed $clr-blue;
+	&:hover {
+		color: $clr-purple;
+		border-bottom: 1px dashed $clr-purple;
+	}
+}
 
 *
 {

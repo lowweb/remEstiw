@@ -85,10 +85,29 @@
 
 	&__row--gapt20 {
 		margin-top: 20px;
+		&:last-child {
+				margin-top: 0;
+			}
+	}
+
+	&__row--gapt30 {
+		margin-top: 30px;
 	}
 
 	&__row--gapb30 {
 		margin-bottom: 30px;
+		&:last-child {
+				margin-bottom: 0;
+			}
+	}
+	&__row--gapb10 {
+		margin-bottom: 10px;
+		&:last-child {
+				margin-bottom: 0;
+			}
+	}
+	&__row--gapb0 {
+		margin-bottom: 0px;
 	}
 
 	&__row--gap30 {
@@ -116,14 +135,6 @@
 			}
 		}
 
-		// & .input-field__cont {
-		// 	margin-right: 20px;
-
-		// 	&:last-child {
-		// 		margin-right: 0;
-		// 	}
-		// }
-
 		& .switch {
 			margin-right: 20px;
 			&:last-child {
@@ -148,7 +159,10 @@
 	&__cln--2 {
 		min-width: 276px;
 	}	
-
+	
+	&__row--center {
+		align-items: center;
+	}
 
 
 }
