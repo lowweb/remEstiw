@@ -105,6 +105,7 @@ color: $clr-dark;
 .app-dash-lnk {
 	color: $clr-blue;
 	border-bottom: 1px dashed $clr-blue;
+	cursor: pointer;
 	&:hover {
 		color: $clr-purple;
 		border-bottom: 1px dashed $clr-purple;

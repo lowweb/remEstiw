@@ -1,5 +1,5 @@
-function initModalStep (nextbtn, prevbtn, dynamCap, curSlide) {
-	const $stepContainer = $('.modal__step-container'),
+function initModalStep (contName,nextbtn, prevbtn, dynamCap, curSlide) {
+	const $stepContainer = $(contName),
        	  $steps         = $('.modal__step'),
       	  numSteps       = $steps.length,
        	  $form          = $('.modal .dx-popup-normal'),
@@ -38,8 +38,10 @@ function initModalStep (nextbtn, prevbtn, dynamCap, curSlide) {
 };
 
 function initModalCustom () {
+
+	//first page
 	if ($('.modal').hasClass('modal-location')) {
-		initModalStep('.modal__block-item','.modal__block-prev',true,0);
+		initModalStep('.modal__step-container','.modal__block-item','.modal__block-prev',true,0);
 		//конец обязательного кода для псевдо окон	
 		//страна в модальном окне
 		selectBoxInitForId("modal__country-list",[ "Приморский край", "Камчатский край"],"modal__country-list__id","input-field__value");
@@ -59,71 +61,83 @@ function initModalCustom () {
 };
 
 if ($('.modal').hasClass('custom-clearance-3agent-modal')) {
- initDataGrid ();
- inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
- radiogroupInit ("custom-clearence__3agent-radio",["Резидент", "Нерезидент"],"horizontal");
-
+	 initDataGrid ();
+	 inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
+	 radiogroupInit ("custom-clearence__3agent-radio",["Резидент", "Нерезидент"],"horizontal");
 };
 
 if ($('.modal').hasClass('modal-auth')) {
-//инициализируем карусель в модальном окне
-if ($('.modal').hasClass('modal-rem-step'))
-initModalStep('.modal__forget','.modal__block-prev',false,1);
-else
-initModalStep('.modal__forget','.modal__block-prev',false,0);
+	//инициализируем карусель в модальном окне, для смены пароля со второго шага для остальных с первого
+	if ($('.modal').hasClass('modal-rem-step'))
+	initModalStep('.modal__step-container-auth','#modal__forget-lnk','.modal__block-prev',false,1);
+	else
+	initModalStep('.modal__step-container-auth','#modal__forget-lnk','.modal__block-prev',false,0);	
+	
+	initModalStep('.modal__step-container-reg','#modal__agree-lnk','.modal__block-prev',false,0);	
 
-checkboxInit ("modal-reg__chk", "");
-// else
-// initModalStep('.modal__forget','.modal__block-prev',false,0);	
+	//инициализируем элементы
+	 inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
+	 checkboxInit ("login-modal__rem-checkbox", "Запомнить пароль");
+	 checkboxInit ("login-modal__agree-checkbox", "Я подтверждаю зарегистрированный вход в систему");
+	 checkboxInit ("modal-reg__chk", "");
+	 $("#auth-login").dxTextBox({
+	  inputAttr: {
+	   		 id: "requestName__id",  //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
+	   		 class:"input-field__value" //обязятельный класс
+	   }}).dxValidator({
+	        validationRules: [{
+	            type: "required",
+	            message: "Обязательно к заполнению"
+	        }],
+	        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
+	    });	
 
-//инициализируем элементы
- inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
- checkboxInit ("login-modal__rem-checkbox", "Запомнить пароль");
- checkboxInit ("login-modal__agree-checkbox", "Я подтверждаю зарегистрированный вход в систему");
- $("#auth-login").dxTextBox({
-  inputAttr: {
-   		 id: "requestName__id",  //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
-   		 class:"input-field__value" //обязятельный класс
-   }}).dxValidator({
-        validationRules: [{
-            type: "required",
-            message: "Обязательно к заполнению"
-        }],
-        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
-    });
+	    $("#auth-login2").dxTextBox({
+	  inputAttr: {
+	   		 id: "requestName__id",  //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
+	   		 class:"input-field__value" //обязятельный класс
+	   }}).dxValidator({
+	        validationRules: [{
+	            type: "required",
+	            message: "Обязательно к заполнению"
+	        }],
+	        validationGroup: "validateItems2" //обязательный параметр для валидации см. src/blocks/common/validate.js:
+	    });	
+
+	//ошибка заполнения 
+	//инициализируем div ошибок
+	$(".summary-error__items").dxValidationSummary({
+	        validationGroup: "validateItems"
+	    });
+	$(".summary-error2__items").dxValidationSummary({
+	        validationGroup: "validateItems2"
+	    });	
+
+	//обраотчик кнопки
+	$(document.body).on('click', '#loginBtnModal' ,function(){
+		DevExpress.validationEngine.validateGroup("validateItems");
+		$('.input-field__cont.dx-invalid').parent().find('.input-field__label').addClass('input-field__label--err');
+		$('#summary-error').show();
+	});	
+
+	$(document.body).on('click', '#modalBtnReg' ,function(){
+		DevExpress.validationEngine.validateGroup("validateItems2");
+		$('.input-field__cont.dx-invalid').parent().find('.input-field__label').addClass('input-field__label--err');
+		$('#summary-error2').show();
+	});	
 
 
-//ошибка заполнения 
-//инициализируем div ошибок
-$(".summary-error__items").dxValidationSummary({
-        validationGroup: "validateItems"
-    });
-//обраотчик кнопки
-$(document.body).on('click', '#loginBtnModal' ,function(){
-	DevExpress.validationEngine.validateGroup("validateItems");
-	$('.input-field__cont.dx-invalid').parent().find('.input-field__label').addClass('input-field__label--err');
-	$('.summary-error').show();
-});
-//обработчик смены поля
-$('.input-field__cont').change ( function () {
-	// console.log($(this));
-	 if( $(this).hasClass('dx-invalid') ){
-	 	$(this).parent().find('.input-field__label').addClass('input-field__label--err');
-	 }
-	 else {
-	 	$(this).parent().find('.input-field__label').removeClass('input-field__label--err');
-	 }
-});
 };
 
 };
 
 
-function initModal (clName,width, height, tTempl, cTempl) {
+function initModal (clName,width, height, tTempl, cTempl, position) {
 	$("." + clName).dxPopup({
         visible: true,
         height:height,
         width: width,
+        position: position,
         titleTemplate: function() {
         	//обязательный template
          	return $($('.' + tTempl).html());
@@ -144,9 +158,11 @@ function initModal (clName,width, height, tTempl, cTempl) {
     });
 };
 
-initModal("custom-clearance-3agent-modal", 1024 , "80%", 'modal__title-templ','modal__content-templ');
-initModal("modal-location", 500 , "auto", 'modal__title-templ','modal__content-templ');	
-initModal("custom-clearance-modal", 768 , "80%", 'modal__title-templ','modal__content-templ');
-initModal("modal-auth", 710 , "auto", 'modal__title-templ','modal__content-templ');	
+
+//init modal window
+initModal("custom-clearance-3agent-modal", 1024 , "80%", 'modal__title-templ','modal__content-templ',"center");
+initModal("modal-location", 500 , "auto", 'modal__title-templ','modal__content-templ',"center");	
+initModal("custom-clearance-modal", 768 , "80%", 'modal__title-templ','modal__content-templ',"center");
+initModal("modal-auth", 710 , "auto", 'modal__title-templ','modal__content-templ',{ offset: '0 -200'});	
 
 

@@ -56,7 +56,7 @@
     height: 100%;
   }
   &__subview {
-    padding: 20px 20px 30px 20px;
+    padding: 30px 20px 30px 20px;
   }
     
   &__foo{
@@ -156,7 +156,7 @@
         }
    }
 
-   &__foget {
+   &__modal__dash-lnk {
     cursor: pointer;
     @include font-lucida ($clr-blue, 15px, normal);
    }
@@ -164,6 +164,10 @@
    &__step {
     display: flex;
     flex-direction: column;
+   }
+
+   &__pers-info {
+    @include font-lucida (rgba(0, 0, 0, 0.7), 14px, normal);
    }
 }
 

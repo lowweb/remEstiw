@@ -21,10 +21,10 @@
 
 <template class="modal__content-templ">
 <!--   <div class="modal__view"> -->
-    
-     <div id="tab-auth" class="tabs__cont tabs__cont--active">
 
-      <div class='modal__step-container'>
+<!-- auth     -->
+     <div id="tab-auth" class="tabs__cont tabs__cont--active">
+      <div class='modal__step-container modal__step-container-auth'>
       <div class='modal__step'>
       <div class="modal__view modal__subview">
        <div class="block__cont">
@@ -38,7 +38,9 @@
           </div>
           <div class="block__row block__row--gapb30">
             <div class="input-field" style="width: 320px;">
-                <div id="pseudoElementTextEditor" class="input-field__cont pseudoClassTextEditor"></div>
+                <div id="pseudoElementTextEditor" class="input-field__cont pseudoClassTextEditor">              
+                </div>
+                <button class="input-field__show-pass"><img src="img/input-field__pass-show.svg" class="svg"></button>
                 <div class="input-field__label">
                   <label for="pseudoElementTextEditor__id">Пароль:</label> 
                 </div>
@@ -54,7 +56,7 @@
                  <div id="login-modal__agree-checkbox" class="checkbox"></div>
             </div>
           </div>
-          <div class="block__row block__row--gapt30 summary-error">
+          <div id="summary-error" class="block__row block__row--gapt30 summary-error">
               <div class="summary-error__items"></div>
           </div>
        </div>
@@ -65,14 +67,14 @@
           <button id="loginBtnModal" class="button basic-button purple-button" role="button" tabindex="0">
             <div class="dx-button-content">Войти</div>
           </button>
-          <a class="modal__forget app-dash-lnk">Я не помню пароль</a>
+          <a id="modal__forget-lnk" class="modal__dash-lnk app-dash-lnk">Я не помню пароль</a>
         </div>
       </div>
 
      </div> <!-- modal step -->
      <div class='modal__step'>
       <div class='modal__block-cap'>
-        <img src="/img/modal-city--next-btn.svg" class="modal__block-prev svg">
+        <img src="img/modal-city--next-btn.svg" class="modal__block-prev svg">
         <a class='modal__block-back'>Восстановление пароля </a>
       </div>
       <div class="modal__view modal__subview">
@@ -101,14 +103,15 @@
   </div>
   </div>
    
-
-  <div id="tab-reg" class="tabs__cont"> 
+<!-- registration -->
+<div id="tab-reg" class="tabs__cont"> 
+<div class='modal__step-container modal__step-container-reg'>
+  <div class='modal__step'>
     <div class="modal__view modal__subview"> 
-
       <div class="block__cont">
           <div class="block__row block__row--gap30 block__row--gapb30">
              <div class="input-field">
-                 <div id="pseudoElementTextEditor" class="input-field__cont pseudoClassTextEditor"></div>
+                 <div id="auth-login2" class="input-field__cont pseudoClassTextEditor"></div>
                  <div class="input-field__label">
                    <label for="pseudoElementTextEditor__id">Логин:</label> 
                  </div>
@@ -123,6 +126,7 @@
          <div class="block__row block__row--gap30 block__row--gapb30">
              <div class="input-field">
                  <div id="pseudoElementTextEditor" class="input-field__cont pseudoClassTextEditor"></div>
+                 <button class="input-field__show-pass"><img src="img/input-field__pass-show.svg" class="svg"></button>
                  <div class="input-field__label">
                    <label for="pseudoElementTextEditor__id">Пароль:</label> 
                  </div>
@@ -155,16 +159,16 @@
                    <label for="pseudoElementTextEditor__id">E-mail:</label> 
                  </div>
              </div>
-              <div class="input-field">
-                 <div id="pseudoElementTextEditor" class="input-field__cont pseudoClassTextEditor"></div>
-                 <div class="input-field__label">
-                   <label for="pseudoElementTextEditor__id">Местоположение:</label> 
-                 </div>
-             </div>
+             <div class="input-field">
+                <div class="input-field__cont input-field__icn-dropdown pseudoClassSelectBox"></div>          
+                <div class="input-field__label">
+                    <label for="pseudoClassSelectBox__id">Местоположение:</label> 
+                </div>        
+            </div>
          </div>
          <div class="block__row block__row--gap20 block__row--gapb30" style="width: 320px;">
-             <div class="input-field">
-                  <img src="/img/modal-reg-code.png">
+             <div class="input-field input-field--over" style="max-width: 150px;">
+                  <img src="img/modal-reg-code.png">
                   <div class="input-field__label">
                     <label for="pseudoElementTextEditor__id">Введите проверочный код:</label> 
                   </div>
@@ -176,19 +180,47 @@
                  </div>
              </div>
          </div>
-         <div class="block__row">
+         <div class="block__row block__row--gapb0">
            <div id="modal-reg__chk" class="checkbox checkbox-custcap"></div> 
-           <a class="app-dash-lnk">Я подтверждаю согласие на обработку персональных данных</a> 
-         </div>         
+           <a id="modal__agree-lnk" class="modal__dash-lnk app-dash-lnk">Я подтверждаю согласие на обработку персональных данных</a> 
+         </div> 
+         <div id="summary-error2" class="block__row block__row--gapt30 summary-error">
+              <div class="summary-error2__items"></div>
+          </div>        
       </div>
     </div> <!-- modal__view -->
     <div class="modal__foo">
     <div class="block__row block__row--gap20">
-      <button class="button basic-button purple-button" role="button" tabindex="0">
+      <button id="modalBtnReg" class="button basic-button purple-button" role="button" tabindex="0">
         <div class="dx-button-content">Зарегистрироваться</div>
       </button>
     </div>
     </div>
+  </div><!-- step -->
+  <div class='modal__step'>
+      <div class='modal__block-cap'>
+        <img src="img/modal-city--next-btn.svg" class="modal__block-prev svg">
+        <a class='modal__block-back'>Согласие на обработку персональных данных</a>
+      </div>
+    <div class="modal__view modal__subview modal__pers-info"> 
+      <div class="block__cont ">
+          <div class="block__row">
+            Нажимая кнопку «Зарегистрироваться», Вы подтверждаете свое согласие на обработку, в том числе автоматизированную, своих персональных данных, указанных в регистрационной форме. Под обработкой персональных данных понимаются действия (операции) с персональными данными физических лиц, включая сбор, систематизацию, накопление, хранение, уточнение (обновление, изменение), использование, распространение (в том числе передачу), обезличивание, блокирование и уничтожение. 
+          </div>
+          <div class="block__row">
+            Указанные персональные данные используются в целях предоставления пользователям сайта персонализированного доступа к ресурсам сайта. 
+          </div>
+          <div class="block__row">
+            Согласие на обработку персональных данных предоставляется с момента регистрации в качестве пользователя и действует в течение пяти лет. По истечении указанного срока действие согласия считается продленным на каждые следующие пять лет при отсутствии сведений о его отзыве. 
+          </div>
+          <div class="block__row">
+            Для отзыва согласия на обработку персональных данных необходимо отправить соответствующее уведомление администрации сайта.
+           </div>  
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
 
   </div> 
 <!-- </div> -->

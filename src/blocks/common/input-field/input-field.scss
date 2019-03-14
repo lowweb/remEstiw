@@ -149,7 +149,30 @@
 		width: 128px;
 	}
 
-	
+	&--over {
+		white-space: pre;
+	}
+
+	&__show-pass{
+			// content: url(#{$imgFolder}input-field__pass-show.svg);
+			cursor: pointer;
+			position: absolute;
+			top: 24px;
+			right: 0;
+			margin-right: 10px;
+			border: none;
+ 			background-color: transparent;
+ 			height: 34px;
+ 			width: 25px;
+ 			display: flex;
+ 			align-items: center;
+ 			justify-content: center;
+	}
+	&__show-pass:hover {
+		& path {
+ 				fill: $clr-blue;
+ 			}
+	}
 
 }
 

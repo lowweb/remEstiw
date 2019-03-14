@@ -98,6 +98,34 @@ $('.input-field__cont').change ( function () {
 	 	$(this).parent().find('.input-field__label').removeClass('input-field__label--err');
 	 }
 });
+function initButton (Element) {
+    $('.' + Element).dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+             
+                }
+            });
+};
+
+
+initButton("button");
+//button like earth
+$(".input-field__btn").dxButton({
+    text: "",
+    onClick: function() {}
+});
+//special onclick
+$('#footer__button-save').dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+                    $('.footer__saved-msg').show();                
+                }
+            });
+     
 function checkboxInit (element, text) {
     $("[id="+element+"]").dxCheckBox({
         text: text,
@@ -399,34 +427,6 @@ $("#gridContainerr").dxDataGrid({
         }
     });
 
-function initButton (Element) {
-    $('.' + Element).dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-             
-                }
-            });
-};
-
-
-initButton("button");
-//button like earth
-$(".input-field__btn").dxButton({
-    text: "",
-    onClick: function() {}
-});
-//special onclick
-$('#footer__button-save').dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-                    $('.footer__saved-msg').show();                
-                }
-            });
-     
 
     $(".fileUploader").dxFileUploader({
         accept:"image/*,*.zip,*.pdf,*.mp4",
@@ -474,28 +474,28 @@ $('#footer__button-save').dxButton({
 		uploadFailedMessage: "",
     });
 
-  //  $(".fileUploader--sm").dxFileUploader({
-  //       accept:"image/*,*.zip,*.pdf,*.mp4",
-  //       width: 276,
-	 //    // height: auto,
-	 //    multiple: true,
-	 //    allowCanceling: true,
-	 //    selectButtonText: "нажмите выбрать",
-		// showFileList: true,
-		// labelText: "Перенесите сюда файл (xls, word, pdf) или",
-		// uploadFailedMessage: "dsfs",
-		// onUploadStarted: function () {
-		// 	// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		// },
-		// onUploaded: function () {
-		// 	// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		// },
-		// onUploadError: function () {
-		// 	// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
-		// },
-		// uploadedMessage: "",
-		// uploadFailedMessage: "",
-  //   });
+   $(".fileUploader--sm").dxFileUploader({
+        accept:"image/*,*.zip,*.pdf,*.mp4",
+        width: 276,
+	    // height: auto,
+	    multiple: true,
+	    allowCanceling: true,
+	    selectButtonText: "нажмите выбрать",
+		showFileList: true,
+		labelText: "Перенесите сюда файл (xls, word, pdf) или",
+		uploadFailedMessage: "dsfs",
+		onUploadStarted: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploaded: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploadError: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
+		},
+		uploadedMessage: "",
+		uploadFailedMessage: "",
+    });
 
 //название запроса
 $("#requestName").dxTextBox({
@@ -549,6 +549,182 @@ inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
 inputFieldInit ("pseudoClassTextEditorReadOnly","pseudoClassTextEditorReadOnly__id","100",true);
 
 
+$("#loadPanel").dxLoadPanel({
+        closeOnOutsideClick: true,
+        visible: true,
+        shading: true,
+		shadingColor: "rgba(255,255,255, 0.8)",
+		message: ""
+    });
+function initModalStep (contName,nextbtn, prevbtn, dynamCap, curSlide) {
+	const $stepContainer = $(contName),
+       	  $steps         = $('.modal__step'),
+      	  numSteps       = $steps.length,
+       	  $form          = $('.modal .dx-popup-normal'),
+          $next          = $(nextbtn),
+          $prev          = $(prevbtn);
+
+		var stepWidth = $form.width();
+		var currentSlide = curSlide;
+		 // alert ($form.width());
+		$steps.css({ width: stepWidth + "px" });
+		$stepContainer.css("width", stepWidth*numSteps + "px");	
+
+		animateSlider();	
+
+		function animateSlider() {
+		  $stepContainer.css('transform', 'translateX('+ (-stepWidth * currentSlide)+'px)');
+		}
+				
+		$next.on('click', function(e) {
+			e.preventDefault();	
+		  if(currentSlide < numSteps-1){
+		  currentSlide ++;
+		  animateSlider();
+		  }
+
+		  //если заголовок следующего шага берется из элемента инициируещего
+		  if (dynamCap==true)
+		  $('.modal__block-back').text($(this).text());
+		});			
+		$prev.on('click', function(e) {
+		  if(currentSlide > 0) {
+		    currentSlide --;
+		    animateSlider();
+		  } 
+		});
+};
+
+function initModalCustom () {
+
+	//first page
+	if ($('.modal').hasClass('modal-location')) {
+		initModalStep('.modal__step-container','.modal__block-item','.modal__block-prev',true,0);
+		//конец обязательного кода для псевдо окон	
+		//страна в модальном окне
+		selectBoxInitForId("modal__country-list",[ "Приморский край", "Камчатский край"],"modal__country-list__id","input-field__value");
+		//край район область в модальном окне
+		selectBoxInitForId("modal__region-list",[ "Приморский край", "Камчатский край"],"modal__region-list__id","input-field__value");
+		//необходимо заново инициализировать элемент
+		autocompleteInit ("locationSearch","locationSearch__id","input-field__value");
+		autocompleteInit ("modallocation","modallocation__id","input-field__value");		
+		//ошибка заполнения города
+		$('.modal__title-cap').click(function() {
+		  $('.modal-location__search-err').toggleClass('modal-location__search-err--show');;
+		});				
+		//close modal
+		$('.modal__btn-close').click( function () {
+			$('.modal-location.dx-popup-wrapper').remove();
+		});
+};
+
+if ($('.modal').hasClass('custom-clearance-3agent-modal')) {
+	 initDataGrid ();
+	 inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
+	 radiogroupInit ("custom-clearence__3agent-radio",["Резидент", "Нерезидент"],"horizontal");
+};
+
+if ($('.modal').hasClass('modal-auth')) {
+	//инициализируем карусель в модальном окне, для смены пароля со второго шага для остальных с первого
+	if ($('.modal').hasClass('modal-rem-step'))
+	initModalStep('.modal__step-container-auth','#modal__forget-lnk','.modal__block-prev',false,1);
+	else
+	initModalStep('.modal__step-container-auth','#modal__forget-lnk','.modal__block-prev',false,0);	
+	
+	initModalStep('.modal__step-container-reg','#modal__agree-lnk','.modal__block-prev',false,0);	
+
+	//инициализируем элементы
+	 inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
+	 checkboxInit ("login-modal__rem-checkbox", "Запомнить пароль");
+	 checkboxInit ("login-modal__agree-checkbox", "Я подтверждаю зарегистрированный вход в систему");
+	 checkboxInit ("modal-reg__chk", "");
+	 $("#auth-login").dxTextBox({
+	  inputAttr: {
+	   		 id: "requestName__id",  //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
+	   		 class:"input-field__value" //обязятельный класс
+	   }}).dxValidator({
+	        validationRules: [{
+	            type: "required",
+	            message: "Обязательно к заполнению"
+	        }],
+	        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
+	    });	
+
+	    $("#auth-login2").dxTextBox({
+	  inputAttr: {
+	   		 id: "requestName__id",  //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
+	   		 class:"input-field__value" //обязятельный класс
+	   }}).dxValidator({
+	        validationRules: [{
+	            type: "required",
+	            message: "Обязательно к заполнению"
+	        }],
+	        validationGroup: "validateItems2" //обязательный параметр для валидации см. src/blocks/common/validate.js:
+	    });	
+
+	//ошибка заполнения 
+	//инициализируем div ошибок
+	$(".summary-error__items").dxValidationSummary({
+	        validationGroup: "validateItems"
+	    });
+	$(".summary-error2__items").dxValidationSummary({
+	        validationGroup: "validateItems2"
+	    });	
+
+	//обраотчик кнопки
+	$(document.body).on('click', '#loginBtnModal' ,function(){
+		DevExpress.validationEngine.validateGroup("validateItems");
+		$('.input-field__cont.dx-invalid').parent().find('.input-field__label').addClass('input-field__label--err');
+		$('#summary-error').show();
+	});	
+
+	$(document.body).on('click', '#modalBtnReg' ,function(){
+		DevExpress.validationEngine.validateGroup("validateItems2");
+		$('.input-field__cont.dx-invalid').parent().find('.input-field__label').addClass('input-field__label--err');
+		$('#summary-error2').show();
+	});	
+
+
+};
+
+};
+
+
+function initModal (clName,width, height, tTempl, cTempl, position) {
+	$("." + clName).dxPopup({
+        visible: true,
+        height:height,
+        width: width,
+        position: position,
+        titleTemplate: function() {
+        	//обязательный template
+         	return $($('.' + tTempl).html());
+          },
+          contentTemplate: function () {
+          	//обязательный template
+          	return $($('.' + cTempl).html());
+          },
+          onShown: function (e) {                                      
+			$(".scrollView").dxScrollView({
+		        height: "100%",
+		        width: "auto",
+		        direction: "vertical"
+		    }); 
+			initModalCustom();
+			initButton("button");            
+		} 
+    });
+};
+
+
+//init modal window
+initModal("custom-clearance-3agent-modal", 1024 , "80%", 'modal__title-templ','modal__content-templ',"center");
+initModal("modal-location", 500 , "auto", 'modal__title-templ','modal__content-templ',"center");	
+initModal("custom-clearance-modal", 768 , "80%", 'modal__title-templ','modal__content-templ',"center");
+initModal("modal-auth", 710 , "auto", 'modal__title-templ','modal__content-templ',{ offset: '0 -200'});	
+
+
+
  
 function numberBoxInit (idElement,idAttrName) {
 	 $("."+idElement).dxNumberBox({
@@ -567,13 +743,124 @@ function numberBoxInit (idElement,idAttrName) {
 numberBoxInit ("pseudoClassNumberBox","pseudoNameElementNumberBox__id");
 
 
-$("#loadPanel").dxLoadPanel({
-        closeOnOutsideClick: true,
-        visible: true,
-        shading: true,
-		shadingColor: "rgba(255,255,255, 0.8)",
-		message: ""
+var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
+var cargoReceiverItem = ["Физическое лицо", "Юридическое лицо"];
+var volumeItem = ["До 5 м", "Свыше 5 м"];
+var cargoCheracterItem = ["Однородный (массовый)", "Однородный (не массовый)","Однородный в упаковке", "Не однородный в/без упаковки/и", "Одно грузовое место", "Жидкость без упаковки"];
+var transportModItem = ["Груз навалом", "Загрузить в контейнер", "Уже загружен в контейнер", "По решению исполнителя"];
+var specialConditionsItem = ["На верхней палубе судна", "Открытое хранение", "Крытое хранение", "Температурный режим"];
+
+
+function radiogroupInit (idRadio, items, layout) {
+$("[id="+idRadio+"]").dxRadioGroup({
+        items: items,
+        layout: layout
     });
+};
+function radiogroupClassInit (idRadio, items, layout) {
+$("."+idRadio).dxRadioGroup({
+        items: items,
+        layout: layout
+    });
+};
+radiogroupClassInit ("radio--empt",[""],"");
+radiogroupInit ("type-deal__radioGroup",typeDealitem,"");
+radiogroupInit ("volume-cargo__radioGroup",volumeItem);
+radiogroupInit ("cargo-cheracter__radioGroup",cargoCheracterItem,"");
+radiogroupInit ("transport-mod__radioGroup",transportModItem,"");
+radiogroupInit ("special-conditions__radioGroup",specialConditionsItem,"");
+radiogroupInit ("cargo-receiver__radioGroup",cargoReceiverItem,"horizontal");
+radiogroupInit ("HBL__radioGroup", ["Уже выпущен и имеется", "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("сargo-escort__radioGroup", ["Уже выпущен и имеется", "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+
+//step2
+radiogroupInit ("сargo-exam__radioGroup", ["Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("сargo-insura__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("custom-clear__radioGroup", ["Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("product-exam__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("сargo-payment__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("product-payment__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+
+//step3
+radiogroupInit ("custom-clearence__export-radio",["Самостоятельно", "Оформить"],"horizontal");
+radiogroupInit ("custom-clearence__import-radio",["Самостоятельно", "Оформить"],"horizontal");
+
+radiogroupInit ("custom-clearence-gd__radio",["Не имеет значения", "В месте отправления","На границе"],"horizontal");
+
+radiogroupInit ("deliver-byself__radioGroup",["Полная предоплата", "Частичная оплата ", "Ценные бумаги", "Уставной капитал", "Бартер", "Фьючерс (будущие расчёты)"],"horizontal");
+
+radiogroupInit ("expertise__point-radio",["В пункте отправления", "В другом месте"],"horizontal");
+
+radiogroupInit ("deliver-executor__radioGroup",["Согласно подписанному ДС №3 c Исполнителем", "Подписать ДС №3 c Исполнителем", "Будет подписано ДС №3 c Исполнителем позже"],"");
+
+radiogroupInit ("cargo-escort-byself__doc-radio",["Да, нужно на всём маршруте", "Да, нужно на выбранных пунктах", "Нет, организую самостоятельно"],"horizontal");
+
+radiogroupInit ("documentary-credit-shiping__radio",["Безотзывный", "Отзывный", "Акцептный", "Безакцептный"],"horizontal");
+
+radiogroupInit ("cargo-descript__hmanygoods-radio",["Один товар", "Два и более (сборное грузовое место)"],"horizontal");
+
+radiogroupInit ("custom-clearence__3agent-radio",["Резидент", "Нерезидент"],"horizontal");
+
+
+$(function() {
+    $("[id=rangeSelector]").dxRangeSelector({
+        size: {
+            height: 70,
+            width: 744
+        },
+        selectedRangeColor: "rgba(55, 63, 81, 0.4)",
+        scale: {
+            startValue: -30,
+            endValue: +30,
+            // minorTickInterval: 5,
+            tickInterval: 10,
+            // minorTick: {
+                // visible: false,
+            // },
+            label: {
+                // format: "currency",
+                customizeText: function () {
+                return this.valueText + " ˚C";
+            	},
+            	font: {
+					color: "#373F51",
+					family: "Lucida Grande, Tahoma, Arial",
+					opacity: 1,
+					size: 13,
+					weight: 400
+				}
+            }
+        },
+        sliderMarker: {
+            // format: "currency",
+            color: "#373F51",
+            customizeText: function () {
+                return this.valueText + " ˚C";
+            },
+            font: {
+				color: "#FFFFFF",
+				family: "Lucida Grande, Tahoma, Arial",
+				opacity: 1,
+				size: 13,
+				weight: 400
+			},
+           	invalidRangeColor: "red",
+			paddingLeftRight: 10,
+			paddingTopBottom: 2,
+        },
+        value: [4, 8],
+        onInitialized: function () {      	
+        	
+        	
+        },
+        // redrawOnResize: function (){alert($('.rangeselector .dxrs-range-selector-line').offset());},
+        onDrawn: function (){    	
+            //обязательный вызов для backgroud элмента радуга
+        	$( ".rangeselector.dx-visibility-change-handler" ).append( "<div class='rangeselector__back'></div>");
+        }
+
+    });
+});
 //add consignment block
 
 //реализация добавление блоков на первом шаге. убрали тк по идеи не нужна
@@ -649,314 +936,19 @@ $("#loadPanel").dxLoadPanel({
 // 	if ($( ".consignment" ).length == 1 )
 // 		$( ".consignment .step-block__sep .step-block__sep-btn-close").remove();
 // });
-function initModalStep (nextbtn, prevbtn, dynamCap, curSlide) {
-	const $stepContainer = $('.modal__step-container'),
-       	  $steps         = $('.modal__step'),
-      	  numSteps       = $steps.length,
-       	  $form          = $('.modal .dx-popup-normal'),
-          $next          = $(nextbtn),
-          $prev          = $(prevbtn);
-
-		var stepWidth = $form.width();
-		var currentSlide = curSlide;
-		 // alert ($form.width());
-		$steps.css({ width: stepWidth + "px" });
-		$stepContainer.css("width", stepWidth*numSteps + "px");	
-
-		animateSlider();	
-
-		function animateSlider() {
-		  $stepContainer.css('transform', 'translateX('+ (-stepWidth * currentSlide)+'px)');
-		}
-				
-		$next.on('click', function(e) {
-			e.preventDefault();	
-		  if(currentSlide < numSteps-1){
-		  currentSlide ++;
-		  animateSlider();
-		  }
-
-		  //если заголовок следующего шага берется из элемента инициируещего
-		  if (dynamCap==true)
-		  $('.modal__block-back').text($(this).text());
-		});			
-		$prev.on('click', function(e) {
-		  if(currentSlide > 0) {
-		    currentSlide --;
-		    animateSlider();
-		  } 
-		});
-};
-
-function initModalCustom () {
-	if ($('.modal').hasClass('modal-location')) {
-		initModalStep('.modal__block-item','.modal__block-prev',true,0);
-		//конец обязательного кода для псевдо окон	
-		//страна в модальном окне
-		selectBoxInitForId("modal__country-list",[ "Приморский край", "Камчатский край"],"modal__country-list__id","input-field__value");
-		//край район область в модальном окне
-		selectBoxInitForId("modal__region-list",[ "Приморский край", "Камчатский край"],"modal__region-list__id","input-field__value");
-		//необходимо заново инициализировать элемент
-		autocompleteInit ("locationSearch","locationSearch__id","input-field__value");
-		autocompleteInit ("modallocation","modallocation__id","input-field__value");		
-		//ошибка заполнения города
-		$('.modal__title-cap').click(function() {
-		  $('.modal-location__search-err').toggleClass('modal-location__search-err--show');;
-		});				
-		//close modal
-		$('.modal__btn-close').click( function () {
-			$('.modal-location.dx-popup-wrapper').remove();
-		});
-};
-
-if ($('.modal').hasClass('custom-clearance-3agent-modal')) {
- initDataGrid ();
- inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
- radiogroupInit ("custom-clearence__3agent-radio",["Резидент", "Нерезидент"],"horizontal");
-
-};
-
-if ($('.modal').hasClass('modal-auth')) {
-//инициализируем карусель в модальном окне
-if ($('.modal').hasClass('modal-rem-step'))
-initModalStep('.modal__forget','.modal__block-prev',false,1);
-else
-initModalStep('.modal__forget','.modal__block-prev',false,0);
-
-checkboxInit ("modal-reg__chk", "");
-// else
-// initModalStep('.modal__forget','.modal__block-prev',false,0);	
-
-//инициализируем элементы
- inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
- checkboxInit ("login-modal__rem-checkbox", "Запомнить пароль");
- checkboxInit ("login-modal__agree-checkbox", "Я подтверждаю зарегистрированный вход в систему");
- $("#auth-login").dxTextBox({
-  inputAttr: {
-   		 id: "requestName__id",  //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
-   		 class:"input-field__value" //обязятельный класс
-   }}).dxValidator({
-        validationRules: [{
-            type: "required",
-            message: "Обязательно к заполнению"
-        }],
-        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
-    });
-
-
-//ошибка заполнения 
-//инициализируем div ошибок
-$(".summary-error__items").dxValidationSummary({
-        validationGroup: "validateItems"
-    });
-//обраотчик кнопки
-$(document.body).on('click', '#loginBtnModal' ,function(){
-	DevExpress.validationEngine.validateGroup("validateItems");
-	$('.input-field__cont.dx-invalid').parent().find('.input-field__label').addClass('input-field__label--err');
-	$('.summary-error').show();
-});
-//обработчик смены поля
-$('.input-field__cont').change ( function () {
-	// console.log($(this));
-	 if( $(this).hasClass('dx-invalid') ){
-	 	$(this).parent().find('.input-field__label').addClass('input-field__label--err');
-	 }
-	 else {
-	 	$(this).parent().find('.input-field__label').removeClass('input-field__label--err');
-	 }
-});
-};
-
-};
-
-
-function initModal (clName,width, height, tTempl, cTempl) {
-	$("." + clName).dxPopup({
-        visible: true,
-        height:height,
-        width: width,
-        titleTemplate: function() {
-        	//обязательный template
-         	return $($('.' + tTempl).html());
-          },
-          contentTemplate: function () {
-          	//обязательный template
-          	return $($('.' + cTempl).html());
-          },
-          onShown: function (e) {                                      
-			$(".scrollView").dxScrollView({
-		        height: "100%",
-		        width: "auto",
-		        direction: "vertical"
-		    }); 
-			initModalCustom();
-			initButton("button");            
-		} 
-    });
-};
-
-initModal("custom-clearance-3agent-modal", 1024 , "80%", 'modal__title-templ','modal__content-templ');
-initModal("modal-location", 500 , "auto", 'modal__title-templ','modal__content-templ');	
-initModal("custom-clearance-modal", 768 , "80%", 'modal__title-templ','modal__content-templ');
-initModal("modal-auth", 710 , "auto", 'modal__title-templ','modal__content-templ');	
-
-
-
-$(function() {
-    $("[id=rangeSelector]").dxRangeSelector({
-        size: {
-            height: 70,
-            width: 744
-        },
-        selectedRangeColor: "rgba(55, 63, 81, 0.4)",
-        scale: {
-            startValue: -30,
-            endValue: +30,
-            // minorTickInterval: 5,
-            tickInterval: 10,
-            // minorTick: {
-                // visible: false,
-            // },
-            label: {
-                // format: "currency",
-                customizeText: function () {
-                return this.valueText + " ˚C";
-            	},
-            	font: {
-					color: "#373F51",
-					family: "Lucida Grande, Tahoma, Arial",
-					opacity: 1,
-					size: 13,
-					weight: 400
-				}
-            }
-        },
-        sliderMarker: {
-            // format: "currency",
-            color: "#373F51",
-            customizeText: function () {
-                return this.valueText + " ˚C";
-            },
-            font: {
-				color: "#FFFFFF",
-				family: "Lucida Grande, Tahoma, Arial",
-				opacity: 1,
-				size: 13,
-				weight: 400
-			},
-           	invalidRangeColor: "red",
-			paddingLeftRight: 10,
-			paddingTopBottom: 2,
-        },
-        value: [4, 8],
-        onInitialized: function () {      	
-        	
-        	
-        },
-        // redrawOnResize: function (){alert($('.rangeselector .dxrs-range-selector-line').offset());},
-        onDrawn: function (){    	
-            //обязательный вызов для backgroud элмента радуга
-        	$( ".rangeselector.dx-visibility-change-handler" ).append( "<div class='rangeselector__back'></div>");
-        }
-
-    });
-});
-var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
-var cargoReceiverItem = ["Физическое лицо", "Юридическое лицо"];
-var volumeItem = ["До 5 м", "Свыше 5 м"];
-var cargoCheracterItem = ["Однородный (массовый)", "Однородный (не массовый)","Однородный в упаковке", "Не однородный в/без упаковки/и", "Одно грузовое место", "Жидкость без упаковки"];
-var transportModItem = ["Груз навалом", "Загрузить в контейнер", "Уже загружен в контейнер", "По решению исполнителя"];
-var specialConditionsItem = ["На верхней палубе судна", "Открытое хранение", "Крытое хранение", "Температурный режим"];
-
-
-function radiogroupInit (idRadio, items, layout) {
-$("[id="+idRadio+"]").dxRadioGroup({
-        items: items,
-        layout: layout
-    });
-};
-function radiogroupClassInit (idRadio, items, layout) {
-$("."+idRadio).dxRadioGroup({
-        items: items,
-        layout: layout
-    });
-};
-radiogroupClassInit ("radio--empt",[""],"");
-radiogroupInit ("type-deal__radioGroup",typeDealitem,"");
-radiogroupInit ("volume-cargo__radioGroup",volumeItem);
-radiogroupInit ("cargo-cheracter__radioGroup",cargoCheracterItem,"");
-radiogroupInit ("transport-mod__radioGroup",transportModItem,"");
-radiogroupInit ("special-conditions__radioGroup",specialConditionsItem,"");
-radiogroupInit ("cargo-receiver__radioGroup",cargoReceiverItem,"horizontal");
-radiogroupInit ("HBL__radioGroup", ["Уже выпущен и имеется", "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-radiogroupInit ("сargo-escort__radioGroup", ["Уже выпущен и имеется", "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-
-//step2
-radiogroupInit ("сargo-exam__radioGroup", ["Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-radiogroupInit ("сargo-insura__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-radiogroupInit ("custom-clear__radioGroup", ["Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-radiogroupInit ("product-exam__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-radiogroupInit ("сargo-payment__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-radiogroupInit ("product-payment__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-
-//step3
-radiogroupInit ("custom-clearence__export-radio",["Самостоятельно", "Оформить"],"horizontal");
-radiogroupInit ("custom-clearence__import-radio",["Самостоятельно", "Оформить"],"horizontal");
-
-radiogroupInit ("custom-clearence-gd__radio",["Не имеет значения", "В месте отправления","На границе"],"horizontal");
-
-radiogroupInit ("deliver-byself__radioGroup",["Полная предоплата", "Частичная оплата ", "Ценные бумаги", "Уставной капитал", "Бартер", "Фьючерс (будущие расчёты)"],"horizontal");
-
-radiogroupInit ("expertise__point-radio",["В пункте отправления", "В другом месте"],"horizontal");
-
-radiogroupInit ("deliver-executor__radioGroup",["Согласно подписанному ДС №3 c Исполнителем", "Подписать ДС №3 c Исполнителем", "Будет подписано ДС №3 c Исполнителем позже"],"");
-
-radiogroupInit ("cargo-escort-byself__doc-radio",["Да, нужно на всём маршруте", "Да, нужно на выбранных пунктах", "Нет, организую самостоятельно"],"horizontal");
-
-radiogroupInit ("documentary-credit-shiping__radio",["Безотзывный", "Отзывный", "Акцептный", "Безакцептный"],"horizontal");
-
-radiogroupInit ("cargo-descript__hmanygoods-radio",["Один товар", "Два и более (сборное грузовое место)"],"horizontal");
-
-radiogroupInit ("custom-clearence__3agent-radio",["Резидент", "Нерезидент"],"horizontal");
-
-
-$('.progress-bar__step').hover (function(){
-	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
-},
-function (){
-	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
-}
-);
-
-
-var progressPercentValue=10;
-  
-$('.header-progress').click(function() {
-
-	// progressPercentValue=Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100);
-	console.log('do='+progressPercentValue);
-	if (progressPercentValue < 100) {
-		$('.progress-bar__status').width((progressPercentValue + 5)+'%');
-		// console.log('posle='+ Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100));
-		if(progressPercentValue == 45){
-			$('.progress-bar__second-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
-			$('.progress-bar__second-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
-
-		}
-
-		if(progressPercentValue == 95){
-			$('.progress-bar__third-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
-			$('.progress-bar__third-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
-
-		}
-	progressPercentValue+=5;	
-	}
-
-
-});
     $(".init-switch").dxSwitch({
         value: false
     });
+$('.tabs__link a').click(function (e) {
+  e.preventDefault();
+  $('.tabs__link').removeClass('tabs__link--active');
+  $(this).parent().addClass('tabs__link--active');
+  $('.tabs__cont').removeClass('tabs__cont--active');
+  $('#'+ $(this).attr('href')).addClass('tabs__cont--active');
+
+});
+
+
     var simpleProducts = [
     "Выбор 1",
     "Выбор 12",
@@ -979,16 +971,6 @@ function tagBoxInit (idElement,idAttrName, itemsElement) {
 };
   
 tagBoxInit ("input-field__tagbox","input-field__tagbox-id",simpleProducts);  
-$('.tabs__link a').click(function (e) {
-  e.preventDefault();
-  $('.tabs__link').removeClass('tabs__link--active');
-  $(this).parent().addClass('tabs__link--active');
-  $('.tabs__cont').removeClass('tabs__cont--active');
-  $('#'+ $(this).attr('href')).addClass('tabs__cont--active');
-
-});
-
-
 var tnvd= [
   {
     "key": 1,
@@ -1603,30 +1585,6 @@ var tnvd= [
 //  }
 
 //  });
-$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
-	// $(this).toggleClass('user-popup-menu__title-btn--up');
-	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
-		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
-		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
-		$(this).toggleClass('btn-rotate180');
-		$(this).toggleClass('app-lnk-disable');
-	// }
-});
-
-
-$(".user-popup-menu__title-btn").click(function(e) {
-  e.stopPropagation(); 
-});
-
-
-function userPopupClose() {
-	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
-		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
-		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
-		$('.app-lnk-disable').toggleClass('btn-rotate180');
-		$('.app-lnk-disable').toggleClass('app-lnk-disable');
-	}
-}
 $('.timezone-popup-menu__title-btn').click(function(){
 // console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
 // if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
@@ -1655,6 +1613,64 @@ function timezonePopupClose(e) {
 }
 
 
+$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
+	// $(this).toggleClass('user-popup-menu__title-btn--up');
+	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
+		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
+		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
+		$(this).toggleClass('btn-rotate180');
+		$(this).toggleClass('app-lnk-disable');
+	// }
+});
+
+
+$(".user-popup-menu__title-btn").click(function(e) {
+  e.stopPropagation(); 
+});
+
+
+function userPopupClose() {
+	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
+		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
+		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
+		$('.app-lnk-disable').toggleClass('btn-rotate180');
+		$('.app-lnk-disable').toggleClass('app-lnk-disable');
+	}
+}
+$('.progress-bar__step').hover (function(){
+	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
+},
+function (){
+	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
+}
+);
+
+
+var progressPercentValue=10;
+  
+$('.header-progress').click(function() {
+
+	// progressPercentValue=Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100);
+	console.log('do='+progressPercentValue);
+	if (progressPercentValue < 100) {
+		$('.progress-bar__status').width((progressPercentValue + 5)+'%');
+		// console.log('posle='+ Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100));
+		if(progressPercentValue == 45){
+			$('.progress-bar__second-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
+			$('.progress-bar__second-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+
+		}
+
+		if(progressPercentValue == 95){
+			$('.progress-bar__third-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
+			$('.progress-bar__third-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+
+		}
+	progressPercentValue+=5;	
+	}
+
+
+});
 var cityData = [{
     id: 1,
     name: "Владивосток, Приморский край, Россия",
@@ -1819,18 +1835,6 @@ $("." + classElement).dxSelectBox({
 
 selectBoxInitForClass("pseudoClassSelectBox",[ "значение", "значение", "значенадывжлавдылажвылаие123456789" ],"pseudoNameElementSelectBox__id","input-field__value");
 
- $(".popup__info-newmsg").dxToast({
-        message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
-        displayTime: 300000,
-        position: {my: 'center right', at: 'center right', offset: '-50 0'},
-        width: 375,
-		onShowing: function () {
-			//for left separate line on block message
-			$('.dx-toast-message').height($('.dx-toast-content').height());
-		}
-    });
-
-  $(".popup__info-newmsg").dxToast("show");
 function textAriaInit (className, width,height) {
 	$("." + className).dxTextArea({
         spellcheck: false,
@@ -1845,6 +1849,18 @@ function textAriaInit (className, width,height) {
 
 
 textAriaInit('pseudoClassTextAria', "auto", 72);
+ $(".popup__info-newmsg").dxToast({
+        message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
+        displayTime: 300000,
+        position: {my: 'center right', at: 'center right', offset: '-50 0'},
+        width: 375,
+		onShowing: function () {
+			//for left separate line on block message
+			$('.dx-toast-message').height($('.dx-toast-content').height());
+		}
+    });
+
+  $(".popup__info-newmsg").dxToast("show");
 $('.header-currency__lang').click( function () {
 	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
 	$('.header-currency__lang').toggleClass('header-currency__lang--en');
