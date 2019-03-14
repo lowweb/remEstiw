@@ -1,4 +1,4 @@
-function initModalStep (nextbtn, prevbtn) {
+function initModalStep (nextbtn, prevbtn, dynamCap, curSlide) {
 	const $stepContainer = $('.modal__step-container'),
        	  $steps         = $('.modal__step'),
       	  numSteps       = $steps.length,
@@ -7,11 +7,13 @@ function initModalStep (nextbtn, prevbtn) {
           $prev          = $(prevbtn);
 
 		var stepWidth = $form.width();
-		var currentSlide = 0;
+		var currentSlide = curSlide;
 		 // alert ($form.width());
 		$steps.css({ width: stepWidth + "px" });
-		$stepContainer.css("width", stepWidth*numSteps + "px");		
+		$stepContainer.css("width", stepWidth*numSteps + "px");	
+
 		animateSlider();	
+
 		function animateSlider() {
 		  $stepContainer.css('transform', 'translateX('+ (-stepWidth * currentSlide)+'px)');
 		}
@@ -22,6 +24,9 @@ function initModalStep (nextbtn, prevbtn) {
 		  currentSlide ++;
 		  animateSlider();
 		  }
+
+		  //если заголовок следующего шага берется из элемента инициируещего
+		  if (dynamCap==true)
 		  $('.modal__block-back').text($(this).text());
 		});			
 		$prev.on('click', function(e) {
@@ -34,7 +39,7 @@ function initModalStep (nextbtn, prevbtn) {
 
 function initModalCustom () {
 	if ($('.modal').hasClass('modal-location')) {
-		initModalStep('.modal__block-item','.modal__block-prev');
+		initModalStep('.modal__block-item','.modal__block-prev',true,0);
 		//конец обязательного кода для псевдо окон	
 		//страна в модальном окне
 		selectBoxInitForId("modal__country-list",[ "Приморский край", "Камчатский край"],"modal__country-list__id","input-field__value");
@@ -60,9 +65,16 @@ if ($('.modal').hasClass('custom-clearance-3agent-modal')) {
 
 };
 
-if ($('.modal').hasClass('login-modal')) {
+if ($('.modal').hasClass('modal-auth')) {
 //инициализируем карусель в модальном окне
-initModalStep('.modal__forget','.modal__block-prev');	
+if ($('.modal').hasClass('modal-rem-step'))
+initModalStep('.modal__forget','.modal__block-prev',false,1);
+else
+initModalStep('.modal__forget','.modal__block-prev',false,0);
+
+checkboxInit ("modal-reg__chk", "");
+// else
+// initModalStep('.modal__forget','.modal__block-prev',false,0);	
 
 //инициализируем элементы
  inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
@@ -135,6 +147,6 @@ function initModal (clName,width, height, tTempl, cTempl) {
 initModal("custom-clearance-3agent-modal", 1024 , "80%", 'modal__title-templ','modal__content-templ');
 initModal("modal-location", 500 , "auto", 'modal__title-templ','modal__content-templ');	
 initModal("custom-clearance-modal", 768 , "80%", 'modal__title-templ','modal__content-templ');
-initModal("login-modal", 710 , "auto", 'modal__title-templ','modal__content-templ');	
+initModal("modal-auth", 710 , "auto", 'modal__title-templ','modal__content-templ');	
 
 

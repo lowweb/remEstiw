@@ -1,4 +1,4 @@
-  <div class="login-modal modal"></div>
+  <div class="modal-auth modal"></div>
 
 <template class="modal__title-templ">
   <div class='modal__btn-close'>&times;</div>
@@ -20,12 +20,13 @@
 </template>
 
 <template class="modal__content-templ">
-  <div class="modal__view">
+<!--   <div class="modal__view"> -->
     
      <div id="tab-auth" class="tabs__cont tabs__cont--active">
+
       <div class='modal__step-container'>
       <div class='modal__step'>
-
+      <div class="modal__view modal__subview">
        <div class="block__cont">
           <div class="block__row block__row--gapb30">
             <div class="input-field" style="width: 320px;">
@@ -57,29 +58,141 @@
               <div class="summary-error__items"></div>
           </div>
        </div>
+     </div>
+
+      <div class="modal__foo">
+        <div class="block__row block__row--gap20 block__row--center">
+          <button id="loginBtnModal" class="button basic-button purple-button" role="button" tabindex="0">
+            <div class="dx-button-content">Войти</div>
+          </button>
+          <a class="modal__forget app-dash-lnk">Я не помню пароль</a>
+        </div>
+      </div>
+
      </div> <!-- modal step -->
      <div class='modal__step'>
-        <div class='modal__block-cap'>
+      <div class='modal__block-cap'>
         <img src="/img/modal-city--next-btn.svg" class="modal__block-prev svg">
         <a class='modal__block-back'>Восстановление пароля </a>
       </div>
-     </div>
-     </div>
-     </div>     
-
-     <div id="tab-reg" class="tabs__cont"> 
-      
-
-  </div> 
-</div>
-
-
-  <div class="modal__foo">
-    <div class="block__row block__row--gap20 block__row--center">
-      <button id="loginBtnModal" class="button basic-button purple-button" role="button" tabindex="0">
-        <div class="dx-button-content">Войти</div>
-      </button>
-      <a class="modal__forget app-dash-lnk">Я не помню пароль</a>
+      <div class="modal__view modal__subview">
+      <div class="block__row"> 
+        <div class="input-field__label">
+          <label for="pseudoElementTextEditor__id">Введите указанный при регистрации логин или адрес электронной почты:</label> 
+        </div>
+      </div> 
+      <div class="block__row">  
+        <div class="input-field" style="width: 320px;">
+            <div id="auth-login" class="input-field__cont pseudoClassTextEditor"></div>
+            <div class="input-field__label">
+              <label for="pseudoElementTextEditor__id">Логин/E-mail:</label> 
+            </div>
+        </div>
+      </div>  
+    </div>
+      <div class="modal__foo">
+      <div class="block__row block__row--gap20 block__row--center">
+        <button class="button basic-button purple-button" role="button" tabindex="0">
+          <div class="dx-button-content">Выслать</div>
+        </button>
+      </div>
+    </div>
     </div>
   </div>
+  </div>
+   
+
+  <div id="tab-reg" class="tabs__cont"> 
+    <div class="modal__view modal__subview"> 
+
+      <div class="block__cont">
+          <div class="block__row block__row--gap30 block__row--gapb30">
+             <div class="input-field">
+                 <div id="pseudoElementTextEditor" class="input-field__cont pseudoClassTextEditor"></div>
+                 <div class="input-field__label">
+                   <label for="pseudoElementTextEditor__id">Логин:</label> 
+                 </div>
+             </div>
+              <div class="input-field">
+                 <div id="pseudoElementTextEditor" class="input-field__cont pseudoClassTextEditor"></div>
+                 <div class="input-field__label">
+                   <label for="pseudoElementTextEditor__id">Фио:</label> 
+                 </div>
+             </div>
+         </div>
+         <div class="block__row block__row--gap30 block__row--gapb30">
+             <div class="input-field">
+                 <div id="pseudoElementTextEditor" class="input-field__cont pseudoClassTextEditor"></div>
+                 <div class="input-field__label">
+                   <label for="pseudoElementTextEditor__id">Пароль:</label> 
+                 </div>
+             </div>
+              <div class="input-field">
+                 <div id="pseudoElementTextEditor" class="input-field__cont pseudoClassTextEditor"></div>
+                 <div class="input-field__label">
+                   <label for="pseudoElementTextEditor__id">номер телефона:</label> 
+                 </div>
+             </div>
+         </div>
+         <div class="block__row block__row--gap30 block__row--gapb30">
+             <div class="input-field">
+                 <div id="pseudoElementTextEditor" class="input-field__cont pseudoClassTextEditor"></div>
+                 <div class="input-field__label">
+                   <label for="pseudoElementTextEditor__id">Подтвердить пароль:</label> 
+                 </div>
+             </div>
+              <div class="input-field">
+                 <div id="pseudoElementTextEditor" class="input-field__cont pseudoClassTextEditor"></div>
+                 <div class="input-field__label">
+                   <label for="pseudoElementTextEditor__id">Название организации:</label> 
+                 </div>
+             </div>
+         </div>
+         <div class="block__row block__row--gap30 block__row--gapb30">
+             <div class="input-field">
+                 <div id="pseudoElementTextEditor" class="input-field__cont pseudoClassTextEditor"></div>
+                 <div class="input-field__label">
+                   <label for="pseudoElementTextEditor__id">E-mail:</label> 
+                 </div>
+             </div>
+              <div class="input-field">
+                 <div id="pseudoElementTextEditor" class="input-field__cont pseudoClassTextEditor"></div>
+                 <div class="input-field__label">
+                   <label for="pseudoElementTextEditor__id">Местоположение:</label> 
+                 </div>
+             </div>
+         </div>
+         <div class="block__row block__row--gap20 block__row--gapb30" style="width: 320px;">
+             <div class="input-field">
+                  <img src="/img/modal-reg-code.png">
+                  <div class="input-field__label">
+                    <label for="pseudoElementTextEditor__id">Введите проверочный код:</label> 
+                  </div>
+              </div>
+             <div class="input-field">
+                 <div id="pseudoElementTextEditor" class="input-field__cont pseudoClassTextEditor"></div>
+                 <div class="input-field__label">
+                   <label for="pseudoElementTextEditor__id"></label> 
+                 </div>
+             </div>
+         </div>
+         <div class="block__row">
+           <div id="modal-reg__chk" class="checkbox checkbox-custcap"></div> 
+           <a class="app-dash-lnk">Я подтверждаю согласие на обработку персональных данных</a> 
+         </div>         
+      </div>
+    </div> <!-- modal__view -->
+    <div class="modal__foo">
+    <div class="block__row block__row--gap20">
+      <button class="button basic-button purple-button" role="button" tabindex="0">
+        <div class="dx-button-content">Зарегистрироваться</div>
+      </button>
+    </div>
+    </div>
+
+  </div> 
+<!-- </div> -->
+
+
+
 </template>

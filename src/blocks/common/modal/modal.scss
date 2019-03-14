@@ -49,11 +49,14 @@
   }
 
   &__view {
-    padding: 20px 20px 30px 20px;
+    // padding: 20px 20px 30px 20px;
     flex: 1 1 auto;
     // overflow: auto;
     min-height: 100px;
     height: 100%;
+  }
+  &__subview {
+    padding: 20px 20px 30px 20px;
   }
     
   &__foo{
@@ -80,6 +83,7 @@
 
       &-cap{
          height: 50px;
+         min-height: 50px;
          background: #F2F3FB;
          @include font-lucida ($clr-dark-light, 13px, normal);
          display: flex;
@@ -155,6 +159,11 @@
    &__foget {
     cursor: pointer;
     @include font-lucida ($clr-blue, 15px, normal);
+   }
+
+   &__step {
+    display: flex;
+    flex-direction: column;
    }
 }
 
