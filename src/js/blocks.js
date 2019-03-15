@@ -1,4 +1,4 @@
-// для корректной работы gulp
+// временный файл, для аккамуляции кода, формируется  gulp-ом
 
 $(".summary-error__items").dxValidationSummary({
         validationGroup: "validateItems"
@@ -623,12 +623,14 @@ if ($('.modal').hasClass('custom-clearance-3agent-modal')) {
 	 inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
 	 radiogroupInit ("custom-clearence__3agent-radio",["Резидент", "Нерезидент"],"horizontal");
 };
-
+if ($('.modal').hasClass('modal-change-pass')) {
+	inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
+}
 if ($('.modal').hasClass('modal-auth')) {
 	//инициализируем карусель в модальном окне, для смены пароля со второго шага для остальных с первого
-	if ($('.modal').hasClass('modal-rem-step'))
-	initModalStep('.modal__step-container-auth','#modal__forget-lnk','.modal__block-prev',false,1);
-	else
+	// if ($('.modal').hasClass('modal-rem-step'))
+	// initModalStep('.modal__step-container-auth','#modal__forget-lnk','.modal__block-prev',false,1);
+	// else
 	initModalStep('.modal__step-container-auth','#modal__forget-lnk','.modal__block-prev',false,0);	
 	
 	initModalStep('.modal__step-container-reg','#modal__agree-lnk','.modal__block-prev',false,0);	
@@ -722,6 +724,9 @@ initModal("custom-clearance-3agent-modal", 1024 , "80%", 'modal__title-templ','m
 initModal("modal-location", 500 , "auto", 'modal__title-templ','modal__content-templ',"center");	
 initModal("custom-clearance-modal", 768 , "80%", 'modal__title-templ','modal__content-templ',"center");
 initModal("modal-auth", 710 , "auto", 'modal__title-templ','modal__content-templ',{ offset: '0 -200'});	
+initModal("modal-change-pass", 370 , "auto", 'modal__title-templ','modal__content-templ',{ offset: '0 -200'});	
+
+
 
 
 
@@ -743,6 +748,40 @@ function numberBoxInit (idElement,idAttrName) {
 numberBoxInit ("pseudoClassNumberBox","pseudoNameElementNumberBox__id");
 
 
+$('.progress-bar__step').hover (function(){
+	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
+},
+function (){
+	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
+}
+);
+
+
+var progressPercentValue=10;
+  
+$('.header-progress').click(function() {
+
+	// progressPercentValue=Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100);
+	console.log('do='+progressPercentValue);
+	if (progressPercentValue < 100) {
+		$('.progress-bar__status').width((progressPercentValue + 5)+'%');
+		// console.log('posle='+ Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100));
+		if(progressPercentValue == 45){
+			$('.progress-bar__second-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
+			$('.progress-bar__second-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+
+		}
+
+		if(progressPercentValue == 95){
+			$('.progress-bar__third-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
+			$('.progress-bar__third-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+
+		}
+	progressPercentValue+=5;	
+	}
+
+
+});
 var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
 var cargoReceiverItem = ["Физическое лицо", "Юридическое лицо"];
 var volumeItem = ["До 5 м", "Свыше 5 м"];
@@ -1637,40 +1676,6 @@ function userPopupClose() {
 		$('.app-lnk-disable').toggleClass('app-lnk-disable');
 	}
 }
-$('.progress-bar__step').hover (function(){
-	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
-},
-function (){
-	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
-}
-);
-
-
-var progressPercentValue=10;
-  
-$('.header-progress').click(function() {
-
-	// progressPercentValue=Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100);
-	console.log('do='+progressPercentValue);
-	if (progressPercentValue < 100) {
-		$('.progress-bar__status').width((progressPercentValue + 5)+'%');
-		// console.log('posle='+ Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100));
-		if(progressPercentValue == 45){
-			$('.progress-bar__second-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
-			$('.progress-bar__second-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
-
-		}
-
-		if(progressPercentValue == 95){
-			$('.progress-bar__third-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
-			$('.progress-bar__third-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
-
-		}
-	progressPercentValue+=5;	
-	}
-
-
-});
 var cityData = [{
     id: 1,
     name: "Владивосток, Приморский край, Россия",

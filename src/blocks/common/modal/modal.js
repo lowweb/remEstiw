@@ -65,12 +65,14 @@ if ($('.modal').hasClass('custom-clearance-3agent-modal')) {
 	 inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
 	 radiogroupInit ("custom-clearence__3agent-radio",["Резидент", "Нерезидент"],"horizontal");
 };
-
+if ($('.modal').hasClass('modal-change-pass')) {
+	inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
+}
 if ($('.modal').hasClass('modal-auth')) {
 	//инициализируем карусель в модальном окне, для смены пароля со второго шага для остальных с первого
-	if ($('.modal').hasClass('modal-rem-step'))
-	initModalStep('.modal__step-container-auth','#modal__forget-lnk','.modal__block-prev',false,1);
-	else
+	// if ($('.modal').hasClass('modal-rem-step'))
+	// initModalStep('.modal__step-container-auth','#modal__forget-lnk','.modal__block-prev',false,1);
+	// else
 	initModalStep('.modal__step-container-auth','#modal__forget-lnk','.modal__block-prev',false,0);	
 	
 	initModalStep('.modal__step-container-reg','#modal__agree-lnk','.modal__block-prev',false,0);	
@@ -164,5 +166,8 @@ initModal("custom-clearance-3agent-modal", 1024 , "80%", 'modal__title-templ','m
 initModal("modal-location", 500 , "auto", 'modal__title-templ','modal__content-templ',"center");	
 initModal("custom-clearance-modal", 768 , "80%", 'modal__title-templ','modal__content-templ',"center");
 initModal("modal-auth", 710 , "auto", 'modal__title-templ','modal__content-templ',{ offset: '0 -200'});	
+initModal("modal-change-pass", 370 , "auto", 'modal__title-templ','modal__content-templ',{ offset: '0 -200'});	
+
+
 
 

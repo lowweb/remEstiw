@@ -5,21 +5,19 @@
 	box-sizing: border-box;
 	border-radius: 3px;
 	position: relative;
-	// margin-right: 30px;
 	max-height: min-content;
 	width: fit-content;
-	// height: fit-content;
-	// &:last-child{
-	// 	margin-right: 0px;
 	width: 100%;
-	// }
 	
 	&--tween-top{
 		border-bottom-left-radius: 0;
     	border-bottom-right-radius: 0;
+    	& > .field-set__items{
+    		padding-bottom: 41px;
+    	}
 	}
 	&--tween-bottom {
-		// margin-top:-1px;
+
 		border-top-left-radius: 0;
     	border-top-right-radius: 0;
     	border-top-width: 0px;

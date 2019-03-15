@@ -2,7 +2,6 @@
     $(".fileUploader").dxFileUploader({
         accept:"image/*,*.zip,*.pdf,*.mp4",
         width: 424,
-	    // height: auto,
 	    multiple: true,
 	    allowCanceling: true,
 	    selectButtonText: "нажмите выбрать",
@@ -24,8 +23,6 @@
 
     $(".fileUploader--full").dxFileUploader({
         accept:"image/*,*.zip,*.pdf,*.mp4",
-        // width: 700,
-	    // height: auto,
 	    multiple: true,
 	    allowCanceling: true,
 	    selectButtonText: "нажмите выбрать",
@@ -48,7 +45,6 @@
    $(".fileUploader--sm").dxFileUploader({
         accept:"image/*,*.zip,*.pdf,*.mp4",
         width: 276,
-	    // height: auto,
 	    multiple: true,
 	    allowCanceling: true,
 	    selectButtonText: "нажмите выбрать",

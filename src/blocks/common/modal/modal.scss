@@ -169,5 +169,12 @@
    &__pers-info {
     @include font-lucida (rgba(0, 0, 0, 0.7), 14px, normal);
    }
+
+
+   &-change-pass {
+    & .modal__title {
+      border-bottom: none;
+    }
+   }
 }
 

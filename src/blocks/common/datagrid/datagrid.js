@@ -181,12 +181,6 @@ function initDataGrid () {
     }).data("dxDataGrid");
 };
 
- 
-
-
-
-
-
 
 var s = 123456789;
 var random = function() {

@@ -11,11 +11,13 @@ function initButton (Element) {
 
 
 initButton("button");
+
 //button like earth
 $(".input-field__btn").dxButton({
     text: "",
     onClick: function() {}
 });
+
 //special onclick
 $('#footer__button-save').dxButton({
                 stylingMode: 'text',
