@@ -19,6 +19,7 @@
     "gulp-pug": "^4.0.1",
     "gulp-rigger": "^0.5.8",
     "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
     "gulp-watch": "^5.0.1",
     "imagemin-pngquant": "^6.0.0",
     "jquery": "^3.3.1",

@@ -7,6 +7,7 @@ const gulp= require('gulp'),
    	  pngquant = require('imagemin-pngquant'),
       rimraf = require('rimraf'),
       flatten = require('gulp-flatten'),
+      sourcemaps = require('gulp-sourcemaps'),
       // runSequence = require('run-sequence'),
       autoprefixer = require('gulp-autoprefixer'),
 	  browserSync = require("browser-sync"),
@@ -49,6 +50,7 @@ gulp.task('html:build', function () {
 
 gulp.task('style:build', () => {
 	gulp.src(path.src.style)
+    .pipe(sourcemaps.init()) //То же самое что и с js
 		.pipe(concat('style.scss'))
 		.pipe(sass().on('error', sass.logError))
 		// {
@@ -60,6 +62,7 @@ gulp.task('style:build', () => {
             cascade: false,
             grid: true
         }))
+        .pipe(sourcemaps.write())
 		.pipe(gulp.dest(path.build.css))
 		.pipe(reload({stream: true}));
 });
