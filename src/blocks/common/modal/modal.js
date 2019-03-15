@@ -1,3 +1,5 @@
+
+//step для шагов внутри модального окна
 function initModalStep (contName,nextbtn, prevbtn, dynamCap, curSlide) {
 	const $stepContainer = $(contName),
        	  $steps         = $('.modal__step'),
@@ -37,23 +39,26 @@ function initModalStep (contName,nextbtn, prevbtn, dynamCap, curSlide) {
 		});
 };
 
+//инициализация компонентов на модалке
 function initModalCustom () {
 
 	//first page
 	if ($('.modal').hasClass('modal-location')) {
 		initModalStep('.modal__step-container','.modal__block-item','.modal__block-prev',true,0);
-		//конец обязательного кода для псевдо окон	
+
 		//страна в модальном окне
 		selectBoxInitForId("modal__country-list",[ "Приморский край", "Камчатский край"],"modal__country-list__id","input-field__value");
 		//край район область в модальном окне
 		selectBoxInitForId("modal__region-list",[ "Приморский край", "Камчатский край"],"modal__region-list__id","input-field__value");
-		//необходимо заново инициализировать элемент
+		
 		autocompleteInit ("locationSearch","locationSearch__id","input-field__value");
-		autocompleteInit ("modallocation","modallocation__id","input-field__value");		
+		autocompleteInit ("modallocation","modallocation__id","input-field__value");	
+
 		//ошибка заполнения города
 		$('.modal__title-cap').click(function() {
 		  $('.modal-location__search-err').toggleClass('modal-location__search-err--show');;
-		});				
+		});	
+
 		//close modal
 		$('.modal__btn-close').click( function () {
 			$('.modal-location.dx-popup-wrapper').remove();
@@ -65,16 +70,17 @@ if ($('.modal').hasClass('custom-clearance-3agent-modal')) {
 	 inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
 	 radiogroupInit ("custom-clearence__3agent-radio",["Резидент", "Нерезидент"],"horizontal");
 };
+
 if ($('.modal').hasClass('modal-change-pass')) {
 	inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
 }
+
 if ($('.modal').hasClass('modal-auth')) {
 	//инициализируем карусель в модальном окне, для смены пароля со второго шага для остальных с первого
 	// if ($('.modal').hasClass('modal-rem-step'))
 	// initModalStep('.modal__step-container-auth','#modal__forget-lnk','.modal__block-prev',false,1);
 	// else
 	initModalStep('.modal__step-container-auth','#modal__forget-lnk','.modal__block-prev',false,0);	
-	
 	initModalStep('.modal__step-container-reg','#modal__agree-lnk','.modal__block-prev',false,0);	
 
 	//инициализируем элементы
@@ -159,7 +165,6 @@ function initModal (clName,width, height, tTempl, cTempl, position) {
 		} 
     });
 };
-
 
 //init modal window
 initModal("custom-clearance-3agent-modal", 1024 , "80%", 'modal__title-templ','modal__content-templ',"center");

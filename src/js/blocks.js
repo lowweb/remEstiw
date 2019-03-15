@@ -1,4 +1,4 @@
-// временный файл, для аккамуляции кода, формируется  gulp-ом
+// для корректной работы gulp
 
 $(".summary-error__items").dxValidationSummary({
         validationGroup: "validateItems"
@@ -111,11 +111,13 @@ function initButton (Element) {
 
 
 initButton("button");
+
 //button like earth
 $(".input-field__btn").dxButton({
     text: "",
     onClick: function() {}
 });
+
 //special onclick
 $('#footer__button-save').dxButton({
                 stylingMode: 'text',
@@ -176,7 +178,6 @@ checkboxInit ("common-cargo-params-container__checkbox", "Не возражаю 
 checkboxInit ("oversize-rzd__checkbox", "Не уверен, прошу определить по чертежу");
 
 checkboxInit ("ccp-mass-bulk-open__checkbox", "Указать размеры фракций или составляющих массу");
-checkboxInit ("modal-reg__chk", "dfdsf");
 
 
 
@@ -366,12 +367,6 @@ function initDataGrid () {
     }).data("dxDataGrid");
 };
 
- 
-
-
-
-
-
 
 var s = 123456789;
 var random = function() {
@@ -431,7 +426,6 @@ $("#gridContainerr").dxDataGrid({
     $(".fileUploader").dxFileUploader({
         accept:"image/*,*.zip,*.pdf,*.mp4",
         width: 424,
-	    // height: auto,
 	    multiple: true,
 	    allowCanceling: true,
 	    selectButtonText: "нажмите выбрать",
@@ -453,8 +447,6 @@ $("#gridContainerr").dxDataGrid({
 
     $(".fileUploader--full").dxFileUploader({
         accept:"image/*,*.zip,*.pdf,*.mp4",
-        // width: 700,
-	    // height: auto,
 	    multiple: true,
 	    allowCanceling: true,
 	    selectButtonText: "нажмите выбрать",
@@ -477,7 +469,6 @@ $("#gridContainerr").dxDataGrid({
    $(".fileUploader--sm").dxFileUploader({
         accept:"image/*,*.zip,*.pdf,*.mp4",
         width: 276,
-	    // height: auto,
 	    multiple: true,
 	    allowCanceling: true,
 	    selectButtonText: "нажмите выбрать",
@@ -556,6 +547,8 @@ $("#loadPanel").dxLoadPanel({
 		shadingColor: "rgba(255,255,255, 0.8)",
 		message: ""
     });
+
+//step для шагов внутри модального окна
 function initModalStep (contName,nextbtn, prevbtn, dynamCap, curSlide) {
 	const $stepContainer = $(contName),
        	  $steps         = $('.modal__step'),
@@ -595,23 +588,26 @@ function initModalStep (contName,nextbtn, prevbtn, dynamCap, curSlide) {
 		});
 };
 
+//инициализация компонентов на модалке
 function initModalCustom () {
 
 	//first page
 	if ($('.modal').hasClass('modal-location')) {
 		initModalStep('.modal__step-container','.modal__block-item','.modal__block-prev',true,0);
-		//конец обязательного кода для псевдо окон	
+
 		//страна в модальном окне
 		selectBoxInitForId("modal__country-list",[ "Приморский край", "Камчатский край"],"modal__country-list__id","input-field__value");
 		//край район область в модальном окне
 		selectBoxInitForId("modal__region-list",[ "Приморский край", "Камчатский край"],"modal__region-list__id","input-field__value");
-		//необходимо заново инициализировать элемент
+		
 		autocompleteInit ("locationSearch","locationSearch__id","input-field__value");
-		autocompleteInit ("modallocation","modallocation__id","input-field__value");		
+		autocompleteInit ("modallocation","modallocation__id","input-field__value");	
+
 		//ошибка заполнения города
 		$('.modal__title-cap').click(function() {
 		  $('.modal-location__search-err').toggleClass('modal-location__search-err--show');;
-		});				
+		});	
+
 		//close modal
 		$('.modal__btn-close').click( function () {
 			$('.modal-location.dx-popup-wrapper').remove();
@@ -623,16 +619,17 @@ if ($('.modal').hasClass('custom-clearance-3agent-modal')) {
 	 inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
 	 radiogroupInit ("custom-clearence__3agent-radio",["Резидент", "Нерезидент"],"horizontal");
 };
+
 if ($('.modal').hasClass('modal-change-pass')) {
 	inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
 }
+
 if ($('.modal').hasClass('modal-auth')) {
 	//инициализируем карусель в модальном окне, для смены пароля со второго шага для остальных с первого
 	// if ($('.modal').hasClass('modal-rem-step'))
 	// initModalStep('.modal__step-container-auth','#modal__forget-lnk','.modal__block-prev',false,1);
 	// else
 	initModalStep('.modal__step-container-auth','#modal__forget-lnk','.modal__block-prev',false,0);	
-	
 	initModalStep('.modal__step-container-reg','#modal__agree-lnk','.modal__block-prev',false,0);	
 
 	//инициализируем элементы
@@ -717,7 +714,6 @@ function initModal (clName,width, height, tTempl, cTempl, position) {
 		} 
     });
 };
-
 
 //init modal window
 initModal("custom-clearance-3agent-modal", 1024 , "80%", 'modal__title-templ','modal__content-templ',"center");
@@ -978,16 +974,6 @@ $(function() {
     $(".init-switch").dxSwitch({
         value: false
     });
-$('.tabs__link a').click(function (e) {
-  e.preventDefault();
-  $('.tabs__link').removeClass('tabs__link--active');
-  $(this).parent().addClass('tabs__link--active');
-  $('.tabs__cont').removeClass('tabs__cont--active');
-  $('#'+ $(this).attr('href')).addClass('tabs__cont--active');
-
-});
-
-
     var simpleProducts = [
     "Выбор 1",
     "Выбор 12",
@@ -1676,6 +1662,16 @@ function userPopupClose() {
 		$('.app-lnk-disable').toggleClass('app-lnk-disable');
 	}
 }
+$('.tabs__link a').click(function (e) {
+  e.preventDefault();
+  $('.tabs__link').removeClass('tabs__link--active');
+  $(this).parent().addClass('tabs__link--active');
+  $('.tabs__cont').removeClass('tabs__cont--active');
+  $('#'+ $(this).attr('href')).addClass('tabs__cont--active');
+
+});
+
+
 var cityData = [{
     id: 1,
     name: "Владивосток, Приморский край, Россия",
