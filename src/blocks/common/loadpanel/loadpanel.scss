@@ -25,7 +25,8 @@
     &__path {
       stroke-dasharray: 1, 200;
       stroke-dashoffset: 0;
-      animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+      stroke: $clr-blue;
+      animation: dash 1.5s ease-in-out infinite;
       stroke-linecap: round;
     }
 
@@ -54,13 +55,13 @@
 }
 
 @keyframes color {
-  100%,
-  0% {
-    stroke: $clr-blue;
-  }
-  90% {
-    stroke: $clr-blue;
-  }
+  // 100%,
+  // 0% {
+  //   stroke: $clr-blue;
+  // }
+  // 90% {
+  //   stroke: $clr-blue;
+  // }
 }
 
 .dx-loadpanel-content {
@@ -69,7 +70,7 @@
   justify-content: center;
   box-shadow: none;
   border:none;
-  background: transparent;
+  background: yellow;
 }
 
 .dx-loadpanel-indicator {
