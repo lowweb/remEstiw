@@ -53,6 +53,10 @@
 		display: flex;
 	}
 
+	& .dx-datagrid .dx-sort-up:before, & .dx-datagrid .dx-sort-down:before {
+     color: $clr-blue; 
+	}
+
 
 }
 

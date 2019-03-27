@@ -1,68 +1,189 @@
 
-.ap-loadpanel {
+// .app-loadpanel {
+//   position: relative;
+//   margin: 0 auto;
+//   width: 44px;
+//   &:before {
+//     content: '';
+//     display: block;
+//     padding-top: 100%;
+//   }
+
+//   &__crl {
+//       animation: rotate 2s linear infinite;
+//       height: 100%;
+//       transform-origin: center center;
+//       width: 100%;
+//       position: absolute;
+//       top: 0;
+//       bottom: 0;
+//       left: 0;
+//       right: 0;
+//       margin: auto;
+//     }
+
+//     &__path {
+//       stroke-dasharray: 1, 200;
+//       stroke-dashoffset: 0;
+//       stroke: $clr-blue;
+//       animation: dash 1.5s ease-in-out infinite;
+//       stroke-linecap: round;
+//     }
+
+
+// }
+
+// @keyframes rotate {
+//   100% {
+//     transform: rotate(360deg);
+//   }
+// }
+
+// @keyframes dash {
+//   0% {
+//     stroke-dasharray: 1, 200;
+//     stroke-dashoffset: 0;
+//   }
+//   50% {
+//     stroke-dasharray: 89, 200;
+//     stroke-dashoffset: -35px;
+//   }
+//   100% {
+//     stroke-dasharray: 89, 200;
+//     stroke-dashoffset: -124px;
+//   }
+// }
+
+.loadpanel{
+
+  &__wrap {
   position: relative;
-  margin: 0 auto;
-  width: 40px;
-  &:before {
-    content: '';
-    display: block;
-    padding-top: 100%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   }
 
-  &__crl {
-      animation: rotate 2s linear infinite;
-      height: 100%;
-      transform-origin: center center;
-      width: 100%;
+  &__spin {
+    animation: lp__outer-rotate 2.91667s linear infinite;
+  }
+
+  &__inner {
+    width: 88px;
+    height: 88px;
+    position: relative;
+    animation: lp__sporadic-rotate 5.25s cubic-bezier(0.35, 0, 0.25, 1) infinite;
+  }
+
+   &__gap {  
+     position: absolute;
+     left: 49px;
+     right: 49px;
+     top: 0;
+     bottom: 0;
+     border-top: 4px solid $clr-blue;
+     box-sizing: border-box;
+   }
+
+   &__lft, &__rght {      
+    position: absolute;
+    top: 0;
+    height: 88px;
+    width: 44px;
+    overflow: hidden;
+  }
+
+  &__half-circle {
       position: absolute;
       top: 0;
-      bottom: 0;
+      width: 88px;
+      height: 88px;
+      box-sizing: border-box;
+      border: 4px solid $clr-blue;
+      border-bottom-color: transparent;
+      border-radius: 50%;
+  }
+
+  &__lft {
+    left: 0;
+    .loadpanel__half-circle {
       left: 0;
+      border-right-color: transparent;
+      animation: lp__left-wobble 1.3125s cubic-bezier(0.35, 0, 0.25, 1) infinite;
+      -webkit-animation: lp__left-wobble 1.3125s cubic-bezier(0.35, 0, 0.25, 1) infinite;
+    }
+  }
+  &__rght {
+    right: 0;
+    .loadpanel__half-circle {
       right: 0;
-      margin: auto;
+      border-left-color: transparent;
+      animation: lp__right-wobble 1.3125s cubic-bezier(0.35, 0, 0.25, 1) infinite;
+      -webkit-animation: lp__right-wobble 1.3125s cubic-bezier(0.35, 0, 0.25, 1) infinite;
     }
+  }
 
-    &__path {
-      stroke-dasharray: 1, 200;
-      stroke-dashoffset: 0;
-      stroke: $clr-blue;
-      animation: dash 1.5s ease-in-out infinite;
-      stroke-linecap: round;
+}   
+
+  
+  @keyframes lp__outer-rotate {
+    0% {
+      transform: rotate(0deg) scale(0.5);
     }
-
-
-}
-
-@keyframes rotate {
-  100% {
-    transform: rotate(360deg);
+    100% {
+      transform: rotate(360deg) scale(0.5);
+    }
   }
-}
 
-@keyframes dash {
-  0% {
-    stroke-dasharray: 1, 200;
-    stroke-dashoffset: 0;
+  @keyframes lp__left-wobble {
+    0%,
+    100% {
+      transform: rotate(130deg);
+    }
+    50% {
+      transform: rotate(-5deg);
+    }
   }
-  50% {
-    stroke-dasharray: 89, 200;
-    stroke-dashoffset: -35px;
-  }
-  100% {
-    stroke-dasharray: 89, 200;
-    stroke-dashoffset: -124px;
-  }
-}
 
-@keyframes color {
-  // 100%,
-  // 0% {
-  //   stroke: $clr-blue;
-  // }
-  // 90% {
-  //   stroke: $clr-blue;
-  // }
-}
+  @keyframes lp__right-wobble {
+    0%,
+    100% {
+      transform: rotate(-130deg);
+    }
+    50% {
+      transform: rotate(5deg);
+    }
+  }
+
+  @keyframes lp__sporadic-rotate {
+    12.5% {
+      transform: rotate(135deg);
+    }
+    25% {
+      transform: rotate(270deg);
+    }
+    37.5% {
+      transform: rotate(405deg);
+    }
+    50% {
+      transform: rotate(540deg);
+    }
+    62.5% {
+      transform: rotate(675deg);
+    }
+    75% {
+      transform: rotate(810deg);
+    }
+    87.5% {
+      transform: rotate(945deg);
+    }
+    100% {
+      transform: rotate(1080deg);
+    }
+  }
+
 
 .dx-loadpanel-content {
   display: flex;
@@ -70,7 +191,7 @@
   justify-content: center;
   box-shadow: none;
   border:none;
-  background: yellow;
+  // background: yellow;
 }
 
 .dx-loadpanel-indicator {
