@@ -16,6 +16,19 @@
     border-right: 1px solid $clr-grey-v2;
 }
 
+.datagrid--remove .dx-datagrid .dx-column-lines > td:nth-last-child(2) {
+    border-right: 0px solid $clr-grey-v2;
+}
+.datagrid--remove .dx-datagrid .dx-column-lines > td:nth-last-child(1) {
+    border-left: 0px solid $clr-grey-v2;
+    position: relative;
+}
+
+
+.datagrid--remove .dx-datagrid-headers .dx-datagrid-table .dx-datagrid-filter-row > td:nth-last-child(1) {
+    background-color: $clr-grey-v4;
+}
+
 .dx-editor-cell .dx-texteditor .dx-texteditor-input {
     background: #F3F3F3;
 }
@@ -66,4 +79,34 @@
 
 .dx-datagrid-content .dx-datagrid-table .dx-row > td, .dx-datagrid-content .dx-datagrid-table .dx-row > tr > td {
      vertical-align: middle; 
+}
+
+.dx-datagrid .dx-datagrid-content .dx-datagrid-table .dx-row .dx-command-edit-with-icons .dx-link{
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    // width: 16px;
+    height: 16px;
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-image: url(../img/btn-rnd-del.svg);
+    
+
+}
+
+
+.dx-datagrid .dx-datagrid-content .dx-datagrid-table .dx-row .dx-command-edit-with-icons .dx-link:hover{
+  background-image: url(../img/btn-rnd-del-h.svg);
+}
+.dx-datagrid .dx-datagrid-content .dx-datagrid-table .dx-row .dx-command-edit-with-icons .dx-link::before {
+   content: '';
+  
+}
+
+.dx-datagrid-content .dx-datagrid-table .dx-row .dx-command-edit.dx-command-edit-with-icons {
+    width: 60px;
+    min-width: 60px;
 }

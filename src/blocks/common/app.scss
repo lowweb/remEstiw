@@ -151,7 +151,7 @@ html
 body{
 	font-size: 20px;
 	height: 100%;
-	overflow: hidden;
+	overflow-y: hidden;
 }
 
 h1 {
@@ -179,7 +179,7 @@ h2{
 	height: 100%;
 	display: flex;
 	flex-direction: row;
-	min-width: 1640px; //есть баги в mozilla
+	min-width: 1920px; //есть баги в mozilla
 	position: relative;
 
 }

@@ -1,3 +1,4 @@
+//-----------customs-clearance-3agent-modal
 var employees = [{
     "ID": 1,
     "Forma": "ООО",
@@ -102,7 +103,6 @@ var employees = [{
     "Inn": "123456789012",
     "state": false
 }  ];
-
 function initDataGrid () {
     var dataGrid =  $("#gridContainer").dxDataGrid({
         dataSource: employees,
@@ -180,6 +180,150 @@ function initDataGrid () {
         showRowLines: true,    
     }).data("dxDataGrid");
 };
+
+
+//-----------dataGridRequestAll-------------
+var requestAllData = [{
+    "ID": 1,
+    "Number": "001",
+    "Name": "Достаточно длинное название запроса",
+    "SendDest": "Москва, Россия (CY) → Тверь, Россия (CY)",
+    "Cond": "Передан на согласование",
+    "Qnt": 999,
+    "Vol": 999,
+    "Weigth": 999,
+    "Data" : '14.02.2019'
+},
+{
+    "ID": 1,
+    "Number": "001",
+    "Name": "Достаточно длинное название запроса",
+    "SendDest": "Москва, Россия (CY) → Тверь, Россия (CY)",
+    "Cond": "Передан на согласование",
+    "Qnt": 999,
+    "Vol": 999,
+    "Weigth": 999,
+    "Data" : '14.02.2019'
+},
+{
+    "ID": 1,
+    "Number": "001",
+    "Name": "Достаточно длинное название запроса",
+    "SendDest": "Москва, Россия (CY) → Тверь, Россия (CY)",
+    "Cond": "Передан на согласование",
+    "Qnt": 999,
+    "Vol": 999,
+    "Weigth": 999,
+    "Data" : '14.02.2019'
+},
+{
+    "ID": 1,
+    "Number": "001",
+    "Name": "Очень длинное название запроса на доставку и покупку в три строки (обрезается по кол-ву символов...",
+    "SendDest": " Владивосток, Россия (CY) → Петропавловск-Камчатский, Россия (CY)",
+    "Cond": "Передан на согласование",
+    "Qnt": 999,
+    "Vol": 999,
+    "Weigth": 999,
+    "Data" : '06.12.2018 – 14.02.2019'
+},
+{
+    "ID": 1,
+    "Number": "001",
+    "Name": "Достаточно длинное название запроса",
+    "SendDest": "Москва, Россия (CY) → Тверь, Россия (CY)",
+    "Cond": "Передан на согласование",
+    "Qnt": 999,
+    "Vol": 999,
+    "Weigth": 999,
+    "Data" : '14.02.2019'
+}  ];
+ $("#dataGridRequestAll").dxDataGrid({
+        dataSource: requestAllData,
+        keyExpr: "ID",
+        width: 1550,
+        // selection: {
+        //     mode: "single"
+        // },
+        // scrolling: {
+        //     // mode: "virtual"
+        // },
+        editing: {
+            allowDeleting: true,
+            form: null,
+            mode: "row",
+            popup: null,
+            refreshMode: "full",
+            texts: {},
+            useIcons: true
+            },
+        hoverStateEnabled: true,
+        showBorders: true,
+        columns: 
+
+        [{
+            dataField: "Number",
+            caption: "Номер",
+            width: 100
+        },
+        {
+            dataField: "Name",
+            caption: "Наименование запроса",
+             width: 343,
+
+            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку, навешиваем элемент radiogroup
+            $('<div class="datagrid__custom-radio-cell">')    //навешиваем  template иницилизируем его как radiogroup
+            .appendTo(cellElement)
+              .append($("<a href='#''>"+cellInfo.data.Name+"</a>"))
+             }, 
+            cssClass: "datagrid__link-cell" //обязательный класс
+        }, 
+        {
+            dataField: "SendDest",
+            caption: "Отправление → Назначение",
+            width: 266
+         
+        },   
+        {
+            dataField: "Cond",
+            caption: "Состояние",
+            width: 194
+        }, 
+        {
+            dataField: "Qnt",
+            caption: "Кол-во",
+            width: 116
+        }, 
+        {
+            dataField: "Vol",
+            caption: "Объём, м³",
+            width: 129
+        },
+        {
+            dataField: "Weight",
+            caption: "Масса, кг",
+            width: 122
+        },
+        {
+            dataField: "Data",
+            caption: "Дата готовности",
+            width: 198
+        }],
+
+        filterRow: {
+            applyFilter: "auto",
+            applyFilterText: "Apply filter",
+            betweenEndText: "End",
+            betweenStartText: "Start",
+            resetOperationText: "Reset",
+            showAllText: "",
+            showOperationChooser: true,
+            visible: true
+            },
+        showColumnLines: true,
+        showRowLines: true,    
+    }).data("dxDataGrid");
+
 
 
 var s = 123456789;
