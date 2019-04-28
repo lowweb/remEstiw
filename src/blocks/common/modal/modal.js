@@ -172,6 +172,10 @@ initModal("modal-location", 500 , "auto", 'modal__title-templ','modal__content-t
 initModal("custom-clearance-modal", 768 , "80%", 'modal__title-templ','modal__content-templ',"center");
 initModal("modal-auth", 710 , "auto", 'modal__title-templ','modal__content-templ',{ offset: '0 -200'});	
 initModal("modal-change-pass", 370 , "auto", 'modal__title-templ','modal__content-templ',{ offset: '0 -200'});	
+initModal("modal-request-del", 480 , "auto", 'modal__title-templ','modal__content-templ',"center");	
+	
+	
+
 
 
 
