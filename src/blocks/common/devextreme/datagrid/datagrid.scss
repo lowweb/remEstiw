@@ -25,6 +25,10 @@
 }
 
 
+.datagrid .dx-texteditor.dx-editor-outlined.dx-state-focused input {
+    background-color: #FAFAFA;
+}
+
 .datagrid--remove .dx-datagrid-headers .dx-datagrid-table .dx-datagrid-filter-row > td:nth-last-child(1) {
     background-color: $clr-grey-v4;
 }

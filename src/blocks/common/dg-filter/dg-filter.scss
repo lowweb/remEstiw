@@ -1,0 +1,56 @@
+.dg-filter {
+	margin-bottom: 26px;
+	&__group{
+		margin-right: 60px;
+		display: inline-flex;
+
+		&:last-child {
+			margin-right: 0px;
+		}
+	}
+
+	&__item {
+		@include font-lucida ($clr-blue, 13px, normal);
+		padding: 8px;
+	}
+
+
+
+	&__cont {
+	  display: flex;
+	  cursor: pointer;
+	  user-select: none;
+	  align-items: center;
+	  height: 32px;
+	  position: relative;
+	  margin-right: 10px;
+
+	  &:last-child {
+	  	margin-right: 0px;
+	  }
+
+	  & input {
+		  position: absolute;
+		  opacity: 0;
+		  cursor: pointer;
+		  width: 100%;
+		  height: 100%;
+	  }
+	  & input:checked ~ .dg-filter__item {
+	    background-color: #F2F3FB;
+	    border-radius: 3px;
+	    	  
+
+	  }
+	  & input:checked ~ .dg-filter__item label {
+		 border-bottom: none;
+		 color: $clr-dark-light;
+	  }	  
+
+	}
+
+	& .checkbox {
+		padding: 0px;
+	}
+}
+

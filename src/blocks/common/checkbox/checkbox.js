@@ -49,6 +49,10 @@ checkboxInit ("oversize-rzd__checkbox", "Не уверен, прошу опре�
 
 checkboxInit ("ccp-mass-bulk-open__checkbox", "Указать размеры фракций или составляющих массу");
 
+checkboxInit ("requestall__filter-checkbox", "Доставить груз");
+checkboxInit ("requestall__filter-checkbox1", "Купить");
+
+
 
 
 
