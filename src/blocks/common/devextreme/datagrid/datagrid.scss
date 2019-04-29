@@ -12,8 +12,8 @@
 }
 
 .dx-datagrid .dx-column-lines > td {
-    border-left: 1px solid $clr-grey-v2;
-    border-right: 1px solid $clr-grey-v2;
+    border-left: 0px solid $clr-grey-v2;
+    border-right: 0px solid $clr-grey-v2;
 }
 
 .datagrid--remove .dx-datagrid .dx-column-lines > td:nth-last-child(2) {

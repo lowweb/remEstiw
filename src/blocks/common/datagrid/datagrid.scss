@@ -60,5 +60,23 @@
 
 }
 
+.dg{
+	&-connected {
+		border-left: 5px solid #5C2D91 !important;
+	}
+
+	&-row2nt {
+		background-color: rgba(243, 243, 243, 0.5);
+	}
+
+	&-connection-sg {
+		content: url(#{$imgFolder}dg-connected-cell.svg);
+		position: absolute;
+    	transform: translate(0,-50%);
+    	left: 64px;
+	}
+
+}
+
 
 

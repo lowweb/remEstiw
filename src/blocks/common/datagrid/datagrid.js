@@ -191,8 +191,8 @@ var requestAllData = [{
     "Cond": "Передан на согласование",
     "Qnt": 999,
     "Vol": 999,
-    "Weigth": 999,
-    "Data" : '14.02.2019'
+    "Weight": 999,
+    "Date" : '14.02.2019'
 },
 {
     "ID": 1,
@@ -202,8 +202,9 @@ var requestAllData = [{
     "Cond": "Передан на согласование",
     "Qnt": 999,
     "Vol": 999,
-    "Weigth": 999,
-    "Data" : '14.02.2019'
+    "Weight": 999,
+    "Date" : '14.02.2019',
+    "connected" : 1
 },
 {
     "ID": 1,
@@ -213,8 +214,9 @@ var requestAllData = [{
     "Cond": "Передан на согласование",
     "Qnt": 999,
     "Vol": 999,
-    "Weigth": 999,
-    "Data" : '14.02.2019'
+    "Weight": 999,
+    "Date" : '14.02.2019',
+    "connected" : 2
 },
 {
     "ID": 1,
@@ -224,8 +226,8 @@ var requestAllData = [{
     "Cond": "Передан на согласование",
     "Qnt": 999,
     "Vol": 999,
-    "Weigth": 999,
-    "Data" : '06.12.2018 – 14.02.2019'
+    "Weight": 999,
+    "Date" : '06.12.2018 – 14.02.2019'
 },
 {
     "ID": 1,
@@ -235,8 +237,55 @@ var requestAllData = [{
     "Cond": "Передан на согласование",
     "Qnt": 999,
     "Vol": 999,
-    "Weigth": 999,
-    "Data" : '14.02.2019'
+    "Weight": 999,
+    "Date" : '14.02.2019'
+},
+,
+{
+    "ID": 1,
+    "Number": "001",
+    "Name": "Очень длинное название запроса на доставку и покупку в три строки (обрезается по кол-ву символов...",
+    "SendDest": "Москва, Россия (CY) → Тверь, Россия (CY)",
+    "Cond": "Передан на согласование",
+    "Qnt": 999,
+    "Vol": 999,
+    "Weight": 999,
+    "Date" : '14.02.2019',
+    "connected" : 1
+},
+{
+    "ID": 1,
+    "Number": "001",
+    "Name": "Достаточно длинное название запроса",
+    "SendDest": "Москва, Россия (CY) → Тверь, Россия (CY)",
+    "Cond": "Передан на согласование",
+    "Qnt": 999,
+    "Vol": 999,
+    "Weight": 999,
+    "Date" : '14.02.2019',
+    "connected" : 2
+}, 
+{
+    "ID": 1,
+    "Number": "001",
+    "Name": "Достаточно длинное название запроса",
+    "SendDest": "Москва, Россия (CY) → Тверь, Россия (CY)",
+    "Cond": "Передан на согласование",
+    "Qnt": 999,
+    "Vol": 999,
+    "Weight": 999,
+    "Date" : '14.02.2019'
+}, 
+{
+    "ID": 1,
+    "Number": "001",
+    "Name": "Достаточно длинное название запроса",
+    "SendDest": "Москва, Россия (CY) → Тверь, Россия (CY)",
+    "Cond": "Передан на согласование",
+    "Qnt": 999,
+    "Vol": 999,
+    "Weight": 999,
+    "Date" : '14.02.2019'
 }  ];
  $("#dataGridRequestAll").dxDataGrid({
         dataSource: requestAllData,
@@ -305,7 +354,7 @@ var requestAllData = [{
             width: 122
         },
         {
-            dataField: "Data",
+            dataField: "Date",
             caption: "Дата готовности",
             width: 198
         }],
@@ -323,6 +372,125 @@ var requestAllData = [{
         showColumnLines: true,
         showRowLines: true,    
     }).data("dxDataGrid");
+
+
+
+var dgRowCount=1;
+ $("#dataGridRequestAllConnected").dxDataGrid({
+        dataSource: requestAllData,
+        // columnAutoWidth: true,
+        rowTemplate: function(container, item) {
+            var data = item.data, markup='',dgConnected = '', tdClass='', trClass='', dgConnectedSg='';
+        //раскраска строки
+         console.log (dgRowCount);
+
+         if (dgRowCount % 2 == 0)
+         {
+            trClass="dg-row2nt";
+         }
+        //левая полоса
+            if (data.connected==1) {
+                dgConnected = "'dg-connected'";
+                dgConnectedSg = "class='dg-connection-sg'";
+            }
+            else if (data.connected==2) {
+                dgConnected = "'dg-connected'";
+                dgRowCount++;
+            }
+            else  {
+              dgConnected = '';
+              // if (dgRowCount!=1)
+                dgRowCount ++;
+            }
+            tdClass="class=" + dgConnected;
+                markup = "<tbody role='presentation'>" +
+                    "<tr class='dx-row dx-data-row dx-row-lines dx-column-lines " + trClass+ "' role='row'>" +
+                        "<td "+ tdClass +" role='gridcell'>" + data.Number+"</td>" + 
+                        "<td role='gridcell' class='datagrid__link-cell'><a href='#'>"+data.Name+"</a></td>" + 
+                        "<td role='gridcell'>" + data.SendDest+"</td>" + 
+                        "<td role='gridcell'>" + data.Cond+"</td>" + 
+                        "<td role='gridcell'>" + data.Qnt+"</td>" + 
+                        "<td role='gridcell'>" + data.Vol+"</td>" + 
+                        "<td role='gridcell'>" + data.Weight+"</td>" + 
+                        "<td role='gridcell'>" + data.Date+ "</td>" +
+                        "<td class='dx-command-edit dx-command-edit-with-icons' aria-selected='false' role='gridcell' aria-colindex='9' style='text-align: center;'><a href='#' class='dx-link dx-link-delete dx-icon-trash' title='Delete'></a>&nbsp;</td>"+ 
+                    "</tr>" +
+                    "<th "+ dgConnectedSg +"></th>"+
+            "</tbody>";
+            container.append(markup);
+            
+        },
+        keyExpr: "ID",
+        width: 1550,
+        editing: {
+            allowDeleting: true,
+            form: null,
+            mode: "row",
+            popup: null,
+            refreshMode: "full",
+            texts: {},
+            useIcons: true
+            },
+        hoverStateEnabled: true,
+        showBorders: true,
+        columns: 
+
+        [{
+            dataField: "Number",
+            caption: "Номер",
+            width: 100
+        },
+        {
+            dataField: "Name",
+            caption: "Наименование запроса",
+             width: 343,
+        }, 
+        {
+            dataField: "SendDest",
+            caption: "Отправление → Назначение",
+            width: 266
+         
+        },   
+        {
+            dataField: "Cond",
+            caption: "Состояние",
+            width: 194
+        }, 
+        {
+            dataField: "Qnt",
+            caption: "Кол-во",
+            width: 116
+        }, 
+        {
+            dataField: "Vol",
+            caption: "Объём, м³",
+            width: 129
+        },
+        {
+            dataField: "Weight",
+            caption: "Масса, кг",
+            width: 122
+        },
+        {
+            dataField: "Date",
+            caption: "Дата готовности",
+            width: 198
+        }],
+
+        filterRow: {
+            applyFilter: "auto",
+            applyFilterText: "Apply filter",
+            betweenEndText: "End",
+            betweenStartText: "Start",
+            resetOperationText: "Reset",
+            showAllText: "",
+            showOperationChooser: true,
+            visible: true
+            },
+        showColumnLines: true,
+        showRowLines: true,    
+    }).data("dxDataGrid");
+
 
 
 
