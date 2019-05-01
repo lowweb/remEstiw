@@ -192,6 +192,9 @@ var requestAllData = [{
     "Qnt": 999,
     "Vol": 999,
     "Weight": 999,
+    "After": "Передать на хранение",
+    "Sum": 999999,
+    "Saller": "Компания 'Креветка'",
     "Date" : '14.02.2019'
 },
 {
@@ -203,6 +206,9 @@ var requestAllData = [{
     "Qnt": 999,
     "Vol": 999,
     "Weight": 999,
+    "After": "Передать на хранение",
+    "Sum": 999999,
+    "Saller": "Компания 'Креветка'",
     "Date" : '14.02.2019',
     "connected" : 1
 },
@@ -215,6 +221,9 @@ var requestAllData = [{
     "Qnt": 999,
     "Vol": 999,
     "Weight": 999,
+    "After": "Передать на хранение",
+    "Sum": 999999,
+    "Saller": "Компания 'Креветка'",
     "Date" : '14.02.2019',
     "connected" : 2
 },
@@ -227,6 +236,9 @@ var requestAllData = [{
     "Qnt": 999,
     "Vol": 999,
     "Weight": 999,
+    "After": "Передать на хранение",
+    "Sum": 999999,
+    "Saller": "Компания 'Креветка'",
     "Date" : '06.12.2018 – 14.02.2019'
 },
 {
@@ -238,6 +250,9 @@ var requestAllData = [{
     "Qnt": 999,
     "Vol": 999,
     "Weight": 999,
+    "After": "Передать на хранение",
+    "Sum": 999999,
+    "Saller": "Компания 'Креветка'",
     "Date" : '14.02.2019'
 },
 ,
@@ -250,6 +265,9 @@ var requestAllData = [{
     "Qnt": 999,
     "Vol": 999,
     "Weight": 999,
+    "After": "Передать на хранение",
+    "Sum": 999999,
+    "Saller": "Компания 'Креветка'",
     "Date" : '14.02.2019',
     "connected" : 1
 },
@@ -262,6 +280,9 @@ var requestAllData = [{
     "Qnt": 999,
     "Vol": 999,
     "Weight": 999,
+    "After": "Передать на хранение",
+    "Sum": 999999,
+    "Saller": "Компания 'Креветка'",
     "Date" : '14.02.2019',
     "connected" : 2
 }, 
@@ -274,6 +295,8 @@ var requestAllData = [{
     "Qnt": 999,
     "Vol": 999,
     "Weight": 999,
+    "After": "Передать на хранение",
+    "Sum": 999999,
     "Date" : '14.02.2019'
 }, 
 {
@@ -285,8 +308,12 @@ var requestAllData = [{
     "Qnt": 999,
     "Vol": 999,
     "Weight": 999,
+    "After": "Передать на хранение",
+    "Sum": 999999,
+    "Saller": "Компания 'Креветка'",
     "Date" : '14.02.2019'
 }  ];
+
  $("#dataGridRequestAll").dxDataGrid({
         dataSource: requestAllData,
         keyExpr: "ID",
@@ -374,16 +401,14 @@ var requestAllData = [{
     }).data("dxDataGrid");
 
 
-
+//----------dataGridRequestAllConnected--------------
 var dgRowCount=1;
  $("#dataGridRequestAllConnected").dxDataGrid({
         dataSource: requestAllData,
         // columnAutoWidth: true,
         rowTemplate: function(container, item) {
-            var data = item.data, markup='',dgConnected = '', tdClass='', trClass='', dgConnectedSg='';
+            var data = item.data, tamplate='',dgConnected = '', tdClass='', trClass='', dgConnectedSg='';
         //раскраска строки
-         console.log (dgRowCount);
-
          if (dgRowCount % 2 == 0)
          {
             trClass="dg-row2nt";
@@ -403,7 +428,7 @@ var dgRowCount=1;
                 dgRowCount ++;
             }
             tdClass="class=" + dgConnected;
-                markup = "<tbody role='presentation'>" +
+                tamplate = "<tbody role='presentation'>" +
                     "<tr class='dx-row dx-data-row dx-row-lines dx-column-lines " + trClass+ "' role='row'>" +
                         "<td "+ tdClass +" role='gridcell'>" + data.Number+"</td>" + 
                         "<td role='gridcell' class='datagrid__link-cell'><a href='#'>"+data.Name+"</a></td>" + 
@@ -417,7 +442,7 @@ var dgRowCount=1;
                     "</tr>" +
                     "<th "+ dgConnectedSg +"></th>"+
             "</tbody>";
-            container.append(markup);
+            container.append(tamplate);
             
         },
         keyExpr: "ID",
@@ -491,6 +516,98 @@ var dgRowCount=1;
         showRowLines: true,    
     }).data("dxDataGrid");
 
+
+//----------dataGridRequestBuy-------------
+var dgRowCount=1;
+ $("#dataGridRequestBuy").dxDataGrid({
+        dataSource: requestAllData,
+        // columnAutoWidth: true,
+        rowTemplate: function(container, item) {
+            var data = item.data,tamplate='',afterPay='';
+            //data.connected исключительно для примера
+            if (data.connected==1) {
+                afterPay = "class='dg__icn-after-pay'";
+            }
+                tamplate = "<tbody role='presentation'>" +
+                    "<tr class='dx-row dx-data-row dx-row-lines dx-column-lines' role='row'>" +
+                        "<td role='gridcell'>" + data.Number+"</td>" + 
+                        "<td role='gridcell' class='datagrid__link-cell'><a href='#'>"+data.Name+"</a></td>" + 
+                        "<td role='gridcell'>" + data.Saller+"</td>" + 
+                        "<td role='gridcell'>" + data.Cond+"</td>" + 
+                        "<td role='gridcell'>" + data.Qnt+"</td>" + 
+                        "<td role='gridcell'>" + data.Sum+"</td>" + 
+                        "<td "+ afterPay +" role='gridcell'>" + data.After+"</td>" + 
+                        "<td class='dx-command-edit dx-command-edit-with-icons' aria-selected='false' role='gridcell' aria-colindex='9' style='text-align: center;'><a href='#' class='dx-link dx-link-delete dx-icon-trash' title='Delete'></a>&nbsp;</td>"+ 
+                    "</tr>"
+            "</tbody>";
+            container.append(tamplate);
+            
+        },
+        keyExpr: "ID",
+        width: 1550,
+        editing: {
+            allowDeleting: true,
+            form: null,
+            mode: "row",
+            popup: null,
+            refreshMode: "full",
+            texts: {},
+            useIcons: true
+            },
+        hoverStateEnabled: true,
+        showBorders: true,
+        columns: 
+
+        [{
+            dataField: "Number",
+            caption: "Номер",
+            width: 107
+        },
+        {
+            dataField: "Name",
+            caption: "Наименование запроса",
+             width: 254,
+        }, 
+        {
+            dataField: "Saller",
+            caption: "Продавец",
+            width: 278
+         
+        },   
+        {
+            dataField: "Cond",
+            caption: "Состояние",
+            width: 181
+        }, 
+        {
+            dataField: "Qnt",
+            caption: "Кол-во",
+            width: 153
+        }, 
+        {
+            dataField: "Sum",
+            caption: "Общая стоимость",
+            width: 165
+        },
+        {
+            dataField: "After",
+            caption: "После оплаты",
+            width: 348
+        }],
+
+        filterRow: {
+            applyFilter: "auto",
+            applyFilterText: "Apply filter",
+            betweenEndText: "End",
+            betweenStartText: "Start",
+            resetOperationText: "Reset",
+            showAllText: "",
+            showOperationChooser: true,
+            visible: true
+            },
+        showColumnLines: true,
+        showRowLines: true,    
+    }).data("dxDataGrid");
 
 
 

@@ -98,36 +98,6 @@ $('.input-field__cont').change ( function () {
 	 	$(this).parent().find('.input-field__label').removeClass('input-field__label--err');
 	 }
 });
-function initButton (Element) {
-    $('.' + Element).dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-             
-                }
-            });
-};
-
-
-initButton("button");
-
-//button like earth
-$(".input-field__btn").dxButton({
-    text: "",
-    onClick: function() {}
-});
-
-//special onclick
-$('#footer__button-save').dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-                    $('.footer__saved-msg').show();                
-                }
-            });
-     
 function checkboxInit (element, text) {
     $("[id="+element+"]").dxCheckBox({
         text: text,
@@ -382,6 +352,9 @@ var requestAllData = [{
     "Qnt": 999,
     "Vol": 999,
     "Weight": 999,
+    "After": "Передать на хранение",
+    "Sum": 999999,
+    "Saller": "Компания 'Креветка'",
     "Date" : '14.02.2019'
 },
 {
@@ -393,6 +366,9 @@ var requestAllData = [{
     "Qnt": 999,
     "Vol": 999,
     "Weight": 999,
+    "After": "Передать на хранение",
+    "Sum": 999999,
+    "Saller": "Компания 'Креветка'",
     "Date" : '14.02.2019',
     "connected" : 1
 },
@@ -405,6 +381,9 @@ var requestAllData = [{
     "Qnt": 999,
     "Vol": 999,
     "Weight": 999,
+    "After": "Передать на хранение",
+    "Sum": 999999,
+    "Saller": "Компания 'Креветка'",
     "Date" : '14.02.2019',
     "connected" : 2
 },
@@ -417,6 +396,9 @@ var requestAllData = [{
     "Qnt": 999,
     "Vol": 999,
     "Weight": 999,
+    "After": "Передать на хранение",
+    "Sum": 999999,
+    "Saller": "Компания 'Креветка'",
     "Date" : '06.12.2018 – 14.02.2019'
 },
 {
@@ -428,6 +410,9 @@ var requestAllData = [{
     "Qnt": 999,
     "Vol": 999,
     "Weight": 999,
+    "After": "Передать на хранение",
+    "Sum": 999999,
+    "Saller": "Компания 'Креветка'",
     "Date" : '14.02.2019'
 },
 ,
@@ -440,6 +425,9 @@ var requestAllData = [{
     "Qnt": 999,
     "Vol": 999,
     "Weight": 999,
+    "After": "Передать на хранение",
+    "Sum": 999999,
+    "Saller": "Компания 'Креветка'",
     "Date" : '14.02.2019',
     "connected" : 1
 },
@@ -452,6 +440,9 @@ var requestAllData = [{
     "Qnt": 999,
     "Vol": 999,
     "Weight": 999,
+    "After": "Передать на хранение",
+    "Sum": 999999,
+    "Saller": "Компания 'Креветка'",
     "Date" : '14.02.2019',
     "connected" : 2
 }, 
@@ -464,6 +455,8 @@ var requestAllData = [{
     "Qnt": 999,
     "Vol": 999,
     "Weight": 999,
+    "After": "Передать на хранение",
+    "Sum": 999999,
     "Date" : '14.02.2019'
 }, 
 {
@@ -475,8 +468,12 @@ var requestAllData = [{
     "Qnt": 999,
     "Vol": 999,
     "Weight": 999,
+    "After": "Передать на хранение",
+    "Sum": 999999,
+    "Saller": "Компания 'Креветка'",
     "Date" : '14.02.2019'
 }  ];
+
  $("#dataGridRequestAll").dxDataGrid({
         dataSource: requestAllData,
         keyExpr: "ID",
@@ -564,16 +561,14 @@ var requestAllData = [{
     }).data("dxDataGrid");
 
 
-
+//----------dataGridRequestAllConnected--------------
 var dgRowCount=1;
  $("#dataGridRequestAllConnected").dxDataGrid({
         dataSource: requestAllData,
         // columnAutoWidth: true,
         rowTemplate: function(container, item) {
-            var data = item.data, markup='',dgConnected = '', tdClass='', trClass='', dgConnectedSg='';
+            var data = item.data, tamplate='',dgConnected = '', tdClass='', trClass='', dgConnectedSg='';
         //раскраска строки
-         console.log (dgRowCount);
-
          if (dgRowCount % 2 == 0)
          {
             trClass="dg-row2nt";
@@ -593,7 +588,7 @@ var dgRowCount=1;
                 dgRowCount ++;
             }
             tdClass="class=" + dgConnected;
-                markup = "<tbody role='presentation'>" +
+                tamplate = "<tbody role='presentation'>" +
                     "<tr class='dx-row dx-data-row dx-row-lines dx-column-lines " + trClass+ "' role='row'>" +
                         "<td "+ tdClass +" role='gridcell'>" + data.Number+"</td>" + 
                         "<td role='gridcell' class='datagrid__link-cell'><a href='#'>"+data.Name+"</a></td>" + 
@@ -607,7 +602,7 @@ var dgRowCount=1;
                     "</tr>" +
                     "<th "+ dgConnectedSg +"></th>"+
             "</tbody>";
-            container.append(markup);
+            container.append(tamplate);
             
         },
         keyExpr: "ID",
@@ -681,6 +676,98 @@ var dgRowCount=1;
         showRowLines: true,    
     }).data("dxDataGrid");
 
+
+//----------dataGridRequestBuy-------------
+var dgRowCount=1;
+ $("#dataGridRequestBuy").dxDataGrid({
+        dataSource: requestAllData,
+        // columnAutoWidth: true,
+        rowTemplate: function(container, item) {
+            var data = item.data,tamplate='',afterPay='';
+            //data.connected исключительно для примера
+            if (data.connected==1) {
+                afterPay = "class='dg__icn-after-pay'";
+            }
+                tamplate = "<tbody role='presentation'>" +
+                    "<tr class='dx-row dx-data-row dx-row-lines dx-column-lines' role='row'>" +
+                        "<td role='gridcell'>" + data.Number+"</td>" + 
+                        "<td role='gridcell' class='datagrid__link-cell'><a href='#'>"+data.Name+"</a></td>" + 
+                        "<td role='gridcell'>" + data.Saller+"</td>" + 
+                        "<td role='gridcell'>" + data.Cond+"</td>" + 
+                        "<td role='gridcell'>" + data.Qnt+"</td>" + 
+                        "<td role='gridcell'>" + data.Sum+"</td>" + 
+                        "<td "+ afterPay +" role='gridcell'>" + data.After+"</td>" + 
+                        "<td class='dx-command-edit dx-command-edit-with-icons' aria-selected='false' role='gridcell' aria-colindex='9' style='text-align: center;'><a href='#' class='dx-link dx-link-delete dx-icon-trash' title='Delete'></a>&nbsp;</td>"+ 
+                    "</tr>"
+            "</tbody>";
+            container.append(tamplate);
+            
+        },
+        keyExpr: "ID",
+        width: 1550,
+        editing: {
+            allowDeleting: true,
+            form: null,
+            mode: "row",
+            popup: null,
+            refreshMode: "full",
+            texts: {},
+            useIcons: true
+            },
+        hoverStateEnabled: true,
+        showBorders: true,
+        columns: 
+
+        [{
+            dataField: "Number",
+            caption: "Номер",
+            width: 107
+        },
+        {
+            dataField: "Name",
+            caption: "Наименование запроса",
+             width: 254,
+        }, 
+        {
+            dataField: "Saller",
+            caption: "Продавец",
+            width: 278
+         
+        },   
+        {
+            dataField: "Cond",
+            caption: "Состояние",
+            width: 181
+        }, 
+        {
+            dataField: "Qnt",
+            caption: "Кол-во",
+            width: 153
+        }, 
+        {
+            dataField: "Sum",
+            caption: "Общая стоимость",
+            width: 165
+        },
+        {
+            dataField: "After",
+            caption: "После оплаты",
+            width: 348
+        }],
+
+        filterRow: {
+            applyFilter: "auto",
+            applyFilterText: "Apply filter",
+            betweenEndText: "End",
+            betweenStartText: "Start",
+            resetOperationText: "Reset",
+            showAllText: "",
+            showOperationChooser: true,
+            visible: true
+            },
+        showColumnLines: true,
+        showRowLines: true,    
+    }).data("dxDataGrid");
 
 
 
@@ -1923,6 +2010,36 @@ var tnvd= [
 
 
 
+function initButton (Element) {
+    $('.' + Element).dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+             
+                }
+            });
+};
+
+
+initButton("button");
+
+//button like earth
+$(".input-field__btn").dxButton({
+    text: "",
+    onClick: function() {}
+});
+
+//special onclick
+$('#footer__button-save').dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+                    $('.footer__saved-msg').show();                
+                }
+            });
+     
 // $(".navbar").scroll (function () {
 
 //  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
@@ -1942,6 +2059,30 @@ var tnvd= [
 //  }
 
 //  });
+$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
+	// $(this).toggleClass('user-popup-menu__title-btn--up');
+	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
+		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
+		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
+		$(this).toggleClass('btn-rotate180');
+		$(this).toggleClass('app-lnk-disable');
+	// }
+});
+
+
+$(".user-popup-menu__title-btn").click(function(e) {
+  e.stopPropagation(); 
+});
+
+
+function userPopupClose() {
+	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
+		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
+		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
+		$('.app-lnk-disable').toggleClass('btn-rotate180');
+		$('.app-lnk-disable').toggleClass('app-lnk-disable');
+	}
+}
 $('.timezone-popup-menu__title-btn').click(function(){
 // console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
 // if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
@@ -1970,30 +2111,6 @@ function timezonePopupClose(e) {
 }
 
 
-$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
-	// $(this).toggleClass('user-popup-menu__title-btn--up');
-	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
-		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
-		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
-		$(this).toggleClass('btn-rotate180');
-		$(this).toggleClass('app-lnk-disable');
-	// }
-});
-
-
-$(".user-popup-menu__title-btn").click(function(e) {
-  e.stopPropagation(); 
-});
-
-
-function userPopupClose() {
-	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
-		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
-		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
-		$('.app-lnk-disable').toggleClass('btn-rotate180');
-		$('.app-lnk-disable').toggleClass('app-lnk-disable');
-	}
-}
 var cityData = [{
     id: 1,
     name: "Владивосток, Приморский край, Россия",
@@ -2184,10 +2301,6 @@ textAriaInit('pseudoClassTextAria', "auto", 72);
     });
 
   $(".popup__info-newmsg").dxToast("show");
-$('.header-currency__lang').click( function () {
-	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
-	$('.header-currency__lang').toggleClass('header-currency__lang--en');
-});
 //эффект на иконке при hover тк заголовок всегда 1
 $('.navbar__header-link').hover(  
 function(){
@@ -2261,4 +2374,9 @@ $('.navbar__item-header').click(function(){
 	$(this).parents(".navbar__item").find('.navbar__submenu').toggleClass('navbar__submenu--open');
 	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
 
+});
+
+$('.header-currency__lang').click( function () {
+	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
+	$('.header-currency__lang').toggleClass('header-currency__lang--en');
 });

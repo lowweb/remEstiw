@@ -75,7 +75,11 @@
     	transform: translate(0,-50%);
     	left: 64px;
 	}
-
+	&__icn-after-pay:before{
+		content: url(#{$imgFolder}dg-connected-cell.svg);
+		vertical-align: -5px;
+		margin-right: 10px;
+	}
 }
 
 
