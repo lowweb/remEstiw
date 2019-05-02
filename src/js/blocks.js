@@ -98,6 +98,36 @@ $('.input-field__cont').change ( function () {
 	 	$(this).parent().find('.input-field__label').removeClass('input-field__label--err');
 	 }
 });
+function initButton (Element) {
+    $('.' + Element).dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+             
+                }
+            });
+};
+
+
+initButton("button");
+
+//button like earth
+$(".input-field__btn").dxButton({
+    text: "",
+    onClick: function() {}
+});
+
+//special onclick
+$('#footer__button-save').dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+                    $('.footer__saved-msg').show();                
+                }
+            });
+     
 function checkboxInit (element, text) {
     $("[id="+element+"]").dxCheckBox({
         text: text,
@@ -151,6 +181,7 @@ checkboxInit ("ccp-mass-bulk-open__checkbox", "Указать размеры ф�
 
 checkboxInit ("requestall__filter-checkbox", "Доставить груз");
 checkboxInit ("requestall__filter-checkbox1", "Купить");
+checkboxInit ("basic-info__test", "Необходимо испытание образцов перед оплатой");
 
 
 
@@ -891,67 +922,6 @@ $("#gridContainerr").dxDataGrid({
 		uploadFailedMessage: "",
     });
 
-//название запроса
-$("#requestName").dxTextBox({
-  inputAttr: {
-   		 id: "requestName__id",  //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
-   		 class:"input-field__value" //обязятельный класс
-   }
-}).dxValidator({
-        validationRules: [{
-            type: "required",
-            message: "Обязательно к заполнению"
-        }, {
-            type: "pattern",
-            pattern: /^[^0-9]+$/,
-            message: "Строка не может содержать цифры"
-        }, {
-            type: "stringLength",
-            min: 2,
-            message: "Длина строки не меньше 2 символов"
-        }],
-        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
-    });
-
-
-// $("#input-field__totalWeight").dxTextBox({
-//   inputAttr: {
-//        id: "input-field__totalWeight-id",
-//        class:"input-field__value" 
-//    },
-//    width: 128,
-//    readOnly: true,
-//    value: "100",
-// })
-
-
-//инициализировать элементы необходимо по id элемента
-//в верстке реализованна инициализация по классу, для массовости, класс pseudoClassTextEditor на инициализируемом элементе можно удалить, если таковой не применяется
-function inputFieldInit (element, elementId, defValue, readOnlyFlag ) {
-  $("."+ element).dxTextBox({
-  inputAttr: {
-       id: elementId,
-       class:"input-field__value" 
-   },
-   value: defValue,
-   readOnly: readOnlyFlag
-  });
-};
-
-
-inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
-inputFieldInit ("pseudoClassTextEditorReadOnly","pseudoClassTextEditorReadOnly__id","100",true);
-
-
-$("#loadPanel").dxLoadPanel({
-        closeOnOutsideClick: true,
-        visible: true,
-        shading: true,
-		shadingColor: "rgba(255,255,255, 0.8)",
-		message: ""
-    });
-
-
 
 //step для шагов внутри модального окна
 function initModalStep (contName,nextbtn, prevbtn, dynamCap, curSlide) {
@@ -1415,6 +1385,67 @@ function tagBoxInit (idElement,idAttrName, itemsElement) {
 };
   
 tagBoxInit ("input-field__tagbox","input-field__tagbox-id",simpleProducts);  
+//название запроса
+$("#requestName").dxTextBox({
+  inputAttr: {
+   		 id: "requestName__id",  //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
+   		 class:"input-field__value" //обязятельный класс
+   }
+}).dxValidator({
+        validationRules: [{
+            type: "required",
+            message: "Обязательно к заполнению"
+        }, {
+            type: "pattern",
+            pattern: /^[^0-9]+$/,
+            message: "Строка не может содержать цифры"
+        }, {
+            type: "stringLength",
+            min: 2,
+            message: "Длина строки не меньше 2 символов"
+        }],
+        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
+    });
+
+
+// $("#input-field__totalWeight").dxTextBox({
+//   inputAttr: {
+//        id: "input-field__totalWeight-id",
+//        class:"input-field__value" 
+//    },
+//    width: 128,
+//    readOnly: true,
+//    value: "100",
+// })
+
+
+//инициализировать элементы необходимо по id элемента
+//в верстке реализованна инициализация по классу, для массовости, класс pseudoClassTextEditor на инициализируемом элементе можно удалить, если таковой не применяется
+function inputFieldInit (element, elementId, defValue, readOnlyFlag ) {
+  $("."+ element).dxTextBox({
+  inputAttr: {
+       id: elementId,
+       class:"input-field__value" 
+   },
+   value: defValue,
+   readOnly: readOnlyFlag
+  });
+};
+
+
+inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
+inputFieldInit ("pseudoClassTextEditorReadOnly","pseudoClassTextEditorReadOnly__id","100",true);
+
+
+$("#loadPanel").dxLoadPanel({
+        closeOnOutsideClick: true,
+        visible: true,
+        shading: true,
+		shadingColor: "rgba(255,255,255, 0.8)",
+		message: ""
+    });
+
+
 var tnvd= [
   {
     "key": 1,
@@ -2010,36 +2041,6 @@ var tnvd= [
 
 
 
-function initButton (Element) {
-    $('.' + Element).dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-             
-                }
-            });
-};
-
-
-initButton("button");
-
-//button like earth
-$(".input-field__btn").dxButton({
-    text: "",
-    onClick: function() {}
-});
-
-//special onclick
-$('#footer__button-save').dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-                    $('.footer__saved-msg').show();                
-                }
-            });
-     
 // $(".navbar").scroll (function () {
 
 //  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
@@ -2111,6 +2112,18 @@ function timezonePopupClose(e) {
 }
 
 
+ $(".popup__info-newmsg").dxToast({
+        message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
+        displayTime: 300000,
+        position: {my: 'center right', at: 'center right', offset: '-50 0'},
+        width: 375,
+		onShowing: function () {
+			//for left separate line on block message
+			$('.dx-toast-message').height($('.dx-toast-content').height());
+		}
+    });
+
+  $(".popup__info-newmsg").dxToast("show");
 var cityData = [{
     id: 1,
     name: "Владивосток, Приморский край, Россия",
@@ -2289,18 +2302,10 @@ function textAriaInit (className, width,height) {
 
 
 textAriaInit('pseudoClassTextAria', "auto", 72);
- $(".popup__info-newmsg").dxToast({
-        message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
-        displayTime: 300000,
-        position: {my: 'center right', at: 'center right', offset: '-50 0'},
-        width: 375,
-		onShowing: function () {
-			//for left separate line on block message
-			$('.dx-toast-message').height($('.dx-toast-content').height());
-		}
-    });
-
-  $(".popup__info-newmsg").dxToast("show");
+$('.header-currency__lang').click( function () {
+	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
+	$('.header-currency__lang').toggleClass('header-currency__lang--en');
+});
 //эффект на иконке при hover тк заголовок всегда 1
 $('.navbar__header-link').hover(  
 function(){
@@ -2374,9 +2379,4 @@ $('.navbar__item-header').click(function(){
 	$(this).parents(".navbar__item").find('.navbar__submenu').toggleClass('navbar__submenu--open');
 	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
 
-});
-
-$('.header-currency__lang').click( function () {
-	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
-	$('.header-currency__lang').toggleClass('header-currency__lang--en');
 });

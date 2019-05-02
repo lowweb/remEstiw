@@ -80,6 +80,19 @@
 			flex-direction: column;
 		}
 
+		& > .input-field + .checkbox {
+			margin-top: 30px;
+			margin-left: 30px;
+			white-space: nowrap;
+		}
+
+		&-total {
+			@include font-lucida (rgba(0, 0, 0, 0.7), 14px, 21px);
+			& span {
+				color: $clr-dark;
+			}
+		}
+
 	}
 
 	&__row--wrap {
