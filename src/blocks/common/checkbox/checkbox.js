@@ -51,6 +51,7 @@ checkboxInit ("ccp-mass-bulk-open__checkbox", "Указать размеры ф�
 
 checkboxInit ("requestall__filter-checkbox", "Доставить груз");
 checkboxInit ("requestall__filter-checkbox1", "Купить");
+checkboxInit ("basic-info__test", "Необходимо испытание образцов перед оплатой");
 
 
 
