@@ -1,0 +1,20 @@
+.info {
+	background-color: rgba(255, 186, 8, 0.2);
+	border-radius: 3px;
+	height: 56px;
+	@include font-fira (#000000, 15px, normal);
+	display: inline-flex;
+	align-items: center;
+	padding: 0 30px 0 18px;
+	width: auto;
+
+	&__connect-icn {
+		&:before {
+			content: url(#{$imgFolder}connect-icn-yl.svg);
+			margin-right: 10px;
+			vertical-align: 3px;
+			width: 20px;
+			height: 20px;
+		}
+	}
+}

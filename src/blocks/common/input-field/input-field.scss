@@ -61,9 +61,10 @@
 	}
 
 	&__remark {
-		@include font-lucida ($clr-dark-light, 12px, normal);
+		@include font-lucida (#999999, 12px, normal);
 		margin-top: 6px;
 		align-self: flex-end;
+		margin-left: auto;
 	}
 
 
