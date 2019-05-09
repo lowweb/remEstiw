@@ -65,6 +65,11 @@
 	&-prev {
 		padding-left: 22px; padding-right: 24px;
 	}
+
+	&.picon:before {
+		margin-left: -10px;
+		margin-right: 8px;
+	}
 }
 //эффект поворота кнопок угольных
 .btn-rotate180:before {
@@ -127,7 +132,6 @@
 	}
 
 	&-cap {
-		// @include font-lucida ($clr-blue, 12px, normal);
 		font-size: 14px;
 		border-bottom: 1px dashed $clr-blue;
 		margin-right: 8px;

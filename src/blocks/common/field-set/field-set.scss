@@ -15,6 +15,10 @@
     	& > .field-set__items{
     		padding-bottom: 41px;
     	}
+    	& > .field-set__items-r{
+    		padding-bottom: 25px;
+    	}
+
 	}
 	&--tween-bottom {
 
@@ -33,6 +37,9 @@
 		.field-set__cargo-ready &{
 			display: flex;
 			flex-direction: column;
+	}
+	&-r {
+		padding: 14px 0 0 0;
 	}
 	}
 
