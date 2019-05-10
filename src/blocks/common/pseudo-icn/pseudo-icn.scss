@@ -1,4 +1,4 @@
-.picon{
+.icn{
 	display: flex;
 	align-items: center;
 	&__conn{
@@ -23,7 +23,7 @@
 
 	}
 
-	&__clock-yel{
+	&__clock-y{
 		&:before{
 				content: url('#{$imgFolder}icn-clock-yellow.svg');
 				width: 22px;
