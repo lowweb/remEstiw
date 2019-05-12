@@ -85,9 +85,22 @@ color: $clr-dark;
 .app-lnk {
 	color: $clr-blue;
 	text-decoration: none;
+	fill: $clr-blue;
+
 	&:hover {
 		color: $clr-purple;
+		fill: $clr-purple;
+		
 	}
+	
+	& > svg {
+		vertical-align: middle;
+		width: 20px;
+		margin-right: 10px;
+	}
+	& > svg, & > svg path{
+			fill: inherit;
+		}
 }
 
 .app-lnk-disable {
@@ -227,6 +240,9 @@ h2{
 
 }
 
+.mb30{
+	margin-bottom: 30px;
+}
 
 
 
