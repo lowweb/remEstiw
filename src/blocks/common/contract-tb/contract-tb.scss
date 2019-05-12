@@ -30,6 +30,11 @@
 			&:first-child {
 				margin-left: 0;
 			}
+
+			& > img, & > svg {
+				vertical-align: middle;
+				margin-right: 10px;
+			}
 		}
 
 		&:first-child {
