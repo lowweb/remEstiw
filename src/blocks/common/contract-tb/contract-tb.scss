@@ -60,10 +60,17 @@
 
 
 	}
-
-	& tr:nth-child(2n){
-		background: rgba(243, 243, 243, 0.5);
-	}
 	
+	&__row {
+		&:nth-child(2n){
+			background-color: rgba(243, 243, 243, 0.5);
+		}
 
+	
+ 		&:hover {
+			background-color: #ECF4FA;
+		}
+
+	}
 }
+

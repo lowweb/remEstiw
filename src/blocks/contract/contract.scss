@@ -1,0 +1,16 @@
+.contract {
+	font-family: Lucida Grande; 
+  	font-style: normal; 
+  	font-weight: normal; 
+  	line-height: 21px; 
+  	font-size: 14px; 
+  	color: rgba(0, 0, 0, 0.7); 
+  	width: 1136px;
+
+  	&__block {
+  		& span {
+  			// color: #000000;
+  			margin-left: 6px;
+  		}
+  	}
+}

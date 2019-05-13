@@ -26,7 +26,7 @@ $imgFolder: '../img/';
        url('../fonts/fira-sans-v8-cyrillic-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-.font-h1Header {
+.ft-h1 {
 font-family: Fira Sans; 
 font-style: normal; 
 font-weight: 500; 
@@ -36,7 +36,7 @@ letter-spacing: 0.01em;
 color: $clr-dark;
 }
 
-.font-h2Header {
+.ft-h2 {
 	font-family: Fira Sans; 
 	font-style: normal; 
 	font-weight: 500; 
@@ -46,7 +46,7 @@ color: $clr-dark;
 	color: $clr-dark-light;
 }
 
-.font-common{
+.ft-common{
   font-family: Lucida Grande; 
   font-style: normal; 
   font-weight: normal; 
@@ -55,6 +55,30 @@ color: $clr-dark;
   color: rgba(0, 0, 0, 0.7); 
 }
 
+.ft-form {
+	font-family: Fira Sans;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 17px;
+	line-height: 20px;
+	letter-spacing: 0.01em;
+	color: #000000;
+}
+
+.ft-common-bl{
+  font-family: Lucida Grande; 
+  font-style: normal; 
+  font-weight: normal; 
+  line-height: 21px; 
+  font-size: 14px; 
+  color: #000000; 
+}
+.ft-red{
+	color: $clr-red;
+}
+.ft-green{
+	color: $clr-green;
+}
 //миксин lucida
 @mixin font-lucida ($color, $size, $height) {
 	font-family: Lucida Grande, Tahoma, Arial;
@@ -244,5 +268,14 @@ h2{
 	margin-bottom: 30px;
 }
 
+.mb20 {
+	margin-bottom: 20px;
+}	
+.mb10 {
+	margin-bottom: 10px;
+}	
+.mb6 {
+	margin-bottom: 6px;
+}	
 
 
