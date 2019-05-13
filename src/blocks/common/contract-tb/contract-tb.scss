@@ -5,7 +5,7 @@
 	border-radius: 3px;
 	border-spacing: 0;
 
-	& tr > th {
+	&__header {
 		height: 48px;
 		background: #F3F3F3;
 		text-align: left;
@@ -14,11 +14,12 @@
 		font-weight: normal;
 	}
 
-	& tr > td {
+	&__cell {
 		padding-left: 21px;
 		font-size: 14px;
 		line-height: 16px;
 		height: 56px;
+		position: relative;
 
 		& > img {
 			vertical-align: middle;
@@ -40,14 +41,29 @@
 		&:first-child {
 			color: #373F51;
 		}
+
+		&--edit {
+			&:before{
+				height: 100%;
+				width: 4px;
+				content: '';
+				background-color: $clr-green;
+				position: absolute;
+   				left: 0;
+    			top: 0;
+			}
+		}
+
+		&--sub {
+			padding-left: 41px;
+		}
+
+
 	}
 
 	& tr:nth-child(2n){
 		background: rgba(243, 243, 243, 0.5);
 	}
 	
-	&__row--edit {
-		border-left: 4px solid $clr-green;
-	}
 
 }
