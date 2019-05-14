@@ -39,6 +39,16 @@
 		height: 100%;
 	}
 
+	&__edit {
+		display: flex;
+		align-items: center;
+
+		& > img, & > svg {
+			margin-right: 10px;
+			margin-left: 26px;
+		}
+	}
+
 
 }
 
