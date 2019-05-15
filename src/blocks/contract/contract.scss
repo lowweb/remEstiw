@@ -42,20 +42,18 @@
 }
 
 &_l {
-  width: 200px;
-  height: 200px;
-  background-color: yellow;
-  
+  width: 443px;
+  // white-space: pre;
 }
 &_r{
-  width: 299px;
-  height: 200px;
-  background-color: blue;
+  width: 443px;
+  margin-left: 30px;
+
 }
 &_rl {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  // justify-content: space-between;
 }
 }
 
