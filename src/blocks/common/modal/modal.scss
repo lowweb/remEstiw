@@ -17,14 +17,13 @@
 .modal {
   &__btn-close {
     color: $clr-dark-light;
-    // float: right;
     font-size: 21px;
     font-weight: bold;
     position: absolute;
     right: 17px;
-    top: 17px;
+    top: 8px;
 
-    &:hover,&:focus {
+     &:hover,&:focus {
       color: $clr-purple;
       text-decoration: none;
       cursor: pointer;

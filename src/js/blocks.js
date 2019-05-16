@@ -98,6 +98,36 @@ $('.input-field__cont').change ( function () {
 	 	$(this).parent().find('.input-field__label').removeClass('input-field__label--err');
 	 }
 });
+function initButton (Element) {
+    $('.' + Element).dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+             
+                }
+            });
+};
+
+
+initButton("button");
+
+//button like earth
+$(".input-field__btn").dxButton({
+    text: "",
+    onClick: function() {}
+});
+
+//special onclick
+$('#footer__button-save').dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+                    $('.footer__saved-msg').show();                
+                }
+            });
+     
 function checkboxInit (element, text) {
     $("[id="+element+"]").dxCheckBox({
         text: text,
@@ -159,36 +189,6 @@ checkboxInit ("basic-info__test", "Необходимо испытание об�
 
 
  
-function initButton (Element) {
-    $('.' + Element).dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-             
-                }
-            });
-};
-
-
-initButton("button");
-
-//button like earth
-$(".input-field__btn").dxButton({
-    text: "",
-    onClick: function() {}
-});
-
-//special onclick
-$('#footer__button-save').dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-                    $('.footer__saved-msg').show();                
-                }
-            });
-     
 //-----------customs-clearance-3agent-modal
 var employees = [{
     "ID": 1,
@@ -856,72 +856,6 @@ $("#gridContainerr").dxDataGrid({
         }
     });
 
-
-    $(".fileUploader").dxFileUploader({
-        accept:"image/*,*.zip,*.pdf,*.mp4",
-        width: 424,
-	    multiple: true,
-	    allowCanceling: true,
-	    selectButtonText: "нажмите выбрать",
-		showFileList: true,
-		labelText: "Перенесите сюда файл (xls, word, pdf) или",
-		uploadFailedMessage: "dsfs",
-		onUploadStarted: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploaded: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploadError: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
-		},
-		uploadedMessage: "",
-		uploadFailedMessage: "",
-    });
-
-    $(".fileUploader--full").dxFileUploader({
-        accept:"image/*,*.zip,*.pdf,*.mp4",
-	    multiple: true,
-	    allowCanceling: true,
-	    selectButtonText: "нажмите выбрать",
-		showFileList: true,
-		labelText: "Перенесите сюда файл (xls, word, pdf) или",
-		uploadFailedMessage: "dsfs",
-		onUploadStarted: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploaded: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploadError: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
-		},
-		uploadedMessage: "",
-		uploadFailedMessage: "",
-    });
-
-   $(".fileUploader--sm").dxFileUploader({
-        accept:"image/*,*.zip,*.pdf,*.mp4",
-        width: 276,
-	    multiple: true,
-	    allowCanceling: true,
-	    selectButtonText: "нажмите выбрать",
-		showFileList: true,
-		labelText: "Перенесите сюда файл (xls, word, pdf) или",
-		uploadFailedMessage: "dsfs",
-		onUploadStarted: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploaded: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploadError: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
-		},
-		uploadedMessage: "",
-		uploadFailedMessage: "",
-    });
-
 //название запроса
 $("#requestName").dxTextBox({
   inputAttr: {
@@ -981,24 +915,6 @@ $("#loadPanel").dxLoadPanel({
 		shadingColor: "rgba(255,255,255, 0.8)",
 		message: ""
     });
-
-
- 
-function numberBoxInit (idElement,idAttrName) {
-	 $("."+idElement).dxNumberBox({
-        value: 15,
-        min: 10,
-        max: 100,
-        showSpinButtons: true,
-        inputAttr: {
-   		 id: idAttrName,
-   		 class: "input-field__value" 
-   		}
-   		//width: widthElement
-    });
-};
-
-numberBoxInit ("pseudoClassNumberBox","pseudoNameElementNumberBox__id");
 
 
 
@@ -1184,64 +1100,123 @@ initModal("modal-request-del", 480 , "auto", 'modal__title-templ','modal__conten
 
 
 
-$(function() {
-    $("[id=rangeSelector]").dxRangeSelector({
-        size: {
-            height: 70,
-            width: 744
-        },
-        selectedRangeColor: "rgba(55, 63, 81, 0.4)",
-        scale: {
-            startValue: -30,
-            endValue: +30,
-            // minorTickInterval: 5,
-            tickInterval: 10,
-            // minorTick: {
-                // visible: false,
-            // },
-            label: {
-                // format: "currency",
-                customizeText: function () {
-                return this.valueText + " ˚C";
-            	},
-            	font: {
-					color: "#373F51",
-					family: "Lucida Grande, Tahoma, Arial",
-					opacity: 1,
-					size: 13,
-					weight: 400
-				}
-            }
-        },
-        sliderMarker: {
-            // format: "currency",
-            color: "#373F51",
-            customizeText: function () {
-                return this.valueText + " ˚C";
-            },
-            font: {
-				color: "#FFFFFF",
-				family: "Lucida Grande, Tahoma, Arial",
-				opacity: 1,
-				size: 13,
-				weight: 400
-			},
-           	invalidRangeColor: "red",
-			paddingLeftRight: 10,
-			paddingTopBottom: 2,
-        },
-        value: [4, 8],
-        onInitialized: function () {      	
-        	
-        	
-        },
-        // redrawOnResize: function (){alert($('.rangeselector .dxrs-range-selector-line').offset());},
-        onDrawn: function (){    	
-            //обязательный вызов для backgroud элмента радуга
-        	$( ".rangeselector.dx-visibility-change-handler" ).append( "<div class='rangeselector__back'></div>");
-        }
 
+    $(".fileUploader").dxFileUploader({
+        accept:"image/*,*.zip,*.pdf,*.mp4",
+        width: 424,
+	    multiple: true,
+	    allowCanceling: true,
+	    selectButtonText: "нажмите выбрать",
+		showFileList: true,
+		labelText: "Перенесите сюда файл (xls, word, pdf) или",
+		uploadFailedMessage: "dsfs",
+		onUploadStarted: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploaded: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploadError: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
+		},
+		uploadedMessage: "",
+		uploadFailedMessage: "",
     });
+
+    $(".fileUploader--full").dxFileUploader({
+        accept:"image/*,*.zip,*.pdf,*.mp4",
+	    multiple: true,
+	    allowCanceling: true,
+	    selectButtonText: "нажмите выбрать",
+		showFileList: true,
+		labelText: "Перенесите сюда файл (xls, word, pdf) или",
+		uploadFailedMessage: "dsfs",
+		onUploadStarted: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploaded: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploadError: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
+		},
+		uploadedMessage: "",
+		uploadFailedMessage: "",
+    });
+
+   $(".fileUploader--sm").dxFileUploader({
+        accept:"image/*,*.zip,*.pdf,*.mp4",
+        width: 276,
+	    multiple: true,
+	    allowCanceling: true,
+	    selectButtonText: "нажмите выбрать",
+		showFileList: true,
+		labelText: "Перенесите сюда файл (xls, word, pdf) или",
+		uploadFailedMessage: "dsfs",
+		onUploadStarted: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploaded: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploadError: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
+		},
+		uploadedMessage: "",
+		uploadFailedMessage: "",
+    });
+
+ 
+function numberBoxInit (idElement,idAttrName) {
+	 $("."+idElement).dxNumberBox({
+        value: 15,
+        min: 10,
+        max: 100,
+        showSpinButtons: true,
+        inputAttr: {
+   		 id: idAttrName,
+   		 class: "input-field__value" 
+   		}
+   		//width: widthElement
+    });
+};
+
+numberBoxInit ("pseudoClassNumberBox","pseudoNameElementNumberBox__id");
+
+
+$('.progress-bar__step').hover (function(){
+	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
+},
+function (){
+	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
+}
+);
+
+
+var progressPercentValue=10;
+  
+$('.header-progress').click(function() {
+
+	// progressPercentValue=Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100);
+	console.log('do='+progressPercentValue);
+	if (progressPercentValue < 100) {
+		$('.progress-bar__status').width((progressPercentValue + 5)+'%');
+		// console.log('posle='+ Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100));
+		if(progressPercentValue == 45){
+			$('.progress-bar__second-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
+			$('.progress-bar__second-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+
+		}
+
+		if(progressPercentValue == 95){
+			$('.progress-bar__third-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
+			$('.progress-bar__third-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+
+		}
+	progressPercentValue+=5;	
+	}
+
+
 });
 var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
 var cargoReceiverItem = ["Физическое лицо", "Юридическое лицо"];
@@ -1302,65 +1277,65 @@ radiogroupInit ("cargo-descript__hmanygoods-radio",["Один товар", "Дв
 radiogroupInit ("custom-clearence__3agent-radio",["Резидент", "Нерезидент"],"horizontal");
 radiogroupInit ("afterPay__radioGroup",["Передать на ответственное хранение", "Передать без транспортировки 3-му лицу", "Доставить 3-му лицу","Доставить заказчику"],"horizontal");
 
-$('.progress-bar__step').hover (function(){
-	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
-},
-function (){
-	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
-}
-);
-
-
-var progressPercentValue=10;
-  
-$('.header-progress').click(function() {
-
-	// progressPercentValue=Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100);
-	console.log('do='+progressPercentValue);
-	if (progressPercentValue < 100) {
-		$('.progress-bar__status').width((progressPercentValue + 5)+'%');
-		// console.log('posle='+ Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100));
-		if(progressPercentValue == 45){
-			$('.progress-bar__second-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
-			$('.progress-bar__second-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
-
-		}
-
-		if(progressPercentValue == 95){
-			$('.progress-bar__third-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
-			$('.progress-bar__third-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
-
-		}
-	progressPercentValue+=5;	
-	}
-
-
-});
-    $(".init-switch").dxSwitch({
-        value: false
-    });
-    var simpleProducts = [
-    "Выбор 1",
-    "Выбор 12",
-    "Выбор 15",
-    "Выбор 111",
-    "Выбор Выбор 1",
-    "Выбор Выбор 2"
-];
-function tagBoxInit (idElement,idAttrName, itemsElement) {
-     $("."+idElement).dxTagBox({
-        items: itemsElement,
-        showSelectionControls: true,
-        placeholder: "Выберите",
-        showDropDownButton: true,
-        inputAttr: {
-         id: idAttrName
+$(function() {
+    $("[id=rangeSelector]").dxRangeSelector({
+        size: {
+            height: 70,
+            width: 744
         },
-        // width: widthElement
+        selectedRangeColor: "rgba(55, 63, 81, 0.4)",
+        scale: {
+            startValue: -30,
+            endValue: +30,
+            // minorTickInterval: 5,
+            tickInterval: 10,
+            // minorTick: {
+                // visible: false,
+            // },
+            label: {
+                // format: "currency",
+                customizeText: function () {
+                return this.valueText + " ˚C";
+            	},
+            	font: {
+					color: "#373F51",
+					family: "Lucida Grande, Tahoma, Arial",
+					opacity: 1,
+					size: 13,
+					weight: 400
+				}
+            }
+        },
+        sliderMarker: {
+            // format: "currency",
+            color: "#373F51",
+            customizeText: function () {
+                return this.valueText + " ˚C";
+            },
+            font: {
+				color: "#FFFFFF",
+				family: "Lucida Grande, Tahoma, Arial",
+				opacity: 1,
+				size: 13,
+				weight: 400
+			},
+           	invalidRangeColor: "red",
+			paddingLeftRight: 10,
+			paddingTopBottom: 2,
+        },
+        value: [4, 8],
+        onInitialized: function () {      	
+        	
+        	
+        },
+        // redrawOnResize: function (){alert($('.rangeselector .dxrs-range-selector-line').offset());},
+        onDrawn: function (){    	
+            //обязательный вызов для backgroud элмента радуга
+        	$( ".rangeselector.dx-visibility-change-handler" ).append( "<div class='rangeselector__back'></div>");
+        }
+
     });
-};
-  
-tagBoxInit ("input-field__tagbox","input-field__tagbox-id",simpleProducts);  
+});
 //add consignment block
 
 //реализация добавление блоков на первом шаге. убрали тк по идеи не нужна
@@ -1436,6 +1411,9 @@ tagBoxInit ("input-field__tagbox","input-field__tagbox-id",simpleProducts);
 // 	if ($( ".consignment" ).length == 1 )
 // 		$( ".consignment .step-block__sep .step-block__sep-btn-close").remove();
 // });
+    $(".init-switch").dxSwitch({
+        value: false
+    });
 $('.tabs__link a').click(function (e) {
   e.preventDefault();
   $('.tabs__link').removeClass('tabs__link--active');
@@ -1446,6 +1424,28 @@ $('.tabs__link a').click(function (e) {
 });
 
 
+    var simpleProducts = [
+    "Выбор 1",
+    "Выбор 12",
+    "Выбор 15",
+    "Выбор 111",
+    "Выбор Выбор 1",
+    "Выбор Выбор 2"
+];
+function tagBoxInit (idElement,idAttrName, itemsElement) {
+     $("."+idElement).dxTagBox({
+        items: itemsElement,
+        showSelectionControls: true,
+        placeholder: "Выберите",
+        showDropDownButton: true,
+        inputAttr: {
+         id: idAttrName
+        },
+        // width: widthElement
+    });
+};
+  
+tagBoxInit ("input-field__tagbox","input-field__tagbox-id",simpleProducts);  
 var tnvd= [
   {
     "key": 1,
@@ -2041,6 +2041,25 @@ var tnvd= [
 
 
 
+// $(".navbar").scroll (function () {
+
+//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
+
+//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
+//     $(".navbar-ul").addClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-sticky')[0].scrollIntoView(true);
+
+// }  
+// if ( $(this).scrollTop() == 0) {
+
+//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
+//     $(".navbar-ul").removeClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-currency')[0].scrollIntoView(true);
+//  }
+
+//  });
 $('.timezone-popup-menu__title-btn').click(function(){
 // console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
 // if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
@@ -2093,25 +2112,6 @@ function userPopupClose() {
 		$('.app-lnk-disable').toggleClass('app-lnk-disable');
 	}
 }
-// $(".navbar").scroll (function () {
-
-//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
-
-//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
-//     $(".navbar-ul").addClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-sticky')[0].scrollIntoView(true);
-
-// }  
-// if ( $(this).scrollTop() == 0) {
-
-//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
-//     $(".navbar-ul").removeClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-currency')[0].scrollIntoView(true);
-//  }
-
-//  });
 var cityData = [{
     id: 1,
     name: "Владивосток, Приморский край, Россия",
