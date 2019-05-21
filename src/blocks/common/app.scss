@@ -124,7 +124,7 @@ color: $clr-dark;
 	}
 	& > svg, & > svg path{
 			fill: inherit;
-		}
+	}
 }
 
 .app-lnk-disable {
@@ -141,16 +141,17 @@ color: $clr-dark;
 
 .app-dash-lnk {
 	color: $clr-blue;
+	fill: $clr-blue;;
 	border-bottom: 1px dashed $clr-blue;
 	cursor: pointer;
 	&:hover {
 		color: $clr-purple;
+		fill: $clr-purple;
 		border-bottom: 1px dashed $clr-purple;
 	}
 }
 
-*
-{
+* {
 	margin: 0;
 	padding: 0;
 	text-decoration: none;
