@@ -1,105 +1,105 @@
-// .contract_ {
-// 	font-family: Lucida Grande; 
-//   	font-style: normal; 
-//   	font-weight: normal; 
-//   	line-height: 21px; 
-//   	font-size: 14px; 
-//   	color: rgba(0, 0, 0, 0.7); 
-//   	width: 1148px;
+.contract {
+	font-family: Lucida Grande; 
+  	font-style: normal; 
+  	font-weight: normal; 
+  	line-height: 21px; 
+  	font-size: 14px; 
+  	color: rgba(0, 0, 0, 0.7); 
+  	width: 1148px;
 
-// & ol {
-//   list-style-type: none;
-//   counter-reset: item;
-//   margin: 0;
-//   padding: 0;
-// }
+& ol {
+  list-style-type: none;
+  counter-reset: item;
+  margin: 0;
+  padding: 0;
+}
 
 
-// &__par {
-//   display: flex;
-//   flex-wrap: wrap;
-//   counter-increment: item;
+&__par {
+  display: flex;
+  flex-wrap: wrap;
+  counter-increment: item;
 
  
-//   &:before {
-//    content: counters(item, ".") ". ";
-//    flex: 0 0 76px;   
-//   }
+  &:before {
+   content: counters(item, ".") ". ";
+   flex: 0 0 76px;   
+  }
 
-//   &-cap {
-//     margin-top: 30px;
-//     display: inline-block;
+  &-cap {
+    margin-top: 30px;
+    display: inline-block;
     
-//     & + ol {
-//       margin-top: 20px;
-//     }
+    & + ol {
+      margin-top: 20px;
+    }
 
-//     &:before {
-//      flex: 0 1 auto;
-//      margin-right: 5px;
-//      margin-bottom: 18px;
-//     }
-//   }
-
-
-//   &-tx{
-//     flex: 1 1 calc(100% - 76px);
-//     margin-bottom: 10px;
-//   }
-// }
-
-//   &__cap-edit {
-//      & + ol {
-//       margin-top: 20px;
-//     }
-//   }
-
-//   &__requisites {
-//     display: flex;
-//     width: 100%;
-//   } 
-
-//   &__executive{
-//     margin-left: 30px;
-//   }
-
-//   &--edit {
-
-//   .contract {
-//     &__par {
-//         &:not(.contract__par-cap):hover {
-//           background: #ECF4FA;
-//         }
-//     }
-//   }
-
-//   }
-
-//   &__cap-edit {
-//     & .app-dash-lnk {
-//       margin-right: 8px;
-//     & + svg {
-//       vertical-align: middle;
-//     }
-//     & + svg, & + svg path{
-//         fill: $clr-blue;
-//     }
-
-//     &:hover { 
-//       & + svg, & + svg path{
-//         fill: $clr-purple;
-//       }
-//     }
-
-//   }
-//   }
+    &:before {
+     flex: 0 1 auto;
+     margin-right: 5px;
+     margin-bottom: 18px;
+    }
+  }
 
 
-//   &__btn-show-hide {
-//     display: inline-block;
-//     border: none;
-//     cursor: pointer;
-//     font-size: inherit;
-//     font-size: inherit;
-//   }
-// }
+  &-tx{
+    flex: 1 1 calc(100% - 76px);
+    margin-bottom: 10px;
+  }
+}
+
+  &__cap-edit {
+     & + ol {
+      margin-top: 20px;
+    }
+  }
+
+  &__requisites {
+    display: flex;
+    width: 100%;
+  } 
+
+  &__executive{
+    margin-left: 30px;
+  }
+
+  &--edit {
+
+  .contract {
+    &__par {
+        &:not(.contract__par-cap):hover {
+          background: #ECF4FA;
+        }
+    }
+  }
+
+  }
+
+  &__cap-edit {
+    & .app-dash-lnk {
+      margin-right: 8px;
+    & + svg {
+      vertical-align: middle;
+    }
+    & + svg, & + svg path{
+        fill: $clr-blue;
+    }
+
+    &:hover { 
+      & + svg, & + svg path{
+        fill: $clr-purple;
+      }
+    }
+
+  }
+  }
+
+
+  &__btn-show-hide {
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+    font-size: inherit;
+  }
+}
