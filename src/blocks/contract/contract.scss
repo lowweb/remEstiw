@@ -165,7 +165,7 @@
         background-color: #ECF4FA;
       }
 
-      &:hover .contract__action {
+      &:hover .contract__actn {
         display: block;
       }
 
@@ -187,9 +187,11 @@
       }
     }
 
-    &__action{
+    &__actn{
       align-self: center;
       cursor: pointer;
+      border: none;
+      background: transparent;
       display: none;
 
       &-edit{
