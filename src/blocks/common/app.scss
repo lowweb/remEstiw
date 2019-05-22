@@ -110,18 +110,17 @@ color: $clr-dark;
 	color: $clr-blue;
 	text-decoration: none;
 	fill: $clr-blue;
-
+	cursor: pointer;
 	&:hover {
 		color: $clr-purple;
 		fill: $clr-purple;
 		
 	}
 	
-	& > svg {
+	& > svg, & > img {
 		vertical-align: middle;
-		// width: 20px;
-		// margin-right: 10px;
 	}
+
 	& > svg, & > svg path{
 			fill: inherit;
 	}
@@ -148,6 +147,14 @@ color: $clr-dark;
 		color: $clr-purple;
 		fill: $clr-purple;
 		border-bottom: 1px dashed $clr-purple;
+	}
+	& > svg {
+		vertical-align: middle;
+		// width: 20px;
+		// margin-right: 10px;
+	}
+	& > svg, & > svg path{
+			fill: inherit;
 	}
 }
 

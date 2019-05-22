@@ -98,8 +98,9 @@ $('.input-field__cont').change ( function () {
 	 	$(this).parent().find('.input-field__label').removeClass('input-field__label--err');
 	 }
 });
-$('.contract__cap-edit .contract__cap').click(function(event) {
-	$(this).toggleClass('btn-rotate180');
+$('.contract__block-cap').click(function(event) {
+
+	$(this).parents('.contract__block').toggleClass('contract__block--hide');
 });
 
 function initButton (Element) {
@@ -1188,6 +1189,40 @@ function numberBoxInit (idElement,idAttrName) {
 numberBoxInit ("pseudoClassNumberBox","pseudoNameElementNumberBox__id");
 
 
+$('.progress-bar__step').hover (function(){
+	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
+},
+function (){
+	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
+}
+);
+
+
+var progressPercentValue=10;
+  
+$('.header-progress').click(function() {
+
+	// progressPercentValue=Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100);
+	console.log('do='+progressPercentValue);
+	if (progressPercentValue < 100) {
+		$('.progress-bar__status').width((progressPercentValue + 5)+'%');
+		// console.log('posle='+ Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100));
+		if(progressPercentValue == 45){
+			$('.progress-bar__second-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
+			$('.progress-bar__second-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+
+		}
+
+		if(progressPercentValue == 95){
+			$('.progress-bar__third-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
+			$('.progress-bar__third-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+
+		}
+	progressPercentValue+=5;	
+	}
+
+
+});
 var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
 var cargoReceiverItem = ["Физическое лицо", "Юридическое лицо"];
 var volumeItem = ["До 5 м", "Свыше 5 м"];
@@ -2082,40 +2117,6 @@ function userPopupClose() {
 		$('.app-lnk-disable').toggleClass('app-lnk-disable');
 	}
 }
-$('.progress-bar__step').hover (function(){
-	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
-},
-function (){
-	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
-}
-);
-
-
-var progressPercentValue=10;
-  
-$('.header-progress').click(function() {
-
-	// progressPercentValue=Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100);
-	console.log('do='+progressPercentValue);
-	if (progressPercentValue < 100) {
-		$('.progress-bar__status').width((progressPercentValue + 5)+'%');
-		// console.log('posle='+ Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100));
-		if(progressPercentValue == 45){
-			$('.progress-bar__second-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
-			$('.progress-bar__second-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
-
-		}
-
-		if(progressPercentValue == 95){
-			$('.progress-bar__third-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
-			$('.progress-bar__third-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
-
-		}
-	progressPercentValue+=5;	
-	}
-
-
-});
 var cityData = [{
     id: 1,
     name: "Владивосток, Приморский край, Россия",

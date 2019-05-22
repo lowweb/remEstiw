@@ -1,33 +1,17 @@
 
  .contract--view {
-	font-family: Lucida Grande; 
-  	font-style: normal; 
-  	font-weight: normal; 
-  	line-height: 21px; 
-  	font-size: 14px; 
-  	color: rgba(0, 0, 0, 0.7); 
-  	width: 1148px;
 	& ol {
-		list-style-type: none;
-	 	counter-reset: item;
-	 	margin: 0;
-	 	padding: 0;	
-		@include font-lucida (rgba(0, 0, 0, 0.7), 14px, 21px);
-	  	font-style: normal; 
-	  	font-weight: normal; 
-	  	width: 1148px;
-
 		& li {
 			
 			display: flex;
-  			flex-wrap: wrap;
+  		flex-wrap: wrap;
 
 			&:before {
 				display: block;
 				counter-increment: item;
-   				content: counters(item,".") " ";
-   				flex: 0 0 76px;  
-          // margin-bottom: 8px;
+   			content: counters(item,".") " ";
+   			flex: 0 0 76px;  
+        padding: 5px 0;
   			}
 
 			& span {
@@ -41,7 +25,8 @@
 			flex-grow: 1;
     		flex-shrink: 1;
     		flex-basis: calc(100% - 76px);
-     		 margin-bottom: 8px;
+     		 // margin-bottom: 10px;
+         padding: 5px 0;
 		}
 
 	}
@@ -51,11 +36,12 @@
 
 
     & > li {
-      margin-bottom: 22px;
+      margin-bottom: 30px;
       &:before {
-      			content: counters(item,".") ". ";
+      		content: counters(item,".") ". ";
    				flex-basis: auto;
-   				margin-right: 5px;  
+   				margin-right: 5px; 
+          padding: 0;
   			}
 
 
@@ -90,6 +76,137 @@
   .contract__executive{
     margin-left: 30px;
   }
-	
+
+}
+
+.contract {
+    font-family: Lucida Grande; 
+    font-style: normal; 
+    font-weight: normal; 
+    line-height: 21px; 
+    font-size: 14px; 
+    color: rgba(0, 0, 0, 0.7); 
+    width: 1148px;
+  & ol {
+    list-style-type: none;
+    counter-reset: item;
+    margin: 0;
+    padding: 0; 
+  }
+
+
+  &__block {
+    margin-bottom: 30px;
+    &:last-child{
+      margin-bottom: 0px;
+    }
+    & > ol {
+      margin-top: 20px;
+    }
+
+    &--hide{
+      & > ol {
+        display: none;
+      }
+
+      & .contract__block-cap > svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__counts {
+    margin-left: auto;
+    display: flex;
+  }
+
+  &__count {
+    &--all {
+      color: $clr-dark-light;
+      margin-right: 23px;
+    }
+    &--edit {
+      color: $clr-blue;
+      margin-right: 23px;
+    }
+    &--add {
+      color: $clr-green;
+      margin-right: 23px;
+    }
+    &--exc {
+      color: $clr-red; 
+    }
+  }
+
+  &__1st-line {
+    display: flex;
+  }
+
+  &__block-cap-tx {
+    border-bottom: 1px dashed $clr-blue;
+    margin-right: 8px;
+    .contract__block-cap:hover & {
+      border-bottom: 1px dashed $clr-purple;
+    }
+    &:before {
+        counter-increment: item;
+        content: counters(item,".") ". ";
+        flex-basis: auto;  
+        }
+  }
+
+  &__line {
+   
+      display: flex;
+      flex-wrap: wrap;
+      
+
+      &:hover {
+        background-color: #ECF4FA;
+      }
+
+      &:hover .contract__action {
+        display: block;
+      }
+
+      &:before {
+        display: block;
+        counter-increment: item;
+        content: counters(item,".") " ";
+        flex: 0 0 76px; 
+        padding: 5px 0; 
+          // margin-bottom: 8px;
+        }
+      
+      & > p {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: calc(100% - 76px);
+        padding: 5px 0;
+        max-width: 80%;
+      }
+    }
+
+    &__action{
+      align-self: center;
+      cursor: pointer;
+      display: none;
+
+      &-edit{
+        margin-left: auto;
+      }
+      &-edit:hover path {
+          fill: $clr-purple;        
+        }
+      &-del {
+        margin-left: 11px;
+        margin-right: 21px;
+      }
+      &-del:hover path {
+          fill: $clr-red;        
+        }  
+    }
+
+
 
 }
