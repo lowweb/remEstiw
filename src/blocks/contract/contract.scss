@@ -1,5 +1,11 @@
 .contract {
-
+	font-family: Lucida Grande; 
+  	font-style: normal; 
+  	font-weight: normal; 
+  	line-height: 21px; 
+  	font-size: 14px; 
+  	color: rgba(0, 0, 0, 0.7); 
+  	width: 1148px;
 	& ol {
 		list-style-type: none;
 	 	counter-reset: item;
@@ -14,11 +20,11 @@
 			
 			display: flex;
   			flex-wrap: wrap;
-  			counter-increment: item;
-
 
 			&:before {
-   				content: counters(item, ".") ". ";
+				display: block;
+				counter-increment: item;
+   				content: counters(item,".") " ";
    				flex: 0 0 76px;  
           // margin-bottom: 8px;
   			}
@@ -30,22 +36,31 @@
 		}
 
 		& li > p {
-			flex: 1 1 calc(100% - 76px);
-      margin-bottom: 8px;
+			// flex: 1 1 calc(100% - 76px);
+			flex-grow: 1;
+    		flex-shrink: 1;
+    		flex-basis: calc(100% - 76px);
+     		 margin-bottom: 8px;
 		}
 
 	}
 
-	.contract__body {
+	& &__body {
 		color: #000000;
 
 
     & > li {
-      margin-bottom: 30px;
+      margin-bottom: 22px;
+      &:before {
+      			content: counters(item,".") ". ";
+   				flex-basis: auto;
+   				margin-right: 5px;  
+  			}
 
 
       & > p {
         margin-bottom: 0;
+
       }
 
       & > ol {
@@ -64,9 +79,6 @@
 
 	}
 
-  &__block {
-    margin-bottom: -8px;
-  }
 
   &__requisites {
     display: flex !important;
