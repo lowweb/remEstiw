@@ -118,7 +118,9 @@
     	margin-bottom: 7px;
     	align-self: flex-end;
     }
-
+	&--add{
+		background-color: transparent;
+	}
 	&--add:hover {
 	    & path {
 	    	fill: $clr-purple;

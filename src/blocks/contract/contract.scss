@@ -1,6 +1,7 @@
 
  .contract--view {
 	& ol {
+
 		& li {
 			
 			display: flex;
@@ -51,7 +52,7 @@
       }
 
       & > ol {
-        margin-top: 20px;
+        margin-top: 15px;
       }
 
       &:last-child{
@@ -80,14 +81,10 @@
 }
 
 .contract {
-    font-family: Lucida Grande; 
-    font-style: normal; 
-    font-weight: normal; 
-    line-height: 21px; 
-    font-size: 14px; 
-    color: rgba(0, 0, 0, 0.7); 
-    width: 1148px;
+    @include font-lucida (rgba(0, 0, 0, 0.7), 14px, 21px);
+    width: 1234px;
   & ol {
+     color: rgba(0, 0, 0, 0.7); 
     list-style-type: none;
     counter-reset: item;
     margin: 0;
@@ -101,7 +98,7 @@
       margin-bottom: 0px;
     }
     & > ol {
-      margin-top: 20px;
+      margin-top: 15px;
     }
 
     &--hide{
@@ -114,27 +111,42 @@
       }
     }
   }
+  
+  &__block--chang {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 20px 38px 25px 76px;
+  }
 
   &__counts {
     margin-left: auto;
     display: flex;
+    margin-right: 109px;
   }
 
   &__count {
+
     &--all {
       color: $clr-dark-light;
-      margin-right: 23px;
+      width: 32px;
+      text-align: center;
+
     }
     &--edit {
       color: $clr-blue;
-      margin-right: 23px;
+      width: 32px;
+      text-align: center;
     }
     &--add {
       color: $clr-green;
-      margin-right: 23px;
+      width: 32px;
+      text-align: center;
     }
     &--exc {
       color: $clr-red; 
+      width: 32px;
+      text-align: center;
     }
   }
 
@@ -183,16 +195,48 @@
         flex-shrink: 1;
         flex-basis: calc(100% - 76px);
         padding: 5px 0;
-        max-width: 80%;
+        max-width: calc(100% - 185px);
+      }
+
+      & span {
+        color: #000000;
+      }
+    }
+    &__line-add {
+      display: inline-flex;
+      width: 100%;
+      padding: 5px 0;
+      align-items: center;
+      &:before{
+        flex: 0 0 76px; 
+        padding: 5px 0;
+        counter-increment: item;
+        content: counters(item,".") " ";
       }
     }
 
+    &__line-add--act {
+      background-color: rgba(2, 195, 154, 0.1);
+
+      & > .btn__rnd--add {
+         & > .btn__rnd-cap {
+                border-bottom: 1px dashed $clr-dark-light;
+         }
+
+         &:hover > svg > path{
+           fill: $clr-dark-light;
+         }
+        color: $clr-dark-light;
+        fill: $clr-dark-light;
+      } 
+    }
     &__actn{
       align-self: center;
       cursor: pointer;
       border: none;
       background: transparent;
       display: none;
+
 
       &-edit{
         margin-left: auto;
@@ -208,7 +252,38 @@
           fill: $clr-red;        
         }  
     }
+    
+    &__mod-ewcap {
+      @include font-lucida ($clr-dark-light, 13px, 15px);
+      margin-bottom: 6px;
 
+    }
+    &__mod-ewstat {
+      @include font-lucida ($clr-dark-light, 15px, 18px);
+      height: 36px;
+    }
+
+    &__mod-cl {
+      flex: 0 0 50%;
+      max-width: 480px;
+      margin-right: 40px;
+    }
+
+     &__mod-ew {
+      flex: 0 0 50%;
+      max-width: 480px;
+    }
+
+    &__mod-btn {
+      margin-top: 20px;
+      flex: 1 1 100%;
+      display: flex;
+      align-items: center;
+
+      & .btn__rnd {
+        margin-left: 20px;
+      }
+    }
 
 
 }
