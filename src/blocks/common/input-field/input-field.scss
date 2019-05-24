@@ -41,6 +41,11 @@
 
 
 	}
+	
+	&__cont--resize{ 
+		height: auto;
+	}
+
 
 	&__value{
 		background: $clr-grey-v4;

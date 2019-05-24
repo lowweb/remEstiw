@@ -10,9 +10,9 @@
 			&:before {
 				display: block;
 				counter-increment: item;
-   			content: counters(item,".") " ";
-   			flex: 0 0 76px;  
-        padding: 5px 0;
+   				content: counters(item,".") " ";
+   				flex: 0 0 76px;  
+        		padding: 5px 0;
   			}
 
 			& span {
@@ -115,7 +115,7 @@
   &__block--ch {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     padding: 20px 38px 25px 76px;
   }
 
@@ -180,7 +180,7 @@
       &:hover .contract__actn {
         display: block;
       }
-
+	  
       &:before {
         display: block;
         counter-increment: item;
@@ -202,6 +202,8 @@
         color: #000000;
       }
     }
+
+
     &__line-add {
       display: inline-flex;
       width: 100%;
@@ -219,17 +221,49 @@
       background-color: rgba(2, 195, 154, 0.1);
 
       & > .btn__rnd--add {
+
+        color: $clr-dark-light;
+        fill: $clr-dark-light;
+        cursor: default;
          & > .btn__rnd-cap {
                 border-bottom: 1px dashed $clr-dark-light;
          }
 
+         &:hover > .btn__rnd-cap {
+                border-bottom: 1px dashed $clr-dark-light;
+         } 
+
          &:hover > svg > path{
            fill: $clr-dark-light;
          }
-        color: $clr-dark-light;
-        fill: $clr-dark-light;
+
       } 
+      & .contract__actn {
+      	display: block;
+      	margin-left: auto;
+      }
     }
+
+	&__line--edit {
+		background-color: #ECF4FA;
+
+		&:hover .contract__actn {
+			display: none;
+		}
+
+	}
+
+	&__line--del {
+		background-color: rgba(255, 0, 0, 0.1);
+		&:hover {
+			background-color: rgba(255, 0, 0, 0.1);
+		}
+		&:hover .contract__actn {
+			display: none;
+		}
+
+	}
+
     &__actn{
       align-self: center;
       cursor: pointer;
@@ -283,6 +317,13 @@
       & .btn__rnd {
         margin-left: 20px;
       }
+    }
+
+    &__mod-date {
+    	margin-left: auto;
+    	font-size: 12px;
+		line-height: 14px;
+		color: #999999;
     }
 
 

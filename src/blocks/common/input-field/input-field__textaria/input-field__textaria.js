@@ -10,5 +10,18 @@ function textAriaInit (className, width,height) {
     });
 };
 
+function textAriaInitAutoResize (className, width) {
+	$("." + className).dxTextArea({
+        spellcheck: false,
+        width: width,
+        autoResizeEnabled: true,
+        inputAttr: {
+       id: "pseudoElementTextAria__id",
+       class:"input-field__value" 
+   }
+    });
+};
+
 
 textAriaInit('pseudoClassTextAria', "auto", 72);
+textAriaInitAutoResize('pseudoClassTextAriaAutoHeight', "auto");
