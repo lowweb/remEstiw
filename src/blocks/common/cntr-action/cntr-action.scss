@@ -1,0 +1,80 @@
+.cntr-action {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	top: 40px;
+	right: 27px;
+	opacity: 0.5;
+	width: 286px;
+
+	&:hover {
+		opacity: 1;
+		transition: opacity 0.5s
+	}
+
+	&__cap {
+		@include font-fira ($clr-dark-light, 17px, normal);
+		letter-spacing: 0.01em;
+		margin-left: 16px;
+
+		&-lnk{
+			@include font-fira ($clr-blue, 17px, normal);
+			letter-spacing: 0.01em;
+			margin-left: 2px;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+
+			 &:before{
+				margin-right: 14px;
+			 }
+		}
+
+	}
+
+	&__items{
+		background: #FFFFFF;
+		box-shadow: 0px 8px 16px rgba(55, 63, 81, 0.16);
+		border-radius: 3px;
+		width: 286px;
+		margin-top: 16px;
+		padding: 24px 19px 24px 13px;
+	}
+
+	&__item {
+		@include font-lucida (rgba(0, 0, 0, 0.4), 13px, normal);
+		line-height: 15px;
+		display: flex;
+		align-items: center;
+		margin-bottom: 15px;
+
+			&:last-child{
+				margin-bottom: 0;
+			}
+		
+
+		&-icn{
+			margin-right: 7px;
+			width: 22px;
+			height: 22px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+		}
+
+		&--act {
+			
+			fill: rgba(0, 0, 0, 0.7);
+			& > .cntr-action__item-icn > svg, & > .cntr-action__item-icn > svg > path {
+				fill: inherit;
+			}
+			& > .cntr-action__item-cap{
+				color: rgba(0, 0, 0, 0.7);
+				border-bottom: 1px dashed rgba(0, 0, 0, 0.7);
+			}
+		}
+
+	}
+
+}

@@ -1,0 +1,15 @@
+.to-top {
+	position: absolute;
+	width: 44px;
+	height: 44px;
+	top: 796px;
+	right: 27px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 3px;
+
+	&:hover{
+		background-color: #ECF4FA;
+	}
+}
