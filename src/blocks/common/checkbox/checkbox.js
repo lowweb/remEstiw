@@ -52,6 +52,11 @@ checkboxInit ("ccp-mass-bulk-open__checkbox", "Указать размеры ф�
 checkboxInit ("requestall__filter-checkbox", "Доставить груз");
 checkboxInit ("requestall__filter-checkbox1", "Купить");
 checkboxInit ("basic-info__test", "Необходимо испытание образцов перед оплатой");
+checkboxInit ("suppagree1__checkbox", "Дополнительное соглашение №1 (ТЭО)");
+checkboxInit ("suppagree2__checkbox", "Дополнительное соглашение №2 (LCL)");
+checkboxInit ("suppagree3__checkbox", "Дополнительное соглашение №3 (Покупка)");
+checkboxInit ("suppagree4__checkbox", "Дополнительное соглашение №4 (Юридические услуги)");
+checkboxInit ("suppagree5__checkbox", "Дополнительное соглашение №5 (ЭОД)");
 
 
 

@@ -56,3 +56,7 @@ radiogroupInit ("cargo-descript__hmanygoods-radio",["Один товар", "Дв
 
 radiogroupInit ("custom-clearence__3agent-radio",["Резидент", "Нерезидент"],"horizontal");
 radiogroupInit ("afterPay__radioGroup",["Передать на ответственное хранение", "Передать без транспортировки 3-му лицу", "Доставить 3-му лицу","Доставить заказчику"],"horizontal");
+radiogroupInit ("orgaization-form__radioGroup",["Физическое лицо", "Индивидуальный предприниматель", "Юридическое лицо"],"");
+
+radiogroupInit ("you-status__radioGroup",["Резидент", "Нерезидент"],"");
+radiogroupInit ("tocargo__radioGroup",["Грузовладелец", "Транспортная компания (экспедитор) – представитель грузовладельца"],"");

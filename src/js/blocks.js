@@ -108,6 +108,36 @@ $('.contract__block-cap').click(function(event) {
 // });
 
 
+function initButton (Element) {
+    $('.' + Element).dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+             
+                }
+            });
+};
+
+
+initButton("button");
+
+//button like earth
+$(".input-field__btn").dxButton({
+    text: "",
+    onClick: function() {}
+});
+
+//special onclick
+$('#footer__button-save').dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+                    $('.footer__saved-msg').show();                
+                }
+            });
+     
 function checkboxInit (element, text) {
     $("[id="+element+"]").dxCheckBox({
         text: text,
@@ -162,6 +192,11 @@ checkboxInit ("ccp-mass-bulk-open__checkbox", "Указать размеры ф�
 checkboxInit ("requestall__filter-checkbox", "Доставить груз");
 checkboxInit ("requestall__filter-checkbox1", "Купить");
 checkboxInit ("basic-info__test", "Необходимо испытание образцов перед оплатой");
+checkboxInit ("suppagree1__checkbox", "Дополнительное соглашение №1 (ТЭО)");
+checkboxInit ("suppagree2__checkbox", "Дополнительное соглашение №2 (LCL)");
+checkboxInit ("suppagree3__checkbox", "Дополнительное соглашение №3 (Покупка)");
+checkboxInit ("suppagree4__checkbox", "Дополнительное соглашение №4 (Юридические услуги)");
+checkboxInit ("suppagree5__checkbox", "Дополнительное соглашение №5 (ЭОД)");
 
 
 
@@ -169,36 +204,6 @@ checkboxInit ("basic-info__test", "Необходимо испытание об�
 
 
  
-function initButton (Element) {
-    $('.' + Element).dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-             
-                }
-            });
-};
-
-
-initButton("button");
-
-//button like earth
-$(".input-field__btn").dxButton({
-    text: "",
-    onClick: function() {}
-});
-
-//special onclick
-$('#footer__button-save').dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-                    $('.footer__saved-msg').show();                
-                }
-            });
-     
 //-----------customs-clearance-3agent-modal
 var employees = [{
     "ID": 1,
@@ -993,24 +998,6 @@ $("#loadPanel").dxLoadPanel({
     });
 
 
- 
-function numberBoxInit (idElement,idAttrName) {
-	 $("."+idElement).dxNumberBox({
-        value: 15,
-        min: 10,
-        max: 100,
-        showSpinButtons: true,
-        inputAttr: {
-   		 id: idAttrName,
-   		 class: "input-field__value" 
-   		}
-   		//width: widthElement
-    });
-};
-
-numberBoxInit ("pseudoClassNumberBox","pseudoNameElementNumberBox__id");
-
-
 
 //step для шагов внутри модального окна
 function initModalStep (contName,nextbtn, prevbtn, dynamCap, curSlide) {
@@ -1194,65 +1181,24 @@ initModal("modal-request-del", 480 , "auto", 'modal__title-templ','modal__conten
 
 
 
-$(function() {
-    $("[id=rangeSelector]").dxRangeSelector({
-        size: {
-            height: 70,
-            width: 744
-        },
-        selectedRangeColor: "rgba(55, 63, 81, 0.4)",
-        scale: {
-            startValue: -30,
-            endValue: +30,
-            // minorTickInterval: 5,
-            tickInterval: 10,
-            // minorTick: {
-                // visible: false,
-            // },
-            label: {
-                // format: "currency",
-                customizeText: function () {
-                return this.valueText + " ˚C";
-            	},
-            	font: {
-					color: "#373F51",
-					family: "Lucida Grande, Tahoma, Arial",
-					opacity: 1,
-					size: 13,
-					weight: 400
-				}
-            }
-        },
-        sliderMarker: {
-            // format: "currency",
-            color: "#373F51",
-            customizeText: function () {
-                return this.valueText + " ˚C";
-            },
-            font: {
-				color: "#FFFFFF",
-				family: "Lucida Grande, Tahoma, Arial",
-				opacity: 1,
-				size: 13,
-				weight: 400
-			},
-           	invalidRangeColor: "red",
-			paddingLeftRight: 10,
-			paddingTopBottom: 2,
-        },
-        value: [4, 8],
-        onInitialized: function () {      	
-        	
-        	
-        },
-        // redrawOnResize: function (){alert($('.rangeselector .dxrs-range-selector-line').offset());},
-        onDrawn: function (){    	
-            //обязательный вызов для backgroud элмента радуга
-        	$( ".rangeselector.dx-visibility-change-handler" ).append( "<div class='rangeselector__back'></div>");
-        }
-
+ 
+function numberBoxInit (idElement,idAttrName) {
+	 $("."+idElement).dxNumberBox({
+        value: 15,
+        min: 10,
+        max: 100,
+        showSpinButtons: true,
+        inputAttr: {
+   		 id: idAttrName,
+   		 class: "input-field__value" 
+   		}
+   		//width: widthElement
     });
-});
+};
+
+numberBoxInit ("pseudoClassNumberBox","pseudoNameElementNumberBox__id");
+
+
 $('.progress-bar__step').hover (function(){
 	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
 },
@@ -1345,32 +1291,70 @@ radiogroupInit ("cargo-descript__hmanygoods-radio",["Один товар", "Дв
 
 radiogroupInit ("custom-clearence__3agent-radio",["Резидент", "Нерезидент"],"horizontal");
 radiogroupInit ("afterPay__radioGroup",["Передать на ответственное хранение", "Передать без транспортировки 3-му лицу", "Доставить 3-му лицу","Доставить заказчику"],"horizontal");
+radiogroupInit ("orgaization-form__radioGroup",["Физическое лицо", "Индивидуальный предприниматель", "Юридическое лицо"],"");
 
-    $(".init-switch").dxSwitch({
-        value: false
-    });
-    var simpleProducts = [
-    "Выбор 1",
-    "Выбор 12",
-    "Выбор 15",
-    "Выбор 111",
-    "Выбор Выбор 1",
-    "Выбор Выбор 2"
-];
-function tagBoxInit (idElement,idAttrName, itemsElement) {
-     $("."+idElement).dxTagBox({
-        items: itemsElement,
-        showSelectionControls: true,
-        placeholder: "Выберите",
-        showDropDownButton: true,
-        inputAttr: {
-         id: idAttrName
+radiogroupInit ("you-status__radioGroup",["Резидент", "Нерезидент"],"");
+radiogroupInit ("tocargo__radioGroup",["Грузовладелец", "Транспортная компания (экспедитор) – представитель грузовладельца"],"");
+
+$(function() {
+    $("[id=rangeSelector]").dxRangeSelector({
+        size: {
+            height: 70,
+            width: 744
         },
-        // width: widthElement
+        selectedRangeColor: "rgba(55, 63, 81, 0.4)",
+        scale: {
+            startValue: -30,
+            endValue: +30,
+            // minorTickInterval: 5,
+            tickInterval: 10,
+            // minorTick: {
+                // visible: false,
+            // },
+            label: {
+                // format: "currency",
+                customizeText: function () {
+                return this.valueText + " ˚C";
+            	},
+            	font: {
+					color: "#373F51",
+					family: "Lucida Grande, Tahoma, Arial",
+					opacity: 1,
+					size: 13,
+					weight: 400
+				}
+            }
+        },
+        sliderMarker: {
+            // format: "currency",
+            color: "#373F51",
+            customizeText: function () {
+                return this.valueText + " ˚C";
+            },
+            font: {
+				color: "#FFFFFF",
+				family: "Lucida Grande, Tahoma, Arial",
+				opacity: 1,
+				size: 13,
+				weight: 400
+			},
+           	invalidRangeColor: "red",
+			paddingLeftRight: 10,
+			paddingTopBottom: 2,
+        },
+        value: [4, 8],
+        onInitialized: function () {      	
+        	
+        	
+        },
+        // redrawOnResize: function (){alert($('.rangeselector .dxrs-range-selector-line').offset());},
+        onDrawn: function (){    	
+            //обязательный вызов для backgroud элмента радуга
+        	$( ".rangeselector.dx-visibility-change-handler" ).append( "<div class='rangeselector__back'></div>");
+        }
+
     });
-};
-  
-tagBoxInit ("input-field__tagbox","input-field__tagbox-id",simpleProducts);  
+});
 //add consignment block
 
 //реализация добавление блоков на первом шаге. убрали тк по идеи не нужна
@@ -1446,6 +1430,9 @@ tagBoxInit ("input-field__tagbox","input-field__tagbox-id",simpleProducts);
 // 	if ($( ".consignment" ).length == 1 )
 // 		$( ".consignment .step-block__sep .step-block__sep-btn-close").remove();
 // });
+    $(".init-switch").dxSwitch({
+        value: false
+    });
 $('.tabs__link a').click(function (e) {
   e.preventDefault();
   $('.tabs__link').removeClass('tabs__link--active');
@@ -1456,6 +1443,28 @@ $('.tabs__link a').click(function (e) {
 });
 
 
+    var simpleProducts = [
+    "Выбор 1",
+    "Выбор 12",
+    "Выбор 15",
+    "Выбор 111",
+    "Выбор Выбор 1",
+    "Выбор Выбор 2"
+];
+function tagBoxInit (idElement,idAttrName, itemsElement) {
+     $("."+idElement).dxTagBox({
+        items: itemsElement,
+        showSelectionControls: true,
+        placeholder: "Выберите",
+        showDropDownButton: true,
+        inputAttr: {
+         id: idAttrName
+        },
+        // width: widthElement
+    });
+};
+  
+tagBoxInit ("input-field__tagbox","input-field__tagbox-id",simpleProducts);  
 var tnvd= [
   {
     "key": 1,
@@ -2051,6 +2060,25 @@ var tnvd= [
 
 
 
+// $(".navbar").scroll (function () {
+
+//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
+
+//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
+//     $(".navbar-ul").addClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-sticky')[0].scrollIntoView(true);
+
+// }  
+// if ( $(this).scrollTop() == 0) {
+
+//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
+//     $(".navbar-ul").removeClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-currency')[0].scrollIntoView(true);
+//  }
+
+//  });
 $('.timezone-popup-menu__title-btn').click(function(){
 // console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
 // if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
@@ -2103,25 +2131,101 @@ function userPopupClose() {
 		$('.app-lnk-disable').toggleClass('app-lnk-disable');
 	}
 }
-// $(".navbar").scroll (function () {
+var cityData = [{
+    id: 1,
+    name: "Владивосток, Приморский край, Россия",
+    flag: "RU",
+    imgSrc: "img/flag-russia.svg"
+},
+{
+    id: 2,
+    name: "Владивосток, Приморский край, Россия",
+    flag: "RU",
+    imgSrc: "img/flag-russia.svg"
+},
+{
+    id: 3,
+    name: "Владивосток, Приморский край, Россия",
+    flag: "RU",
+    imgSrc: "img/flag-russia.svg"
+},
+{
+    id: 4,
+    name: "Владивосток, Приморский край, Россия",
+    flag: "RU",
+    imgSrc: "img/flag-russia.svg"
+}, {
+    id: 5,
+    name: "Находка",
+    flag: "RU",
+    imgSrc: "img/flag-russia.svg"
+}
+];
 
-//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
+function autocompleteInit (idElement,attrId, attrVal) {
 
-//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
-//     $(".navbar-ul").addClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-sticky')[0].scrollIntoView(true);
+$("#"+idElement).dxAutocomplete({
+  inputAttr: {
+       id: attrId,
+       class: attrVal
+   },
+   dataSource: cityData,
+   valueExpr: 'name',
+   itemTemplate: function(data) {
+            //обязательный шаблон
+            return $("<div class='input-field__autocomplete-item'><img class='input-field__autocomplete-item--flag' src='" + data.imgSrc +
+                "'>" + data.name + "</div>");
+         }
+    
+}).dxValidator({                         //необходим если есть валидация
+        validationRules: [{
+            type: "required",
+            message: "Обязательно к заполнению"
+        }],
+        validationGroup: "validateItems" //обязательный параметр для валидации
+    });
+};
 
-// }  
-// if ( $(this).scrollTop() == 0) {
 
-//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
-//     $(".navbar-ul").removeClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-currency')[0].scrollIntoView(true);
-//  }
+autocompleteInit ("departName","departName__id","input-field__value");
+autocompleteInit ("destName","destName__id","input-field__value");
+autocompleteInit ("citySearch","citySearch__id","input-field__value");
+autocompleteInit ("modalCity","modalCity__id","input-field__value");
 
-//  });
+
+
+function autocompleteInitClass (idElement,attrId, attrVal) {
+
+$("."+idElement).dxAutocomplete({
+  inputAttr: {
+       id: attrId,
+       class: attrVal
+   },
+   dataSource: cityData,
+   valueExpr: 'name',
+   itemTemplate: function(data) {
+            //обязательный шаблон
+            return $("<div class='input-field__autocomplete-item'><img class='input-field__autocomplete-item--flag' src='" + data.imgSrc +
+                "'>" + data.name + "</div>");
+         }
+    
+}).dxValidator({                         //необходим если есть валидация
+        validationRules: [{
+            type: "required",
+            message: "Обязательно к заполнению"
+        }],
+        validationGroup: "validateItems" //обязательный параметр для валидации
+    });
+};
+autocompleteInitClass ("input-field__city","input-field__city-id","input-field__value");
+autocompleteInitClass ("input-field__search","input-field__search-id","input-field__value"); //инициализировали как город только для примера
+
+
+
+
+
+
+
 
 //Выберите дату
 function dateInit (element,attrId, attrVal) {
@@ -2230,101 +2334,6 @@ textAriaInitAutoResize('pseudoClassTextAriaAutoHeight', "auto");
     });
 
   $(".popup__info-newmsg").dxToast("show");
-var cityData = [{
-    id: 1,
-    name: "Владивосток, Приморский край, Россия",
-    flag: "RU",
-    imgSrc: "img/flag-russia.svg"
-},
-{
-    id: 2,
-    name: "Владивосток, Приморский край, Россия",
-    flag: "RU",
-    imgSrc: "img/flag-russia.svg"
-},
-{
-    id: 3,
-    name: "Владивосток, Приморский край, Россия",
-    flag: "RU",
-    imgSrc: "img/flag-russia.svg"
-},
-{
-    id: 4,
-    name: "Владивосток, Приморский край, Россия",
-    flag: "RU",
-    imgSrc: "img/flag-russia.svg"
-}, {
-    id: 5,
-    name: "Находка",
-    flag: "RU",
-    imgSrc: "img/flag-russia.svg"
-}
-];
-
-function autocompleteInit (idElement,attrId, attrVal) {
-
-$("#"+idElement).dxAutocomplete({
-  inputAttr: {
-       id: attrId,
-       class: attrVal
-   },
-   dataSource: cityData,
-   valueExpr: 'name',
-   itemTemplate: function(data) {
-            //обязательный шаблон
-            return $("<div class='input-field__autocomplete-item'><img class='input-field__autocomplete-item--flag' src='" + data.imgSrc +
-                "'>" + data.name + "</div>");
-         }
-    
-}).dxValidator({                         //необходим если есть валидация
-        validationRules: [{
-            type: "required",
-            message: "Обязательно к заполнению"
-        }],
-        validationGroup: "validateItems" //обязательный параметр для валидации
-    });
-};
-
-
-autocompleteInit ("departName","departName__id","input-field__value");
-autocompleteInit ("destName","destName__id","input-field__value");
-autocompleteInit ("citySearch","citySearch__id","input-field__value");
-autocompleteInit ("modalCity","modalCity__id","input-field__value");
-
-
-
-function autocompleteInitClass (idElement,attrId, attrVal) {
-
-$("."+idElement).dxAutocomplete({
-  inputAttr: {
-       id: attrId,
-       class: attrVal
-   },
-   dataSource: cityData,
-   valueExpr: 'name',
-   itemTemplate: function(data) {
-            //обязательный шаблон
-            return $("<div class='input-field__autocomplete-item'><img class='input-field__autocomplete-item--flag' src='" + data.imgSrc +
-                "'>" + data.name + "</div>");
-         }
-    
-}).dxValidator({                         //необходим если есть валидация
-        validationRules: [{
-            type: "required",
-            message: "Обязательно к заполнению"
-        }],
-        validationGroup: "validateItems" //обязательный параметр для валидации
-    });
-};
-autocompleteInitClass ("input-field__city","input-field__city-id","input-field__value");
-autocompleteInitClass ("input-field__search","input-field__search-id","input-field__value"); //инициализировали как город только для примера
-
-
-
-
-
-
-
 $('.header-currency__lang').click( function () {
 	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
 	$('.header-currency__lang').toggleClass('header-currency__lang--en');

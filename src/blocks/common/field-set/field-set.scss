@@ -41,6 +41,12 @@
 	&-r {
 		padding: 14px 0 0 0;
 	}
+
+	&--rem{
+		flex-wrap: wrap;
+	}
+	
+
 	}
 
 	&__depart {
@@ -135,9 +141,11 @@
 		min-height: 160px;
 	}
 
-	// &__fit-content{
-	// 	width: fit-content;
-	// }	
-
+	&__rem {
+		flex: 1 0 100%;
+		@include font-lucida (#999999, 12px, normal);
+		line-height: 14px;
+		margin-top: 20px;
+	}
 		
 }
