@@ -12,3 +12,7 @@
 3. input-field__autocomplete.js 
 4. modal.js
 5. rangeselector.js
+
+
+http://localhost:8080/contract-master-3.html
+серое выделение? цвет

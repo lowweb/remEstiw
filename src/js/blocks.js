@@ -85,6 +85,7 @@ $(document.body).on('click', '#footer__button-next' ,function(){
 
 
 	 }
+	 $('.summary-error').show(); //если нет checkbox radio
 });
 
 //если при заполнении input-field срабаотала валидация 
@@ -197,6 +198,7 @@ checkboxInit ("suppagree2__checkbox", "Дополнительное соглаш
 checkboxInit ("suppagree3__checkbox", "Дополнительное соглашение №3 (Покупка)");
 checkboxInit ("suppagree4__checkbox", "Дополнительное соглашение №4 (Юридические услуги)");
 checkboxInit ("suppagree5__checkbox", "Дополнительное соглашение №5 (ЭОД)");
+checkboxInit ("contrct-iagree-checkbox", "Я согласен с условиями договора и дополнительных соглашений к нему");
 
 
 
@@ -981,7 +983,21 @@ function inputFieldInit (element, elementId, defValue, readOnlyFlag ) {
    },
    value: defValue,
    readOnly: readOnlyFlag
-  });
+  }).dxValidator({
+        validationRules: [{
+            type: "required",
+            message: "Обязательно к заполнению"
+        }, {
+            type: "pattern",
+            pattern: /^[^0-9]+$/,
+            message: "Строка не может содержать цифры"
+        }, {
+            type: "stringLength",
+            min: 2,
+            message: "Длина строки не меньше 2 символов"
+        }],
+        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
+    });;
 };
 
 
@@ -1295,6 +1311,8 @@ radiogroupInit ("orgaization-form__radioGroup",["Физическое лицо",
 
 radiogroupInit ("you-status__radioGroup",["Резидент", "Нерезидент"],"");
 radiogroupInit ("tocargo__radioGroup",["Грузовладелец", "Транспортная компания (экспедитор) – представитель грузовладельца"],"");
+radiogroupInit ("customer-endind-radio",["-ое", "-ый" , "-ая"],"horizontal");
+
 
 $(function() {
     $("[id=rangeSelector]").dxRangeSelector({

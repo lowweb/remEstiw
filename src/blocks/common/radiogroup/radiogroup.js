@@ -60,3 +60,5 @@ radiogroupInit ("orgaization-form__radioGroup",["Физическое лицо",
 
 radiogroupInit ("you-status__radioGroup",["Резидент", "Нерезидент"],"");
 radiogroupInit ("tocargo__radioGroup",["Грузовладелец", "Транспортная компания (экспедитор) – представитель грузовладельца"],"");
+radiogroupInit ("customer-endind-radio",["-ое", "-ый" , "-ая"],"horizontal");
+

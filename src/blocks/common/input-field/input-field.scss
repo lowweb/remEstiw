@@ -181,6 +181,12 @@
  			}
 	}
 
+	&--blank {
+		& .radiogroup {
+			margin-top: 8px;
+		}
+	}
+
 }
 
 .dx-state-disabled + .input-field__label {

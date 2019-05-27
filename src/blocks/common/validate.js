@@ -84,6 +84,7 @@ $(document.body).on('click', '#footer__button-next' ,function(){
 
 
 	 }
+	 $('.summary-error').show(); //если нет checkbox radio
 });
 
 //если при заполнении input-field срабаотала валидация 

@@ -57,6 +57,7 @@ checkboxInit ("suppagree2__checkbox", "Дополнительное соглаш
 checkboxInit ("suppagree3__checkbox", "Дополнительное соглашение №3 (Покупка)");
 checkboxInit ("suppagree4__checkbox", "Дополнительное соглашение №4 (Юридические услуги)");
 checkboxInit ("suppagree5__checkbox", "Дополнительное соглашение №5 (ЭОД)");
+checkboxInit ("contrct-iagree-checkbox", "Я согласен с условиями договора и дополнительных соглашений к нему");
 
 
 
