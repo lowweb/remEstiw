@@ -85,6 +85,10 @@ color: $clr-dark;
 	color: #000000;
 	font-weight: bold;
 }
+
+.ft-wh600 {
+	font-weight: 600;
+}
 //миксин lucida
 @mixin font-lucida ($color, $size, $height) {
 	font-family: Lucida Grande, Tahoma, Arial;
@@ -295,6 +299,16 @@ h2{
 .mt20{
 	margin-top: 20px;
 }	
+.ml10	{
+	margin-left: 10px;
+}
+.mr10 {
+	margin-right: 10px;
+}
+
+.mr20 {
+	margin-right: 20px;
+}
 
 .app-li {
 	margin: 0;
