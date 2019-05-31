@@ -10,7 +10,13 @@
 	///width: calc(100% - 78px);
 	height: 76px;
 	background-color: $clr-white;
-
+	
+	&__wr {
+		width: 918px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
 	/// &--fix313 {
 	/// 	width: calc(100% - 313px);
 	/// 	transition: width .3s; //при переходе в fix header плавность вместе с меню
@@ -18,23 +24,28 @@
 
 	&__button {
 		 margin-right: 20px;
-	}
 
+		 &:last-child {
+		 	margin-right: 0px;
+		 }
+	}
+	
 	&__saved-msg {
 		@include font-lucida (#999999, 12px, normal);
 		display: none;
 	}
 
-	&__wrap-left {
+	&__wr-lf {
 		display: flex;
-		flex: 1 0 auto;
+		// flex: 1 0 auto;
 		align-items: center;
 	}
 
-	&__wrap-right {
+	&__wr-rg {
 		display: flex;
-    	flex: 0 0 852px;
-    	max-width: 852px;
+		align-items: center;
+    	// flex: 0 0 852px;
+    	// max-width: 852px;
 	}
 }
 
