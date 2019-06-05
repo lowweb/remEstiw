@@ -10,6 +10,7 @@
 	padding: 26px;
 	  &--full{
 	       width: 100%;
+	       max-width: 100%;
 	  }	
 
 	  &--sm{
@@ -39,14 +40,21 @@
 	&__sz {
 		color: #AAAAAA;
 		margin-left: 5px;
-		min-width: 55px;
+		flex: 0 0 auto;
 	}
 
 	&__btn-del {
 		width: 16px;
 		height: 16px;
+		min-width: 16px;
     	background-color: transparent;
     	margin-left: 24px;
+    	flex: 0 0 auto;
+	}
+
+	&__fname {
+		overflow: hidden;
+   		flex: 0 1 auto;
 	}
 
 }
