@@ -1,10 +1,49 @@
 .filelist {
-	min-width: 424px;
-	min-height: 72px;
-	background-color: #ECF4FA;
-	border: 1px dashed #5C2D91;
+	width: 100%;
+	background-color: #F3F3F3;
+	border: 1px dashed #D5D7E1;
 	box-sizing: border-box;
 	border-radius: 3px;
 	display: flex;
-	align-items: center;
+	flex-direction: column;
+	padding: 26px 0 26px 26px;
+	  &--full{
+	       width: 100%;
+	  }	
+
+	  &--sm{
+	         width: 276px;
+  			 max-width: 276px;
+	  }
+
+	&__itm {
+		display: flex;
+		align-items: center;
+		@include font-lucida ($clr-dark-light, 13px, 15px);
+		margin-bottom: 28px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&:before {
+			content: url(#{$imgFolder}fileupload__clip.svg);
+			margin-right: 15px;
+			width: 20px;
+			height: 20px;
+		}
+	}
+
+	&__sz {
+		color: #AAAAAA;
+		margin-left: 5px;
+	}
+
+	&__btn-del {
+		width: 16px;
+		height: 16px;
+    	background-color: transparent;
+    	margin-left: 24px;
+	}
+
 }

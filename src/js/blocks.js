@@ -1,3 +1,13 @@
+$('.contract__block-cap').click(function(event) {
+
+	$(this).parents('.contract__block').toggleClass('contract__block--hide');
+});
+
+// $('.contract__line-add .btn__rnd').click(function(event) {
+// 	$(this).parents('.contract__line-add').addClass('contract__line-add--act');
+// });
+
+
 // для корректной работы gulp
 
 $(".summary-error__items").dxValidationSummary({
@@ -99,16 +109,6 @@ $('.input-field__cont').change ( function () {
 	 	$(this).parent().find('.input-field__label').removeClass('input-field__label--err');
 	 }
 });
-$('.contract__block-cap').click(function(event) {
-
-	$(this).parents('.contract__block').toggleClass('contract__block--hide');
-});
-
-// $('.contract__line-add .btn__rnd').click(function(event) {
-// 	$(this).parents('.contract__line-add').addClass('contract__line-add--act');
-// });
-
-
 function initButton (Element) {
     $('.' + Element).dxButton({
                 stylingMode: 'text',
@@ -873,72 +873,6 @@ $("#gridContainerr").dxDataGrid({
         }
     });
 
-
-    $(".fileUploader").dxFileUploader({
-        accept:"image/*,*.zip,*.pdf,*.mp4",
-        width: 424,
-	    multiple: true,
-	    allowCanceling: true,
-	    selectButtonText: "нажмите выбрать",
-		showFileList: true,
-		labelText: "Перенесите сюда файл (xls, word, pdf) или",
-		uploadFailedMessage: "dsfs",
-		onUploadStarted: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploaded: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploadError: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
-		},
-		uploadedMessage: "",
-		uploadFailedMessage: "",
-    });
-
-    $(".fileUploader--full").dxFileUploader({
-        accept:"image/*,*.zip,*.pdf,*.mp4",
-	    multiple: true,
-	    allowCanceling: true,
-	    selectButtonText: "нажмите выбрать",
-		showFileList: true,
-		labelText: "Перенесите сюда файл (xls, word, pdf) или",
-		uploadFailedMessage: "dsfs",
-		onUploadStarted: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploaded: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploadError: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
-		},
-		uploadedMessage: "",
-		uploadFailedMessage: "",
-    });
-
-   $(".fileUploader--sm").dxFileUploader({
-        accept:"image/*,*.zip,*.pdf,*.mp4",
-        width: 276,
-	    multiple: true,
-	    allowCanceling: true,
-	    selectButtonText: "нажмите выбрать",
-		showFileList: true,
-		labelText: "Перенесите сюда файл (xls, word, pdf) или",
-		uploadFailedMessage: "dsfs",
-		onUploadStarted: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploaded: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploadError: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
-		},
-		uploadedMessage: "",
-		uploadFailedMessage: "",
-    });
-
 //название запроса
 $("#requestName").dxTextBox({
   inputAttr: {
@@ -1005,14 +939,71 @@ inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
 inputFieldInit ("pseudoClassTextEditorReadOnly","pseudoClassTextEditorReadOnly__id","100",true);
 
 
-$("#loadPanel").dxLoadPanel({
-        closeOnOutsideClick: true,
-        visible: true,
-        shading: true,
-		shadingColor: "rgba(255,255,255, 0.8)",
-		message: ""
+
+    $(".fileUploader").dxFileUploader({
+        accept:"image/*,*.zip,*.pdf,*.mp4",
+        width: 424,
+	    multiple: true,
+	    allowCanceling: true,
+	    selectButtonText: "нажмите выбрать",
+		showFileList: true,
+		labelText: "Перенесите сюда файл (xls, word, pdf) или",
+		uploadFailedMessage: "dsfs",
+		onUploadStarted: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploaded: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploadError: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
+		},
+		uploadedMessage: "",
+		uploadFailedMessage: "",
     });
 
+    $(".fileUploader--full").dxFileUploader({
+        accept:"image/*,*.zip,*.pdf,*.mp4",
+	    multiple: true,
+	    allowCanceling: true,
+	    selectButtonText: "нажмите выбрать",
+		showFileList: true,
+		labelText: "Перенесите сюда файл (xls, word, pdf) или",
+		uploadFailedMessage: "dsfs",
+		onUploadStarted: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploaded: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploadError: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
+		},
+		uploadedMessage: "",
+		uploadFailedMessage: "",
+    });
+
+   $(".fileUploader--sm").dxFileUploader({
+        accept:"image/*,*.zip,*.pdf,*.mp4",
+        width: 276,
+	    multiple: true,
+	    allowCanceling: true,
+	    selectButtonText: "нажмите выбрать",
+		showFileList: true,
+		labelText: "Перенесите сюда файл (xls, word, pdf) или",
+		uploadFailedMessage: "dsfs",
+		onUploadStarted: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploaded: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploadError: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
+		},
+		uploadedMessage: "",
+		uploadFailedMessage: "",
+    });
 
 
 //step для шагов внутри модального окна
@@ -1197,24 +1188,6 @@ initModal("modal-request-del", 480 , "auto", 'modal__title-templ','modal__conten
 
 
 
- 
-function numberBoxInit (idElement,idAttrName) {
-	 $("."+idElement).dxNumberBox({
-        value: 15,
-        min: 10,
-        max: 100,
-        showSpinButtons: true,
-        inputAttr: {
-   		 id: idAttrName,
-   		 class: "input-field__value" 
-   		}
-   		//width: widthElement
-    });
-};
-
-numberBoxInit ("pseudoClassNumberBox","pseudoNameElementNumberBox__id");
-
-
 $('.progress-bar__step').hover (function(){
 	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
 },
@@ -1314,65 +1287,15 @@ radiogroupInit ("tocargo__radioGroup",["Грузовладелец", "Транс
 radiogroupInit ("customer-endind-radio",["-ое", "-ый" , "-ая"],"horizontal");
 
 
-$(function() {
-    $("[id=rangeSelector]").dxRangeSelector({
-        size: {
-            height: 70,
-            width: 744
-        },
-        selectedRangeColor: "rgba(55, 63, 81, 0.4)",
-        scale: {
-            startValue: -30,
-            endValue: +30,
-            // minorTickInterval: 5,
-            tickInterval: 10,
-            // minorTick: {
-                // visible: false,
-            // },
-            label: {
-                // format: "currency",
-                customizeText: function () {
-                return this.valueText + " ˚C";
-            	},
-            	font: {
-					color: "#373F51",
-					family: "Lucida Grande, Tahoma, Arial",
-					opacity: 1,
-					size: 13,
-					weight: 400
-				}
-            }
-        },
-        sliderMarker: {
-            // format: "currency",
-            color: "#373F51",
-            customizeText: function () {
-                return this.valueText + " ˚C";
-            },
-            font: {
-				color: "#FFFFFF",
-				family: "Lucida Grande, Tahoma, Arial",
-				opacity: 1,
-				size: 13,
-				weight: 400
-			},
-           	invalidRangeColor: "red",
-			paddingLeftRight: 10,
-			paddingTopBottom: 2,
-        },
-        value: [4, 8],
-        onInitialized: function () {      	
-        	
-        	
-        },
-        // redrawOnResize: function (){alert($('.rangeselector .dxrs-range-selector-line').offset());},
-        onDrawn: function (){    	
-            //обязательный вызов для backgroud элмента радуга
-        	$( ".rangeselector.dx-visibility-change-handler" ).append( "<div class='rangeselector__back'></div>");
-        }
-
+$("#loadPanel").dxLoadPanel({
+        closeOnOutsideClick: true,
+        visible: true,
+        shading: true,
+		shadingColor: "rgba(255,255,255, 0.8)",
+		message: ""
     });
-});
+
+
 //add consignment block
 
 //реализация добавление блоков на первом шаге. убрали тк по идеи не нужна
@@ -1448,6 +1371,65 @@ $(function() {
 // 	if ($( ".consignment" ).length == 1 )
 // 		$( ".consignment .step-block__sep .step-block__sep-btn-close").remove();
 // });
+$(function() {
+    $("[id=rangeSelector]").dxRangeSelector({
+        size: {
+            height: 70,
+            width: 744
+        },
+        selectedRangeColor: "rgba(55, 63, 81, 0.4)",
+        scale: {
+            startValue: -30,
+            endValue: +30,
+            // minorTickInterval: 5,
+            tickInterval: 10,
+            // minorTick: {
+                // visible: false,
+            // },
+            label: {
+                // format: "currency",
+                customizeText: function () {
+                return this.valueText + " ˚C";
+            	},
+            	font: {
+					color: "#373F51",
+					family: "Lucida Grande, Tahoma, Arial",
+					opacity: 1,
+					size: 13,
+					weight: 400
+				}
+            }
+        },
+        sliderMarker: {
+            // format: "currency",
+            color: "#373F51",
+            customizeText: function () {
+                return this.valueText + " ˚C";
+            },
+            font: {
+				color: "#FFFFFF",
+				family: "Lucida Grande, Tahoma, Arial",
+				opacity: 1,
+				size: 13,
+				weight: 400
+			},
+           	invalidRangeColor: "red",
+			paddingLeftRight: 10,
+			paddingTopBottom: 2,
+        },
+        value: [4, 8],
+        onInitialized: function () {      	
+        	
+        	
+        },
+        // redrawOnResize: function (){alert($('.rangeselector .dxrs-range-selector-line').offset());},
+        onDrawn: function (){    	
+            //обязательный вызов для backgroud элмента радуга
+        	$( ".rangeselector.dx-visibility-change-handler" ).append( "<div class='rangeselector__back'></div>");
+        }
+
+    });
+});
     $(".init-switch").dxSwitch({
         value: false
     });
@@ -2078,25 +2060,24 @@ var tnvd= [
 
 
 
-// $(".navbar").scroll (function () {
+ 
+function numberBoxInit (idElement,idAttrName) {
+	 $("."+idElement).dxNumberBox({
+        value: 15,
+        min: 10,
+        max: 100,
+        showSpinButtons: true,
+        inputAttr: {
+   		 id: idAttrName,
+   		 class: "input-field__value" 
+   		}
+   		//width: widthElement
+    });
+};
 
-//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
+numberBoxInit ("pseudoClassNumberBox","pseudoNameElementNumberBox__id");
 
-//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
-//     $(".navbar-ul").addClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-sticky')[0].scrollIntoView(true);
 
-// }  
-// if ( $(this).scrollTop() == 0) {
-
-//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
-//     $(".navbar-ul").removeClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-currency')[0].scrollIntoView(true);
-//  }
-
-//  });
 $('.timezone-popup-menu__title-btn').click(function(){
 // console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
 // if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
@@ -2149,6 +2130,25 @@ function userPopupClose() {
 		$('.app-lnk-disable').toggleClass('app-lnk-disable');
 	}
 }
+// $(".navbar").scroll (function () {
+
+//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
+
+//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
+//     $(".navbar-ul").addClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-sticky')[0].scrollIntoView(true);
+
+// }  
+// if ( $(this).scrollTop() == 0) {
+
+//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
+//     $(".navbar-ul").removeClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-currency')[0].scrollIntoView(true);
+//  }
+
+//  });
 var cityData = [{
     id: 1,
     name: "Владивосток, Приморский край, Россия",
@@ -2352,10 +2352,6 @@ textAriaInitAutoResize('pseudoClassTextAriaAutoHeight', "auto");
     });
 
   $(".popup__info-newmsg").dxToast("show");
-$('.header-currency__lang').click( function () {
-	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
-	$('.header-currency__lang').toggleClass('header-currency__lang--en');
-});
 //эффект на иконке при hover тк заголовок всегда 1
 $('.navbar__header-link').hover(  
 function(){
@@ -2429,4 +2425,9 @@ $('.navbar__item-header').click(function(){
 	$(this).parents(".navbar__item").find('.navbar__submenu').toggleClass('navbar__submenu--open');
 	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
 
+});
+
+$('.header-currency__lang').click( function () {
+	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
+	$('.header-currency__lang').toggleClass('header-currency__lang--en');
 });
