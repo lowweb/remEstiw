@@ -1,12 +1,13 @@
 .filelist {
 	width: 100%;
+	max-width: 424px;
 	background-color: #F3F3F3;
 	border: 1px dashed #D5D7E1;
 	box-sizing: border-box;
 	border-radius: 3px;
 	display: flex;
 	flex-direction: column;
-	padding: 26px 0 26px 26px;
+	padding: 26px;
 	  &--full{
 	       width: 100%;
 	  }	
@@ -21,6 +22,7 @@
 		align-items: center;
 		@include font-lucida ($clr-dark-light, 13px, 15px);
 		margin-bottom: 28px;
+
 
 		&:last-child {
 			margin-bottom: 0;
@@ -37,6 +39,7 @@
 	&__sz {
 		color: #AAAAAA;
 		margin-left: 5px;
+		min-width: 55px;
 	}
 
 	&__btn-del {

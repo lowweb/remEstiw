@@ -206,6 +206,147 @@ checkboxInit ("contrct-iagree-checkbox", "Я согласен с условия�
 
 
  
+
+    $(".fileUploader").dxFileUploader({
+        accept:"image/*,*.zip,*.pdf,*.mp4",
+        width: 424,
+	    multiple: true,
+	    allowCanceling: true,
+	    selectButtonText: "нажмите выбрать",
+		showFileList: true,
+		labelText: "Перенесите сюда файл (xls, word, pdf) или",
+		uploadFailedMessage: "dsfs",
+		onUploadStarted: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploaded: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploadError: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
+		},
+		uploadedMessage: "",
+		uploadFailedMessage: "",
+    });
+
+    $(".fileUploader--full").dxFileUploader({
+        accept:"image/*,*.zip,*.pdf,*.mp4",
+	    multiple: true,
+	    allowCanceling: true,
+	    selectButtonText: "нажмите выбрать",
+		showFileList: true,
+		labelText: "Перенесите сюда файл (xls, word, pdf) или",
+		uploadFailedMessage: "dsfs",
+		onUploadStarted: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploaded: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploadError: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
+		},
+		uploadedMessage: "",
+		uploadFailedMessage: "",
+    });
+
+   $(".fileUploader--sm").dxFileUploader({
+        accept:"image/*,*.zip,*.pdf,*.mp4",
+        width: 276,
+	    multiple: true,
+	    allowCanceling: true,
+	    selectButtonText: "нажмите выбрать",
+		showFileList: true,
+		labelText: "Перенесите сюда файл (xls, word, pdf) или",
+		uploadFailedMessage: "dsfs",
+		onUploadStarted: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploaded: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploadError: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
+		},
+		uploadedMessage: "",
+		uploadFailedMessage: "",
+    });
+
+//название запроса
+$("#requestName").dxTextBox({
+  inputAttr: {
+   		 id: "requestName__id",  //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
+   		 class:"input-field__value" //обязятельный класс
+   }
+}).dxValidator({
+        validationRules: [{
+            type: "required",
+            message: "Обязательно к заполнению"
+        }, {
+            type: "pattern",
+            pattern: /^[^0-9]+$/,
+            message: "Строка не может содержать цифры"
+        }, {
+            type: "stringLength",
+            min: 2,
+            message: "Длина строки не меньше 2 символов"
+        }],
+        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
+    });
+
+
+// $("#input-field__totalWeight").dxTextBox({
+//   inputAttr: {
+//        id: "input-field__totalWeight-id",
+//        class:"input-field__value" 
+//    },
+//    width: 128,
+//    readOnly: true,
+//    value: "100",
+// })
+
+
+//инициализировать элементы необходимо по id элемента
+//в верстке реализованна инициализация по классу, для массовости, класс pseudoClassTextEditor на инициализируемом элементе можно удалить, если таковой не применяется
+function inputFieldInit (element, elementId, defValue, readOnlyFlag ) {
+  $("."+ element).dxTextBox({
+  inputAttr: {
+       id: elementId,
+       class:"input-field__value" 
+   },
+   value: defValue,
+   readOnly: readOnlyFlag
+  }).dxValidator({
+        validationRules: [{
+            type: "required",
+            message: "Обязательно к заполнению"
+        }, {
+            type: "pattern",
+            pattern: /^[^0-9]+$/,
+            message: "Строка не может содержать цифры"
+        }, {
+            type: "stringLength",
+            min: 2,
+            message: "Длина строки не меньше 2 символов"
+        }],
+        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
+    });;
+};
+
+
+inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
+inputFieldInit ("pseudoClassTextEditorReadOnly","pseudoClassTextEditorReadOnly__id","100",true);
+
+
+$("#loadPanel").dxLoadPanel({
+        closeOnOutsideClick: true,
+        visible: true,
+        shading: true,
+		shadingColor: "rgba(255,255,255, 0.8)",
+		message: ""
+    });
+
+
 //-----------customs-clearance-3agent-modal
 var employees = [{
     "ID": 1,
@@ -873,321 +1014,6 @@ $("#gridContainerr").dxDataGrid({
         }
     });
 
-//название запроса
-$("#requestName").dxTextBox({
-  inputAttr: {
-   		 id: "requestName__id",  //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
-   		 class:"input-field__value" //обязятельный класс
-   }
-}).dxValidator({
-        validationRules: [{
-            type: "required",
-            message: "Обязательно к заполнению"
-        }, {
-            type: "pattern",
-            pattern: /^[^0-9]+$/,
-            message: "Строка не может содержать цифры"
-        }, {
-            type: "stringLength",
-            min: 2,
-            message: "Длина строки не меньше 2 символов"
-        }],
-        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
-    });
-
-
-// $("#input-field__totalWeight").dxTextBox({
-//   inputAttr: {
-//        id: "input-field__totalWeight-id",
-//        class:"input-field__value" 
-//    },
-//    width: 128,
-//    readOnly: true,
-//    value: "100",
-// })
-
-
-//инициализировать элементы необходимо по id элемента
-//в верстке реализованна инициализация по классу, для массовости, класс pseudoClassTextEditor на инициализируемом элементе можно удалить, если таковой не применяется
-function inputFieldInit (element, elementId, defValue, readOnlyFlag ) {
-  $("."+ element).dxTextBox({
-  inputAttr: {
-       id: elementId,
-       class:"input-field__value" 
-   },
-   value: defValue,
-   readOnly: readOnlyFlag
-  }).dxValidator({
-        validationRules: [{
-            type: "required",
-            message: "Обязательно к заполнению"
-        }, {
-            type: "pattern",
-            pattern: /^[^0-9]+$/,
-            message: "Строка не может содержать цифры"
-        }, {
-            type: "stringLength",
-            min: 2,
-            message: "Длина строки не меньше 2 символов"
-        }],
-        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
-    });;
-};
-
-
-inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
-inputFieldInit ("pseudoClassTextEditorReadOnly","pseudoClassTextEditorReadOnly__id","100",true);
-
-
-
-    $(".fileUploader").dxFileUploader({
-        accept:"image/*,*.zip,*.pdf,*.mp4",
-        width: 424,
-	    multiple: true,
-	    allowCanceling: true,
-	    selectButtonText: "нажмите выбрать",
-		showFileList: true,
-		labelText: "Перенесите сюда файл (xls, word, pdf) или",
-		uploadFailedMessage: "dsfs",
-		onUploadStarted: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploaded: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploadError: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
-		},
-		uploadedMessage: "",
-		uploadFailedMessage: "",
-    });
-
-    $(".fileUploader--full").dxFileUploader({
-        accept:"image/*,*.zip,*.pdf,*.mp4",
-	    multiple: true,
-	    allowCanceling: true,
-	    selectButtonText: "нажмите выбрать",
-		showFileList: true,
-		labelText: "Перенесите сюда файл (xls, word, pdf) или",
-		uploadFailedMessage: "dsfs",
-		onUploadStarted: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploaded: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploadError: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
-		},
-		uploadedMessage: "",
-		uploadFailedMessage: "",
-    });
-
-   $(".fileUploader--sm").dxFileUploader({
-        accept:"image/*,*.zip,*.pdf,*.mp4",
-        width: 276,
-	    multiple: true,
-	    allowCanceling: true,
-	    selectButtonText: "нажмите выбрать",
-		showFileList: true,
-		labelText: "Перенесите сюда файл (xls, word, pdf) или",
-		uploadFailedMessage: "dsfs",
-		onUploadStarted: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploaded: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploadError: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
-		},
-		uploadedMessage: "",
-		uploadFailedMessage: "",
-    });
-
-
-//step для шагов внутри модального окна
-function initModalStep (contName,nextbtn, prevbtn, dynamCap, curSlide) {
-	const $stepContainer = $(contName),
-       	  $steps         = $('.modal__step'),
-      	  numSteps       = $steps.length,
-       	  $form          = $('.modal .dx-popup-normal'),
-          $next          = $(nextbtn),
-          $prev          = $(prevbtn);
-
-		var stepWidth = $form.width();
-		var currentSlide = curSlide;
-		 // alert ($form.width());
-		$steps.css({ width: stepWidth + "px" });
-		$stepContainer.css("width", stepWidth*numSteps + "px");	
-
-		animateSlider();	
-
-		function animateSlider() {
-		  $stepContainer.css('transform', 'translateX('+ (-stepWidth * currentSlide)+'px)');
-		}
-				
-		$next.on('click', function(e) {
-			e.preventDefault();	
-		  if(currentSlide < numSteps-1){
-		  currentSlide ++;
-		  animateSlider();
-		  }
-
-		  //если заголовок следующего шага берется из элемента инициируещего
-		  if (dynamCap==true)
-		  $('.modal__block-back').text($(this).text());
-		});			
-		$prev.on('click', function(e) {
-		  if(currentSlide > 0) {
-		    currentSlide --;
-		    animateSlider();
-		  } 
-		});
-};
-
-//инициализация компонентов на модалке
-function initModalCustom () {
-
-	//first page
-	if ($('.modal').hasClass('modal-location')) {
-		initModalStep('.modal__step-container','.modal__block-item','.modal__block-prev',true,0);
-
-		//страна в модальном окне
-		selectBoxInitForId("modal__country-list",[ "Приморский край", "Камчатский край"],"modal__country-list__id","input-field__value");
-		//край район область в модальном окне
-		selectBoxInitForId("modal__region-list",[ "Приморский край", "Камчатский край"],"modal__region-list__id","input-field__value");
-		
-		autocompleteInit ("locationSearch","locationSearch__id","input-field__value");
-		autocompleteInit ("modallocation","modallocation__id","input-field__value");	
-
-		//ошибка заполнения города
-		$('.modal__title-cap').click(function() {
-		  $('.modal-location__search-err').toggleClass('modal-location__search-err--show');;
-		});	
-
-		//close modal
-		$('.modal__btn-close').click( function () {
-			$('.modal-location.dx-popup-wrapper').remove();
-		});
-};
-
-if ($('.modal').hasClass('custom-clearance-3agent-modal')) {
-	 initDataGrid ();
-	 inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
-	 radiogroupInit ("custom-clearence__3agent-radio",["Резидент", "Нерезидент"],"horizontal");
-};
-
-if ($('.modal').hasClass('modal-change-pass')) {
-	inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
-}
-
-if ($('.modal').hasClass('modal-auth')) {
-	//инициализируем карусель в модальном окне, для смены пароля со второго шага для остальных с первого
-	// if ($('.modal').hasClass('modal-rem-step'))
-	// initModalStep('.modal__step-container-auth','#modal__forget-lnk','.modal__block-prev',false,1);
-	// else
-	initModalStep('.modal__step-container-auth','#modal__forget-lnk','.modal__block-prev',false,0);	
-	initModalStep('.modal__step-container-reg','#modal__agree-lnk','.modal__block-prev',false,0);	
-
-	//инициализируем элементы
-	 inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
-	 checkboxInit ("login-modal__rem-checkbox", "Запомнить пароль");
-	 checkboxInit ("login-modal__agree-checkbox", "Я подтверждаю зарегистрированный вход в систему");
-	 checkboxInit ("modal-reg__chk", "");
-	 $("#auth-login").dxTextBox({
-	  inputAttr: {
-	   		 id: "requestName__id",  //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
-	   		 class:"input-field__value" //обязятельный класс
-	   }}).dxValidator({
-	        validationRules: [{
-	            type: "required",
-	            message: "Обязательно к заполнению"
-	        }],
-	        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
-	    });	
-
-	    $("#auth-login2").dxTextBox({
-	  inputAttr: {
-	   		 id: "requestName__id",  //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
-	   		 class:"input-field__value" //обязятельный класс
-	   }}).dxValidator({
-	        validationRules: [{
-	            type: "required",
-	            message: "Обязательно к заполнению"
-	        }],
-	        validationGroup: "validateItems2" //обязательный параметр для валидации см. src/blocks/common/validate.js:
-	    });	
-
-	//ошибка заполнения 
-	//инициализируем div ошибок
-	$(".summary-error__items").dxValidationSummary({
-	        validationGroup: "validateItems"
-	    });
-	$(".summary-error2__items").dxValidationSummary({
-	        validationGroup: "validateItems2"
-	    });	
-
-	//обраотчик кнопки
-	$(document.body).on('click', '#loginBtnModal' ,function(){
-		DevExpress.validationEngine.validateGroup("validateItems");
-		$('.input-field__cont.dx-invalid').parent().find('.input-field__label').addClass('input-field__label--err');
-		$('#summary-error').show();
-	});	
-
-	$(document.body).on('click', '#modalBtnReg' ,function(){
-		DevExpress.validationEngine.validateGroup("validateItems2");
-		$('.input-field__cont.dx-invalid').parent().find('.input-field__label').addClass('input-field__label--err');
-		$('#summary-error2').show();
-	});	
-
-
-};
-
-};
-
-
-function initModal (clName,width, height, tTempl, cTempl, position) {
-	$("." + clName).dxPopup({
-        visible: true,
-        height:height,
-        width: width,
-        position: position,
-        titleTemplate: function() {
-        	//обязательный template
-         	return $($('.' + tTempl).html());
-          },
-          contentTemplate: function () {
-          	//обязательный template
-          	return $($('.' + cTempl).html());
-          },
-          onShown: function (e) {                                      
-			$(".scrollView").dxScrollView({
-		        height: "100%",
-		        width: "auto",
-		        direction: "vertical"
-		    }); 
-			initModalCustom();
-			initButton("button");            
-		} 
-    });
-};
-
-//init modal window
-initModal("custom-clearance-3agent-modal", 1024 , "80%", 'modal__title-templ','modal__content-templ',"center");
-initModal("modal-location", 500 , "auto", 'modal__title-templ','modal__content-templ',"center");	
-initModal("custom-clearance-modal", 768 , "80%", 'modal__title-templ','modal__content-templ',"center");
-initModal("modal-auth", 710 , "auto", 'modal__title-templ','modal__content-templ',{ offset: '0 -200'});	
-initModal("modal-change-pass", 370 , "auto", 'modal__title-templ','modal__content-templ',{ offset: '0 -200'});	
-initModal("modal-request-del", 480 , "auto", 'modal__title-templ','modal__content-templ',"center");	
-	
-	
-
-
-
-
-
-
 $('.progress-bar__step').hover (function(){
 	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
 },
@@ -1287,15 +1113,65 @@ radiogroupInit ("tocargo__radioGroup",["Грузовладелец", "Транс
 radiogroupInit ("customer-endind-radio",["-ое", "-ый" , "-ая"],"horizontal");
 
 
-$("#loadPanel").dxLoadPanel({
-        closeOnOutsideClick: true,
-        visible: true,
-        shading: true,
-		shadingColor: "rgba(255,255,255, 0.8)",
-		message: ""
+$(function() {
+    $("[id=rangeSelector]").dxRangeSelector({
+        size: {
+            height: 70,
+            width: 744
+        },
+        selectedRangeColor: "rgba(55, 63, 81, 0.4)",
+        scale: {
+            startValue: -30,
+            endValue: +30,
+            // minorTickInterval: 5,
+            tickInterval: 10,
+            // minorTick: {
+                // visible: false,
+            // },
+            label: {
+                // format: "currency",
+                customizeText: function () {
+                return this.valueText + " ˚C";
+            	},
+            	font: {
+					color: "#373F51",
+					family: "Lucida Grande, Tahoma, Arial",
+					opacity: 1,
+					size: 13,
+					weight: 400
+				}
+            }
+        },
+        sliderMarker: {
+            // format: "currency",
+            color: "#373F51",
+            customizeText: function () {
+                return this.valueText + " ˚C";
+            },
+            font: {
+				color: "#FFFFFF",
+				family: "Lucida Grande, Tahoma, Arial",
+				opacity: 1,
+				size: 13,
+				weight: 400
+			},
+           	invalidRangeColor: "red",
+			paddingLeftRight: 10,
+			paddingTopBottom: 2,
+        },
+        value: [4, 8],
+        onInitialized: function () {      	
+        	
+        	
+        },
+        // redrawOnResize: function (){alert($('.rangeselector .dxrs-range-selector-line').offset());},
+        onDrawn: function (){    	
+            //обязательный вызов для backgroud элмента радуга
+        	$( ".rangeselector.dx-visibility-change-handler" ).append( "<div class='rangeselector__back'></div>");
+        }
+
     });
-
-
+});
 //add consignment block
 
 //реализация добавление блоков на первом шаге. убрали тк по идеи не нужна
@@ -1371,65 +1247,6 @@ $("#loadPanel").dxLoadPanel({
 // 	if ($( ".consignment" ).length == 1 )
 // 		$( ".consignment .step-block__sep .step-block__sep-btn-close").remove();
 // });
-$(function() {
-    $("[id=rangeSelector]").dxRangeSelector({
-        size: {
-            height: 70,
-            width: 744
-        },
-        selectedRangeColor: "rgba(55, 63, 81, 0.4)",
-        scale: {
-            startValue: -30,
-            endValue: +30,
-            // minorTickInterval: 5,
-            tickInterval: 10,
-            // minorTick: {
-                // visible: false,
-            // },
-            label: {
-                // format: "currency",
-                customizeText: function () {
-                return this.valueText + " ˚C";
-            	},
-            	font: {
-					color: "#373F51",
-					family: "Lucida Grande, Tahoma, Arial",
-					opacity: 1,
-					size: 13,
-					weight: 400
-				}
-            }
-        },
-        sliderMarker: {
-            // format: "currency",
-            color: "#373F51",
-            customizeText: function () {
-                return this.valueText + " ˚C";
-            },
-            font: {
-				color: "#FFFFFF",
-				family: "Lucida Grande, Tahoma, Arial",
-				opacity: 1,
-				size: 13,
-				weight: 400
-			},
-           	invalidRangeColor: "red",
-			paddingLeftRight: 10,
-			paddingTopBottom: 2,
-        },
-        value: [4, 8],
-        onInitialized: function () {      	
-        	
-        	
-        },
-        // redrawOnResize: function (){alert($('.rangeselector .dxrs-range-selector-line').offset());},
-        onDrawn: function (){    	
-            //обязательный вызов для backgroud элмента радуга
-        	$( ".rangeselector.dx-visibility-change-handler" ).append( "<div class='rangeselector__back'></div>");
-        }
-
-    });
-});
     $(".init-switch").dxSwitch({
         value: false
     });
@@ -2060,22 +1877,187 @@ var tnvd= [
 
 
 
- 
-function numberBoxInit (idElement,idAttrName) {
-	 $("."+idElement).dxNumberBox({
-        value: 15,
-        min: 10,
-        max: 100,
-        showSpinButtons: true,
-        inputAttr: {
-   		 id: idAttrName,
-   		 class: "input-field__value" 
-   		}
-   		//width: widthElement
+
+//step для шагов внутри модального окна
+function initModalStep (contName,nextbtn, prevbtn, dynamCap, curSlide) {
+	const $stepContainer = $(contName),
+       	  $steps         = $('.modal__step'),
+      	  numSteps       = $steps.length,
+       	  $form          = $('.modal .dx-popup-normal'),
+          $next          = $(nextbtn),
+          $prev          = $(prevbtn);
+
+		var stepWidth = $form.width();
+		var currentSlide = curSlide;
+		 // alert ($form.width());
+		$steps.css({ width: stepWidth + "px" });
+		$stepContainer.css("width", stepWidth*numSteps + "px");	
+
+		animateSlider();	
+
+		function animateSlider() {
+		  $stepContainer.css('transform', 'translateX('+ (-stepWidth * currentSlide)+'px)');
+		}
+				
+		$next.on('click', function(e) {
+			e.preventDefault();	
+		  if(currentSlide < numSteps-1){
+		  currentSlide ++;
+		  animateSlider();
+		  }
+
+		  //если заголовок следующего шага берется из элемента инициируещего
+		  if (dynamCap==true)
+		  $('.modal__block-back').text($(this).text());
+		});			
+		$prev.on('click', function(e) {
+		  if(currentSlide > 0) {
+		    currentSlide --;
+		    animateSlider();
+		  } 
+		});
+};
+
+//инициализация компонентов на модалке
+function initModalCustom () {
+
+	//first page
+	if ($('.modal').hasClass('modal-location')) {
+		initModalStep('.modal__step-container','.modal__block-item','.modal__block-prev',true,0);
+
+		//страна в модальном окне
+		selectBoxInitForId("modal__country-list",[ "Приморский край", "Камчатский край"],"modal__country-list__id","input-field__value");
+		//край район область в модальном окне
+		selectBoxInitForId("modal__region-list",[ "Приморский край", "Камчатский край"],"modal__region-list__id","input-field__value");
+		
+		autocompleteInit ("locationSearch","locationSearch__id","input-field__value");
+		autocompleteInit ("modallocation","modallocation__id","input-field__value");	
+
+		//ошибка заполнения города
+		$('.modal__title-cap').click(function() {
+		  $('.modal-location__search-err').toggleClass('modal-location__search-err--show');;
+		});	
+
+		//close modal
+		$('.modal__btn-close').click( function () {
+			$('.modal-location.dx-popup-wrapper').remove();
+		});
+};
+
+if ($('.modal').hasClass('custom-clearance-3agent-modal')) {
+	 initDataGrid ();
+	 inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
+	 radiogroupInit ("custom-clearence__3agent-radio",["Резидент", "Нерезидент"],"horizontal");
+};
+
+if ($('.modal').hasClass('modal-change-pass')) {
+	inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
+}
+
+if ($('.modal').hasClass('modal-auth')) {
+	//инициализируем карусель в модальном окне, для смены пароля со второго шага для остальных с первого
+	// if ($('.modal').hasClass('modal-rem-step'))
+	// initModalStep('.modal__step-container-auth','#modal__forget-lnk','.modal__block-prev',false,1);
+	// else
+	initModalStep('.modal__step-container-auth','#modal__forget-lnk','.modal__block-prev',false,0);	
+	initModalStep('.modal__step-container-reg','#modal__agree-lnk','.modal__block-prev',false,0);	
+
+	//инициализируем элементы
+	 inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
+	 checkboxInit ("login-modal__rem-checkbox", "Запомнить пароль");
+	 checkboxInit ("login-modal__agree-checkbox", "Я подтверждаю зарегистрированный вход в систему");
+	 checkboxInit ("modal-reg__chk", "");
+	 $("#auth-login").dxTextBox({
+	  inputAttr: {
+	   		 id: "requestName__id",  //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
+	   		 class:"input-field__value" //обязятельный класс
+	   }}).dxValidator({
+	        validationRules: [{
+	            type: "required",
+	            message: "Обязательно к заполнению"
+	        }],
+	        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
+	    });	
+
+	    $("#auth-login2").dxTextBox({
+	  inputAttr: {
+	   		 id: "requestName__id",  //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
+	   		 class:"input-field__value" //обязятельный класс
+	   }}).dxValidator({
+	        validationRules: [{
+	            type: "required",
+	            message: "Обязательно к заполнению"
+	        }],
+	        validationGroup: "validateItems2" //обязательный параметр для валидации см. src/blocks/common/validate.js:
+	    });	
+
+	//ошибка заполнения 
+	//инициализируем div ошибок
+	$(".summary-error__items").dxValidationSummary({
+	        validationGroup: "validateItems"
+	    });
+	$(".summary-error2__items").dxValidationSummary({
+	        validationGroup: "validateItems2"
+	    });	
+
+	//обраотчик кнопки
+	$(document.body).on('click', '#loginBtnModal' ,function(){
+		DevExpress.validationEngine.validateGroup("validateItems");
+		$('.input-field__cont.dx-invalid').parent().find('.input-field__label').addClass('input-field__label--err');
+		$('#summary-error').show();
+	});	
+
+	$(document.body).on('click', '#modalBtnReg' ,function(){
+		DevExpress.validationEngine.validateGroup("validateItems2");
+		$('.input-field__cont.dx-invalid').parent().find('.input-field__label').addClass('input-field__label--err');
+		$('#summary-error2').show();
+	});	
+
+
+};
+
+};
+
+
+function initModal (clName,width, height, tTempl, cTempl, position) {
+	$("." + clName).dxPopup({
+        visible: true,
+        height:height,
+        width: width,
+        position: position,
+        titleTemplate: function() {
+        	//обязательный template
+         	return $($('.' + tTempl).html());
+          },
+          contentTemplate: function () {
+          	//обязательный template
+          	return $($('.' + cTempl).html());
+          },
+          onShown: function (e) {                                      
+			$(".scrollView").dxScrollView({
+		        height: "100%",
+		        width: "auto",
+		        direction: "vertical"
+		    }); 
+			initModalCustom();
+			initButton("button");            
+		} 
     });
 };
 
-numberBoxInit ("pseudoClassNumberBox","pseudoNameElementNumberBox__id");
+//init modal window
+initModal("custom-clearance-3agent-modal", 1024 , "80%", 'modal__title-templ','modal__content-templ',"center");
+initModal("modal-location", 500 , "auto", 'modal__title-templ','modal__content-templ',"center");	
+initModal("custom-clearance-modal", 768 , "80%", 'modal__title-templ','modal__content-templ',"center");
+initModal("modal-auth", 710 , "auto", 'modal__title-templ','modal__content-templ',{ offset: '0 -200'});	
+initModal("modal-change-pass", 370 , "auto", 'modal__title-templ','modal__content-templ',{ offset: '0 -200'});	
+initModal("modal-request-del", 480 , "auto", 'modal__title-templ','modal__content-templ',"center");	
+	
+	
+
+
+
+
 
 
 $('.timezone-popup-menu__title-btn').click(function(){
@@ -2130,6 +2112,24 @@ function userPopupClose() {
 		$('.app-lnk-disable').toggleClass('app-lnk-disable');
 	}
 }
+ 
+function numberBoxInit (idElement,idAttrName) {
+	 $("."+idElement).dxNumberBox({
+        value: 15,
+        min: 10,
+        max: 100,
+        showSpinButtons: true,
+        inputAttr: {
+   		 id: idAttrName,
+   		 class: "input-field__value" 
+   		}
+   		//width: widthElement
+    });
+};
+
+numberBoxInit ("pseudoClassNumberBox","pseudoNameElementNumberBox__id");
+
+
 // $(".navbar").scroll (function () {
 
 //  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
@@ -2352,6 +2352,10 @@ textAriaInitAutoResize('pseudoClassTextAriaAutoHeight', "auto");
     });
 
   $(".popup__info-newmsg").dxToast("show");
+$('.header-currency__lang').click( function () {
+	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
+	$('.header-currency__lang').toggleClass('header-currency__lang--en');
+});
 //эффект на иконке при hover тк заголовок всегда 1
 $('.navbar__header-link').hover(  
 function(){
@@ -2425,9 +2429,4 @@ $('.navbar__item-header').click(function(){
 	$(this).parents(".navbar__item").find('.navbar__submenu').toggleClass('navbar__submenu--open');
 	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
 
-});
-
-$('.header-currency__lang').click( function () {
-	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
-	$('.header-currency__lang').toggleClass('header-currency__lang--en');
 });
