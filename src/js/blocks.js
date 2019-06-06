@@ -1373,6 +1373,9 @@ $(function() {
 
     });
 });
+$('.spoiler').click(function(event) {
+	$(this).toggleClass('spoiler--show');
+});
 //add consignment block
 
 //реализация добавление блоков на первом шаге. убрали тк по идеи не нужна
@@ -2352,6 +2355,10 @@ textAriaInitAutoResize('pseudoClassTextAriaAutoHeight', "auto");
     });
 
   $(".popup__info-newmsg").dxToast("show");
+$('.header-currency__lang').click( function () {
+	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
+	$('.header-currency__lang').toggleClass('header-currency__lang--en');
+});
 //эффект на иконке при hover тк заголовок всегда 1
 $('.navbar__header-link').hover(  
 function(){
@@ -2425,9 +2432,4 @@ $('.navbar__item-header').click(function(){
 	$(this).parents(".navbar__item").find('.navbar__submenu').toggleClass('navbar__submenu--open');
 	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
 
-});
-
-$('.header-currency__lang').click( function () {
-	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
-	$('.header-currency__lang').toggleClass('header-currency__lang--en');
 });

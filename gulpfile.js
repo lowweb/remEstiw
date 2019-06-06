@@ -7,7 +7,7 @@ const gulp= require('gulp'),
    	  pngquant = require('imagemin-pngquant'),
       rimraf = require('rimraf'),
       flatten = require('gulp-flatten'),
-      sourcemaps = require('gulp-sourcemaps'),
+      //пока убрали sourcemaps = require('gulp-sourcemaps'),
       // runSequence = require('run-sequence'),
       autoprefixer = require('gulp-autoprefixer'),
 	  browserSync = require("browser-sync"),
@@ -50,19 +50,19 @@ gulp.task('html:build', function () {
 
 gulp.task('style:build', () => {
 	gulp.src(path.src.style)
-    .pipe(sourcemaps.init()) //То же самое что и с js
+    //пока убрали.pipe(sourcemaps.init()) //То же самое что и с js
 		.pipe(concat('style.scss'))
 		.pipe(sass().on('error', sass.logError))
 		// {
 		// 	outputStyle: 'compressed'
 		// }
 		// ))
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
-            cascade: false,
-            grid: true
-        }))
-        .pipe(sourcemaps.write())
+        //пока убрали .pipe(autoprefixer({
+        //     browsers: ['last 2 versions'],
+        //     cascade: false,
+        //     grid: true
+        // }))
+        //пока убрали .pipe(sourcemaps.write())
 		.pipe(gulp.dest(path.build.css))
 		.pipe(reload({stream: true}));
 });

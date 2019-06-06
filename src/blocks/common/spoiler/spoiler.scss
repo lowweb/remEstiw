@@ -1,0 +1,29 @@
+.spoiler {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	@include font-lucida ($clr-blue, 14px, 16px);
+
+	&__cap {
+		margin-left: 8px;
+		border-bottom: 1px dashed $clr-blue;
+	}
+	
+	&--show > svg {
+        transform: rotate(180deg);
+      }
+
+	&--show &__cap:after {
+		content: "Показать запрос";
+
+	}
+	
+	&__cap:after {
+		content: "Свернуть запрос";
+
+	}
+
+	&:hover &__cap {
+		border-bottom: 1px dashed $clr-purple;
+	}
+}
