@@ -31,6 +31,22 @@
 			}
 
 	}
+	&__clock-bl{
+		&:before{
+				content: url('#{$imgFolder}icn-clock-bl.svg');
+				width: 22px;
+				height: 22px;
+			}
+
+	}
+	&__clock-gr{
+		&:before{
+				content: url('#{$imgFolder}icn-clock-gr.svg');
+				width: 22px;
+				height: 22px;
+			}
+
+	}
 
 	&__edit--wh{
 		&:before{
