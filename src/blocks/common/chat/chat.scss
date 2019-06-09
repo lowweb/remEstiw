@@ -1,0 +1,115 @@
+.chat {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	top: 40px;
+	right: 27px;
+	width: 446px;
+
+	background: #FFFFFF;
+	border: 1px solid #D5D7E1;
+	box-sizing: border-box;
+	box-shadow: 0px 8px 30px rgba(55, 63, 81, 0.2);
+	border-radius: 3px;
+
+	&__header {
+		display: flex;
+		position: relative;
+		padding: 16px;
+		cursor: pointer;
+
+	}
+	&__pic {
+		width: 36px;
+		height: 36px;
+		background-size: cover;
+	}
+
+	&__cap {
+		display: block;
+		margin-left: 15px;
+	}
+
+	&__cap-rm {
+		@include font-lucida (rgba(55, 63, 81, 0.7), 13px, 15px);
+
+		&:before {
+		    margin-right: 8px;
+		    display: inline-block;
+    		border-radius: 50%;
+			content: '';
+			width: 8px;
+			height: 8px;
+			background-color: $clr-green;
+		}
+	}
+
+	&__dialog {
+		padding: 20px 16px 16px 16px;
+		border-top: 1px solid $clr-grey-v2;
+		border-bottom: 1px solid $clr-grey-v2;
+		&-rw {
+			margin-bottom: 20px;
+			display: flex;
+			flex-direction: column;
+			
+			width: 388px;
+			 &:last-child {
+			 	margin-bottom: 0;
+			 }
+		}
+	}
+
+	&__from-name {
+		@include font-lucida ($clr-blue, 14px, 16px);
+		margin-bottom: 6px;
+	}
+
+	&__msg {
+		@include font-lucida (rgba(0, 0, 0, 0.8), 14px, 21px);
+	}
+	
+	&__msg-tm{
+		@include font-lucida (#999999, 12px, 14px);
+		align-self: flex-end;
+	}
+
+	&__user-rw {
+
+		padding-left: 23px;
+		position: relative;
+		& > .chat__from-name {
+			color: $clr-dark-light;
+		}
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 27px;
+			left: 2px;
+			width: 12px;
+    		height: 9px;
+		}
+
+		&.chat__msg--rd:before {
+			    background-image: url(../img/chat-read-msg.svg);
+		}
+	}
+	&__send {
+		padding: 16px;
+
+		&-btn {
+			margin-left: 16px;
+			padding-left: 8px;
+    		padding-right: 8px;
+			}
+		
+	}
+
+	&__new-msg {
+		& > .input-field__cont .input-field__value {
+			max-height: 98px;
+		} 
+		
+	}
+}

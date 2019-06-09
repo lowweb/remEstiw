@@ -7,6 +7,7 @@
   &--full{
      & .dx-fileuploader-file {
        max-width: 825px;
+       width: min-content;
     }
   }
 
@@ -96,6 +97,13 @@
     }
   }
 
+  &--2r .dx-fileuploader-input-wrapper {
+    flex-direction: column;
+    & .dx-fileuploader-button {
+      margin-left: 33px
+    }
+  }
+
 }
 
 .fileuploader--sm{
@@ -104,6 +112,7 @@
 }
 .dx-fileuploader-content {
     display: block; 
+    width: 100%;
    }
 
 .dx-fileuploader-input-container {
@@ -181,6 +190,8 @@
 .dx-fileuploader-button-container{
   width: auto;
   margin-left: 20px;
+  align-self: flex-start;
+  margin-top: 6px;
 }
 
 .dx-fileuploader-file-container {

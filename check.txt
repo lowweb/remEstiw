@@ -13,6 +13,7 @@
 4. modal.js
 5. rangeselector.js
 
+сделать loader на inputbox
 
 http://localhost:8080/contract-master-3.html
 серое выделение? цвет
@@ -24,4 +25,4 @@ http://localhost:8080/contract-master-3.html
 иконки все 24?
 футер 948
 
-зе каранаш последнее редактирование
+центрирование

@@ -10,7 +10,7 @@ $(document).click(function(event) {
 
 //пример анимации новых сообщений
 $('.user-popup-menu__title-pic').click(function(){
-	$(this).find('.bounce-newmsg-cnt').toggleClass('bounce-newmsg-cnt--active');
+	$(this).find('.newmsg-cnt').toggleClass('newmsg-cnt--act');
 });
 
 

@@ -1,6 +1,5 @@
 .icn{
-	display: flex;
-	align-items: center;
+    padding-left: 14px;
 	&__conn{
 			&:before{
 				content: url('#{$imgFolder}icn-connect.svg');

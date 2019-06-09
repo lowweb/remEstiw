@@ -18,6 +18,7 @@ $(".input-field__btn").dxButton({
     onClick: function() {}
 });
 
+
 //special onclick
 $('#footer__button-save').dxButton({
                 stylingMode: 'text',
