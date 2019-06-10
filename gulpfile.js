@@ -7,7 +7,7 @@ const gulp= require('gulp'),
    	  pngquant = require('imagemin-pngquant'),
       rimraf = require('rimraf'),
       flatten = require('gulp-flatten'),
-      //пока убрали sourcemaps = require('gulp-sourcemaps'),
+      sourcemaps = require('gulp-sourcemaps'),
       // runSequence = require('run-sequence'),
       autoprefixer = require('gulp-autoprefixer'),
 	  browserSync = require("browser-sync"),
@@ -24,7 +24,8 @@ var path = {
         fonts: 'build/fonts/'
     },
     src: {
-        html: 'src/html/*.html', 
+        html: 'src/html/*.html',
+        htmlDone: 'src/html_done/*.html', 
         jsGlobal: 'src/js/app.js',
         js: 'src/blocks/**/*.js',
         style: 'src/blocks/**/*.scss',
@@ -44,25 +45,27 @@ var path = {
 gulp.task('html:build', function () {
     gulp.src(path.src.html)
         .pipe(rigger())
-        .pipe(gulp.dest(path.build.html)) 
-         .pipe(reload({stream: true})); 
+        .pipe(gulp.dest(path.build.html)); 
+         // .pipe(reload({stream: true})); 
 });
+
+
 
 gulp.task('style:build', () => {
 	gulp.src(path.src.style)
-    //пока убрали.pipe(sourcemaps.init()) //То же самое что и с js
+    .pipe(sourcemaps.init()) //То же самое что и с js
 		.pipe(concat('style.scss'))
 		.pipe(sass().on('error', sass.logError))
 		// {
 		// 	outputStyle: 'compressed'
 		// }
 		// ))
-        //пока убрали .pipe(autoprefixer({
-        //     browsers: ['last 2 versions'],
-        //     cascade: false,
-        //     grid: true
-        // }))
-        //пока убрали .pipe(sourcemaps.write())
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false,
+            grid: true
+        }))
+        .pipe(sourcemaps.write())
 		.pipe(gulp.dest(path.build.css))
 		.pipe(reload({stream: true}));
 });
@@ -154,9 +157,17 @@ gulp.task('build', [
     'fonts:build'
 ]);
 
+gulp.task('html:refresh', ['html:build'],function () {
+    browserSync.reload();
+});
+
+gulp.task('style:refresh', ['style:build'],function () {
+    browserSync.reload();
+});
+
 gulp.task('watch', function(){
     watch([path.watch.html], function(event, cb) {
-        gulp.start('html:build');
+        gulp.start('html:refresh');
     });
 
     watch([path.watch.style], function(event, cb) {

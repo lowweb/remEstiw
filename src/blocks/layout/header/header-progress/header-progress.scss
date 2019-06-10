@@ -28,6 +28,8 @@
 		@include font-lucida (#000000, 14px, normal);
 		font-weight: bold;
 		margin-left: auto;
+		display: flex;
+		align-items: center;
 
 		&.icn:before{
 			margin-right: 11px;
