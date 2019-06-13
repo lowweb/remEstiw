@@ -29,7 +29,9 @@
 	</div>		
 </div>
 </field-set>
+
 <div class="step-block__sep--blank"></div>
+
 <field-set id="field-set__cargo-receiver" class="field-set field-set__cargo-receiver">
 	<legend class="field-set__cap">
 		Получатель груза
@@ -39,15 +41,12 @@
 	</div>
 </field-set>
 <div class="step-block__sep--blank"></div>
-			 <div class="step-block__capsep">
+<div class="step-block__capsep">
  	<h2 class="step-block__sep-cap">Партия №1</h2>
  	<div class="step-block__sep-line"></div>
- </div>
-<div class="block__cont"> 
-		<div class="block__row">
-
- 
- 	
+</div>
+<div class="gridblock gridblock__firststep-consignment">
+ 		<div class="gridblock__cell--1">
 		 	<field-set id="field-set__cargo-cheracter" class="field-set field-set__cargo-cheracter">
 				<legend class="field-set__cap">
 					Характеристики груза
@@ -56,8 +55,8 @@
 					<div id="cargo-cheracter__radioGroup" class="radiogroup"></div>
 				</div>
 			</field-set>
-		
-
+		</div>
+		<div class="gridblock__cell--2">
 			<field-set id="field-set__transport-mod" class="field-set field-set__transport-mod">
 				<legend class="field-set__cap">
 					Способ перевозки
@@ -66,8 +65,8 @@
 					<div id="transport-mod__radioGroup" class="radiogroup"></div>
 				</div>
 			</field-set>
-		
-
+		</div>
+		<div class="gridblock__cell--3">
 			<field-set id="field-set__special-conditions" class="field-set field-set__special-conditions">
 				<legend class="field-set__cap">
 					Особые условия хранения и перевозки
@@ -76,8 +75,8 @@
 					<div id="special-conditions__radioGroup" class="radiogroup"></div>
 				</div>
 			</field-set>
-	
-
+		</div>
+		<div class="gridblock__cell--4">
 			<field-set id="field-set__additional-character" class="field-set field-set__additional-character">
 				<legend class="field-set__cap">
 					Дополнительные характеристики
@@ -90,9 +89,62 @@
 					<div id="used-cargo__checkbox" class="checkbox"></div>		
 				</div>
 			</field-set>
-
-
 		</div>
-		
+	</div>
 
+//= ../request-third-step/cargo-description/cargo-description-v2.html
+
+//= ../request-third-step/common-cargo-param/ccp-sim-many-npack.html
+
+
+<div class="step-block__sep--blank"></div>
+<div class="step-block__capsep">
+ 	<h2 class="step-block__sep-cap">Партия №2</h2>
+ 	<div class="step-block__sep-line"></div>
+</div>
+<div class="gridblock gridblock__firststep-consignment">
+ 		<div class="gridblock__cell--1">
+		 	<field-set id="field-set__cargo-cheracter" class="field-set field-set__cargo-cheracter">
+				<legend class="field-set__cap">
+					Характеристики груза
+				</legend>
+				<div class="field-set__items">
+					<div id="cargo-cheracter__radioGroup" class="radiogroup"></div>
+				</div>
+			</field-set>
+		</div>
+		<div class="gridblock__cell--2">
+			<field-set id="field-set__transport-mod" class="field-set field-set__transport-mod">
+				<legend class="field-set__cap">
+					Способ перевозки
+				</legend>
+				<div class="field-set__items">
+					<div id="transport-mod__radioGroup" class="radiogroup"></div>
+				</div>
+			</field-set>
+		</div>
+		<div class="gridblock__cell--3">
+			<field-set id="field-set__special-conditions" class="field-set field-set__special-conditions">
+				<legend class="field-set__cap">
+					Особые условия хранения и перевозки
+				</legend>
+				<div class="field-set__items">
+					<div id="special-conditions__radioGroup" class="radiogroup"></div>
+				</div>
+			</field-set>
+		</div>
+		<div class="gridblock__cell--4">
+			<field-set id="field-set__additional-character" class="field-set field-set__additional-character">
+				<legend class="field-set__cap">
+					Дополнительные характеристики
+				</legend>
+				<div class="field-set__items checkbox-items">
+					<div id="danger-cargo__checkbox" class="checkbox"></div>	
+					<div id="oversize-cargo__checkbox" class="checkbox"></div>
+					<div id="humane-cargo__checkbox" class="checkbox"></div>
+					<div id="home-cargo__checkbox" class="checkbox"></div>
+					<div id="used-cargo__checkbox" class="checkbox"></div>		
+				</div>
+			</field-set>
+		</div>
 	</div>
