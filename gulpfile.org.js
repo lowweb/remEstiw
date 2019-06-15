@@ -8,12 +8,12 @@ const gulp= require('gulp'),
       rimraf = require('rimraf'),
       flatten = require('gulp-flatten'),
       sourcemaps = require('gulp-sourcemaps'),
-      sequence = require('run-sequence'),
+      // runSequence = require('run-sequence'),
       autoprefixer = require('gulp-autoprefixer'),
 	  browserSync = require("browser-sync"),
 	  reload = browserSync.reload;
 
-// runSequence = require('run-sequence').use(gulp);
+runSequence = require('run-sequence').use(gulp);
 
 var path = {
     build: { 
@@ -25,6 +25,7 @@ var path = {
     },
     src: {
         html: 'src/html/*.html',
+        htmlInWork: 'src/html/inwork/*.html', 
         jsGlobal: 'src/js/app.js',
         js: 'src/blocks/**/*.js',
         style: 'src/blocks/**/*.scss',
@@ -33,6 +34,7 @@ var path = {
     },
     watch: { 
         html: 'src/html/**/*.html',
+        htmlInWork: 'src/html/inwork/**/*.html', 
         js: 'src/blocks/**/*.js',
         style: 'src/blocks/**/*.scss',
         img: 'src/**/img/*.*',
@@ -42,13 +44,10 @@ var path = {
 };	  
 
 gulp.task('html:build', function () {
-     return gulp.src(path.src.html)
+    gulp.src(path.src.html)
         .pipe(rigger())
-        .pipe(gulp.dest(path.build.html)) 
-        .pipe(reload({stream: true}));
-    //     setTimeout(function (cb) {
-    //     cb();
-    // }, 1000); 
+        .pipe(gulp.dest(path.build.html)); 
+         // .pipe(reload({stream: true})); 
 });
 
 
@@ -161,12 +160,14 @@ gulp.task('build', [
     'fonts:build'
 ]);
 
-// gulp.task ('html:refresh' , ['html:build'], function () {
-//     return browserSync.reload();
+// gulp.task ('html:refresh', ['html:build'] , function () {
+//     browserSync.reload();
 // });
-// gulp.task('html:rg', function (callback) {
-//     sequence('html:build', 'html:refresh', callback);
-// });
+
+gulp.task ('htmlTempl:copy', function () {
+    gulp.src(['src/html/templates/**/*'])
+        .pipe(gulp.dest('src/html/inwork/templates')); 
+});
 
 gulp.task('watch', function(){
 
@@ -177,9 +178,12 @@ gulp.task('watch', function(){
     //     .pipe(reload({stream: true}));
     // });
 
-    watch([path.watch.html], function(event, cb) {
-        gulp.start('html:build');
-        
+    watch([path.watch.htmlInWork], ['htmlTempl:copy'], function(event, cb) {
+        // gulp.start('html:refresh');
+        gulp.src(path.src.htmlInWork)
+        .pipe(rigger())
+        .pipe(gulp.dest(path.build.html)) 
+        .pipe(reload({stream: true}));
     });
 
     watch([path.watch.style], function(event, cb) {

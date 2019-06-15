@@ -72,6 +72,11 @@
 				margin-right: 0;
 			}
 		}
+		& .checkbox--ver > .checkbox {
+			padding-bottom: 10px;
+			margin-right: 0px;
+		}
+
 		& .checkbox-custcap {
 			margin-right: 10px;
 		}	
@@ -129,6 +134,14 @@
 			@include font-lucida (rgba(0, 0, 0, 0.7), 14px, 21px);
 			& span {
 				color: $clr-dark;
+			}
+		}
+
+		& .field-set {
+			margin-right: 30px;
+
+			&:last-child{
+				margin-right: 0;
 			}
 		}
 
