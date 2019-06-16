@@ -44,11 +44,11 @@ var path = {
 gulp.task('html:build', function () {
      return gulp.src(path.src.html)
         .pipe(rigger())
-        .pipe(gulp.dest(path.build.html)) 
-        .pipe(reload({stream: true}));
-    //     setTimeout(function (cb) {
-    //     cb();
-    // }, 1000); 
+        .pipe(gulp.dest(path.build.html)); 
+        // .pipe(reload({stream: true}));
+        setTimeout(function (cb) {
+        cb();
+    }, 1000); 
 });
 
 
@@ -161,9 +161,9 @@ gulp.task('build', [
     'fonts:build'
 ]);
 
-// gulp.task ('html:refresh' , ['html:build'], function () {
-//     return browserSync.reload();
-// });
+gulp.task ('html:refresh' , ['html:build'], function () {
+    return browserSync.reload();
+});
 // gulp.task('html:rg', function (callback) {
 //     sequence('html:build', 'html:refresh', callback);
 // });
@@ -178,7 +178,7 @@ gulp.task('watch', function(){
     // });
 
     watch([path.watch.html], function(event, cb) {
-        gulp.start('html:build');
+        gulp.start('html:refresh');
         
     });
 

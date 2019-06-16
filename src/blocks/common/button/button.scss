@@ -69,6 +69,14 @@
 	&.icn:before {
 		margin-right: 8px;
 	}
+
+	&:disabled {
+		cursor: not-allowed;
+		background: #F2F3FB;
+		border: 1px solid #D5D7E1;
+		box-shadow: inset 0px -3px 0px rgba(0, 0, 0, 0.05);
+		color: #B4B8C5;
+	}
 }
 //эффект поворота кнопок угольных
 .btn-rotate180:before {

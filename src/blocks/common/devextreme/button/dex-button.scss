@@ -15,6 +15,7 @@
 }
 
 //сброс стилей
+
 .basic-button.dx-button-mode-text.dx-state-hover,.basic-button.dx-button-mode-text.dx-state-focused  {
   background: #F8F7FF;
   border: 1px solid $clr-purple;
@@ -44,3 +45,7 @@
   color: $clr-white;
 }
 
+
+.button:disabled.dx-button-mode-text.dx-state-active {
+  color: #B4B8C5;
+}

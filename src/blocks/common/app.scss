@@ -181,6 +181,62 @@ color: $clr-dark;
 	outline: none; //так дизайнер попросил
 }
 
+
+.app-lnk__clhd {
+	cursor: pointer;
+	color: $clr-blue;
+	fill: $clr-blue;
+	display: flex;
+	align-items: center;
+	&:hover {
+		color: $clr-purple;
+		fill: $clr-purple;
+	}
+	.app-lnk__clhd-cp {
+		
+		border-bottom: 1px dashed $clr-blue;
+	
+		&:hover {
+			border-bottom: 1px dashed $clr-purple;
+		}
+
+		&--rgh {
+			margin-left: 8px;
+		}
+
+	}
+	
+	& > svg {
+		vertical-align: middle;
+		transform: rotate(180deg);
+	}
+	& > svg, & > svg path{
+			fill: inherit;
+	}
+
+	&--opn{
+		color: rgba(0, 0, 0, 0.7);
+		border-bottom: none;
+		&:hover {
+			color: rgba(0, 0, 0, 0.7);
+			fill: $clr-purple;
+		}
+
+		.app-lnk__clhd-cp {
+			border-bottom: none;
+		 &:hover {
+			border-bottom: none;
+			}
+		}
+
+		& > svg {
+			vertical-align: middle;
+			transform: rotate(0deg);
+		}
+	}
+
+}
+
 .view::-webkit-scrollbar{
      // display: none;    
 }
