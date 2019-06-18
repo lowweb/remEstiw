@@ -173,6 +173,7 @@ initModal("custom-clearance-modal", 768 , "80%", 'modal__title-templ','modal__co
 initModal("modal-auth", 710 , "auto", 'modal__title-templ','modal__content-templ',{ offset: '0 -200'});	
 initModal("modal-change-pass", 370 , "auto", 'modal__title-templ','modal__content-templ',{ offset: '0 -200'});	
 initModal("modal-request-del", 480 , "auto", 'modal__title-templ','modal__content-templ',"center");	
+initModal("modal-versions-compare-view", 968 , "80%", 'modal__title-templ','modal__content-templ',"center");	
 	
 	
 
