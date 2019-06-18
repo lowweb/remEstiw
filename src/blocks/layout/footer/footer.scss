@@ -34,6 +34,11 @@
 		@include font-lucida (#999999, 12px, normal);
 		display: none;
 	}
+	&__edit-msg {
+		@include font-lucida (#999999, 12px, 14px);
+		margin-right: 20px;
+		margin-left: -10px;
+	}
 
 	&__wr-lf {
 		display: flex;

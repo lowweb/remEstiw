@@ -115,4 +115,18 @@
 		right: 33px;
 		display: none;
 	}
+
+	&__just-chng {
+		border-left: 4px solid $clr-green !important;
+		color: #000000;
+		// display: flex;
+		// align-items: center;
+
+		&:after {
+			content: url(#{$imgFolder}icn-pen-gr.svg);
+			margin-left: 21px;
+			width: 14px;
+			height: 14px;
+		}
+	}
 }

@@ -1,13 +1,3 @@
-$('.contract__block-cap').click(function(event) {
-
-	$(this).parents('.contract__block').toggleClass('contract__block--hide');
-});
-
-// $('.contract__line-add .btn__rnd').click(function(event) {
-// 	$(this).parents('.contract__line-add').addClass('contract__line-add--act');
-// });
-
-
 // для корректной работы gulp
 
 $(".summary-error__items").dxValidationSummary({
@@ -109,37 +99,16 @@ $('.input-field__cont').change ( function () {
 	 	$(this).parent().find('.input-field__label').removeClass('input-field__label--err');
 	 }
 });
-function initButton (Element) {
-    $('.' + Element).dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-             
-                }
-            });
-};
+$('.contract__block-cap').click(function(event) {
 
-
-initButton("button");
-
-//button like earth
-$(".input-field__btn").dxButton({
-    text: "",
-    onClick: function() {}
+	$(this).parents('.contract__block').toggleClass('contract__block--hide');
 });
 
+// $('.contract__line-add .btn__rnd').click(function(event) {
+// 	$(this).parents('.contract__line-add').addClass('contract__line-add--act');
+// });
 
-//special onclick
-$('#footer__button-save').dxButton({
-                stylingMode: 'text',
-                text: '',
-                type: 'normal',
-                onClick: function() { 
-                    $('.footer__saved-msg').show();                
-                }
-            });
-     
+
 function checkboxInit (element, text) {
     $("[id="+element+"]").dxCheckBox({
         text: text,
@@ -207,6 +176,770 @@ checkboxInit ("contrct-iagree-checkbox", "Я согласен с условия�
 
 
  
+//-----------customs-clearance-3agent-modal
+var employees = [{
+    "ID": 1,
+    "Forma": "ООО",
+    "Name": "Достаточно длинное наименование контрагента «Корпорация Креветка»",
+    "Tel": "+ 7 923 456 78 90",
+    "Email": "mymail@mail.com",
+    "Location": "г. Москва, ул. Стрельникова, 12, офис 23",
+    "Inn": "123456789012",
+    "state": false
+},{
+    "ID": 2,
+    "Forma": "ЗАО",
+    "Name": "Простое название контрагента",
+    "Tel": "+ 7 923 456 78 90",
+    "Email": "mymail@mail.com",
+    "Location": "Елизово ул. Бассейная, 76",
+    "Inn": "123456789012",
+    "state": false
+},{
+    "ID": 3,
+    "Forma": "ПАО",
+    "Name": "Достаточно длинное наименование контрагента «Корпорация Креветка»",
+    "Tel": "+ 7 923 456 78 90",
+    "Email": "mymail@mail.com",
+    "Location": "Мохачкала",
+    "Inn": "123456789012",
+    "state": false
+},{
+    "ID": 4,
+    "Forma": "ООО",
+    "Name": "Достаточно длинное наименование контрагента «Корпорация Креветка»",
+    "Tel": "+ 7 923 456 78 90",
+    "Email": "mymail@mail.com",
+    "Location": "г. Москва, ул. Стрельникова, 12, офис 23",
+    "Inn": "123456789012",
+    "state": false
+},{
+    "ID": 5,
+    "Forma": "ООО",
+    "Name": "Достаточно длинное наименование контрагента «Корпорация Креветка»",
+    "Tel": "+ 7 923 456 78 90",
+    "Email": "mymail@mail.com",
+    "Location": "г. Москва, ул. Стрельникова, 12, офис 23",
+    "Inn": "123456789012",
+    "state": false
+},{
+    "ID": 5,
+    "Forma": "ООО",
+    "Name": "Достаточно длинное наименование контрагента «Корпорация Креветка»",
+    "Tel": "+ 7 923 456 78 90",
+    "Email": "mymail@mail.com",
+    "Location": "г. Москва, ул. Стрельникова, 12, офис 23",
+    "Inn": "123456789012",
+    "state": false
+},{
+    "ID": 5,
+    "Forma": "ООО",
+    "Name": "Достаточно длинное наименование контрагента «Корпорация Креветка»",
+    "Tel": "+ 7 923 456 78 90",
+    "Email": "mymail@mail.com",
+    "Location": "г. Москва, ул. Стрельникова, 12, офис 23",
+    "Inn": "123456789012",
+    "state": false
+} 
+,{
+    "ID": 5,
+    "Forma": "ООО",
+    "Name": "Достаточно длинное наименование контрагента «Корпорация Креветка»",
+    "Tel": "+ 7 923 456 78 90",
+    "Email": "mymail@mail.com",
+    "Location": "г. Москва, ул. Стрельникова, 12, офис 23",
+    "Inn": "123456789012",
+    "state": false
+} 
+,{
+    "ID": 5,
+    "Forma": "ООО",
+    "Name": "Достаточно длинное наименование контрагента «Корпорация Креветка»",
+    "Tel": "+ 7 923 456 78 90",
+    "Email": "mymail@mail.com",
+    "Location": "г. Москва, ул. Стрельникова, 12, офис 23",
+    "Inn": "123456789012",
+    "state": false
+} 
+,{
+    "ID": 5,
+    "Forma": "ООО",
+    "Name": "Достаточно длинное наименование контрагента «Корпорация Креветка»",
+    "Tel": "+ 7 923 456 78 90",
+    "Email": "mymail@mail.com",
+    "Location": "г. Москва, ул. Стрельникова, 12, офис 23",
+    "Inn": "123456789012",
+    "state": false
+} 
+,{
+    "ID": 5,
+    "Forma": "ООО",
+    "Name": "Достаточно длинное наименование контрагента «Корпорация Креветка»",
+    "Tel": "+ 7 923 456 78 90",
+    "Email": "mymail@mail.com",
+    "Location": "г. Москва, ул. Стрельникова, 12, офис 23",
+    "Inn": "123456789012",
+    "state": false
+}  ];
+function initDataGrid () {
+    var dataGrid =  $("#gridContainer").dxDataGrid({
+        dataSource: employees,
+        keyExpr: "ID",
+        selection: {
+            mode: "single"
+        },
+        scrolling: {
+            mode: "virtual"
+        },
+        hoverStateEnabled: true,
+        showBorders: true,
+        columns: 
+
+        [{
+            dataField: "Forma",
+            caption: "Форма собств.",
+            width: 115
+        },
+        {
+            dataField: "Name",
+            caption: "Наименование контрагента",
+             width: 249,
+
+            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку, навешиваем элемент radiogroup
+            $('<div class="datagrid__custom-radio-cell">')    //навешиваем  template иницилизируем его как radiogroup
+            .appendTo(cellElement)
+            .dxRadioGroup({ 
+                items: [{id: 1}],
+                valueExpr: 'id',
+                value: cellInfo.data.state ? 1 : null,
+                onValueChanged: function(e) {                    
+                    clearState(dataGrid.option("dataSource"), cellInfo.data.id);
+                    dataGrid.refresh();
+                    }
+                })
+                .append($("<a href='#''>"+cellInfo.data.Name+"</a>"))
+             }, 
+
+            cssClass: "datagrid__link-cell" //обязательный класс
+        }, 
+        {
+            dataField: "Tel",
+            caption: "Телефон",
+            width: 153
+         
+        },   
+        {
+            dataField: "Email",
+            caption: "Email",
+            width: 144
+        }, 
+        {
+            dataField: "Location",
+            caption: "Местоположение",
+            width: 180
+        }, 
+        {
+            dataField: "Inn",
+            caption: "ИНН",
+            width: 138
+        }],
+
+        filterRow: {
+            applyFilter: "auto",
+            applyFilterText: "Apply filter",
+            betweenEndText: "End",
+            betweenStartText: "Start",
+            resetOperationText: "Reset",
+            showAllText: "",
+            showOperationChooser: true,
+            visible: true
+            },
+        showColumnLines: true,
+        showRowLines: true,    
+    }).data("dxDataGrid");
+};
+
+
+//-----------dataGridRequestAll-------------
+var requestAllData = [{
+    "ID": 1,
+    "Number": "001",
+    "Name": "Достаточно длинное название запроса",
+    "SendDest": "Москва, Россия (CY) → Тверь, Россия (CY)",
+    "Cond": "Передан на согласование",
+    "Qnt": 999,
+    "Vol": 999,
+    "Weight": 999,
+    "After": "Передать на хранение",
+    "Sum": 999999,
+    "Saller": "Компания 'Креветка'",
+    "Date" : '14.02.2019'
+},
+{
+    "ID": 1,
+    "Number": "001",
+    "Name": "Достаточно длинное название запроса",
+    "SendDest": "Москва, Россия (CY) → Тверь, Россия (CY)",
+    "Cond": "Передан на согласование",
+    "Qnt": 999,
+    "Vol": 999,
+    "Weight": 999,
+    "After": "Передать на хранение",
+    "Sum": 999999,
+    "Saller": "Компания 'Креветка'",
+    "Date" : '14.02.2019',
+    "connected" : 1
+},
+{
+    "ID": 1,
+    "Number": "001",
+    "Name": "Достаточно длинное название запроса",
+    "SendDest": "Москва, Россия (CY) → Тверь, Россия (CY)",
+    "Cond": "Передан на согласование",
+    "Qnt": 999,
+    "Vol": 999,
+    "Weight": 999,
+    "After": "Передать на хранение",
+    "Sum": 999999,
+    "Saller": "Компания 'Креветка'",
+    "Date" : '14.02.2019',
+    "connected" : 2
+},
+{
+    "ID": 1,
+    "Number": "001",
+    "Name": "Очень длинное название запроса на доставку и покупку в три строки (обрезается по кол-ву символов...",
+    "SendDest": " Владивосток, Россия (CY) → Петропавловск-Камчатский, Россия (CY)",
+    "Cond": "Передан на согласование",
+    "Qnt": 999,
+    "Vol": 999,
+    "Weight": 999,
+    "After": "Передать на хранение",
+    "Sum": 999999,
+    "Saller": "Компания 'Креветка'",
+    "Date" : '06.12.2018 – 14.02.2019'
+},
+{
+    "ID": 1,
+    "Number": "001",
+    "Name": "Достаточно длинное название запроса",
+    "SendDest": "Москва, Россия (CY) → Тверь, Россия (CY)",
+    "Cond": "Передан на согласование",
+    "Qnt": 999,
+    "Vol": 999,
+    "Weight": 999,
+    "After": "Передать на хранение",
+    "Sum": 999999,
+    "Saller": "Компания 'Креветка'",
+    "Date" : '14.02.2019'
+},
+,
+{
+    "ID": 1,
+    "Number": "001",
+    "Name": "Очень длинное название запроса на доставку и покупку в три строки (обрезается по кол-ву символов...",
+    "SendDest": "Москва, Россия (CY) → Тверь, Россия (CY)",
+    "Cond": "Передан на согласование",
+    "Qnt": 999,
+    "Vol": 999,
+    "Weight": 999,
+    "After": "Передать на хранение",
+    "Sum": 999999,
+    "Saller": "Компания 'Креветка'",
+    "Date" : '14.02.2019',
+    "connected" : 1
+},
+{
+    "ID": 1,
+    "Number": "001",
+    "Name": "Достаточно длинное название запроса",
+    "SendDest": "Москва, Россия (CY) → Тверь, Россия (CY)",
+    "Cond": "Передан на согласование",
+    "Qnt": 999,
+    "Vol": 999,
+    "Weight": 999,
+    "After": "Передать на хранение",
+    "Sum": 999999,
+    "Saller": "Компания 'Креветка'",
+    "Date" : '14.02.2019',
+    "connected" : 2
+}, 
+{
+    "ID": 1,
+    "Number": "001",
+    "Name": "Достаточно длинное название запроса",
+    "SendDest": "Москва, Россия (CY) → Тверь, Россия (CY)",
+    "Cond": "Передан на согласование",
+    "Qnt": 999,
+    "Vol": 999,
+    "Weight": 999,
+    "After": "Передать на хранение",
+    "Sum": 999999,
+    "Date" : '14.02.2019'
+}, 
+{
+    "ID": 1,
+    "Number": "001",
+    "Name": "Достаточно длинное название запроса",
+    "SendDest": "Москва, Россия (CY) → Тверь, Россия (CY)",
+    "Cond": "Передан на согласование",
+    "Qnt": 999,
+    "Vol": 999,
+    "Weight": 999,
+    "After": "Передать на хранение",
+    "Sum": 999999,
+    "Saller": "Компания 'Креветка'",
+    "Date" : '14.02.2019'
+}  ];
+
+ $("#dataGridRequestAll").dxDataGrid({
+        dataSource: requestAllData,
+        keyExpr: "ID",
+        width: 1550,
+        // selection: {
+        //     mode: "single"
+        // },
+        // scrolling: {
+        //     // mode: "virtual"
+        // },
+        editing: {
+            allowDeleting: true,
+            form: null,
+            mode: "row",
+            popup: null,
+            refreshMode: "full",
+            texts: {},
+            useIcons: true
+            },
+        hoverStateEnabled: true,
+        showBorders: true,
+        columns: 
+
+        [{
+            dataField: "Number",
+            caption: "Номер",
+            width: 100
+        },
+        {
+            dataField: "Name",
+            caption: "Наименование запроса",
+             width: 343,
+
+            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку, навешиваем элемент radiogroup
+            $('<div class="datagrid__custom-radio-cell">')    //навешиваем  template иницилизируем его как radiogroup
+            .appendTo(cellElement)
+              .append($("<a href='#''>"+cellInfo.data.Name+"</a>"))
+             }, 
+            cssClass: "datagrid__link-cell" //обязательный класс
+        }, 
+        {
+            dataField: "SendDest",
+            caption: "Отправление → Назначение",
+            width: 266
+         
+        },   
+        {
+            dataField: "Cond",
+            caption: "Состояние",
+            width: 194
+        }, 
+        {
+            dataField: "Qnt",
+            caption: "Кол-во",
+            width: 116
+        }, 
+        {
+            dataField: "Vol",
+            caption: "Объём, м³",
+            width: 129
+        },
+        {
+            dataField: "Weight",
+            caption: "Масса, кг",
+            width: 122
+        },
+        {
+            dataField: "Date",
+            caption: "Дата готовности",
+            width: 198
+        }],
+
+        filterRow: {
+            applyFilter: "auto",
+            applyFilterText: "Apply filter",
+            betweenEndText: "End",
+            betweenStartText: "Start",
+            resetOperationText: "Reset",
+            showAllText: "",
+            showOperationChooser: true,
+            visible: true
+            },
+        showColumnLines: true,
+        showRowLines: true,    
+    }).data("dxDataGrid");
+
+
+//----------dataGridRequestAllConnected--------------
+var dgRowCount=1;
+ $("#dataGridRequestAllConnected").dxDataGrid({
+        dataSource: requestAllData,
+        // columnAutoWidth: true,
+        rowTemplate: function(container, item) {
+            var data = item.data, tamplate='',dgConnected = '', tdClass='', trClass='', dgConnectedSg='';
+        //раскраска строки
+         if (dgRowCount % 2 == 0)
+         {
+            trClass="dg-row2nt";
+         }
+        //левая полоса
+            if (data.connected==1) {
+                dgConnected = "'dg-connected'";
+                dgConnectedSg = "class='dg-connection-sg'";
+            }
+            else if (data.connected==2) {
+                dgConnected = "'dg-connected'";
+                dgRowCount++;
+            }
+            else  {
+              dgConnected = '';
+              // if (dgRowCount!=1)
+                dgRowCount ++;
+            }
+            tdClass="class=" + dgConnected;
+                tamplate = "<tbody role='presentation'>" +
+                    "<tr class='dx-row dx-data-row dx-row-lines dx-column-lines " + trClass+ "' role='row'>" +
+                        "<td "+ tdClass +" role='gridcell'>" + data.Number+"</td>" + 
+                        "<td role='gridcell' class='datagrid__link-cell'><a href='#'>"+data.Name+"</a></td>" + 
+                        "<td role='gridcell'>" + data.SendDest+"</td>" + 
+                        "<td role='gridcell'>" + data.Cond+"</td>" + 
+                        "<td role='gridcell'>" + data.Qnt+"</td>" + 
+                        "<td role='gridcell'>" + data.Vol+"</td>" + 
+                        "<td role='gridcell'>" + data.Weight+"</td>" + 
+                        "<td role='gridcell'>" + data.Date+ "</td>" +
+                        "<td class='dx-command-edit dx-command-edit-with-icons' aria-selected='false' role='gridcell' aria-colindex='9' style='text-align: center;'><a href='#' class='dx-link dx-link-delete dx-icon-trash' title='Delete'></a>&nbsp;</td>"+ 
+                    "</tr>" +
+                    "<th "+ dgConnectedSg +"></th>"+
+            "</tbody>";
+            container.append(tamplate);
+            
+        },
+        keyExpr: "ID",
+        width: 1550,
+        editing: {
+            allowDeleting: true,
+            form: null,
+            mode: "row",
+            popup: null,
+            refreshMode: "full",
+            texts: {},
+            useIcons: true
+            },
+        hoverStateEnabled: true,
+        showBorders: true,
+        columns: 
+
+        [{
+            dataField: "Number",
+            caption: "Номер",
+            width: 100
+        },
+        {
+            dataField: "Name",
+            caption: "Наименование запроса",
+             width: 343,
+        }, 
+        {
+            dataField: "SendDest",
+            caption: "Отправление → Назначение",
+            width: 266
+         
+        },   
+        {
+            dataField: "Cond",
+            caption: "Состояние",
+            width: 194
+        }, 
+        {
+            dataField: "Qnt",
+            caption: "Кол-во",
+            width: 116
+        }, 
+        {
+            dataField: "Vol",
+            caption: "Объём, м³",
+            width: 129
+        },
+        {
+            dataField: "Weight",
+            caption: "Масса, кг",
+            width: 122
+        },
+        {
+            dataField: "Date",
+            caption: "Дата готовности",
+            width: 198
+        }],
+
+        filterRow: {
+            applyFilter: "auto",
+            applyFilterText: "Apply filter",
+            betweenEndText: "End",
+            betweenStartText: "Start",
+            resetOperationText: "Reset",
+            showAllText: "",
+            showOperationChooser: true,
+            visible: true
+            },
+        showColumnLines: true,
+        showRowLines: true,    
+    }).data("dxDataGrid");
+
+
+//----------dataGridRequestBuy-------------
+var dgRowCount=1;
+ $("#dataGridRequestBuy").dxDataGrid({
+        dataSource: requestAllData,
+        // columnAutoWidth: true,
+        rowTemplate: function(container, item) {
+            var data = item.data,tamplate='',afterPay='';
+            //data.connected исключительно для примера
+            if (data.connected==1) {
+                afterPay = "class='dg__icn-after-pay'";
+            }
+                tamplate = "<tbody role='presentation'>" +
+                    "<tr class='dx-row dx-data-row dx-row-lines dx-column-lines' role='row'>" +
+                        "<td role='gridcell'>" + data.Number+"</td>" + 
+                        "<td role='gridcell' class='datagrid__link-cell'><a href='#'>"+data.Name+"</a></td>" + 
+                        "<td role='gridcell'>" + data.Saller+"</td>" + 
+                        "<td role='gridcell'>" + data.Cond+"</td>" + 
+                        "<td role='gridcell'>" + data.Qnt+"</td>" + 
+                        "<td role='gridcell'>" + data.Sum+"</td>" + 
+                        "<td "+ afterPay +" role='gridcell'>" + data.After+"</td>" + 
+                        "<td class='dx-command-edit dx-command-edit-with-icons' aria-selected='false' role='gridcell' aria-colindex='9' style='text-align: center;'><a href='#' class='dx-link dx-link-delete dx-icon-trash' title='Delete'></a>&nbsp;</td>"+ 
+                    "</tr>"
+            "</tbody>";
+            container.append(tamplate);
+            
+        },
+        keyExpr: "ID",
+        width: 1550,
+        editing: {
+            allowDeleting: true,
+            form: null,
+            mode: "row",
+            popup: null,
+            refreshMode: "full",
+            texts: {},
+            useIcons: true
+            },
+        hoverStateEnabled: true,
+        showBorders: true,
+        columns: 
+
+        [{
+            dataField: "Number",
+            caption: "Номер",
+            width: 107
+        },
+        {
+            dataField: "Name",
+            caption: "Наименование запроса",
+             width: 254,
+        }, 
+        {
+            dataField: "Saller",
+            caption: "Продавец",
+            width: 278
+         
+        },   
+        {
+            dataField: "Cond",
+            caption: "Состояние",
+            width: 181
+        }, 
+        {
+            dataField: "Qnt",
+            caption: "Кол-во",
+            width: 153
+        }, 
+        {
+            dataField: "Sum",
+            caption: "Общая стоимость",
+            width: 165
+        },
+        {
+            dataField: "After",
+            caption: "После оплаты",
+            width: 348
+        }],
+
+        filterRow: {
+            applyFilter: "auto",
+            applyFilterText: "Apply filter",
+            betweenEndText: "End",
+            betweenStartText: "Start",
+            resetOperationText: "Reset",
+            showAllText: "",
+            showOperationChooser: true,
+            visible: true
+            },
+        showColumnLines: true,
+        showRowLines: true,    
+    }).data("dxDataGrid");
+
+
+
+var s = 123456789;
+var random = function() {
+    s = (1103515245 * s + 12345) % 2147483647;
+    return s % (10 - 1);
+};
+
+var generateData = function (count) {
+    var i;
+    var surnames = ['Smith', 'Johnson', 'Brown', 'Taylor', 'Anderson', 'Harris', 'Clark', 'Allen', 'Scott', 'Carter'];
+    var names = ['James', 'John', 'Robert', 'Christopher', 'George', 'Mary', 'Nancy', 'Sandra', 'Michelle', 'Betty'];
+    var gender = ['Male', 'Female'];
+    var items = [],
+        startBirthDate = Date.parse('1/1/1975'),
+        endBirthDate = Date.parse('1/1/1992');
+
+    for (i = 0; i < count; i++) {
+        var birthDate = new Date(startBirthDate + Math.floor(
+                random() * 
+                (endBirthDate - startBirthDate) / 10));
+        birthDate.setHours(12);
+
+        var nameIndex = random();
+        var item = {
+            id: i + 1,
+            firstName: names[nameIndex],
+            lastName: surnames[random()],
+            gender: gender[Math.floor(nameIndex / 5)],
+            birthDate: birthDate
+        };
+        items.push(item);
+    }
+    return items;
+};
+
+$("#gridContainerr").dxDataGrid({
+        dataSource: generateData(1000),
+        showBorders: true,
+        customizeColumns: function (columns) {
+            columns[0].width = 70;
+        },
+        loadPanel: {
+            enabled: true
+        },
+        scrolling: {
+            mode: "virtual"
+        },
+        sorting: {
+            mode: "none"
+        },
+        onContentReady: function(e) {
+            e.component.option("loadPanel.enabled", false);
+        }
+    });
+
+
+    $(".fileUploader").dxFileUploader({
+        accept:"image/*,*.zip,*.pdf,*.mp4",
+        width: 424,
+	    multiple: true,
+	    allowCanceling: true,
+	    selectButtonText: "нажмите выбрать",
+		showFileList: true,
+		labelText: "Перенесите сюда файл (xls, word, pdf) или",
+		uploadFailedMessage: "dsfs",
+		onUploadStarted: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploaded: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploadError: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
+		},
+		uploadedMessage: "",
+		uploadFailedMessage: "",
+    });
+
+    $(".fileUploader--full").dxFileUploader({
+        accept:"image/*,*.zip,*.pdf,*.mp4",
+	    multiple: true,
+	    allowCanceling: true,
+	    selectButtonText: "нажмите выбрать",
+		showFileList: true,
+		labelText: "Перенесите сюда файл (xls, word, pdf) или",
+		uploadFailedMessage: "dsfs",
+		onUploadStarted: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploaded: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploadError: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
+		},
+		uploadedMessage: "",
+		uploadFailedMessage: "",
+    });
+
+   $(".fileUploader--sm").dxFileUploader({
+        accept:"image/*,*.zip,*.pdf,*.mp4",
+        width: 276,
+	    multiple: true,
+	    allowCanceling: true,
+	    selectButtonText: "нажмите выбрать",
+		showFileList: true,
+		labelText: "Перенесите сюда файл (xls, word, pdf) или",
+		uploadFailedMessage: "dsfs",
+		onUploadStarted: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploaded: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploadError: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
+		},
+		uploadedMessage: "",
+		uploadFailedMessage: "",
+    });
+
+function initButton (Element) {
+    $('.' + Element).dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+             
+                }
+            });
+};
+
+
+initButton("button");
+
+//button like earth
+$(".input-field__btn").dxButton({
+    text: "",
+    onClick: function() {}
+});
+
+
+//special onclick
+$('#footer__button-save').dxButton({
+                stylingMode: 'text',
+                text: '',
+                type: 'normal',
+                onClick: function() { 
+                    $('.footer__saved-msg').show();                
+                }
+            });
+     
 //название запроса
 $("#requestName").dxTextBox({
   inputAttr: {
@@ -466,6 +1199,24 @@ initModal("modal-versions-compare-view", 968 , "80%", 'modal__title-templ','moda
 
 
 
+ 
+function numberBoxInit (idElement,idAttrName) {
+	 $("."+idElement).dxNumberBox({
+        value: 15,
+        min: 10,
+        max: 100,
+        showSpinButtons: true,
+        inputAttr: {
+   		 id: idAttrName,
+   		 class: "input-field__value" 
+   		}
+   		//width: widthElement
+    });
+};
+
+numberBoxInit ("pseudoClassNumberBox","pseudoNameElementNumberBox__id");
+
+
 $('.progress-bar__step').hover (function(){
 	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
 },
@@ -635,72 +1386,9 @@ $(function() {
 
     });
 });
-
-    $(".fileUploader").dxFileUploader({
-        accept:"image/*,*.zip,*.pdf,*.mp4",
-        width: 424,
-	    multiple: true,
-	    allowCanceling: true,
-	    selectButtonText: "нажмите выбрать",
-		showFileList: true,
-		labelText: "Перенесите сюда файл (xls, word, pdf) или",
-		uploadFailedMessage: "dsfs",
-		onUploadStarted: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploaded: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploadError: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
-		},
-		uploadedMessage: "",
-		uploadFailedMessage: "",
-    });
-
-    $(".fileUploader--full").dxFileUploader({
-        accept:"image/*,*.zip,*.pdf,*.mp4",
-	    multiple: true,
-	    allowCanceling: true,
-	    selectButtonText: "нажмите выбрать",
-		showFileList: true,
-		labelText: "Перенесите сюда файл (xls, word, pdf) или",
-		uploadFailedMessage: "dsfs",
-		onUploadStarted: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploaded: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploadError: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
-		},
-		uploadedMessage: "",
-		uploadFailedMessage: "",
-    });
-
-   $(".fileUploader--sm").dxFileUploader({
-        accept:"image/*,*.zip,*.pdf,*.mp4",
-        width: 276,
-	    multiple: true,
-	    allowCanceling: true,
-	    selectButtonText: "нажмите выбрать",
-		showFileList: true,
-		labelText: "Перенесите сюда файл (xls, word, pdf) или",
-		uploadFailedMessage: "dsfs",
-		onUploadStarted: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploaded: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploadError: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
-		},
-		uploadedMessage: "",
-		uploadFailedMessage: "",
-    });
-
+$('.spoiler').click(function(event) {
+	$(this).toggleClass('spoiler--show');
+});
 //add consignment block
 
 //реализация добавление блоков на первом шаге. убрали тк по идеи не нужна
@@ -1406,700 +2094,31 @@ var tnvd= [
 
 
 
- 
-function numberBoxInit (idElement,idAttrName) {
-	 $("."+idElement).dxNumberBox({
-        value: 15,
-        min: 10,
-        max: 100,
-        showSpinButtons: true,
-        inputAttr: {
-   		 id: idAttrName,
-   		 class: "input-field__value" 
-   		}
-   		//width: widthElement
-    });
-};
-
-numberBoxInit ("pseudoClassNumberBox","pseudoNameElementNumberBox__id");
-
-
-//-----------customs-clearance-3agent-modal
-var employees = [{
-    "ID": 1,
-    "Forma": "ООО",
-    "Name": "Достаточно длинное наименование контрагента «Корпорация Креветка»",
-    "Tel": "+ 7 923 456 78 90",
-    "Email": "mymail@mail.com",
-    "Location": "г. Москва, ул. Стрельникова, 12, офис 23",
-    "Inn": "123456789012",
-    "state": false
-},{
-    "ID": 2,
-    "Forma": "ЗАО",
-    "Name": "Простое название контрагента",
-    "Tel": "+ 7 923 456 78 90",
-    "Email": "mymail@mail.com",
-    "Location": "Елизово ул. Бассейная, 76",
-    "Inn": "123456789012",
-    "state": false
-},{
-    "ID": 3,
-    "Forma": "ПАО",
-    "Name": "Достаточно длинное наименование контрагента «Корпорация Креветка»",
-    "Tel": "+ 7 923 456 78 90",
-    "Email": "mymail@mail.com",
-    "Location": "Мохачкала",
-    "Inn": "123456789012",
-    "state": false
-},{
-    "ID": 4,
-    "Forma": "ООО",
-    "Name": "Достаточно длинное наименование контрагента «Корпорация Креветка»",
-    "Tel": "+ 7 923 456 78 90",
-    "Email": "mymail@mail.com",
-    "Location": "г. Москва, ул. Стрельникова, 12, офис 23",
-    "Inn": "123456789012",
-    "state": false
-},{
-    "ID": 5,
-    "Forma": "ООО",
-    "Name": "Достаточно длинное наименование контрагента «Корпорация Креветка»",
-    "Tel": "+ 7 923 456 78 90",
-    "Email": "mymail@mail.com",
-    "Location": "г. Москва, ул. Стрельникова, 12, офис 23",
-    "Inn": "123456789012",
-    "state": false
-},{
-    "ID": 5,
-    "Forma": "ООО",
-    "Name": "Достаточно длинное наименование контрагента «Корпорация Креветка»",
-    "Tel": "+ 7 923 456 78 90",
-    "Email": "mymail@mail.com",
-    "Location": "г. Москва, ул. Стрельникова, 12, офис 23",
-    "Inn": "123456789012",
-    "state": false
-},{
-    "ID": 5,
-    "Forma": "ООО",
-    "Name": "Достаточно длинное наименование контрагента «Корпорация Креветка»",
-    "Tel": "+ 7 923 456 78 90",
-    "Email": "mymail@mail.com",
-    "Location": "г. Москва, ул. Стрельникова, 12, офис 23",
-    "Inn": "123456789012",
-    "state": false
-} 
-,{
-    "ID": 5,
-    "Forma": "ООО",
-    "Name": "Достаточно длинное наименование контрагента «Корпорация Креветка»",
-    "Tel": "+ 7 923 456 78 90",
-    "Email": "mymail@mail.com",
-    "Location": "г. Москва, ул. Стрельникова, 12, офис 23",
-    "Inn": "123456789012",
-    "state": false
-} 
-,{
-    "ID": 5,
-    "Forma": "ООО",
-    "Name": "Достаточно длинное наименование контрагента «Корпорация Креветка»",
-    "Tel": "+ 7 923 456 78 90",
-    "Email": "mymail@mail.com",
-    "Location": "г. Москва, ул. Стрельникова, 12, офис 23",
-    "Inn": "123456789012",
-    "state": false
-} 
-,{
-    "ID": 5,
-    "Forma": "ООО",
-    "Name": "Достаточно длинное наименование контрагента «Корпорация Креветка»",
-    "Tel": "+ 7 923 456 78 90",
-    "Email": "mymail@mail.com",
-    "Location": "г. Москва, ул. Стрельникова, 12, офис 23",
-    "Inn": "123456789012",
-    "state": false
-} 
-,{
-    "ID": 5,
-    "Forma": "ООО",
-    "Name": "Достаточно длинное наименование контрагента «Корпорация Креветка»",
-    "Tel": "+ 7 923 456 78 90",
-    "Email": "mymail@mail.com",
-    "Location": "г. Москва, ул. Стрельникова, 12, офис 23",
-    "Inn": "123456789012",
-    "state": false
-}  ];
-function initDataGrid () {
-    var dataGrid =  $("#gridContainer").dxDataGrid({
-        dataSource: employees,
-        keyExpr: "ID",
-        selection: {
-            mode: "single"
-        },
-        scrolling: {
-            mode: "virtual"
-        },
-        hoverStateEnabled: true,
-        showBorders: true,
-        columns: 
-
-        [{
-            dataField: "Forma",
-            caption: "Форма собств.",
-            width: 115
-        },
-        {
-            dataField: "Name",
-            caption: "Наименование контрагента",
-             width: 249,
-
-            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку, навешиваем элемент radiogroup
-            $('<div class="datagrid__custom-radio-cell">')    //навешиваем  template иницилизируем его как radiogroup
-            .appendTo(cellElement)
-            .dxRadioGroup({ 
-                items: [{id: 1}],
-                valueExpr: 'id',
-                value: cellInfo.data.state ? 1 : null,
-                onValueChanged: function(e) {                    
-                    clearState(dataGrid.option("dataSource"), cellInfo.data.id);
-                    dataGrid.refresh();
-                    }
-                })
-                .append($("<a href='#''>"+cellInfo.data.Name+"</a>"))
-             }, 
-
-            cssClass: "datagrid__link-cell" //обязательный класс
-        }, 
-        {
-            dataField: "Tel",
-            caption: "Телефон",
-            width: 153
-         
-        },   
-        {
-            dataField: "Email",
-            caption: "Email",
-            width: 144
-        }, 
-        {
-            dataField: "Location",
-            caption: "Местоположение",
-            width: 180
-        }, 
-        {
-            dataField: "Inn",
-            caption: "ИНН",
-            width: 138
-        }],
-
-        filterRow: {
-            applyFilter: "auto",
-            applyFilterText: "Apply filter",
-            betweenEndText: "End",
-            betweenStartText: "Start",
-            resetOperationText: "Reset",
-            showAllText: "",
-            showOperationChooser: true,
-            visible: true
-            },
-        showColumnLines: true,
-        showRowLines: true,    
-    }).data("dxDataGrid");
-};
-
-
-//-----------dataGridRequestAll-------------
-var requestAllData = [{
-    "ID": 1,
-    "Number": "001",
-    "Name": "Достаточно длинное название запроса",
-    "SendDest": "Москва, Россия (CY) → Тверь, Россия (CY)",
-    "Cond": "Передан на согласование",
-    "Qnt": 999,
-    "Vol": 999,
-    "Weight": 999,
-    "After": "Передать на хранение",
-    "Sum": 999999,
-    "Saller": "Компания 'Креветка'",
-    "Date" : '14.02.2019'
-},
-{
-    "ID": 1,
-    "Number": "001",
-    "Name": "Достаточно длинное название запроса",
-    "SendDest": "Москва, Россия (CY) → Тверь, Россия (CY)",
-    "Cond": "Передан на согласование",
-    "Qnt": 999,
-    "Vol": 999,
-    "Weight": 999,
-    "After": "Передать на хранение",
-    "Sum": 999999,
-    "Saller": "Компания 'Креветка'",
-    "Date" : '14.02.2019',
-    "connected" : 1
-},
-{
-    "ID": 1,
-    "Number": "001",
-    "Name": "Достаточно длинное название запроса",
-    "SendDest": "Москва, Россия (CY) → Тверь, Россия (CY)",
-    "Cond": "Передан на согласование",
-    "Qnt": 999,
-    "Vol": 999,
-    "Weight": 999,
-    "After": "Передать на хранение",
-    "Sum": 999999,
-    "Saller": "Компания 'Креветка'",
-    "Date" : '14.02.2019',
-    "connected" : 2
-},
-{
-    "ID": 1,
-    "Number": "001",
-    "Name": "Очень длинное название запроса на доставку и покупку в три строки (обрезается по кол-ву символов...",
-    "SendDest": " Владивосток, Россия (CY) → Петропавловск-Камчатский, Россия (CY)",
-    "Cond": "Передан на согласование",
-    "Qnt": 999,
-    "Vol": 999,
-    "Weight": 999,
-    "After": "Передать на хранение",
-    "Sum": 999999,
-    "Saller": "Компания 'Креветка'",
-    "Date" : '06.12.2018 – 14.02.2019'
-},
-{
-    "ID": 1,
-    "Number": "001",
-    "Name": "Достаточно длинное название запроса",
-    "SendDest": "Москва, Россия (CY) → Тверь, Россия (CY)",
-    "Cond": "Передан на согласование",
-    "Qnt": 999,
-    "Vol": 999,
-    "Weight": 999,
-    "After": "Передать на хранение",
-    "Sum": 999999,
-    "Saller": "Компания 'Креветка'",
-    "Date" : '14.02.2019'
-},
-,
-{
-    "ID": 1,
-    "Number": "001",
-    "Name": "Очень длинное название запроса на доставку и покупку в три строки (обрезается по кол-ву символов...",
-    "SendDest": "Москва, Россия (CY) → Тверь, Россия (CY)",
-    "Cond": "Передан на согласование",
-    "Qnt": 999,
-    "Vol": 999,
-    "Weight": 999,
-    "After": "Передать на хранение",
-    "Sum": 999999,
-    "Saller": "Компания 'Креветка'",
-    "Date" : '14.02.2019',
-    "connected" : 1
-},
-{
-    "ID": 1,
-    "Number": "001",
-    "Name": "Достаточно длинное название запроса",
-    "SendDest": "Москва, Россия (CY) → Тверь, Россия (CY)",
-    "Cond": "Передан на согласование",
-    "Qnt": 999,
-    "Vol": 999,
-    "Weight": 999,
-    "After": "Передать на хранение",
-    "Sum": 999999,
-    "Saller": "Компания 'Креветка'",
-    "Date" : '14.02.2019',
-    "connected" : 2
-}, 
-{
-    "ID": 1,
-    "Number": "001",
-    "Name": "Достаточно длинное название запроса",
-    "SendDest": "Москва, Россия (CY) → Тверь, Россия (CY)",
-    "Cond": "Передан на согласование",
-    "Qnt": 999,
-    "Vol": 999,
-    "Weight": 999,
-    "After": "Передать на хранение",
-    "Sum": 999999,
-    "Date" : '14.02.2019'
-}, 
-{
-    "ID": 1,
-    "Number": "001",
-    "Name": "Достаточно длинное название запроса",
-    "SendDest": "Москва, Россия (CY) → Тверь, Россия (CY)",
-    "Cond": "Передан на согласование",
-    "Qnt": 999,
-    "Vol": 999,
-    "Weight": 999,
-    "After": "Передать на хранение",
-    "Sum": 999999,
-    "Saller": "Компания 'Креветка'",
-    "Date" : '14.02.2019'
-}  ];
-
- $("#dataGridRequestAll").dxDataGrid({
-        dataSource: requestAllData,
-        keyExpr: "ID",
-        width: 1550,
-        // selection: {
-        //     mode: "single"
-        // },
-        // scrolling: {
-        //     // mode: "virtual"
-        // },
-        editing: {
-            allowDeleting: true,
-            form: null,
-            mode: "row",
-            popup: null,
-            refreshMode: "full",
-            texts: {},
-            useIcons: true
-            },
-        hoverStateEnabled: true,
-        showBorders: true,
-        columns: 
-
-        [{
-            dataField: "Number",
-            caption: "Номер",
-            width: 100
-        },
-        {
-            dataField: "Name",
-            caption: "Наименование запроса",
-             width: 343,
-
-            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку, навешиваем элемент radiogroup
-            $('<div class="datagrid__custom-radio-cell">')    //навешиваем  template иницилизируем его как radiogroup
-            .appendTo(cellElement)
-              .append($("<a href='#''>"+cellInfo.data.Name+"</a>"))
-             }, 
-            cssClass: "datagrid__link-cell" //обязательный класс
-        }, 
-        {
-            dataField: "SendDest",
-            caption: "Отправление → Назначение",
-            width: 266
-         
-        },   
-        {
-            dataField: "Cond",
-            caption: "Состояние",
-            width: 194
-        }, 
-        {
-            dataField: "Qnt",
-            caption: "Кол-во",
-            width: 116
-        }, 
-        {
-            dataField: "Vol",
-            caption: "Объём, м³",
-            width: 129
-        },
-        {
-            dataField: "Weight",
-            caption: "Масса, кг",
-            width: 122
-        },
-        {
-            dataField: "Date",
-            caption: "Дата готовности",
-            width: 198
-        }],
-
-        filterRow: {
-            applyFilter: "auto",
-            applyFilterText: "Apply filter",
-            betweenEndText: "End",
-            betweenStartText: "Start",
-            resetOperationText: "Reset",
-            showAllText: "",
-            showOperationChooser: true,
-            visible: true
-            },
-        showColumnLines: true,
-        showRowLines: true,    
-    }).data("dxDataGrid");
-
-
-//----------dataGridRequestAllConnected--------------
-var dgRowCount=1;
- $("#dataGridRequestAllConnected").dxDataGrid({
-        dataSource: requestAllData,
-        // columnAutoWidth: true,
-        rowTemplate: function(container, item) {
-            var data = item.data, tamplate='',dgConnected = '', tdClass='', trClass='', dgConnectedSg='';
-        //раскраска строки
-         if (dgRowCount % 2 == 0)
-         {
-            trClass="dg-row2nt";
-         }
-        //левая полоса
-            if (data.connected==1) {
-                dgConnected = "'dg-connected'";
-                dgConnectedSg = "class='dg-connection-sg'";
-            }
-            else if (data.connected==2) {
-                dgConnected = "'dg-connected'";
-                dgRowCount++;
-            }
-            else  {
-              dgConnected = '';
-              // if (dgRowCount!=1)
-                dgRowCount ++;
-            }
-            tdClass="class=" + dgConnected;
-                tamplate = "<tbody role='presentation'>" +
-                    "<tr class='dx-row dx-data-row dx-row-lines dx-column-lines " + trClass+ "' role='row'>" +
-                        "<td "+ tdClass +" role='gridcell'>" + data.Number+"</td>" + 
-                        "<td role='gridcell' class='datagrid__link-cell'><a href='#'>"+data.Name+"</a></td>" + 
-                        "<td role='gridcell'>" + data.SendDest+"</td>" + 
-                        "<td role='gridcell'>" + data.Cond+"</td>" + 
-                        "<td role='gridcell'>" + data.Qnt+"</td>" + 
-                        "<td role='gridcell'>" + data.Vol+"</td>" + 
-                        "<td role='gridcell'>" + data.Weight+"</td>" + 
-                        "<td role='gridcell'>" + data.Date+ "</td>" +
-                        "<td class='dx-command-edit dx-command-edit-with-icons' aria-selected='false' role='gridcell' aria-colindex='9' style='text-align: center;'><a href='#' class='dx-link dx-link-delete dx-icon-trash' title='Delete'></a>&nbsp;</td>"+ 
-                    "</tr>" +
-                    "<th "+ dgConnectedSg +"></th>"+
-            "</tbody>";
-            container.append(tamplate);
-            
-        },
-        keyExpr: "ID",
-        width: 1550,
-        editing: {
-            allowDeleting: true,
-            form: null,
-            mode: "row",
-            popup: null,
-            refreshMode: "full",
-            texts: {},
-            useIcons: true
-            },
-        hoverStateEnabled: true,
-        showBorders: true,
-        columns: 
-
-        [{
-            dataField: "Number",
-            caption: "Номер",
-            width: 100
-        },
-        {
-            dataField: "Name",
-            caption: "Наименование запроса",
-             width: 343,
-        }, 
-        {
-            dataField: "SendDest",
-            caption: "Отправление → Назначение",
-            width: 266
-         
-        },   
-        {
-            dataField: "Cond",
-            caption: "Состояние",
-            width: 194
-        }, 
-        {
-            dataField: "Qnt",
-            caption: "Кол-во",
-            width: 116
-        }, 
-        {
-            dataField: "Vol",
-            caption: "Объём, м³",
-            width: 129
-        },
-        {
-            dataField: "Weight",
-            caption: "Масса, кг",
-            width: 122
-        },
-        {
-            dataField: "Date",
-            caption: "Дата готовности",
-            width: 198
-        }],
-
-        filterRow: {
-            applyFilter: "auto",
-            applyFilterText: "Apply filter",
-            betweenEndText: "End",
-            betweenStartText: "Start",
-            resetOperationText: "Reset",
-            showAllText: "",
-            showOperationChooser: true,
-            visible: true
-            },
-        showColumnLines: true,
-        showRowLines: true,    
-    }).data("dxDataGrid");
-
-
-//----------dataGridRequestBuy-------------
-var dgRowCount=1;
- $("#dataGridRequestBuy").dxDataGrid({
-        dataSource: requestAllData,
-        // columnAutoWidth: true,
-        rowTemplate: function(container, item) {
-            var data = item.data,tamplate='',afterPay='';
-            //data.connected исключительно для примера
-            if (data.connected==1) {
-                afterPay = "class='dg__icn-after-pay'";
-            }
-                tamplate = "<tbody role='presentation'>" +
-                    "<tr class='dx-row dx-data-row dx-row-lines dx-column-lines' role='row'>" +
-                        "<td role='gridcell'>" + data.Number+"</td>" + 
-                        "<td role='gridcell' class='datagrid__link-cell'><a href='#'>"+data.Name+"</a></td>" + 
-                        "<td role='gridcell'>" + data.Saller+"</td>" + 
-                        "<td role='gridcell'>" + data.Cond+"</td>" + 
-                        "<td role='gridcell'>" + data.Qnt+"</td>" + 
-                        "<td role='gridcell'>" + data.Sum+"</td>" + 
-                        "<td "+ afterPay +" role='gridcell'>" + data.After+"</td>" + 
-                        "<td class='dx-command-edit dx-command-edit-with-icons' aria-selected='false' role='gridcell' aria-colindex='9' style='text-align: center;'><a href='#' class='dx-link dx-link-delete dx-icon-trash' title='Delete'></a>&nbsp;</td>"+ 
-                    "</tr>"
-            "</tbody>";
-            container.append(tamplate);
-            
-        },
-        keyExpr: "ID",
-        width: 1550,
-        editing: {
-            allowDeleting: true,
-            form: null,
-            mode: "row",
-            popup: null,
-            refreshMode: "full",
-            texts: {},
-            useIcons: true
-            },
-        hoverStateEnabled: true,
-        showBorders: true,
-        columns: 
-
-        [{
-            dataField: "Number",
-            caption: "Номер",
-            width: 107
-        },
-        {
-            dataField: "Name",
-            caption: "Наименование запроса",
-             width: 254,
-        }, 
-        {
-            dataField: "Saller",
-            caption: "Продавец",
-            width: 278
-         
-        },   
-        {
-            dataField: "Cond",
-            caption: "Состояние",
-            width: 181
-        }, 
-        {
-            dataField: "Qnt",
-            caption: "Кол-во",
-            width: 153
-        }, 
-        {
-            dataField: "Sum",
-            caption: "Общая стоимость",
-            width: 165
-        },
-        {
-            dataField: "After",
-            caption: "После оплаты",
-            width: 348
-        }],
-
-        filterRow: {
-            applyFilter: "auto",
-            applyFilterText: "Apply filter",
-            betweenEndText: "End",
-            betweenStartText: "Start",
-            resetOperationText: "Reset",
-            showAllText: "",
-            showOperationChooser: true,
-            visible: true
-            },
-        showColumnLines: true,
-        showRowLines: true,    
-    }).data("dxDataGrid");
-
-
-
-var s = 123456789;
-var random = function() {
-    s = (1103515245 * s + 12345) % 2147483647;
-    return s % (10 - 1);
-};
-
-var generateData = function (count) {
-    var i;
-    var surnames = ['Smith', 'Johnson', 'Brown', 'Taylor', 'Anderson', 'Harris', 'Clark', 'Allen', 'Scott', 'Carter'];
-    var names = ['James', 'John', 'Robert', 'Christopher', 'George', 'Mary', 'Nancy', 'Sandra', 'Michelle', 'Betty'];
-    var gender = ['Male', 'Female'];
-    var items = [],
-        startBirthDate = Date.parse('1/1/1975'),
-        endBirthDate = Date.parse('1/1/1992');
-
-    for (i = 0; i < count; i++) {
-        var birthDate = new Date(startBirthDate + Math.floor(
-                random() * 
-                (endBirthDate - startBirthDate) / 10));
-        birthDate.setHours(12);
-
-        var nameIndex = random();
-        var item = {
-            id: i + 1,
-            firstName: names[nameIndex],
-            lastName: surnames[random()],
-            gender: gender[Math.floor(nameIndex / 5)],
-            birthDate: birthDate
-        };
-        items.push(item);
-    }
-    return items;
-};
-
-$("#gridContainerr").dxDataGrid({
-        dataSource: generateData(1000),
-        showBorders: true,
-        customizeColumns: function (columns) {
-            columns[0].width = 70;
-        },
-        loadPanel: {
-            enabled: true
-        },
-        scrolling: {
-            mode: "virtual"
-        },
-        sorting: {
-            mode: "none"
-        },
-        onContentReady: function(e) {
-            e.component.option("loadPanel.enabled", false);
-        }
-    });
-
-$('.spoiler').click(function(event) {
-	$(this).toggleClass('spoiler--show');
-});
 $('.ver-comp .app-lnk__clhd').click(function(event) {
 
 	$(this).toggleClass('app-lnk__clhd--opn');
 	$(this).parents('.ver-comp__bl').toggleClass('ver-comp__bl--hide');
 
 });
+// $(".navbar").scroll (function () {
+
+//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
+
+//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
+//     $(".navbar-ul").addClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-sticky')[0].scrollIntoView(true);
+
+// }  
+// if ( $(this).scrollTop() == 0) {
+
+//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
+//     $(".navbar-ul").removeClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-currency')[0].scrollIntoView(true);
+//  }
+
+//  });
 $('.timezone-popup-menu__title-btn').click(function(){
 // console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
 // if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
@@ -2152,25 +2171,6 @@ function userPopupClose() {
 		$('.app-lnk-disable').toggleClass('app-lnk-disable');
 	}
 }
-// $(".navbar").scroll (function () {
-
-//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
-
-//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
-//     $(".navbar-ul").addClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-sticky')[0].scrollIntoView(true);
-
-// }  
-// if ( $(this).scrollTop() == 0) {
-
-//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
-//     $(".navbar-ul").removeClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-currency')[0].scrollIntoView(true);
-//  }
-
-//  });
 var cityData = [{
     id: 1,
     name: "Владивосток, Приморский край, Россия",
