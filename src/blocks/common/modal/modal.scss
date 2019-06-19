@@ -45,6 +45,11 @@
     &-cap {
       // padding-bottom: 30px;
     }
+
+    &-rem {
+      @include font-lucida (#999999, 12px, 14px);
+      margin-top: 6px;
+    }
   }
 
   &__title--nb{

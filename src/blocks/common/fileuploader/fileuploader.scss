@@ -7,13 +7,25 @@
   &--full{
      & .dx-fileuploader-file {
        max-width: 825px;
-       white-space: unset;
+       white-space: nowrap;
     }
   }
 
   &--sm{
      & .dx-fileuploader-file {
        max-width: 190px;
+    }
+  }
+
+  &--comb {
+    border-bottom: none !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+
+    &  + .filelist {
+      border-top: none !important;
+      border-top-left-radius: 0 !important;
+      border-top-right-radius: 0 !important;
     }
   }
 
@@ -111,7 +123,7 @@
   }
 
   & .dx-fileuploader-file-name {
-    lex: 0 1 auto;
+    flex: 0 1 auto;
   }
 
 }

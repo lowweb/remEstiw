@@ -136,6 +136,13 @@ if ($('.modal').hasClass('modal-auth')) {
 
 
 };
+if ($('.modal').hasClass('modal-versions-compare-edit2')) { 
+checkboxInit ("used-cargo__checkbox", "Бывший в употреблении");
+checkboxInit ("home-cargo__checkbox", "Домашние вещи");
+checkboxInit ("humane-cargo__checkbox", "Гуманитарная помощь");
+checkboxInit ("oversize-cargo__checkbox", "Негабаритный");
+checkboxInit ("danger-cargo__checkbox", "Опасный груз");
+};
 
 };
 
@@ -174,8 +181,12 @@ initModal("modal-auth", 710 , "auto", 'modal__title-templ','modal__content-templ
 initModal("modal-change-pass", 370 , "auto", 'modal__title-templ','modal__content-templ',{ offset: '0 -200'});	
 initModal("modal-request-del", 480 , "auto", 'modal__title-templ','modal__content-templ',"center");	
 initModal("modal-versions-compare-view", 968 , "80%", 'modal__title-templ','modal__content-templ',"center");	
-	
-	
+initModal("modal-versions-compare-edit1", 754 , "auto", 'modal__title-templ','modal__content-templ',"center");	
+initModal("modal-versions-compare-edit2", 503 , "auto", 'modal__title-templ','modal__content-templ',"center");	
+initModal("modal-versions-compare-edit3", 794 , "auto", 'modal__title-templ','modal__content-templ',"center");	
+initModal("modal-versions-compare-edit4", 677 , "auto", 'modal__title-templ','modal__content-templ',"center");	
+initModal("modal-versions-compare-edit5", 740 , "auto", 'modal__title-templ','modal__content-templ',"center");	
+
 
 
 
