@@ -378,6 +378,9 @@ h2{
 	margin-right: 20px;
 }
 
+.mr30 {
+	margin-right: 30px;
+}
 .app-li {
 	margin: 0;
 }
@@ -389,5 +392,18 @@ h2{
 
 .w100 {
 	width: 100%;
+}
+
+.flx-r{
+ display: flex;
+ flex-direction: row;
+}
+
+.flx-c{
+	display: flex;
+ 	flex-direction: column;
+}
+.flx-alc{
+	align-items: center;
 }
 

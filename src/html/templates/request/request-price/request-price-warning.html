@@ -1,0 +1,53 @@
+<div class="modal-request-price-wr modal"></div>
+
+<template class="modal__title-templ">
+  <div class='modal__btn-close'>&times;</div>
+  <div class="modal__title modal__title--nb">
+    <div class="modal__title-cap">
+      <h2>Не подписан договор</h2>
+    </div>
+  </div>
+</template>
+
+<template class="modal__content-templ">
+  <div class="scrollView">
+      <div class="modal__view modal__subview">
+        <div class="ft-coomon mb30">
+          Для совершения сделки необходим полный набор документов.
+        </div>
+        <div class="ft-coomon mb20">
+          Требуемый пакет документов для совершения сделки
+        </div>
+        <table class="contract-tb" style="width: 100%;">
+          <tr class="contract-tb__row">
+            <th class="contract-tb__header">Название документа</th>
+            <th class="contract-tb__header">Статус</th>
+            <th class="contract-tb__header">Дата заключения</th>
+          </tr>
+          <tr class="contract-tb__row">
+            <td class="contract-tb__cell">Основной договор</td>
+            <td class="contract-tb__cell">Не заключен</td>
+            <td class="contract-tb__cell">-</td>
+          </tr>
+          <tr class="contract-tb__row">
+            <td class="contract-tb__cell">↳ Доп. соглашение №1 (ТЭО)</td>
+            <td class="contract-tb__cell">Добавлен</td>
+            <td class="contract-tb__cell">12.02.2019</td>
+          </tr>
+          
+        </table>
+
+      </div>
+    </div>
+      <div class="modal__foo">
+      <div class="block__row block__row--gap20 block__row--center w100">
+        <button class="button basic-button purple-button" role="button" tabindex="0">
+          <div class="dx-button-content">Перейти в раздел договор</div>
+        </button>
+        <button class="button basic-button" role="button" tabindex="0">
+          <div class="dx-button-content">Отмена</div>
+        </button>
+      </div>
+    </div>
+
+</template>

@@ -39,7 +39,7 @@ function initModalStep (contName,nextbtn, prevbtn, dynamCap, curSlide) {
 		});
 };
 
-//инициализация компонентов на модалке
+//инициализация компонентов на модалке тк
 function initModalCustom () {
 
 	//first page
@@ -144,6 +144,12 @@ checkboxInit ("oversize-cargo__checkbox", "Негабаритный");
 checkboxInit ("danger-cargo__checkbox", "Опасный груз");
 };
 
+if ($('.modal').hasClass('modal-versions-compare-edit5')) { 
+checkboxInit ("expertise-optionally__depart-checkbox", "В пункте отправления");
+checkboxInit ("expertise-optionally__dest-checkbox", " В пункте назначения");
+checkboxInit ("expertise-optionally__anotherplace-checkbox", "Дополнительно в другом месте");
+};
+
 };
 
 
@@ -186,6 +192,9 @@ initModal("modal-versions-compare-edit2", 503 , "auto", 'modal__title-templ','mo
 initModal("modal-versions-compare-edit3", 794 , "auto", 'modal__title-templ','modal__content-templ',"center");	
 initModal("modal-versions-compare-edit4", 677 , "auto", 'modal__title-templ','modal__content-templ',"center");	
 initModal("modal-versions-compare-edit5", 740 , "auto", 'modal__title-templ','modal__content-templ',"center");	
+initModal("modal-versions-compare-send", 480 , "auto", 'modal__title-templ','modal__content-templ',"center");	
+initModal("modal-req-start", 470 , "auto", 'modal__title-templ','modal__content-templ',"center");	
+initModal("modal-request-price-wr", 691 , "auto", 'modal__title-templ','modal__content-templ',"center");	
 
 
 
