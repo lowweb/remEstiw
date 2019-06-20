@@ -62,7 +62,7 @@
 	}
 	
 	&__row {
-		&:nth-child(2n){
+		&:nth-child(odd){
 			background-color: rgba(243, 243, 243, 0.5);
 		}
 
