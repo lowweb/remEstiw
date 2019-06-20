@@ -71,5 +71,11 @@ radiogroupInit ("hbl-reqedit__radio",["Уже выпущен и имеется",
 radiogroupInit ("version-compare_hdr__radio",["Показать все параметры, в т.ч. с одинаковыми значениями", "Показать только изменённые, несовпадающие параметры"],"horizontal");
 
 
+//нативный radiogroup request-price
+$('input[type="radio"]').on('click change', function(e) {
+
+    // $('.field-set').removeClass('field-set--b-gr');
+    $(this).parent().toggleClass('field-set--bg-r');
+});
 
 
