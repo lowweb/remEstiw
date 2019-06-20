@@ -13,6 +13,12 @@
 				content: url('#{$imgFolder}icn-calc.svg');
 			}
 
+		&-gr {
+			&:before{
+				content: url('#{$imgFolder}icn-calc-gr.svg');
+			}
+		}	
+
 	}
 
 	&__newattach{
