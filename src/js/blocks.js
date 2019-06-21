@@ -1,3 +1,13 @@
+$('.contract__block-cap').click(function(event) {
+
+	$(this).parents('.contract__block').toggleClass('contract__block--hide');
+});
+
+// $('.contract__line-add .btn__rnd').click(function(event) {
+// 	$(this).parents('.contract__line-add').addClass('contract__line-add--act');
+// });
+
+
 // для корректной работы gulp
 
 $(".summary-error__items").dxValidationSummary({
@@ -99,16 +109,53 @@ $('.input-field__cont').change ( function () {
 	 	$(this).parent().find('.input-field__label').removeClass('input-field__label--err');
 	 }
 });
-$('.contract__block-cap').click(function(event) {
+// $(".navbar").scroll (function () {
 
-	$(this).parents('.contract__block').toggleClass('contract__block--hide');
+//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
+
+//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
+//     $(".navbar-ul").addClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-sticky')[0].scrollIntoView(true);
+
+// }  
+// if ( $(this).scrollTop() == 0) {
+
+//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
+//     $(".navbar-ul").removeClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-currency')[0].scrollIntoView(true);
+//  }
+
+//  });
+$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
+	// $(this).toggleClass('user-popup-menu__title-btn--up');
+	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
+		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
+		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
+		$(this).toggleClass('btn-rotate180');
+		$(this).toggleClass('app-lnk-disable');
+	// }
 });
 
-// $('.contract__line-add .btn__rnd').click(function(event) {
-// 	$(this).parents('.contract__line-add').addClass('contract__line-add--act');
-// });
+
+$(".user-popup-menu__title-btn").click(function(e) {
+  e.stopPropagation(); 
+});
 
 
+function userPopupClose() {
+	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
+		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
+		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
+		$('.app-lnk-disable').toggleClass('btn-rotate180');
+		$('.app-lnk-disable').toggleClass('app-lnk-disable');
+	}
+}
+$('.header-currency__lang').click( function () {
+	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
+	$('.header-currency__lang').toggleClass('header-currency__lang--en');
+});
 function initButton (Element) {
     $('.' + Element).dxButton({
                 stylingMode: 'text',
@@ -647,7 +694,8 @@ var dgRowCount=1;
                         "<td role='gridcell'>" + data.Vol+"</td>" + 
                         "<td role='gridcell'>" + data.Weight+"</td>" + 
                         "<td role='gridcell'>" + data.Date+ "</td>" +
-                        "<td class='dx-command-edit dx-command-edit-with-icons' aria-selected='false' role='gridcell' aria-colindex='9' style='text-align: center;'><a href='#' class='dx-link dx-link-delete dx-icon-trash' title='Delete'></a>&nbsp;</td>"+ 
+                        "<td role='gridcell'><button class='btn__rnd--del btn__rnd filelist__btn-del'><svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14ZM8 9.41421L5.70711 11.7071L4.29289 10.2929L6.58579 8L4.29289 5.70711L5.70711 4.29289L8 6.58579L10.2929 4.29289L11.7071 5.70711L9.41421 8L11.7071 10.2929L10.2929 11.7071L8 9.41421Z' fill='#AAAAAA'/></svg></button></td>" +
+                        // "<td class='dx-command-edit dx-command-edit-with-icons' aria-selected='false' role='gridcell' aria-colindex='9' style='text-align: center;'><a href='#' class='dx-link dx-link-delete dx-icon-trash' title='Delete'></a>&nbsp;</td>"+ 
                     "</tr>" +
                     "<th "+ dgConnectedSg +"></th>"+
             "</tbody>";
@@ -1412,6 +1460,34 @@ $(function() {
 
     });
 });
+$('.timezone-popup-menu__title-btn').click(function(){
+// console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
+// if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
+		$(this).parents(".timezone-popup-menu__title").toggleClass('timezone-popup-menu__title--active');
+		$(this).parents(".timezone-popup-menu").find('.timezone-popup-menu__add').toggleClass('timezone-popup-menu__add--active');
+		$(this).toggleClass('btn-rotate180');
+		$(this).toggleClass('app-lnk-disable');
+
+	// }
+});
+
+
+$(".timezone-popup-menu__title-btn").click(function(e) {
+  e.stopPropagation(); 
+});
+
+function timezonePopupClose(e) {
+   // if (!$(e.target).closest("timezone-popup-menu").length) {
+	if ($('.timezone-popup-menu__title').hasClass('timezone-popup-menu__title--active')){
+		$(".timezone-popup-menu__title").toggleClass('timezone-popup-menu__title--active');
+		$(".timezone-popup-menu").find('.timezone-popup-menu__add').toggleClass('timezone-popup-menu__add--active');
+		$('.timezone-popup-menu__title-btn').toggleClass('btn-rotate180');
+		$('.timezone-popup-menu__title-btn').toggleClass('app-lnk-disable');
+	}
+	// }
+}
+
+
 $('.req-price .app-lnk__clhd').click(function(event) {
 
 	$(this).toggleClass('app-lnk__clhd--opn');
@@ -1453,84 +1529,6 @@ function tagBoxInit (idElement,idAttrName, itemsElement) {
 };
   
 tagBoxInit ("input-field__tagbox","input-field__tagbox-id",simpleProducts);  
-//add consignment block
-
-//реализация добавление блоков на первом шаге. убрали тк по идеи не нужна
-// function cnstCargoCheracter (count) { return "<field-set id='field-set__cargo-cheracter--part"+ count + "' class='field-set field-set__cargo-cheracter'><legend class='field-set__cap'>Характеристики груза</legend><div class='field-set__items'><div id='cargo-cheracter__radioGroup' class='radiogroup'></div></div></field-set>"};
-// function cnstTransportMod (count) { return "<field-set id='field-set__transport-mod--part"+ count + "' class='field-set field-set__transport-mod'><legend class='field-set__cap'>Способ перевозки</legend><div class='field-set__items'><div id='transport-mod__radioGroup' class='radiogroup'></div></div></field-set>"};
-// function cnstSpecialConditions (count) { return "<field-set id='field-set__special-conditions--part"+ count + "' class='field-set field-set__special-conditions'><legend class='field-set__cap'>Особые условия хранения и перевозки</legend><div class='field-set__items'><div id='special-conditions__radioGroup' class='radiogroup'></div></div></field-set>"};
-// function cnstAdditionalCharacter (count) { return "<field-set id='field-set__additional-character--part"+ count + "' class='field-set field-set__additional-character'><legend class='field-set__cap'>Дополнительные характеристики</legend><div class='field-set__items checkbox-items'><div id='danger-cargo__checkbox' class='checkbox'></div><div id='oversize-cargo__checkbox' class='checkbox'></div><div id='humane-cargo__checkbox' class='checkbox'></div><div id='home-cargo__checkbox' class='checkbox'></div><div id='used-cargo__checkbox' class='checkbox'></div></div></field-set>"};
-
-// $(document.body).on('click', '.step-block__sep-btn-add' ,function(){
-// //add del btn to first element
-// 	if ($( ".consignment" ).length == 1 )
-// 		$( ".consignment .step-block__sep").append("<div class='step-block__sep-btn-close'></div>");
-	
-// 	//add content
-// 	var consignmentCount= $( ".consignment" ).length + 1;
-
-// 	$( ".consignment" ).last().after($( "<section class='consignment'><div class='step-block__sep'><h2 class='step-block__sep-cap'>Партия №" + consignmentCount +"</h2><div class='step-block__sep-line'></div><div class='step-block__sep-btn-close'></div> </div></section>" ));
-// 	$( ".consignment").last().append(cnstCargoCheracter(consignmentCount));
-// 	$( ".consignment").last().append(cnstTransportMod(consignmentCount));
-// 	$( ".consignment").last().append(cnstSpecialConditions(consignmentCount));
-// 	$( ".consignment").last().append(cnstAdditionalCharacter(consignmentCount));
-
-// 	var el=$(".consignment #cargo-cheracter__radioGroup").last();
-// 	 	$(el).dxRadioGroup({
-//    	 	   items: cargoCheracterItem
-//    		});
-//    		el=$(".consignment #transport-mod__radioGroup").last();
-// 	 	$(el).dxRadioGroup({
-//    	 	   items: transportModItem
-//    		});
-//    		el=$(".consignment #special-conditions__radioGroup").last();
-// 	 	$(el).dxRadioGroup({
-//    	 	   items: specialConditionsItem
-//    		});
-
-// 	 	el=$(".consignment #danger-cargo__checkbox").last();
-// 	 	$(el).dxCheckBox({
-//        		 text: "Опасный груз",
-//        		 value: false
-//    		 });
-// 	 	el=$(".consignment #oversize-cargo__checkbox").last();
-// 	 	$(el).dxCheckBox({
-//        		text: "Негабаритный",
-//         	value: false
-//    		 });
-
-// 	 	el=$(".consignment #humane-cargo__checkbox").last();
-// 	 	$(el).dxCheckBox({
-//        		 text: "Гуманитарная помощь",
-//        		 value: false,
-//    		 });
-// 	 	el=$(".consignment #home-cargo__checkbox").last();
-// 	 	$(el).dxCheckBox({
-//        		 text: "Домашние вещи",
-//        		 value: false,
-//    		 });
-// 	 	el=$(".consignment #used-cargo__checkbox").last();
-// 	 	$(el).dxCheckBox({
-//        		 text: "Бывший в употреблении",
-//        		 value: false,
-//    		 });
-// });
-
-
-// //del consignment block 
-// $(document.body).on('click', '.step-block__sep-btn-close' ,function(){
-// 	$(this).parent().parent().remove();
-// 	var consignmentElement = document.getElementsByClassName("consignment");
-// 		for(var i=0; i < consignmentElement.length; i++){
-// 			$(consignmentElement[i]).find('.step-block__sep-cap').replaceWith("<h2 class='step-block__sep-cap'>Партия №"+ (i+1) +"</h2>");
-// 		}
-
-// 	if ($( ".consignment" ).length == 1 )
-// 		$( ".consignment .step-block__sep .step-block__sep-btn-close").remove();
-// });
-$('.spoiler').click(function(event) {
-	$(this).toggleClass('spoiler--show');
-});
 var tnvd= [
   {
     "key": 1,
@@ -2132,77 +2130,195 @@ $('.ver-comp .app-lnk__clhd').click(function(event) {
 	$(this).parents('.ver-comp__bl').toggleClass('ver-comp__bl--hide');
 
 });
-$('.timezone-popup-menu__title-btn').click(function(){
-// console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
-// if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
-		$(this).parents(".timezone-popup-menu__title").toggleClass('timezone-popup-menu__title--active');
-		$(this).parents(".timezone-popup-menu").find('.timezone-popup-menu__add').toggleClass('timezone-popup-menu__add--active');
-		$(this).toggleClass('btn-rotate180');
-		$(this).toggleClass('app-lnk-disable');
+//эффект на иконке при hover тк заголовок всегда 1
+$('.navbar__header-link').hover(  
+function(){
+    $(this).find(".navbar__header-icon").css('opacity','1')
+},
+function(){
+    $(this).find(".navbar__header-icon").css('opacity','0.6')
 
-	// }
 });
 
 
-$(".timezone-popup-menu__title-btn").click(function(e) {
-  e.stopPropagation(); 
-});
 
-function timezonePopupClose(e) {
-   // if (!$(e.target).closest("timezone-popup-menu").length) {
-	if ($('.timezone-popup-menu__title').hasClass('timezone-popup-menu__title--active')){
-		$(".timezone-popup-menu__title").toggleClass('timezone-popup-menu__title--active');
-		$(".timezone-popup-menu").find('.timezone-popup-menu__add').toggleClass('timezone-popup-menu__add--active');
-		$('.timezone-popup-menu__title-btn').toggleClass('btn-rotate180');
-		$('.timezone-popup-menu__title-btn').toggleClass('app-lnk-disable');
-	}
-	// }
+//open close menu
+  $('.navbar__header-close-btn').on('click', function() {
+  	openNavbar ();
+    //ширина footer
+    ///$('.footer').toggleClass('footer--fix313');
+  });
+
+function openNavbar () {
+     $('.navbar__header-close-btn').toggleClass('btn-rotate180');
+     $('.navbar__header-main-menu').toggleClass('navbar-el--hide');
+     $('.navbar__header-copyright').toggleClass('navbar-el--hide');
+     //показываем caption и  кнопку раскрытия субменю
+     $('.navbar__item-caption').toggleClass('navbar-item-el--hide');
+     $('.navbar__item-btn-submenu').toggleClass('navbar-item-el--hide');
+     $('.navbar__item-icon').css('margin','0 10px 0 27px'); //отступ от иконки при раскрытом меню
+    
+ 
+
+     //сворачиваем все  submenu
+     if ($('.navbar').hasClass('navbar--open'))//меню открыо
+	 { 
+        if ($('.navbar__submenu').hasClass('navbar__submenu--open')){
+          $('.navbar__submenu--open').parent().find('.navbar__item-header').find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
+        }
+        
+        //убрали sticky  и закрыли все  submenu
+        $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
+        $(".navbar-ul").removeClass("navbar-ul--understicky");
+    	$('.navbar__submenu').removeClass('navbar__submenu--open');
+        $('.navbar__header-roll')[0].scrollIntoView(true);
+
+	 } 
+
+
+	$('.navbar').toggleClass('navbar--open'); //после всех тк ориентир на класс
+    //правим ширину для fix header после тк safari не корректно обрабатывает
+    /// if ($('.header-sticky').hasClass('header-sticky--active'))
+    /// {   
+    ///     $('.header-sticky').toggleClass('header-sticky--fix78');
+    ///     $('.header-sticky').toggleClass('header-sticky--fix313');
+    /// }
+
 }
+//эффект на иконке при hover тк заголовок всегда 1
+$('.navbar__item-header').hover(  
+function(){
+	$(this).find(".navbar__item-icon").css('opacity','1')
+},
+function(){
+	$(this).find(".navbar__item-icon").css('opacity','0.6')
 
-
-$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
-	// $(this).toggleClass('user-popup-menu__title-btn--up');
-	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
-		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
-		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
-		$(this).toggleClass('btn-rotate180');
-		$(this).toggleClass('app-lnk-disable');
-	// }
 });
 
-
-$(".user-popup-menu__title-btn").click(function(e) {
-  e.stopPropagation(); 
-});
-
-
-function userPopupClose() {
-	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
-		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
-		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
-		$('.app-lnk-disable').toggleClass('btn-rotate180');
-		$('.app-lnk-disable').toggleClass('app-lnk-disable');
+$('.navbar__item-header').click(function(){
+	if (!$('.navbar').hasClass('navbar--open')){
+		openNavbar ();
+		///$('.footer').toggleClass('footer--fix313');
 	}
-}
-// $(".navbar").scroll (function () {
+	$(this).parents(".navbar__item").find('.navbar__submenu').toggleClass('navbar__submenu--open');
+	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
 
-//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
+});
 
-//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
-//     $(".navbar-ul").addClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-sticky')[0].scrollIntoView(true);
+//add consignment block
 
-// }  
-// if ( $(this).scrollTop() == 0) {
+//реализация добавление блоков на первом шаге. убрали тк по идеи не нужна
+// function cnstCargoCheracter (count) { return "<field-set id='field-set__cargo-cheracter--part"+ count + "' class='field-set field-set__cargo-cheracter'><legend class='field-set__cap'>Характеристики груза</legend><div class='field-set__items'><div id='cargo-cheracter__radioGroup' class='radiogroup'></div></div></field-set>"};
+// function cnstTransportMod (count) { return "<field-set id='field-set__transport-mod--part"+ count + "' class='field-set field-set__transport-mod'><legend class='field-set__cap'>Способ перевозки</legend><div class='field-set__items'><div id='transport-mod__radioGroup' class='radiogroup'></div></div></field-set>"};
+// function cnstSpecialConditions (count) { return "<field-set id='field-set__special-conditions--part"+ count + "' class='field-set field-set__special-conditions'><legend class='field-set__cap'>Особые условия хранения и перевозки</legend><div class='field-set__items'><div id='special-conditions__radioGroup' class='radiogroup'></div></div></field-set>"};
+// function cnstAdditionalCharacter (count) { return "<field-set id='field-set__additional-character--part"+ count + "' class='field-set field-set__additional-character'><legend class='field-set__cap'>Дополнительные характеристики</legend><div class='field-set__items checkbox-items'><div id='danger-cargo__checkbox' class='checkbox'></div><div id='oversize-cargo__checkbox' class='checkbox'></div><div id='humane-cargo__checkbox' class='checkbox'></div><div id='home-cargo__checkbox' class='checkbox'></div><div id='used-cargo__checkbox' class='checkbox'></div></div></field-set>"};
 
-//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
-//     $(".navbar-ul").removeClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-currency')[0].scrollIntoView(true);
-//  }
+// $(document.body).on('click', '.step-block__sep-btn-add' ,function(){
+// //add del btn to first element
+// 	if ($( ".consignment" ).length == 1 )
+// 		$( ".consignment .step-block__sep").append("<div class='step-block__sep-btn-close'></div>");
+	
+// 	//add content
+// 	var consignmentCount= $( ".consignment" ).length + 1;
 
-//  });
+// 	$( ".consignment" ).last().after($( "<section class='consignment'><div class='step-block__sep'><h2 class='step-block__sep-cap'>Партия №" + consignmentCount +"</h2><div class='step-block__sep-line'></div><div class='step-block__sep-btn-close'></div> </div></section>" ));
+// 	$( ".consignment").last().append(cnstCargoCheracter(consignmentCount));
+// 	$( ".consignment").last().append(cnstTransportMod(consignmentCount));
+// 	$( ".consignment").last().append(cnstSpecialConditions(consignmentCount));
+// 	$( ".consignment").last().append(cnstAdditionalCharacter(consignmentCount));
+
+// 	var el=$(".consignment #cargo-cheracter__radioGroup").last();
+// 	 	$(el).dxRadioGroup({
+//    	 	   items: cargoCheracterItem
+//    		});
+//    		el=$(".consignment #transport-mod__radioGroup").last();
+// 	 	$(el).dxRadioGroup({
+//    	 	   items: transportModItem
+//    		});
+//    		el=$(".consignment #special-conditions__radioGroup").last();
+// 	 	$(el).dxRadioGroup({
+//    	 	   items: specialConditionsItem
+//    		});
+
+// 	 	el=$(".consignment #danger-cargo__checkbox").last();
+// 	 	$(el).dxCheckBox({
+//        		 text: "Опасный груз",
+//        		 value: false
+//    		 });
+// 	 	el=$(".consignment #oversize-cargo__checkbox").last();
+// 	 	$(el).dxCheckBox({
+//        		text: "Негабаритный",
+//         	value: false
+//    		 });
+
+// 	 	el=$(".consignment #humane-cargo__checkbox").last();
+// 	 	$(el).dxCheckBox({
+//        		 text: "Гуманитарная помощь",
+//        		 value: false,
+//    		 });
+// 	 	el=$(".consignment #home-cargo__checkbox").last();
+// 	 	$(el).dxCheckBox({
+//        		 text: "Домашние вещи",
+//        		 value: false,
+//    		 });
+// 	 	el=$(".consignment #used-cargo__checkbox").last();
+// 	 	$(el).dxCheckBox({
+//        		 text: "Бывший в употреблении",
+//        		 value: false,
+//    		 });
+// });
+
+
+// //del consignment block 
+// $(document.body).on('click', '.step-block__sep-btn-close' ,function(){
+// 	$(this).parent().parent().remove();
+// 	var consignmentElement = document.getElementsByClassName("consignment");
+// 		for(var i=0; i < consignmentElement.length; i++){
+// 			$(consignmentElement[i]).find('.step-block__sep-cap').replaceWith("<h2 class='step-block__sep-cap'>Партия №"+ (i+1) +"</h2>");
+// 		}
+
+// 	if ($( ".consignment" ).length == 1 )
+// 		$( ".consignment .step-block__sep .step-block__sep-btn-close").remove();
+// });
+$('.spoiler').click(function(event) {
+	$(this).toggleClass('spoiler--show');
+});
+
+//Выберите дату
+function dateInit (element,attrId, attrVal) {
+$("[id="+element+"]").dxDateBox({
+      type: "date",
+      placeholder: "Введите дату",
+      inputAttr: {
+         id: attrId,
+         class: attrVal
+       }   
+});
+};
+
+dateInit("date-field","date-field__id","input-field__value");
+
+var now = new Date();   
+    $("#cargoBeginDate").dxDateBox({
+        type: "date",
+        placeholder: "Введите дату",
+        inputAttr: {
+           id: "cargoBeginDate__id",
+           class:"input-field__value"
+         }
+    });
+    $("#cargoExpDate").dxDateBox({
+        type: "date",
+        placeholder: "Введите дату",
+        disabled: true,
+        inputAttr: {
+           id: "cargoExpDate__id",
+           class:"input-field__value"
+         }
+    });
+
+
+
 var cityData = [{
     id: 1,
     name: "Владивосток, Приморский край, Россия",
@@ -2298,42 +2414,45 @@ autocompleteInitClass ("input-field__search","input-field__search-id","input-fie
 
 
 
+ $(".popup__info-newmsg").dxToast({
+        message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
+        displayTime: 300000,
+        position: {my: 'center right', at: 'center right', offset: '-50 0'},
+        width: 375,
+		onShowing: function () {
+			//for left separate line on block message
+			$('.dx-toast-message').height($('.dx-toast-content').height());
+		}
+    });
 
-//Выберите дату
-function dateInit (element,attrId, attrVal) {
-$("[id="+element+"]").dxDateBox({
-      type: "date",
-      placeholder: "Введите дату",
-      inputAttr: {
-         id: attrId,
-         class: attrVal
-       }   
-});
+  $(".popup__info-newmsg").dxToast("show");
+function textAriaInit (className, width,height) {
+	$("." + className).dxTextArea({
+        spellcheck: false,
+        width: width,
+        height: height,
+        inputAttr: {
+       id: "pseudoElementTextAria__id",
+       class:"input-field__value" 
+   }
+    });
 };
 
-dateInit("date-field","date-field__id","input-field__value");
-
-var now = new Date();   
-    $("#cargoBeginDate").dxDateBox({
-        type: "date",
-        placeholder: "Введите дату",
+function textAriaInitAutoResize (className, width) {
+	$("." + className).dxTextArea({
+        spellcheck: false,
+        width: width,
+        autoResizeEnabled: true,
         inputAttr: {
-           id: "cargoBeginDate__id",
-           class:"input-field__value"
-         }
+       id: "pseudoElementTextAria__id",
+       class:"input-field__value" 
+   }
     });
-    $("#cargoExpDate").dxDateBox({
-        type: "date",
-        placeholder: "Введите дату",
-        disabled: true,
-        inputAttr: {
-           id: "cargoExpDate__id",
-           class:"input-field__value"
-         }
-    });
+};
 
 
-
+textAriaInit('pseudoClassTextAria', "auto", 72);
+textAriaInitAutoResize('pseudoClassTextAriaAutoHeight', "auto");
 function selectBoxInitForId (idElement, dataS, inputAttrId, inputAttrVal ) {
 $("#" + idElement).dxSelectBox({
         dataSource: dataS,
@@ -2366,121 +2485,3 @@ $("." + classElement).dxSelectBox({
 };
 
 selectBoxInitForClass("pseudoClassSelectBox",[ "значение", "значение", "значенадывжлавдылажвылаие123456789" ],"pseudoNameElementSelectBox__id","input-field__value");
-
-function textAriaInit (className, width,height) {
-	$("." + className).dxTextArea({
-        spellcheck: false,
-        width: width,
-        height: height,
-        inputAttr: {
-       id: "pseudoElementTextAria__id",
-       class:"input-field__value" 
-   }
-    });
-};
-
-function textAriaInitAutoResize (className, width) {
-	$("." + className).dxTextArea({
-        spellcheck: false,
-        width: width,
-        autoResizeEnabled: true,
-        inputAttr: {
-       id: "pseudoElementTextAria__id",
-       class:"input-field__value" 
-   }
-    });
-};
-
-
-textAriaInit('pseudoClassTextAria', "auto", 72);
-textAriaInitAutoResize('pseudoClassTextAriaAutoHeight', "auto");
- $(".popup__info-newmsg").dxToast({
-        message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
-        displayTime: 300000,
-        position: {my: 'center right', at: 'center right', offset: '-50 0'},
-        width: 375,
-		onShowing: function () {
-			//for left separate line on block message
-			$('.dx-toast-message').height($('.dx-toast-content').height());
-		}
-    });
-
-  $(".popup__info-newmsg").dxToast("show");
-$('.header-currency__lang').click( function () {
-	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
-	$('.header-currency__lang').toggleClass('header-currency__lang--en');
-});
-//эффект на иконке при hover тк заголовок всегда 1
-$('.navbar__header-link').hover(  
-function(){
-    $(this).find(".navbar__header-icon").css('opacity','1')
-},
-function(){
-    $(this).find(".navbar__header-icon").css('opacity','0.6')
-
-});
-
-
-
-//open close menu
-  $('.navbar__header-close-btn').on('click', function() {
-  	openNavbar ();
-    //ширина footer
-    ///$('.footer').toggleClass('footer--fix313');
-  });
-
-function openNavbar () {
-     $('.navbar__header-close-btn').toggleClass('btn-rotate180');
-     $('.navbar__header-main-menu').toggleClass('navbar-el--hide');
-     $('.navbar__header-copyright').toggleClass('navbar-el--hide');
-     //показываем caption и  кнопку раскрытия субменю
-     $('.navbar__item-caption').toggleClass('navbar-item-el--hide');
-     $('.navbar__item-btn-submenu').toggleClass('navbar-item-el--hide');
-     $('.navbar__item-icon').css('margin','0 10px 0 27px'); //отступ от иконки при раскрытом меню
-    
- 
-
-     //сворачиваем все  submenu
-     if ($('.navbar').hasClass('navbar--open'))//меню открыо
-	 { 
-        if ($('.navbar__submenu').hasClass('navbar__submenu--open')){
-          $('.navbar__submenu--open').parent().find('.navbar__item-header').find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
-        }
-        
-        //убрали sticky  и закрыли все  submenu
-        $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
-        $(".navbar-ul").removeClass("navbar-ul--understicky");
-    	$('.navbar__submenu').removeClass('navbar__submenu--open');
-        $('.navbar__header-roll')[0].scrollIntoView(true);
-
-	 } 
-
-
-	$('.navbar').toggleClass('navbar--open'); //после всех тк ориентир на класс
-    //правим ширину для fix header после тк safari не корректно обрабатывает
-    /// if ($('.header-sticky').hasClass('header-sticky--active'))
-    /// {   
-    ///     $('.header-sticky').toggleClass('header-sticky--fix78');
-    ///     $('.header-sticky').toggleClass('header-sticky--fix313');
-    /// }
-
-}
-//эффект на иконке при hover тк заголовок всегда 1
-$('.navbar__item-header').hover(  
-function(){
-	$(this).find(".navbar__item-icon").css('opacity','1')
-},
-function(){
-	$(this).find(".navbar__item-icon").css('opacity','0.6')
-
-});
-
-$('.navbar__item-header').click(function(){
-	if (!$('.navbar').hasClass('navbar--open')){
-		openNavbar ();
-		///$('.footer').toggleClass('footer--fix313');
-	}
-	$(this).parents(".navbar__item").find('.navbar__submenu').toggleClass('navbar__submenu--open');
-	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
-
-});
