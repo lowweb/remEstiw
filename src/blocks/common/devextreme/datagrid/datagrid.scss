@@ -87,26 +87,33 @@
 
 .dx-datagrid .dx-datagrid-content .dx-datagrid-table .dx-row .dx-command-edit-with-icons .dx-link{
     display: block;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    // width: 16px;
-    height: 16px;
-    background-position: 0px 0px;
-    background-repeat: no-repeat;
-    background-size: 16px 16px;
-    background-image: url(../img/btn-rnd-del.svg);
+    // position: absolute;
+    // left: 50%;
+    // top: 50%;
+    // transform: translate(-50%,-50%);
+//     // width: 16px;
+//     height: 16px;
+//     background-position: 0px 0px;
+//     background-repeat: no-repeat;
+//     background-size: 16px 16px;
+//     background-image: url(../img/btn-rnd-del.svg);
     
-
 }
 
-
-.dx-datagrid .dx-datagrid-content .dx-datagrid-table .dx-row .dx-command-edit-with-icons .dx-link:hover{
-  background-image: url(../img/btn-rnd-del-h.svg);
+.dx-datagrid .dx-datagrid-content .dx-datagrid-table .dx-row .dx-command-edit-with-icons .dx-link::before {
+    content: url(../img/btn-rnd-del.svg);
+    // display:block;
+    width: 16px;
+    height: 16px;
+}
+.dx-datagrid .dx-datagrid-content .dx-datagrid-table .dx-row .dx-command-edit-with-icons .dx-link:hover:before{
+  content: url(../img/btn-rnd-del-h.svg);
+  // display: block;
+  width: 16px;
+    height: 16px;
 }
 .dx-datagrid .dx-datagrid-content .dx-datagrid-table .dx-row .dx-command-edit-with-icons .dx-link::before {
-   content: '';
+   // content: '';
   
 }
 

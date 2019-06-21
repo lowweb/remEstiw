@@ -72,10 +72,10 @@ radiogroupInit ("version-compare_hdr__radio",["Показать все пара�
 
 
 //нативный radiogroup request-price
-$('input[type="radio"]').on('click change', function(e) {
-
-    // $('.field-set').removeClass('field-set--b-gr');
-    $(this).parent().toggleClass('field-set--bg-r');
+$('input[type="radio"]').on('change', function(e) {
+	// console.log($(this).parent().parent());
+    $('.field-set').removeClass('field-set--b-gr');
+    $(this).closest('.field-set').toggleClass('field-set--b-gr');
 });
 
 

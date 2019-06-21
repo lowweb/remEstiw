@@ -13,6 +13,7 @@
 
 	& .dx-header-row {
 		background-color: #F3F3F3;
+		height: 48px;
 	}
 
 	& .dx-texteditor.dx-editor-outlined {
@@ -69,7 +70,7 @@
 		background-color: rgba(243, 243, 243, 0.5);
 	}
 
-	&-connection-sg {
+	&-connection-sg:before{
 		content: url(#{$imgFolder}dg-connected-cell.svg);
 		position: absolute;
     	transform: translate(0,-50%);
