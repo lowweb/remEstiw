@@ -318,14 +318,8 @@ var requestAllData = [{
         dataSource: requestAllData,
         keyExpr: "ID",
         width: 1550,
-        // selection: {
-        //     mode: "single"
-        // },
-        // scrolling: {
-        //     // mode: "virtual"
-        // },
         editing: {
-            allowDeleting: true,
+            // allowDeleting: true,
             form: null,
             mode: "row",
             popup: null,
@@ -383,7 +377,16 @@ var requestAllData = [{
         {
             dataField: "Date",
             caption: "Дата готовности",
-            width: 198
+            width: 208
+        },
+        { 
+            width: 70,
+            cellTemplate: function(cellElement, cellInfo) {   //кнопка удаления
+            $("<button class='btn__rnd--del btn__rnd filelist__btn-del'></button>")    
+            .appendTo(cellElement)
+              .append($("<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14ZM8 9.41421L5.70711 11.7071L4.29289 10.2929L6.58579 8L4.29289 5.70711L5.70711 4.29289L8 6.58579L10.2929 4.29289L11.7071 5.70711L9.41421 8L11.7071 10.2929L10.2929 11.7071L8 9.41421Z' fill='#AAAAAA'/></svg>"))
+             }
+  
         }],
 
         filterRow: {
@@ -449,7 +452,7 @@ var dgRowCount=1;
         keyExpr: "ID",
         width: 1550,
         editing: {
-            allowDeleting: true,
+            // allowDeleting: true,
             form: null,
             mode: "row",
             popup: null,
@@ -500,7 +503,10 @@ var dgRowCount=1;
         {
             dataField: "Date",
             caption: "Дата готовности",
-            width: 198
+            width: 208
+        },
+        {
+            width: 70
         }],
 
         filterRow: {
@@ -538,7 +544,8 @@ var dgRowCount=1;
                         "<td role='gridcell'>" + data.Qnt+"</td>" + 
                         "<td role='gridcell'>" + data.Sum+"</td>" + 
                         "<td "+ afterPay +" role='gridcell'>" + data.After+"</td>" + 
-                        "<td class='dx-command-edit dx-command-edit-with-icons' aria-selected='false' role='gridcell' aria-colindex='9' style='text-align: center;'><a href='#' class='dx-link dx-link-delete dx-icon-trash' title='Delete'></a>&nbsp;</td>"+ 
+                        "<td role='gridcell'><button class='btn__rnd--del btn__rnd filelist__btn-del'><svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14ZM8 9.41421L5.70711 11.7071L4.29289 10.2929L6.58579 8L4.29289 5.70711L5.70711 4.29289L8 6.58579L10.2929 4.29289L11.7071 5.70711L9.41421 8L11.7071 10.2929L10.2929 11.7071L8 9.41421Z' fill='#AAAAAA'/></svg></button></td>" +
+                        // "<td class='dx-command-edit dx-command-edit-with-icons' aria-selected='false' role='gridcell' aria-colindex='9' style='text-align: center;'><a href='#' class='dx-link dx-link-delete dx-icon-trash' title='Delete'></a>&nbsp;</td>"+ 
                     "</tr>"
             "</tbody>";
             container.append(tamplate);
@@ -547,7 +554,7 @@ var dgRowCount=1;
         keyExpr: "ID",
         width: 1550,
         editing: {
-            allowDeleting: true,
+            // allowDeleting: true,
             form: null,
             mode: "row",
             popup: null,
@@ -593,7 +600,10 @@ var dgRowCount=1;
         {
             dataField: "After",
             caption: "После оплаты",
-            width: 348
+            width: 340
+        },
+        {
+            width: 70
         }],
 
         filterRow: {

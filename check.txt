@@ -13,16 +13,8 @@
 4. modal.js
 5. rangeselector.js
 
-сделать loader на inputbox
+fileuploader центрирование full IE
+кнопка удаление в fileuploader IE
 
-http://localhost:8080/contract-master-3.html
-серое выделение? цвет
-
-показать скрыть смысл первых трех слайдов из за статуса имеем фикс высоту?
-
-черный болд текст что - значит первое изменение
-
-иконки все 24?
-футер 948
-
-центрирование
+http://localhost:8080/request-agreement.html
+fileuploader
