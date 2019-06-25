@@ -187,6 +187,10 @@
 		}
 	}
 
+	&__preload .dx-texteditor-buttons-container {
+		content: url(#{$imgFolder}input-preloader-2.gif);
+	}
+
 }
 
 .dx-state-disabled + .input-field__label {
