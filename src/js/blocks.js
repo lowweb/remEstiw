@@ -140,6 +140,73 @@ $('#footer__button-save').dxButton({
                 }
             });
      
+function checkboxInit (element, text) {
+    $("[id="+element+"]").dxCheckBox({
+        text: text,
+        value: false,
+    });
+};
+
+checkboxInit ("used-cargo__checkbox", "Бывший в употреблении");
+checkboxInit ("home-cargo__checkbox", "Домашние вещи");
+checkboxInit ("humane-cargo__checkbox", "Гуманитарная помощь");
+checkboxInit ("oversize-cargo__checkbox", "Негабаритный");
+checkboxInit ("danger-cargo__checkbox", "Опасный груз");
+checkboxInit ("law-cargo__checkbox", "Юридическое сопровождение (ваши интересы в суде)");
+checkboxInit ("bay-cargo__checkbox", "Купить");
+checkboxInit ("deliver-cargo__checkbox", "Доставить груз");
+checkboxInit ("safer__checkbox", "Надежнёе");
+checkboxInit ("faster__checkbox", "Быстрее");
+checkboxInit ("cheaper__checkbox", "Дешевле");
+
+checkboxInit ("custom-clearence__import-checkbox", "При импорте");
+checkboxInit ("custom-clearence__export-checkbox", "При экспорте");
+checkboxInit ("custom-clearence-gd__import-checkbox", "Для экспорта из России");
+checkboxInit ("custom-clearence-gd__export-checkbox", "Для импорта в России");
+
+checkboxInit ("cargo-escort__gun-checkbox", "С огнестрельным оружием");
+
+
+checkboxInit ("expertise__accept-checkbox ", "При приёмке");
+checkboxInit ("expertise__delivery-checkbox ", "При сдаче");  
+
+checkboxInit ("documentary-credit__add-checkbox", "Данные аккредитива сообщу дополнительно"); 
+
+checkboxInit ("expertise-optionally__depart-checkbox", "В пункте отправления");
+checkboxInit ("expertise-optionally__dest-checkbox", " В пункте назначения");
+checkboxInit ("expertise-optionally__anotherplace-checkbox", "Дополнительно в другом месте");
+
+checkboxInit ("coast-incoterms__1checkbox", "Есть готовые");
+checkboxInit ("coast-incoterms__2checkbox", "Будут выпущены");
+checkboxInit ("coast-incoterms__3checkbox", "Выпустить");
+checkboxInit ("coast-incoterms__4checkbox", "По решению исполнителя");
+
+checkboxInit ("common-cargo-params-bulk", "Указать размеры фракций или составляющих массу");
+
+checkboxInit ("common-goodies-params__checkbox", "Будет выпущено классификационное решение ФТС РФ");
+
+checkboxInit ("common-cargo-params-container__checkbox", "Не возражаю против перегрузки в другие контейнера в транзитных пунктах");
+
+checkboxInit ("oversize-rzd__checkbox", "Не уверен, прошу определить по чертежу");
+
+checkboxInit ("ccp-mass-bulk-open__checkbox", "Указать размеры фракций или составляющих массу");
+
+checkboxInit ("requestall__filter-checkbox", "Доставить груз");
+checkboxInit ("requestall__filter-checkbox1", "Купить");
+checkboxInit ("basic-info__test", "Необходимо испытание образцов перед оплатой");
+checkboxInit ("suppagree1__checkbox", "Дополнительное соглашение №1 (ТЭО)");
+checkboxInit ("suppagree2__checkbox", "Дополнительное соглашение №2 (LCL)");
+checkboxInit ("suppagree3__checkbox", "Дополнительное соглашение №3 (Покупка)");
+checkboxInit ("suppagree4__checkbox", "Дополнительное соглашение №4 (Юридические услуги)");
+checkboxInit ("suppagree5__checkbox", "Дополнительное соглашение №5 (ЭОД)");
+checkboxInit ("contrct-iagree-checkbox", "Я согласен с условиями договора и дополнительных соглашений к нему");
+
+
+
+
+
+
+ 
 //-----------customs-clearance-3agent-modal
 var employees = [{
     "ID": 1,
@@ -818,139 +885,6 @@ $("#gridContainerr").dxDataGrid({
         }
     });
 
-function checkboxInit (element, text) {
-    $("[id="+element+"]").dxCheckBox({
-        text: text,
-        value: false,
-    });
-};
-
-checkboxInit ("used-cargo__checkbox", "Бывший в употреблении");
-checkboxInit ("home-cargo__checkbox", "Домашние вещи");
-checkboxInit ("humane-cargo__checkbox", "Гуманитарная помощь");
-checkboxInit ("oversize-cargo__checkbox", "Негабаритный");
-checkboxInit ("danger-cargo__checkbox", "Опасный груз");
-checkboxInit ("law-cargo__checkbox", "Юридическое сопровождение (ваши интересы в суде)");
-checkboxInit ("bay-cargo__checkbox", "Купить");
-checkboxInit ("deliver-cargo__checkbox", "Доставить груз");
-checkboxInit ("safer__checkbox", "Надежнёе");
-checkboxInit ("faster__checkbox", "Быстрее");
-checkboxInit ("cheaper__checkbox", "Дешевле");
-
-checkboxInit ("custom-clearence__import-checkbox", "При импорте");
-checkboxInit ("custom-clearence__export-checkbox", "При экспорте");
-checkboxInit ("custom-clearence-gd__import-checkbox", "Для экспорта из России");
-checkboxInit ("custom-clearence-gd__export-checkbox", "Для импорта в России");
-
-checkboxInit ("cargo-escort__gun-checkbox", "С огнестрельным оружием");
-
-
-checkboxInit ("expertise__accept-checkbox ", "При приёмке");
-checkboxInit ("expertise__delivery-checkbox ", "При сдаче");  
-
-checkboxInit ("documentary-credit__add-checkbox", "Данные аккредитива сообщу дополнительно"); 
-
-checkboxInit ("expertise-optionally__depart-checkbox", "В пункте отправления");
-checkboxInit ("expertise-optionally__dest-checkbox", " В пункте назначения");
-checkboxInit ("expertise-optionally__anotherplace-checkbox", "Дополнительно в другом месте");
-
-checkboxInit ("coast-incoterms__1checkbox", "Есть готовые");
-checkboxInit ("coast-incoterms__2checkbox", "Будут выпущены");
-checkboxInit ("coast-incoterms__3checkbox", "Выпустить");
-checkboxInit ("coast-incoterms__4checkbox", "По решению исполнителя");
-
-checkboxInit ("common-cargo-params-bulk", "Указать размеры фракций или составляющих массу");
-
-checkboxInit ("common-goodies-params__checkbox", "Будет выпущено классификационное решение ФТС РФ");
-
-checkboxInit ("common-cargo-params-container__checkbox", "Не возражаю против перегрузки в другие контейнера в транзитных пунктах");
-
-checkboxInit ("oversize-rzd__checkbox", "Не уверен, прошу определить по чертежу");
-
-checkboxInit ("ccp-mass-bulk-open__checkbox", "Указать размеры фракций или составляющих массу");
-
-checkboxInit ("requestall__filter-checkbox", "Доставить груз");
-checkboxInit ("requestall__filter-checkbox1", "Купить");
-checkboxInit ("basic-info__test", "Необходимо испытание образцов перед оплатой");
-checkboxInit ("suppagree1__checkbox", "Дополнительное соглашение №1 (ТЭО)");
-checkboxInit ("suppagree2__checkbox", "Дополнительное соглашение №2 (LCL)");
-checkboxInit ("suppagree3__checkbox", "Дополнительное соглашение №3 (Покупка)");
-checkboxInit ("suppagree4__checkbox", "Дополнительное соглашение №4 (Юридические услуги)");
-checkboxInit ("suppagree5__checkbox", "Дополнительное соглашение №5 (ЭОД)");
-checkboxInit ("contrct-iagree-checkbox", "Я согласен с условиями договора и дополнительных соглашений к нему");
-
-
-
-
-
-
- 
-//название запроса
-$("#requestName").dxTextBox({
-  inputAttr: {
-   		 id: "requestName__id",  //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
-   		 class:"input-field__value" //обязятельный класс
-   }
-}).dxValidator({
-        validationRules: [{
-            type: "required",
-            message: "Обязательно к заполнению"
-        }, {
-            type: "pattern",
-            pattern: /^[^0-9]+$/,
-            message: "Строка не может содержать цифры"
-        }, {
-            type: "stringLength",
-            min: 2,
-            message: "Длина строки не меньше 2 символов"
-        }],
-        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
-    });
-
-
-// $("#input-field__totalWeight").dxTextBox({
-//   inputAttr: {
-//        id: "input-field__totalWeight-id",
-//        class:"input-field__value" 
-//    },
-//    width: 128,
-//    readOnly: true,
-//    value: "100",
-// })
-
-
-//инициализировать элементы необходимо по id элемента
-//в верстке реализованна инициализация по классу, для массовости, класс pseudoClassTextEditor на инициализируемом элементе можно удалить, если таковой не применяется
-function inputFieldInit (element, elementId, defValue, readOnlyFlag ) {
-  $("."+ element).dxTextBox({
-  inputAttr: {
-       id: elementId,
-       class:"input-field__value" 
-   },
-   value: defValue,
-   readOnly: readOnlyFlag
-  }).dxValidator({
-        validationRules: [{
-            type: "required",
-            message: "Обязательно к заполнению"
-        }, {
-            type: "pattern",
-            pattern: /^[^0-9]+$/,
-            message: "Строка не может содержать цифры"
-        }, {
-            type: "stringLength",
-            min: 2,
-            message: "Длина строки не меньше 2 символов"
-        }],
-        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
-    });;
-};
-
-
-inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
-inputFieldInit ("pseudoClassTextEditorReadOnly","pseudoClassTextEditorReadOnly__id","100",true);
-
-
 
     $(".fileUploader").dxFileUploader({
         accept:"image/*,*.zip,*.pdf,*.mp4",
@@ -1017,6 +951,72 @@ inputFieldInit ("pseudoClassTextEditorReadOnly","pseudoClassTextEditorReadOnly__
 		uploadFailedMessage: "",
     });
 
+//название запроса
+$("#requestName").dxTextBox({
+  inputAttr: {
+   		 id: "requestName__id",  //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
+   		 class:"input-field__value" //обязятельный класс
+   }
+}).dxValidator({
+        validationRules: [{
+            type: "required",
+            message: "Обязательно к заполнению"
+        }, {
+            type: "pattern",
+            pattern: /^[^0-9]+$/,
+            message: "Строка не может содержать цифры"
+        }, {
+            type: "stringLength",
+            min: 2,
+            message: "Длина строки не меньше 2 символов"
+        }],
+        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
+    });
+
+
+// $("#input-field__totalWeight").dxTextBox({
+//   inputAttr: {
+//        id: "input-field__totalWeight-id",
+//        class:"input-field__value" 
+//    },
+//    width: 128,
+//    readOnly: true,
+//    value: "100",
+// })
+
+
+//инициализировать элементы необходимо по id элемента
+//в верстке реализованна инициализация по классу, для массовости, класс pseudoClassTextEditor на инициализируемом элементе можно удалить, если таковой не применяется
+function inputFieldInit (element, elementId, defValue, readOnlyFlag ) {
+  $("."+ element).dxTextBox({
+  inputAttr: {
+       id: elementId,
+       class:"input-field__value" 
+   },
+   value: defValue,
+   readOnly: readOnlyFlag
+  }).dxValidator({
+        validationRules: [{
+            type: "required",
+            message: "Обязательно к заполнению"
+        }, {
+            type: "pattern",
+            pattern: /^[^0-9]+$/,
+            message: "Строка не может содержать цифры"
+        }, {
+            type: "stringLength",
+            min: 2,
+            message: "Длина строки не меньше 2 символов"
+        }],
+        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
+    });;
+};
+
+
+inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
+inputFieldInit ("pseudoClassTextEditorReadOnly","pseudoClassTextEditorReadOnly__id","100",true);
+
+
 $("#loadPanel").dxLoadPanel({
         closeOnOutsideClick: true,
         visible: true,
@@ -1026,181 +1026,6 @@ $("#loadPanel").dxLoadPanel({
     });
 
 
-$('.progress-bar__step').hover (function(){
-	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
-},
-function (){
-	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
-}
-);
-
-
-var progressPercentValue=10;
-  
-$('.header-progress').click(function() {
-
-	// progressPercentValue=Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100);
-	console.log('do='+progressPercentValue);
-	if (progressPercentValue < 100) {
-		$('.progress-bar__status').width((progressPercentValue + 5)+'%');
-		// console.log('posle='+ Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100));
-		if(progressPercentValue == 45){
-			$('.progress-bar__second-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
-			$('.progress-bar__second-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
-
-		}
-
-		if(progressPercentValue == 95){
-			$('.progress-bar__third-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
-			$('.progress-bar__third-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
-
-		}
-	progressPercentValue+=5;	
-	}
-
-
-});
-var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
-var cargoReceiverItem = ["Физическое лицо", "Юридическое лицо"];
-var volumeItem = ["До 5 м", "Свыше 5 м"];
-var cargoCheracterItem = ["Однородный (массовый)", "Однородный (не массовый)","Однородный в упаковке", "Не однородный в/без упаковки/и", "Одно грузовое место", "Жидкость без упаковки"];
-var transportModItem = ["Груз навалом", "Загрузить в контейнер", "Уже загружен в контейнер", "По решению исполнителя"];
-var specialConditionsItem = ["На верхней палубе судна", "Открытое хранение", "Крытое хранение", "Температурный режим"];
-
-
-function radiogroupInit (idRadio, items, layout) {
-$("[id="+idRadio+"]").dxRadioGroup({
-        items: items,
-        layout: layout
-    });
-};
-function radiogroupClassInit (idRadio, items, layout) {
-$("."+idRadio).dxRadioGroup({
-        items: items,
-        layout: layout
-    });
-};
-radiogroupClassInit ("radio--empt",[""],"");
-radiogroupInit ("type-deal__radioGroup",typeDealitem,"");
-radiogroupInit ("volume-cargo__radioGroup",volumeItem);
-radiogroupInit ("cargo-cheracter__radioGroup",cargoCheracterItem,"");
-radiogroupInit ("transport-mod__radioGroup",transportModItem,"");
-radiogroupInit ("special-conditions__radioGroup",specialConditionsItem,"");
-radiogroupInit ("cargo-receiver__radioGroup",cargoReceiverItem,"horizontal");
-radiogroupInit ("HBL__radioGroup", ["Уже выпущен и имеется", "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-radiogroupInit ("сargo-escort__radioGroup", ["Уже выпущен и имеется", "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-
-//step2
-radiogroupInit ("сargo-exam__radioGroup", ["Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-radiogroupInit ("сargo-insura__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-radiogroupInit ("custom-clear__radioGroup", ["Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-radiogroupInit ("product-exam__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-radiogroupInit ("сargo-payment__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-radiogroupInit ("product-payment__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
-
-//step3
-radiogroupInit ("custom-clearence__export-radio",["Самостоятельно", "Оформить"],"horizontal");
-radiogroupInit ("custom-clearence__import-radio",["Самостоятельно", "Оформить"],"horizontal");
-
-radiogroupInit ("custom-clearence-gd__radio",["Не имеет значения", "В месте отправления","На границе"],"horizontal");
-
-radiogroupInit ("deliver-byself__radioGroup",["Полная предоплата", "Частичная оплата ", "Ценные бумаги", "Уставной капитал", "Бартер", "Фьючерс (будущие расчёты)"],"horizontal");
-
-radiogroupInit ("expertise__point-radio",["В пункте отправления", "В другом месте"],"horizontal");
-
-radiogroupInit ("deliver-executor__radioGroup",["Согласно подписанному ДС №3 c Исполнителем", "Подписать ДС №3 c Исполнителем", "Будет подписано ДС №3 c Исполнителем позже"],"");
-
-radiogroupInit ("cargo-escort-byself__doc-radio",["Да, нужно на всём маршруте", "Да, нужно на выбранных пунктах", "Нет, организую самостоятельно"],"horizontal");
-
-radiogroupInit ("documentary-credit-shiping__radio",["Безотзывный", "Отзывный", "Акцептный", "Безакцептный"],"horizontal");
-
-radiogroupInit ("cargo-descript__hmanygoods-radio",["Один товар", "Два и более (сборное грузовое место)"],"horizontal");
-
-radiogroupInit ("custom-clearence__3agent-radio",["Резидент", "Нерезидент"],"horizontal");
-radiogroupInit ("afterPay__radioGroup",["Передать на ответственное хранение", "Передать без транспортировки 3-му лицу", "Доставить 3-му лицу","Доставить заказчику"],"horizontal");
-radiogroupInit ("orgaization-form__radioGroup",["Физическое лицо", "Индивидуальный предприниматель", "Юридическое лицо"],"");
-
-radiogroupInit ("you-status__radioGroup",["Резидент", "Нерезидент"],"");
-radiogroupInit ("tocargo__radioGroup",["Грузовладелец", "Транспортная компания (экспедитор) – представитель грузовладельца"],"");
-radiogroupInit ("customer-endind-radio",["-ое", "-ый" , "-ая"],"horizontal");
-radiogroupInit ("custom-clearence-reqedit__radio",["Самостоятельно", "Да, таможенная очистка","Да, транзитное оформление","Не таможенный груз"],"horizontal");
-radiogroupInit ("documentary-credit-shiping-reqedit__radio",["Самостоятельно", "Документарный аккредитив","Другие способы оплаты","Через исполнителя"],"horizontal");
-radiogroupInit ("cargo-transport-reqedit__radio",["Полная предварительная оплата", "Полная предварительная оплата","Оплата по частям","По факту исполнения"],"horizontal");
-radiogroupInit ("goods-exp-reqedit__radio",["Самостоятельно", "Да, при приёмке и сдаче груза","Да, нужно по выбору","Нет, не нужно"],"horizontal");
-radiogroupInit ("cargo-insur-reqedit__radio",["Самостоятельно", "Да, на всём маршруте","Да, по выбору","Нет, не нужно"],"horizontal");
-radiogroupInit ("cargo-escort-reqedit__radio",["По решению исполнителя", "Да нужно, на всём пути","Да нужно, по выбору","Собственный сопровождающий","Нет, не нужно"],"horizontal");
-radiogroupInit ("hbl-reqedit__radio",["Уже выпущен и имеется", "Самостоятельно","Необходимо выпустить","По решению исполнителя","Не нужен"],"horizontal");
-radiogroupInit ("version-compare_hdr__radio",["Показать все параметры, в т.ч. с одинаковыми значениями", "Показать только изменённые, несовпадающие параметры"],"horizontal");
-
-
-//нативный radiogroup request-price
-$('input[type="radio"]').on('change', function(e) {
-	// console.log($(this).parent().parent());
-    $('.field-set').removeClass('field-set--b-gr');
-    $(this).closest('.field-set').toggleClass('field-set--b-gr');
-});
-
-
-
-$(function() {
-    $("[id=rangeSelector]").dxRangeSelector({
-        size: {
-            height: 70,
-            width: 744
-        },
-        selectedRangeColor: "rgba(55, 63, 81, 0.4)",
-        scale: {
-            startValue: -30,
-            endValue: +30,
-            // minorTickInterval: 5,
-            tickInterval: 10,
-            // minorTick: {
-                // visible: false,
-            // },
-            label: {
-                // format: "currency",
-                customizeText: function () {
-                return this.valueText + " ˚C";
-            	},
-            	font: {
-					color: "#373F51",
-					family: "Lucida Grande, Tahoma, Arial",
-					opacity: 1,
-					size: 13,
-					weight: 400
-				}
-            }
-        },
-        sliderMarker: {
-            // format: "currency",
-            color: "#373F51",
-            customizeText: function () {
-                return this.valueText + " ˚C";
-            },
-            font: {
-				color: "#FFFFFF",
-				family: "Lucida Grande, Tahoma, Arial",
-				opacity: 1,
-				size: 13,
-				weight: 400
-			},
-           	invalidRangeColor: "red",
-			paddingLeftRight: 10,
-			paddingTopBottom: 2,
-        },
-        value: [4, 8],
-        onInitialized: function () {      	
-        	
-        	
-        },
-        // redrawOnResize: function (){alert($('.rangeselector .dxrs-range-selector-line').offset());},
-        onDrawn: function (){    	
-            //обязательный вызов для backgroud элмента радуга
-        	$( ".rangeselector.dx-visibility-change-handler" ).append( "<div class='rangeselector__back'></div>");
-        }
-
-    });
-});
 
 //step для шагов внутри модального окна
 function initModalStep (contName,nextbtn, prevbtn, dynamCap, curSlide) {
@@ -1405,6 +1230,208 @@ initModal("modal-request-price-wr", 691 , "auto", 'modal__title-templ','modal__c
 
 
 
+ 
+function numberBoxInit (idElement,idAttrName) {
+	 $("."+idElement).dxNumberBox({
+        value: 15,
+        min: 10,
+        max: 100,
+        showSpinButtons: true,
+        inputAttr: {
+   		 id: idAttrName,
+   		 class: "input-field__value" 
+   		}
+   		//width: widthElement
+    });
+};
+
+numberBoxInit ("pseudoClassNumberBox","pseudoNameElementNumberBox__id");
+
+
+$('.progress-bar__step').hover (function(){
+	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
+},
+function (){
+	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
+}
+);
+
+
+var progressPercentValue=10;
+  
+$('.header-progress').click(function() {
+
+	// progressPercentValue=Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100);
+	console.log('do='+progressPercentValue);
+	if (progressPercentValue < 100) {
+		$('.progress-bar__status').width((progressPercentValue + 5)+'%');
+		// console.log('posle='+ Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100));
+		if(progressPercentValue == 45){
+			$('.progress-bar__second-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
+			$('.progress-bar__second-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+
+		}
+
+		if(progressPercentValue == 95){
+			$('.progress-bar__third-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
+			$('.progress-bar__third-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+
+		}
+	progressPercentValue+=5;	
+	}
+
+
+});
+var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
+var cargoReceiverItem = ["Физическое лицо", "Юридическое лицо"];
+var volumeItem = ["До 5 м", "Свыше 5 м"];
+var cargoCheracterItem = ["Однородный (массовый)", "Однородный (не массовый)","Однородный в упаковке", "Не однородный в/без упаковки/и", "Одно грузовое место", "Жидкость без упаковки"];
+var transportModItem = ["Груз навалом", "Загрузить в контейнер", "Уже загружен в контейнер", "По решению исполнителя"];
+var specialConditionsItem = ["На верхней палубе судна", "Открытое хранение", "Крытое хранение", "Температурный режим"];
+
+
+function radiogroupInit (idRadio, items, layout) {
+$("[id="+idRadio+"]").dxRadioGroup({
+        items: items,
+        layout: layout
+    });
+};
+function radiogroupClassInit (idRadio, items, layout) {
+$("."+idRadio).dxRadioGroup({
+        items: items,
+        layout: layout
+    });
+};
+radiogroupClassInit ("radio--empt",[""],"");
+radiogroupInit ("type-deal__radioGroup",typeDealitem,"");
+radiogroupInit ("volume-cargo__radioGroup",volumeItem);
+radiogroupInit ("cargo-cheracter__radioGroup",cargoCheracterItem,"");
+radiogroupInit ("transport-mod__radioGroup",transportModItem,"");
+radiogroupInit ("special-conditions__radioGroup",specialConditionsItem,"");
+radiogroupInit ("cargo-receiver__radioGroup",cargoReceiverItem,"horizontal");
+radiogroupInit ("HBL__radioGroup", ["Уже выпущен и имеется", "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("сargo-escort__radioGroup", ["Уже выпущен и имеется", "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+
+//step2
+radiogroupInit ("сargo-exam__radioGroup", ["Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("сargo-insura__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("custom-clear__radioGroup", ["Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("product-exam__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("сargo-payment__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+radiogroupInit ("product-payment__radioGroup", [ "Самостоятельно", "Необходимо выпустить", "По решению исполнителя","Не нужен"], "");
+
+//step3
+radiogroupInit ("custom-clearence__export-radio",["Самостоятельно", "Оформить"],"horizontal");
+radiogroupInit ("custom-clearence__import-radio",["Самостоятельно", "Оформить"],"horizontal");
+
+radiogroupInit ("custom-clearence-gd__radio",["Не имеет значения", "В месте отправления","На границе"],"horizontal");
+
+radiogroupInit ("deliver-byself__radioGroup",["Полная предоплата", "Частичная оплата ", "Ценные бумаги", "Уставной капитал", "Бартер", "Фьючерс (будущие расчёты)"],"horizontal");
+
+radiogroupInit ("expertise__point-radio",["В пункте отправления", "В другом месте"],"horizontal");
+
+radiogroupInit ("deliver-executor__radioGroup",["Согласно подписанному ДС №3 c Исполнителем", "Подписать ДС №3 c Исполнителем", "Будет подписано ДС №3 c Исполнителем позже"],"");
+
+radiogroupInit ("cargo-escort-byself__doc-radio",["Да, нужно на всём маршруте", "Да, нужно на выбранных пунктах", "Нет, организую самостоятельно"],"horizontal");
+
+radiogroupInit ("documentary-credit-shiping__radio",["Безотзывный", "Отзывный", "Акцептный", "Безакцептный"],"horizontal");
+
+radiogroupInit ("cargo-descript__hmanygoods-radio",["Один товар", "Два и более (сборное грузовое место)"],"horizontal");
+
+radiogroupInit ("custom-clearence__3agent-radio",["Резидент", "Нерезидент"],"horizontal");
+radiogroupInit ("afterPay__radioGroup",["Передать на ответственное хранение", "Передать без транспортировки 3-му лицу", "Доставить 3-му лицу","Доставить заказчику"],"horizontal");
+radiogroupInit ("orgaization-form__radioGroup",["Физическое лицо", "Индивидуальный предприниматель", "Юридическое лицо"],"");
+
+radiogroupInit ("you-status__radioGroup",["Резидент", "Нерезидент"],"");
+radiogroupInit ("tocargo__radioGroup",["Грузовладелец", "Транспортная компания (экспедитор) – представитель грузовладельца"],"");
+radiogroupInit ("customer-endind-radio",["-ое", "-ый" , "-ая"],"horizontal");
+radiogroupInit ("custom-clearence-reqedit__radio",["Самостоятельно", "Да, таможенная очистка","Да, транзитное оформление","Не таможенный груз"],"horizontal");
+radiogroupInit ("documentary-credit-shiping-reqedit__radio",["Самостоятельно", "Документарный аккредитив","Другие способы оплаты","Через исполнителя"],"horizontal");
+radiogroupInit ("cargo-transport-reqedit__radio",["Полная предварительная оплата", "Полная предварительная оплата","Оплата по частям","По факту исполнения"],"horizontal");
+radiogroupInit ("goods-exp-reqedit__radio",["Самостоятельно", "Да, при приёмке и сдаче груза","Да, нужно по выбору","Нет, не нужно"],"horizontal");
+radiogroupInit ("cargo-insur-reqedit__radio",["Самостоятельно", "Да, на всём маршруте","Да, по выбору","Нет, не нужно"],"horizontal");
+radiogroupInit ("cargo-escort-reqedit__radio",["По решению исполнителя", "Да нужно, на всём пути","Да нужно, по выбору","Собственный сопровождающий","Нет, не нужно"],"horizontal");
+radiogroupInit ("hbl-reqedit__radio",["Уже выпущен и имеется", "Самостоятельно","Необходимо выпустить","По решению исполнителя","Не нужен"],"horizontal");
+radiogroupInit ("version-compare_hdr__radio",["Показать все параметры, в т.ч. с одинаковыми значениями", "Показать только изменённые, несовпадающие параметры"],"horizontal");
+
+
+//нативный radiogroup request-price
+$('input[type="radio"]').on('change', function(e) {
+	// console.log($(this).parent().parent());
+    $('.field-set').removeClass('field-set--b-gr');
+    $(this).closest('.field-set').toggleClass('field-set--b-gr');
+});
+
+
+
+$(function() {
+    $("[id=rangeSelector]").dxRangeSelector({
+        size: {
+            height: 70,
+            width: 744
+        },
+        selectedRangeColor: "rgba(55, 63, 81, 0.4)",
+        scale: {
+            startValue: -30,
+            endValue: +30,
+            // minorTickInterval: 5,
+            tickInterval: 10,
+            // minorTick: {
+                // visible: false,
+            // },
+            label: {
+                // format: "currency",
+                customizeText: function () {
+                return this.valueText + " ˚C";
+            	},
+            	font: {
+					color: "#373F51",
+					family: "Lucida Grande, Tahoma, Arial",
+					opacity: 1,
+					size: 13,
+					weight: 400
+				}
+            }
+        },
+        sliderMarker: {
+            // format: "currency",
+            color: "#373F51",
+            customizeText: function () {
+                return this.valueText + " ˚C";
+            },
+            font: {
+				color: "#FFFFFF",
+				family: "Lucida Grande, Tahoma, Arial",
+				opacity: 1,
+				size: 13,
+				weight: 400
+			},
+           	invalidRangeColor: "red",
+			paddingLeftRight: 10,
+			paddingTopBottom: 2,
+        },
+        value: [4, 8],
+        onInitialized: function () {      	
+        	
+        	
+        },
+        // redrawOnResize: function (){alert($('.rangeselector .dxrs-range-selector-line').offset());},
+        onDrawn: function (){    	
+            //обязательный вызов для backgroud элмента радуга
+        	$( ".rangeselector.dx-visibility-change-handler" ).append( "<div class='rangeselector__back'></div>");
+        }
+
+    });
+});
+$('.req-price .app-lnk__clhd').click(function(event) {
+
+	$(this).toggleClass('app-lnk__clhd--opn');
+	$(this).parents('.req-price__list').toggleClass('req-price__list--hide');
+
+});
+$('.spoiler').click(function(event) {
+	$(this).toggleClass('spoiler--show');
+});
 //add consignment block
 
 //реализация добавление блоков на первом шаге. убрали тк по идеи не нужна
@@ -2110,63 +2137,31 @@ var tnvd= [
 
 
 
-$('.req-price .app-lnk__clhd').click(function(event) {
-
-	$(this).toggleClass('app-lnk__clhd--opn');
-	$(this).parents('.req-price__list').toggleClass('req-price__list--hide');
-
-});
- 
-function numberBoxInit (idElement,idAttrName) {
-	 $("."+idElement).dxNumberBox({
-        value: 15,
-        min: 10,
-        max: 100,
-        showSpinButtons: true,
-        inputAttr: {
-   		 id: idAttrName,
-   		 class: "input-field__value" 
-   		}
-   		//width: widthElement
-    });
-};
-
-numberBoxInit ("pseudoClassNumberBox","pseudoNameElementNumberBox__id");
-
-
-$('.spoiler').click(function(event) {
-	$(this).toggleClass('spoiler--show');
-});
 $('.ver-comp .app-lnk__clhd').click(function(event) {
 
 	$(this).toggleClass('app-lnk__clhd--opn');
 	$(this).parents('.ver-comp__bl').toggleClass('ver-comp__bl--hide');
 
 });
-$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
-	// $(this).toggleClass('user-popup-menu__title-btn--up');
-	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
-		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
-		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
-		$(this).toggleClass('btn-rotate180');
-		$(this).toggleClass('app-lnk-disable');
-	// }
-});
+// $(".navbar").scroll (function () {
 
+//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
 
-$(".user-popup-menu__title-btn").click(function(e) {
-  e.stopPropagation(); 
-});
+//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
+//     $(".navbar-ul").addClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-sticky')[0].scrollIntoView(true);
 
+// }  
+// if ( $(this).scrollTop() == 0) {
 
-function userPopupClose() {
-	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
-		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
-		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
-		$('.app-lnk-disable').toggleClass('btn-rotate180');
-		$('.app-lnk-disable').toggleClass('app-lnk-disable');
-	}
-}
+//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
+//     $(".navbar-ul").removeClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-currency')[0].scrollIntoView(true);
+//  }
+
+//  });
 $('.timezone-popup-menu__title-btn').click(function(){
 // console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
 // if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
@@ -2195,25 +2190,30 @@ function timezonePopupClose(e) {
 }
 
 
-// $(".navbar").scroll (function () {
+$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
+	// $(this).toggleClass('user-popup-menu__title-btn--up');
+	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
+		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
+		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
+		$(this).toggleClass('btn-rotate180');
+		$(this).toggleClass('app-lnk-disable');
+	// }
+});
 
-//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
 
-//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
-//     $(".navbar-ul").addClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-sticky')[0].scrollIntoView(true);
+$(".user-popup-menu__title-btn").click(function(e) {
+  e.stopPropagation(); 
+});
 
-// }  
-// if ( $(this).scrollTop() == 0) {
 
-//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
-//     $(".navbar-ul").removeClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-currency')[0].scrollIntoView(true);
-//  }
-
-//  });
+function userPopupClose() {
+	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
+		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
+		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
+		$('.app-lnk-disable').toggleClass('btn-rotate180');
+		$('.app-lnk-disable').toggleClass('app-lnk-disable');
+	}
+}
 var cityData = [{
     id: 1,
     name: "Владивосток, Приморский край, Россия",
@@ -2405,18 +2405,6 @@ function textAriaInitAutoResize (className, width) {
 
 textAriaInit('pseudoClassTextAria', "auto", 72);
 textAriaInitAutoResize('pseudoClassTextAriaAutoHeight', "auto");
- $(".popup__info-newmsg").dxToast({
-        message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
-        displayTime: 300000,
-        position: {my: 'center right', at: 'center right', offset: '-50 0'},
-        width: 375,
-		onShowing: function () {
-			//for left separate line on block message
-			$('.dx-toast-message').height($('.dx-toast-content').height());
-		}
-    });
-
-  $(".popup__info-newmsg").dxToast("show");
 $('.header-currency__lang').click( function () {
 	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
 	$('.header-currency__lang').toggleClass('header-currency__lang--en');
@@ -2495,3 +2483,16 @@ $('.navbar__item-header').click(function(){
 	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
 
 });
+
+ $(".popup__info-newmsg").dxToast({
+        message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
+        displayTime: 300000,
+        position: {my: 'center right', at: 'center right', offset: '-50 0'},
+        width: 375,
+		onShowing: function () {
+			//for left separate line on block message
+			$('.dx-toast-message').height($('.dx-toast-content').height());
+		}
+    });
+
+  $(".popup__info-newmsg").dxToast("show");

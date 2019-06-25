@@ -39,7 +39,7 @@
 		}
 
 		&:first-child {
-			color: #373F51;
+			// color: #373F51;
 		}
 
 		&--edit {
@@ -52,6 +52,10 @@
    				left: 0;
     			top: 0;
 			}
+		}
+
+		&--edit,&--lock {
+			color: #373F51;
 		}
 
 		&--sub {

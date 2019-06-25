@@ -120,6 +120,10 @@
     & .dx-fileuploader-button {
       margin-left: 33px
     }
+    & .dx-fileuploader-input-container {
+      margin-left: 33px;
+      align-self: flex-start;
+    }
   }
 
   & .dx-fileuploader-file-size {

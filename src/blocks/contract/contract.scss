@@ -172,6 +172,7 @@
    
       display: flex;
       flex-wrap: wrap;
+     
       
 
       &:hover {
@@ -179,7 +180,8 @@
       }
 
       &:hover .contract__actn {
-        display: block;
+        display: flex;
+        align-items: center;
       }
 	  
       &:before {
@@ -240,7 +242,10 @@
 
       } 
       & .contract__actn {
-      	display: block;
+
+      	display: flex;
+        align-self: center;
+        align-items: center;
       	margin-left: auto;
       }
     }
