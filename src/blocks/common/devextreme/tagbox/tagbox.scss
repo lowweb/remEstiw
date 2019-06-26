@@ -1,17 +1,19 @@
 .tagbox 
 {	
-    // width: 710px;
+
     height: auto;
 	 @include font-lucida ($clr-white, 13px, normal);
 	& .dx-tag-content {
     // margin: 4px 0 0px 4px;
     padding: 4px 24px 4px 6px;
-    // min-width: 40px;
     background-color: #0073BE;
     border-radius: 3px;
     color: $clr-white;
-    // bottom: 1px;
-}
+    }
+
+    & .dx-texteditor-container {
+        height: auto;
+    }
 }
 
 .dx-tag-remove-button:before, .dx-tag-remove-button:after {
@@ -32,7 +34,4 @@
     height: 2px;
 }
 
-.dx-overlay-wrapper {
-	// @include font-lucida ($clr-white, 13px, normal);
-}
 
