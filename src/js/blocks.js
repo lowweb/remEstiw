@@ -950,15 +950,73 @@ inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
 inputFieldInit ("pseudoClassTextEditorReadOnly","pseudoClassTextEditorReadOnly__id","100",true);
 
 
-$("#loadPanel").dxLoadPanel({
-        closeOnOutsideClick: true,
-        visible: true,
-        shading: true,
-		shadingColor: "rgba(255,255,255, 0.8)",
-		message: ""
+function checkboxInit (element, text) {
+    $("[id="+element+"]").dxCheckBox({
+        text: text,
+        value: false,
     });
+};
+
+checkboxInit ("used-cargo__checkbox", "Бывший в употреблении");
+checkboxInit ("home-cargo__checkbox", "Домашние вещи");
+checkboxInit ("humane-cargo__checkbox", "Гуманитарная помощь");
+checkboxInit ("oversize-cargo__checkbox", "Негабаритный");
+checkboxInit ("danger-cargo__checkbox", "Опасный груз");
+checkboxInit ("law-cargo__checkbox", "Юридическое сопровождение (ваши интересы в суде)");
+checkboxInit ("bay-cargo__checkbox", "Купить");
+checkboxInit ("deliver-cargo__checkbox", "Доставить груз");
+checkboxInit ("safer__checkbox", "Надежнёе");
+checkboxInit ("faster__checkbox", "Быстрее");
+checkboxInit ("cheaper__checkbox", "Дешевле");
+
+checkboxInit ("custom-clearence__import-checkbox", "При импорте");
+checkboxInit ("custom-clearence__export-checkbox", "При экспорте");
+checkboxInit ("custom-clearence-gd__import-checkbox", "Для экспорта из России");
+checkboxInit ("custom-clearence-gd__export-checkbox", "Для импорта в России");
+
+checkboxInit ("cargo-escort__gun-checkbox", "С огнестрельным оружием");
 
 
+checkboxInit ("expertise__accept-checkbox ", "При приёмке");
+checkboxInit ("expertise__delivery-checkbox ", "При сдаче");  
+
+checkboxInit ("documentary-credit__add-checkbox", "Данные аккредитива сообщу дополнительно"); 
+
+checkboxInit ("expertise-optionally__depart-checkbox", "В пункте отправления");
+checkboxInit ("expertise-optionally__dest-checkbox", " В пункте назначения");
+checkboxInit ("expertise-optionally__anotherplace-checkbox", "Дополнительно в другом месте");
+
+checkboxInit ("coast-incoterms__1checkbox", "Есть готовые");
+checkboxInit ("coast-incoterms__2checkbox", "Будут выпущены");
+checkboxInit ("coast-incoterms__3checkbox", "Выпустить");
+checkboxInit ("coast-incoterms__4checkbox", "По решению исполнителя");
+
+checkboxInit ("common-cargo-params-bulk", "Указать размеры фракций или составляющих массу");
+
+checkboxInit ("common-goodies-params__checkbox", "Будет выпущено классификационное решение ФТС РФ");
+
+checkboxInit ("common-cargo-params-container__checkbox", "Не возражаю против перегрузки в другие контейнера в транзитных пунктах");
+
+checkboxInit ("oversize-rzd__checkbox", "Не уверен, прошу определить по чертежу");
+
+checkboxInit ("ccp-mass-bulk-open__checkbox", "Указать размеры фракций или составляющих массу");
+
+checkboxInit ("requestall__filter-checkbox", "Доставить груз");
+checkboxInit ("requestall__filter-checkbox1", "Купить");
+checkboxInit ("basic-info__test", "Необходимо испытание образцов перед оплатой");
+checkboxInit ("suppagree1__checkbox", "Дополнительное соглашение №1 (ТЭО)");
+checkboxInit ("suppagree2__checkbox", "Дополнительное соглашение №2 (LCL)");
+checkboxInit ("suppagree3__checkbox", "Дополнительное соглашение №3 (Покупка)");
+checkboxInit ("suppagree4__checkbox", "Дополнительное соглашение №4 (Юридические услуги)");
+checkboxInit ("suppagree5__checkbox", "Дополнительное соглашение №5 (ЭОД)");
+checkboxInit ("contrct-iagree-checkbox", "Я согласен с условиями договора и дополнительных соглашений к нему");
+
+
+
+
+
+
+ 
 
 //step для шагов внутри модального окна
 function initModalStep (contName,nextbtn, prevbtn, dynamCap, curSlide) {
@@ -1163,125 +1221,15 @@ initModal("modal-request-price-wr", 691 , "auto", 'modal__title-templ','modal__c
 
 
 
-function checkboxInit (element, text) {
-    $("[id="+element+"]").dxCheckBox({
-        text: text,
-        value: false,
+$("#loadPanel").dxLoadPanel({
+        closeOnOutsideClick: true,
+        visible: true,
+        shading: true,
+		shadingColor: "rgba(255,255,255, 0.8)",
+		message: ""
     });
-};
-
-checkboxInit ("used-cargo__checkbox", "Бывший в употреблении");
-checkboxInit ("home-cargo__checkbox", "Домашние вещи");
-checkboxInit ("humane-cargo__checkbox", "Гуманитарная помощь");
-checkboxInit ("oversize-cargo__checkbox", "Негабаритный");
-checkboxInit ("danger-cargo__checkbox", "Опасный груз");
-checkboxInit ("law-cargo__checkbox", "Юридическое сопровождение (ваши интересы в суде)");
-checkboxInit ("bay-cargo__checkbox", "Купить");
-checkboxInit ("deliver-cargo__checkbox", "Доставить груз");
-checkboxInit ("safer__checkbox", "Надежнёе");
-checkboxInit ("faster__checkbox", "Быстрее");
-checkboxInit ("cheaper__checkbox", "Дешевле");
-
-checkboxInit ("custom-clearence__import-checkbox", "При импорте");
-checkboxInit ("custom-clearence__export-checkbox", "При экспорте");
-checkboxInit ("custom-clearence-gd__import-checkbox", "Для экспорта из России");
-checkboxInit ("custom-clearence-gd__export-checkbox", "Для импорта в России");
-
-checkboxInit ("cargo-escort__gun-checkbox", "С огнестрельным оружием");
 
 
-checkboxInit ("expertise__accept-checkbox ", "При приёмке");
-checkboxInit ("expertise__delivery-checkbox ", "При сдаче");  
-
-checkboxInit ("documentary-credit__add-checkbox", "Данные аккредитива сообщу дополнительно"); 
-
-checkboxInit ("expertise-optionally__depart-checkbox", "В пункте отправления");
-checkboxInit ("expertise-optionally__dest-checkbox", " В пункте назначения");
-checkboxInit ("expertise-optionally__anotherplace-checkbox", "Дополнительно в другом месте");
-
-checkboxInit ("coast-incoterms__1checkbox", "Есть готовые");
-checkboxInit ("coast-incoterms__2checkbox", "Будут выпущены");
-checkboxInit ("coast-incoterms__3checkbox", "Выпустить");
-checkboxInit ("coast-incoterms__4checkbox", "По решению исполнителя");
-
-checkboxInit ("common-cargo-params-bulk", "Указать размеры фракций или составляющих массу");
-
-checkboxInit ("common-goodies-params__checkbox", "Будет выпущено классификационное решение ФТС РФ");
-
-checkboxInit ("common-cargo-params-container__checkbox", "Не возражаю против перегрузки в другие контейнера в транзитных пунктах");
-
-checkboxInit ("oversize-rzd__checkbox", "Не уверен, прошу определить по чертежу");
-
-checkboxInit ("ccp-mass-bulk-open__checkbox", "Указать размеры фракций или составляющих массу");
-
-checkboxInit ("requestall__filter-checkbox", "Доставить груз");
-checkboxInit ("requestall__filter-checkbox1", "Купить");
-checkboxInit ("basic-info__test", "Необходимо испытание образцов перед оплатой");
-checkboxInit ("suppagree1__checkbox", "Дополнительное соглашение №1 (ТЭО)");
-checkboxInit ("suppagree2__checkbox", "Дополнительное соглашение №2 (LCL)");
-checkboxInit ("suppagree3__checkbox", "Дополнительное соглашение №3 (Покупка)");
-checkboxInit ("suppagree4__checkbox", "Дополнительное соглашение №4 (Юридические услуги)");
-checkboxInit ("suppagree5__checkbox", "Дополнительное соглашение №5 (ЭОД)");
-checkboxInit ("contrct-iagree-checkbox", "Я согласен с условиями договора и дополнительных соглашений к нему");
-
-
-
-
-
-
- 
- 
-function numberBoxInit (idElement,idAttrName) {
-	 $("."+idElement).dxNumberBox({
-        value: 15,
-        min: 10,
-        max: 100,
-        showSpinButtons: true,
-        inputAttr: {
-   		 id: idAttrName,
-   		 class: "input-field__value" 
-   		}
-   		//width: widthElement
-    });
-};
-
-numberBoxInit ("pseudoClassNumberBox","pseudoNameElementNumberBox__id");
-
-
-$('.progress-bar__step').hover (function(){
-	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
-},
-function (){
-	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
-}
-);
-
-
-var progressPercentValue=10;
-  
-$('.header-progress').click(function() {
-
-	// progressPercentValue=Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100);
-	console.log('do='+progressPercentValue);
-	if (progressPercentValue < 100) {
-		$('.progress-bar__status').width((progressPercentValue + 5)+'%');
-		// console.log('posle='+ Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100));
-		if(progressPercentValue == 45){
-			$('.progress-bar__second-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
-			$('.progress-bar__second-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
-
-		}
-
-		if(progressPercentValue == 95){
-			$('.progress-bar__third-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
-			$('.progress-bar__third-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
-
-		}
-	progressPercentValue+=5;	
-	}
-
-
-});
 var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
 var cargoReceiverItem = ["Физическое лицо", "Юридическое лицо"];
 var volumeItem = ["До 5 м", "Свыше 5 м"];
@@ -1423,90 +1371,64 @@ $(function() {
 
     });
 });
+ 
+function numberBoxInit (idElement,idAttrName) {
+	 $("."+idElement).dxNumberBox({
+        value: 15,
+        min: 10,
+        max: 100,
+        showSpinButtons: true,
+        inputAttr: {
+   		 id: idAttrName,
+   		 class: "input-field__value" 
+   		}
+   		//width: widthElement
+    });
+};
+
+numberBoxInit ("pseudoClassNumberBox","pseudoNameElementNumberBox__id");
+
+
+$('.progress-bar__step').hover (function(){
+	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
+},
+function (){
+	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
+}
+);
+
+
+var progressPercentValue=10;
+  
+$('.header-progress').click(function() {
+
+	// progressPercentValue=Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100);
+	console.log('do='+progressPercentValue);
+	if (progressPercentValue < 100) {
+		$('.progress-bar__status').width((progressPercentValue + 5)+'%');
+		// console.log('posle='+ Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100));
+		if(progressPercentValue == 45){
+			$('.progress-bar__second-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
+			$('.progress-bar__second-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+
+		}
+
+		if(progressPercentValue == 95){
+			$('.progress-bar__third-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
+			$('.progress-bar__third-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+
+		}
+	progressPercentValue+=5;	
+	}
+
+
+});
 $('.req-price .app-lnk__clhd').click(function(event) {
 
 	$(this).toggleClass('app-lnk__clhd--opn');
 	$(this).parents('.req-price__list').toggleClass('req-price__list--hide');
 
 });
-$('.spoiler').click(function(event) {
-	$(this).toggleClass('spoiler--show');
-});
-//add consignment block
-
-//реализация добавление блоков на первом шаге. убрали тк по идеи не нужна
-// function cnstCargoCheracter (count) { return "<field-set id='field-set__cargo-cheracter--part"+ count + "' class='field-set field-set__cargo-cheracter'><legend class='field-set__cap'>Характеристики груза</legend><div class='field-set__items'><div id='cargo-cheracter__radioGroup' class='radiogroup'></div></div></field-set>"};
-// function cnstTransportMod (count) { return "<field-set id='field-set__transport-mod--part"+ count + "' class='field-set field-set__transport-mod'><legend class='field-set__cap'>Способ перевозки</legend><div class='field-set__items'><div id='transport-mod__radioGroup' class='radiogroup'></div></div></field-set>"};
-// function cnstSpecialConditions (count) { return "<field-set id='field-set__special-conditions--part"+ count + "' class='field-set field-set__special-conditions'><legend class='field-set__cap'>Особые условия хранения и перевозки</legend><div class='field-set__items'><div id='special-conditions__radioGroup' class='radiogroup'></div></div></field-set>"};
-// function cnstAdditionalCharacter (count) { return "<field-set id='field-set__additional-character--part"+ count + "' class='field-set field-set__additional-character'><legend class='field-set__cap'>Дополнительные характеристики</legend><div class='field-set__items checkbox-items'><div id='danger-cargo__checkbox' class='checkbox'></div><div id='oversize-cargo__checkbox' class='checkbox'></div><div id='humane-cargo__checkbox' class='checkbox'></div><div id='home-cargo__checkbox' class='checkbox'></div><div id='used-cargo__checkbox' class='checkbox'></div></div></field-set>"};
-
-// $(document.body).on('click', '.step-block__sep-btn-add' ,function(){
-// //add del btn to first element
-// 	if ($( ".consignment" ).length == 1 )
-// 		$( ".consignment .step-block__sep").append("<div class='step-block__sep-btn-close'></div>");
-	
-// 	//add content
-// 	var consignmentCount= $( ".consignment" ).length + 1;
-
-// 	$( ".consignment" ).last().after($( "<section class='consignment'><div class='step-block__sep'><h2 class='step-block__sep-cap'>Партия №" + consignmentCount +"</h2><div class='step-block__sep-line'></div><div class='step-block__sep-btn-close'></div> </div></section>" ));
-// 	$( ".consignment").last().append(cnstCargoCheracter(consignmentCount));
-// 	$( ".consignment").last().append(cnstTransportMod(consignmentCount));
-// 	$( ".consignment").last().append(cnstSpecialConditions(consignmentCount));
-// 	$( ".consignment").last().append(cnstAdditionalCharacter(consignmentCount));
-
-// 	var el=$(".consignment #cargo-cheracter__radioGroup").last();
-// 	 	$(el).dxRadioGroup({
-//    	 	   items: cargoCheracterItem
-//    		});
-//    		el=$(".consignment #transport-mod__radioGroup").last();
-// 	 	$(el).dxRadioGroup({
-//    	 	   items: transportModItem
-//    		});
-//    		el=$(".consignment #special-conditions__radioGroup").last();
-// 	 	$(el).dxRadioGroup({
-//    	 	   items: specialConditionsItem
-//    		});
-
-// 	 	el=$(".consignment #danger-cargo__checkbox").last();
-// 	 	$(el).dxCheckBox({
-//        		 text: "Опасный груз",
-//        		 value: false
-//    		 });
-// 	 	el=$(".consignment #oversize-cargo__checkbox").last();
-// 	 	$(el).dxCheckBox({
-//        		text: "Негабаритный",
-//         	value: false
-//    		 });
-
-// 	 	el=$(".consignment #humane-cargo__checkbox").last();
-// 	 	$(el).dxCheckBox({
-//        		 text: "Гуманитарная помощь",
-//        		 value: false,
-//    		 });
-// 	 	el=$(".consignment #home-cargo__checkbox").last();
-// 	 	$(el).dxCheckBox({
-//        		 text: "Домашние вещи",
-//        		 value: false,
-//    		 });
-// 	 	el=$(".consignment #used-cargo__checkbox").last();
-// 	 	$(el).dxCheckBox({
-//        		 text: "Бывший в употреблении",
-//        		 value: false,
-//    		 });
-// });
-
-
-// //del consignment block 
-// $(document.body).on('click', '.step-block__sep-btn-close' ,function(){
-// 	$(this).parent().parent().remove();
-// 	var consignmentElement = document.getElementsByClassName("consignment");
-// 		for(var i=0; i < consignmentElement.length; i++){
-// 			$(consignmentElement[i]).find('.step-block__sep-cap').replaceWith("<h2 class='step-block__sep-cap'>Партия №"+ (i+1) +"</h2>");
-// 		}
-
-// 	if ($( ".consignment" ).length == 1 )
-// 		$( ".consignment .step-block__sep .step-block__sep-btn-close").remove();
-// });
     $(".init-switch").dxSwitch({
         value: false
     });
@@ -2137,31 +2059,84 @@ var tnvd= [
 
 
 
-$('.ver-comp .app-lnk__clhd').click(function(event) {
-
-	$(this).toggleClass('app-lnk__clhd--opn');
-	$(this).parents('.ver-comp__bl').toggleClass('ver-comp__bl--hide');
-
+$('.spoiler').click(function(event) {
+	$(this).toggleClass('spoiler--show');
 });
-// $(".navbar").scroll (function () {
+//add consignment block
 
-//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
+//реализация добавление блоков на первом шаге. убрали тк по идеи не нужна
+// function cnstCargoCheracter (count) { return "<field-set id='field-set__cargo-cheracter--part"+ count + "' class='field-set field-set__cargo-cheracter'><legend class='field-set__cap'>Характеристики груза</legend><div class='field-set__items'><div id='cargo-cheracter__radioGroup' class='radiogroup'></div></div></field-set>"};
+// function cnstTransportMod (count) { return "<field-set id='field-set__transport-mod--part"+ count + "' class='field-set field-set__transport-mod'><legend class='field-set__cap'>Способ перевозки</legend><div class='field-set__items'><div id='transport-mod__radioGroup' class='radiogroup'></div></div></field-set>"};
+// function cnstSpecialConditions (count) { return "<field-set id='field-set__special-conditions--part"+ count + "' class='field-set field-set__special-conditions'><legend class='field-set__cap'>Особые условия хранения и перевозки</legend><div class='field-set__items'><div id='special-conditions__radioGroup' class='radiogroup'></div></div></field-set>"};
+// function cnstAdditionalCharacter (count) { return "<field-set id='field-set__additional-character--part"+ count + "' class='field-set field-set__additional-character'><legend class='field-set__cap'>Дополнительные характеристики</legend><div class='field-set__items checkbox-items'><div id='danger-cargo__checkbox' class='checkbox'></div><div id='oversize-cargo__checkbox' class='checkbox'></div><div id='humane-cargo__checkbox' class='checkbox'></div><div id='home-cargo__checkbox' class='checkbox'></div><div id='used-cargo__checkbox' class='checkbox'></div></div></field-set>"};
 
-//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
-//     $(".navbar-ul").addClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-sticky')[0].scrollIntoView(true);
+// $(document.body).on('click', '.step-block__sep-btn-add' ,function(){
+// //add del btn to first element
+// 	if ($( ".consignment" ).length == 1 )
+// 		$( ".consignment .step-block__sep").append("<div class='step-block__sep-btn-close'></div>");
+	
+// 	//add content
+// 	var consignmentCount= $( ".consignment" ).length + 1;
 
-// }  
-// if ( $(this).scrollTop() == 0) {
+// 	$( ".consignment" ).last().after($( "<section class='consignment'><div class='step-block__sep'><h2 class='step-block__sep-cap'>Партия №" + consignmentCount +"</h2><div class='step-block__sep-line'></div><div class='step-block__sep-btn-close'></div> </div></section>" ));
+// 	$( ".consignment").last().append(cnstCargoCheracter(consignmentCount));
+// 	$( ".consignment").last().append(cnstTransportMod(consignmentCount));
+// 	$( ".consignment").last().append(cnstSpecialConditions(consignmentCount));
+// 	$( ".consignment").last().append(cnstAdditionalCharacter(consignmentCount));
 
-//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
-//     $(".navbar-ul").removeClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-currency')[0].scrollIntoView(true);
-//  }
+// 	var el=$(".consignment #cargo-cheracter__radioGroup").last();
+// 	 	$(el).dxRadioGroup({
+//    	 	   items: cargoCheracterItem
+//    		});
+//    		el=$(".consignment #transport-mod__radioGroup").last();
+// 	 	$(el).dxRadioGroup({
+//    	 	   items: transportModItem
+//    		});
+//    		el=$(".consignment #special-conditions__radioGroup").last();
+// 	 	$(el).dxRadioGroup({
+//    	 	   items: specialConditionsItem
+//    		});
 
-//  });
+// 	 	el=$(".consignment #danger-cargo__checkbox").last();
+// 	 	$(el).dxCheckBox({
+//        		 text: "Опасный груз",
+//        		 value: false
+//    		 });
+// 	 	el=$(".consignment #oversize-cargo__checkbox").last();
+// 	 	$(el).dxCheckBox({
+//        		text: "Негабаритный",
+//         	value: false
+//    		 });
+
+// 	 	el=$(".consignment #humane-cargo__checkbox").last();
+// 	 	$(el).dxCheckBox({
+//        		 text: "Гуманитарная помощь",
+//        		 value: false,
+//    		 });
+// 	 	el=$(".consignment #home-cargo__checkbox").last();
+// 	 	$(el).dxCheckBox({
+//        		 text: "Домашние вещи",
+//        		 value: false,
+//    		 });
+// 	 	el=$(".consignment #used-cargo__checkbox").last();
+// 	 	$(el).dxCheckBox({
+//        		 text: "Бывший в употреблении",
+//        		 value: false,
+//    		 });
+// });
+
+
+// //del consignment block 
+// $(document.body).on('click', '.step-block__sep-btn-close' ,function(){
+// 	$(this).parent().parent().remove();
+// 	var consignmentElement = document.getElementsByClassName("consignment");
+// 		for(var i=0; i < consignmentElement.length; i++){
+// 			$(consignmentElement[i]).find('.step-block__sep-cap').replaceWith("<h2 class='step-block__sep-cap'>Партия №"+ (i+1) +"</h2>");
+// 		}
+
+// 	if ($( ".consignment" ).length == 1 )
+// 		$( ".consignment .step-block__sep .step-block__sep-btn-close").remove();
+// });
 $('.timezone-popup-menu__title-btn').click(function(){
 // console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
 // if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
@@ -2190,6 +2165,25 @@ function timezonePopupClose(e) {
 }
 
 
+// $(".navbar").scroll (function () {
+
+//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
+
+//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
+//     $(".navbar-ul").addClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-sticky')[0].scrollIntoView(true);
+
+// }  
+// if ( $(this).scrollTop() == 0) {
+
+//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
+//     $(".navbar-ul").removeClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-currency')[0].scrollIntoView(true);
+//  }
+
+//  });
 $('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
 	// $(this).toggleClass('user-popup-menu__title-btn--up');
 	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
@@ -2214,6 +2208,12 @@ function userPopupClose() {
 		$('.app-lnk-disable').toggleClass('app-lnk-disable');
 	}
 }
+$('.ver-comp .app-lnk__clhd').click(function(event) {
+
+	$(this).toggleClass('app-lnk__clhd--opn');
+	$(this).parents('.ver-comp__bl').toggleClass('ver-comp__bl--hide');
+
+});
 var cityData = [{
     id: 1,
     name: "Владивосток, Приморский край, Россия",
