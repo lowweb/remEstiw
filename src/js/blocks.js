@@ -1,13 +1,3 @@
-$('.contract__block-cap').click(function(event) {
-
-	$(this).parents('.contract__block').toggleClass('contract__block--hide');
-});
-
-// $('.contract__line-add .btn__rnd').click(function(event) {
-// 	$(this).parents('.contract__line-add').addClass('contract__line-add--act');
-// });
-
-
 // для корректной работы gulp
 
 $(".summary-error__items").dxValidationSummary({
@@ -109,6 +99,40 @@ $('.input-field__cont').change ( function () {
 	 	$(this).parent().find('.input-field__label').removeClass('input-field__label--err');
 	 }
 });
+$('.contract__block-cap').click(function(event) {
+
+	$(this).parents('.contract__block').toggleClass('contract__block--hide');
+});
+
+// $('.contract__line-add .btn__rnd').click(function(event) {
+// 	$(this).parents('.contract__line-add').addClass('contract__line-add--act');
+// });
+
+
+$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
+	// $(this).toggleClass('user-popup-menu__title-btn--up');
+	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
+		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
+		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
+		$(this).toggleClass('btn-rotate180');
+		$(this).toggleClass('app-lnk-disable');
+	// }
+});
+
+
+$(".user-popup-menu__title-btn").click(function(e) {
+  e.stopPropagation(); 
+});
+
+
+function userPopupClose() {
+	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
+		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
+		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
+		$('.app-lnk-disable').toggleClass('btn-rotate180');
+		$('.app-lnk-disable').toggleClass('app-lnk-disable');
+	}
+}
 function initButton (Element) {
     $('.' + Element).dxButton({
                 stylingMode: 'text',
@@ -140,6 +164,53 @@ $('#footer__button-save').dxButton({
                 }
             });
      
+$('.timezone-popup-menu__title-btn').click(function(){
+// console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
+// if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
+		$(this).parents(".timezone-popup-menu__title").toggleClass('timezone-popup-menu__title--active');
+		$(this).parents(".timezone-popup-menu").find('.timezone-popup-menu__add').toggleClass('timezone-popup-menu__add--active');
+		$(this).toggleClass('btn-rotate180');
+		$(this).toggleClass('app-lnk-disable');
+
+	// }
+});
+
+
+$(".timezone-popup-menu__title-btn").click(function(e) {
+  e.stopPropagation(); 
+});
+
+function timezonePopupClose(e) {
+   // if (!$(e.target).closest("timezone-popup-menu").length) {
+	if ($('.timezone-popup-menu__title').hasClass('timezone-popup-menu__title--active')){
+		$(".timezone-popup-menu__title").toggleClass('timezone-popup-menu__title--active');
+		$(".timezone-popup-menu").find('.timezone-popup-menu__add').toggleClass('timezone-popup-menu__add--active');
+		$('.timezone-popup-menu__title-btn').toggleClass('btn-rotate180');
+		$('.timezone-popup-menu__title-btn').toggleClass('app-lnk-disable');
+	}
+	// }
+}
+
+
+// $(".navbar").scroll (function () {
+
+//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
+
+//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
+//     $(".navbar-ul").addClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-sticky')[0].scrollIntoView(true);
+
+// }  
+// if ( $(this).scrollTop() == 0) {
+
+//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
+//     $(".navbar-ul").removeClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-currency')[0].scrollIntoView(true);
+//  }
+
+//  });
 function checkboxInit (element, text) {
     $("[id="+element+"]").dxCheckBox({
         text: text,
@@ -337,6 +408,15 @@ function inputFieldInit (element, elementId, defValue, readOnlyFlag ) {
 
 inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
 inputFieldInit ("pseudoClassTextEditorReadOnly","pseudoClassTextEditorReadOnly__id","100",true);
+
+
+$("#loadPanel").dxLoadPanel({
+        closeOnOutsideClick: true,
+        visible: true,
+        shading: true,
+		shadingColor: "rgba(255,255,255, 0.8)",
+		message: ""
+    });
 
 
 //-----------customs-clearance-3agent-modal
@@ -1016,15 +1096,6 @@ $("#gridContainerr").dxDataGrid({
             e.component.option("loadPanel.enabled", false);
         }
     });
-
-$("#loadPanel").dxLoadPanel({
-        closeOnOutsideClick: true,
-        visible: true,
-        shading: true,
-		shadingColor: "rgba(255,255,255, 0.8)",
-		message: ""
-    });
-
 
 $('.progress-bar__step').hover (function(){
 	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
@@ -2143,77 +2214,85 @@ $('.ver-comp .app-lnk__clhd').click(function(event) {
 	$(this).parents('.ver-comp__bl').toggleClass('ver-comp__bl--hide');
 
 });
-$('.timezone-popup-menu__title-btn').click(function(){
-// console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
-// if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
-		$(this).parents(".timezone-popup-menu__title").toggleClass('timezone-popup-menu__title--active');
-		$(this).parents(".timezone-popup-menu").find('.timezone-popup-menu__add').toggleClass('timezone-popup-menu__add--active');
-		$(this).toggleClass('btn-rotate180');
-		$(this).toggleClass('app-lnk-disable');
+$('.header-currency__lang').click( function () {
+	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
+	$('.header-currency__lang').toggleClass('header-currency__lang--en');
+});
+//эффект на иконке при hover тк заголовок всегда 1
+$('.navbar__header-link').hover(  
+function(){
+    $(this).find(".navbar__header-icon").css('opacity','1')
+},
+function(){
+    $(this).find(".navbar__header-icon").css('opacity','0.6')
 
-	// }
 });
 
 
-$(".timezone-popup-menu__title-btn").click(function(e) {
-  e.stopPropagation(); 
-});
 
-function timezonePopupClose(e) {
-   // if (!$(e.target).closest("timezone-popup-menu").length) {
-	if ($('.timezone-popup-menu__title').hasClass('timezone-popup-menu__title--active')){
-		$(".timezone-popup-menu__title").toggleClass('timezone-popup-menu__title--active');
-		$(".timezone-popup-menu").find('.timezone-popup-menu__add').toggleClass('timezone-popup-menu__add--active');
-		$('.timezone-popup-menu__title-btn').toggleClass('btn-rotate180');
-		$('.timezone-popup-menu__title-btn').toggleClass('app-lnk-disable');
-	}
-	// }
+//open close menu
+  $('.navbar__header-close-btn').on('click', function() {
+  	openNavbar ();
+    //ширина footer
+    ///$('.footer').toggleClass('footer--fix313');
+  });
+
+function openNavbar () {
+     $('.navbar__header-close-btn').toggleClass('btn-rotate180');
+     $('.navbar__header-main-menu').toggleClass('navbar-el--hide');
+     $('.navbar__header-copyright').toggleClass('navbar-el--hide');
+     //показываем caption и  кнопку раскрытия субменю
+     $('.navbar__item-caption').toggleClass('navbar-item-el--hide');
+     $('.navbar__item-btn-submenu').toggleClass('navbar-item-el--hide');
+     $('.navbar__item-icon').css('margin','0 10px 0 27px'); //отступ от иконки при раскрытом меню
+    
+ 
+
+     //сворачиваем все  submenu
+     if ($('.navbar').hasClass('navbar--open'))//меню открыо
+	 { 
+        if ($('.navbar__submenu').hasClass('navbar__submenu--open')){
+          $('.navbar__submenu--open').parent().find('.navbar__item-header').find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
+        }
+        
+        //убрали sticky  и закрыли все  submenu
+        $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
+        $(".navbar-ul").removeClass("navbar-ul--understicky");
+    	$('.navbar__submenu').removeClass('navbar__submenu--open');
+        $('.navbar__header-roll')[0].scrollIntoView(true);
+
+	 } 
+
+
+	$('.navbar').toggleClass('navbar--open'); //после всех тк ориентир на класс
+    //правим ширину для fix header после тк safari не корректно обрабатывает
+    /// if ($('.header-sticky').hasClass('header-sticky--active'))
+    /// {   
+    ///     $('.header-sticky').toggleClass('header-sticky--fix78');
+    ///     $('.header-sticky').toggleClass('header-sticky--fix313');
+    /// }
+
 }
+//эффект на иконке при hover тк заголовок всегда 1
+$('.navbar__item-header').hover(  
+function(){
+	$(this).find(".navbar__item-icon").css('opacity','1')
+},
+function(){
+	$(this).find(".navbar__item-icon").css('opacity','0.6')
 
-
-$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
-	// $(this).toggleClass('user-popup-menu__title-btn--up');
-	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
-		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
-		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
-		$(this).toggleClass('btn-rotate180');
-		$(this).toggleClass('app-lnk-disable');
-	// }
 });
 
-
-$(".user-popup-menu__title-btn").click(function(e) {
-  e.stopPropagation(); 
-});
-
-
-function userPopupClose() {
-	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
-		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
-		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
-		$('.app-lnk-disable').toggleClass('btn-rotate180');
-		$('.app-lnk-disable').toggleClass('app-lnk-disable');
+$('.navbar__item-header').click(function(){
+	if (!$('.navbar').hasClass('navbar--open')){
+		openNavbar ();
+		///$('.footer').toggleClass('footer--fix313');
 	}
-}
-// $(".navbar").scroll (function () {
+	$(this).parents(".navbar__item").find('.navbar__submenu').toggleClass('navbar__submenu--open');
+	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
 
-//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
+});
 
-//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
-//     $(".navbar-ul").addClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-sticky')[0].scrollIntoView(true);
-
-// }  
-// if ( $(this).scrollTop() == 0) {
-
-//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
-//     $(".navbar-ul").removeClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-currency')[0].scrollIntoView(true);
-//  }
-
-//  });
 var cityData = [{
     id: 1,
     name: "Владивосток, Приморский край, Россия",
@@ -2345,39 +2424,6 @@ var now = new Date();
 
 
 
-function selectBoxInitForId (idElement, dataS, inputAttrId, inputAttrVal ) {
-$("#" + idElement).dxSelectBox({
-        dataSource: dataS,
-        placeholder: "",
-        inputAttr: {
-          id: inputAttrId, //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
-          class: inputAttrVal //обязятельный класс
-         }
-    });
-};
-
-selectBoxInitForId("conditionDest",[ "FCA", "FAS", "FOB" ],"conditionDepart__id","input-field__value");
-selectBoxInitForId("conditionDepart",[ "FCA", "FAS", "FOB" ],"conditionDest__id","input-field__value");
-//в какой валюте расчитать
-selectBoxInitForId("currency-calc",[ "Доллары США (USD)", "Рубли (RUB)"],"currency-calc__id","input-field__value");
-//страна в модальном окне
-selectBoxInitForId('modal__country-list',[ "Россия", "Америка"],"modal__country-list__id","input-field__value");
-//край район область в модальном окне
-selectBoxInitForId('modal__region-list',[ "Приморский край", "Камчатский край"],"modal__region-list__id","input-field__value");
-
-function selectBoxInitForClass (classElement, dataS, inputAttrId, inputAttrVal ) {
-$("." + classElement).dxSelectBox({
-        dataSource: dataS,
-        placeholder: "",
-        inputAttr: {
-          id: inputAttrId, //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
-          class: inputAttrVal //обязятельный класс
-         }
-    });
-};
-
-selectBoxInitForClass("pseudoClassSelectBox",[ "значение", "значение", "значенадывжлавдылажвылаие123456789" ],"pseudoNameElementSelectBox__id","input-field__value");
-
 function textAriaInit (className, width,height) {
 	$("." + className).dxTextArea({
         spellcheck: false,
@@ -2417,81 +2463,35 @@ textAriaInitAutoResize('pseudoClassTextAriaAutoHeight', "auto");
     });
 
   $(".popup__info-newmsg").dxToast("show");
-$('.header-currency__lang').click( function () {
-	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
-	$('.header-currency__lang').toggleClass('header-currency__lang--en');
-});
-//эффект на иконке при hover тк заголовок всегда 1
-$('.navbar__header-link').hover(  
-function(){
-    $(this).find(".navbar__header-icon").css('opacity','1')
-},
-function(){
-    $(this).find(".navbar__header-icon").css('opacity','0.6')
+function selectBoxInitForId (idElement, dataS, inputAttrId, inputAttrVal ) {
+$("#" + idElement).dxSelectBox({
+        dataSource: dataS,
+        placeholder: "",
+        inputAttr: {
+          id: inputAttrId, //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
+          class: inputAttrVal //обязятельный класс
+         }
+    });
+};
 
-});
+selectBoxInitForId("conditionDest",[ "FCA", "FAS", "FOB" ],"conditionDepart__id","input-field__value");
+selectBoxInitForId("conditionDepart",[ "FCA", "FAS", "FOB" ],"conditionDest__id","input-field__value");
+//в какой валюте расчитать
+selectBoxInitForId("currency-calc",[ "Доллары США (USD)", "Рубли (RUB)"],"currency-calc__id","input-field__value");
+//страна в модальном окне
+selectBoxInitForId('modal__country-list',[ "Россия", "Америка"],"modal__country-list__id","input-field__value");
+//край район область в модальном окне
+selectBoxInitForId('modal__region-list',[ "Приморский край", "Камчатский край"],"modal__region-list__id","input-field__value");
 
+function selectBoxInitForClass (classElement, dataS, inputAttrId, inputAttrVal ) {
+$("." + classElement).dxSelectBox({
+        dataSource: dataS,
+        placeholder: "",
+        inputAttr: {
+          id: inputAttrId, //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
+          class: inputAttrVal //обязятельный класс
+         }
+    });
+};
 
-
-//open close menu
-  $('.navbar__header-close-btn').on('click', function() {
-  	openNavbar ();
-    //ширина footer
-    ///$('.footer').toggleClass('footer--fix313');
-  });
-
-function openNavbar () {
-     $('.navbar__header-close-btn').toggleClass('btn-rotate180');
-     $('.navbar__header-main-menu').toggleClass('navbar-el--hide');
-     $('.navbar__header-copyright').toggleClass('navbar-el--hide');
-     //показываем caption и  кнопку раскрытия субменю
-     $('.navbar__item-caption').toggleClass('navbar-item-el--hide');
-     $('.navbar__item-btn-submenu').toggleClass('navbar-item-el--hide');
-     $('.navbar__item-icon').css('margin','0 10px 0 27px'); //отступ от иконки при раскрытом меню
-    
- 
-
-     //сворачиваем все  submenu
-     if ($('.navbar').hasClass('navbar--open'))//меню открыо
-	 { 
-        if ($('.navbar__submenu').hasClass('navbar__submenu--open')){
-          $('.navbar__submenu--open').parent().find('.navbar__item-header').find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
-        }
-        
-        //убрали sticky  и закрыли все  submenu
-        $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
-        $(".navbar-ul").removeClass("navbar-ul--understicky");
-    	$('.navbar__submenu').removeClass('navbar__submenu--open');
-        $('.navbar__header-roll')[0].scrollIntoView(true);
-
-	 } 
-
-
-	$('.navbar').toggleClass('navbar--open'); //после всех тк ориентир на класс
-    //правим ширину для fix header после тк safari не корректно обрабатывает
-    /// if ($('.header-sticky').hasClass('header-sticky--active'))
-    /// {   
-    ///     $('.header-sticky').toggleClass('header-sticky--fix78');
-    ///     $('.header-sticky').toggleClass('header-sticky--fix313');
-    /// }
-
-}
-//эффект на иконке при hover тк заголовок всегда 1
-$('.navbar__item-header').hover(  
-function(){
-	$(this).find(".navbar__item-icon").css('opacity','1')
-},
-function(){
-	$(this).find(".navbar__item-icon").css('opacity','0.6')
-
-});
-
-$('.navbar__item-header').click(function(){
-	if (!$('.navbar').hasClass('navbar--open')){
-		openNavbar ();
-		///$('.footer').toggleClass('footer--fix313');
-	}
-	$(this).parents(".navbar__item").find('.navbar__submenu').toggleClass('navbar__submenu--open');
-	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
-
-});
+selectBoxInitForClass("pseudoClassSelectBox",[ "значение", "значение", "значенадывжлавдылажвылаие123456789" ],"pseudoNameElementSelectBox__id","input-field__value");

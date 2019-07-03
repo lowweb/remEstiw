@@ -26,6 +26,16 @@ $imgFolder: '../img/';
        url('../fonts/fira-sans-v8-cyrillic-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
+@font-face {font-family: "Lucida Grande";
+    src: url("//db.onlinewebfonts.com/t/cab0131554a65c43f6e73aafff8a9667.eot");
+    src: url("//db.onlinewebfonts.com/t/cab0131554a65c43f6e73aafff8a9667.eot?#iefix") format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/cab0131554a65c43f6e73aafff8a9667.woff2") format("woff2"),
+    url("//db.onlinewebfonts.com/t/cab0131554a65c43f6e73aafff8a9667.woff") format("woff"),
+    url("//db.onlinewebfonts.com/t/cab0131554a65c43f6e73aafff8a9667.ttf") format("truetype"),
+    url("//db.onlinewebfonts.com/t/cab0131554a65c43f6e73aafff8a9667.svg#Lucida Grande") format("svg");
+}
+
+// @import url(//db.onlinewebfonts.com/c/cab0131554a65c43f6e73aafff8a9667?family=Lucida+Grande);
 .ft-h1 {
 font-family: Fira Sans, sans-serif; 
 font-style: normal; 
