@@ -1,0 +1,39 @@
+// .box__dragndrop,
+// .box__uploading,
+// .box__success,
+// .box__error {
+//   display: none;
+// }
+.photo-prof {
+	@include font-lucida ($clr-dark-light,13px,15px);
+    background: $clr-grey-v4;
+	border: 1px dashed $clr-grey-v2;
+	box-sizing: border-box;
+	border-radius: 3px;
+	height: 286px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	padding: 106px 35px 20px 35px;
+	justify-content: space-between;
+	align-items: center;
+	&__file {
+		width: 0.1px;
+	    height: 0.1px;
+	    opacity: 0;
+	    overflow: hidden;
+	    position: absolute;
+	    z-index: -1;
+	}
+	&__rem {
+		@include font-lucida (#999999,12px,14px);
+	}
+
+	&.is-drugover{
+		border: 1px dashed $clr-purple;
+		  & svg > path {
+		  	fill: $clr-purple;
+		  }
+	}
+}
