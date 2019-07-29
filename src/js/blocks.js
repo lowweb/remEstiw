@@ -147,6 +147,8 @@ function checkboxInit (element, text) {
     });
 };
 
+
+
 checkboxInit ("used-cargo__checkbox", "Бывший в употреблении");
 checkboxInit ("home-cargo__checkbox", "Домашние вещи");
 checkboxInit ("humane-cargo__checkbox", "Гуманитарная помощь");
@@ -200,8 +202,19 @@ checkboxInit ("suppagree3__checkbox", "Дополнительное соглаш
 checkboxInit ("suppagree4__checkbox", "Дополнительное соглашение №4 (Юридические услуги)");
 checkboxInit ("suppagree5__checkbox", "Дополнительное соглашение №5 (ЭОД)");
 checkboxInit ("contrct-iagree-checkbox", "Я согласен с условиями договора и дополнительных соглашений к нему");
-
-
+checkboxInit ("company-checkbox", "Зарегистрировано новое контактное лицо Вашей компании");
+checkboxInit ("company-cap-checkbox", "");
+checkboxInit ("company1-checkbox", "Договор создан");
+checkboxInit ("company2-checkbox", "Дополнительное соглашение создано");
+checkboxInit ("company3-checkbox", "Запущен процесс согласования изменений по договору/дополнению");
+checkboxInit ("company4-checkbox", "Отменён процесс согласования по договору/дополнению");
+checkboxInit ("company5-checkbox", "Завершён процесс согласования изменений по договору");
+checkboxInit ("company6-checkbox", "Изменения к договору/дополнению отправлены вам");
+checkboxInit ("company7-checkbox", "Изменения к договору/дополнению получены персональным экспертом");
+checkboxInit ("company8-checkbox", "Изменения к договору/дополнению одобрено юристом исполнителя");
+checkboxInit ("company9-checkbox", "Изменения к договору/дополнению принято обеими сторонами");
+checkboxInit ("company10-checkbox", "Изменения к договору/дополнению оформлены в виде документа");
+checkboxInit ("company11-checkbox", "Отклонён процесс согласования изменений по договору");
 
 
 
