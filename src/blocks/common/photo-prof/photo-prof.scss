@@ -1,9 +1,4 @@
-// .box__dragndrop,
-// .box__uploading,
-// .box__success,
-// .box__error {
-//   display: none;
-// }
+
 .photo-prof {
 	@include font-lucida ($clr-dark-light,13px,15px);
     background: $clr-grey-v4;
@@ -35,5 +30,38 @@
 		  & svg > path {
 		  	fill: $clr-purple;
 		  }
+	}
+
+	&--wcont {
+		position: relative;
+		box-sizing: border-box;
+		border-radius: 3px;
+		&:hover {
+			.photo-prof__btn-del {
+				display: block;
+			}
+		}
+	}
+
+	&__img {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		height: 286px;
+		width: 286px;
+
+	}
+
+	&__btn-del {
+		display: none;
+		border: none;
+    	cursor: pointer;
+    	height: 26px;
+    	width: 26px;
+    	background-color: transparent;
+    	position: absolute;
+    	right: -13px;
+    	top: -13px;
 	}
 }

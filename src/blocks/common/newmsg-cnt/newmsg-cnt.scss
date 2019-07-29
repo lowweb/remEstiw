@@ -2,16 +2,12 @@
 	border-radius: 100px;
     border: 1px solid #FFFFFF;
     background: #FF6969;
-	@include font-lucida ($clr-white, 10px, normal);
-	    width: auto;
-	    padding: 0 5px;
-	    height: 18px;
-	    align-items: center;
-	    justify-content: center;
-	    display: flex;
-	    margin-left: 4px;
-	    // opacity: 0;
-	    transition: opacity 500ms cubic-bezier(0.4, 0, 1, 1);
+	@include font-lucida ($clr-white, 10px, 18px);
+    width: auto;
+    padding: 0 5px;
+    height: 18px;
+    margin-left: 4px;
+    transition: opacity 500ms cubic-bezier(0.4, 0, 1, 1);
 
 	    &--act {
 	    	opacity: 1;	
