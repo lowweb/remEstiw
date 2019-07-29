@@ -325,6 +325,7 @@ var employees = [{
     "Inn": "123456789012",
     "state": false
 }  ];
+
 function initDataGrid () {
     var dataGrid =  $("#gridContainer").dxDataGrid({
         dataSource: employees,
@@ -842,7 +843,132 @@ var dgRowCount=1;
         showRowLines: true,    
     }).data("dxDataGrid");
 
+//-----------company requisites --------------//
+var companyReq = [{
+    "ID": 1,
+    "Number": "01",
+    "Name": "Азиатско-Тихоокеанский Банк",
+    "Status": "Резидент",
+    "BIKSWF": "123456789", 
+    "RS": "12345678909876543212",
+    "Desk": "",
+},
+{
+    "ID": 2,
+    "Number": "02",
+    "Name": "KOREA EXCHANGE BANK (TOEGYERO BRANCH)",
+    "Status": "Резидент",
+    "BIKSWF": "123456789", 
+    "RS": "12345678909876543212",
+    "Desk": "",
+},
+{
+    "ID": 3,
+    "Number": "03",
+    "Name": "Азиатско-Тихоокеанский Банк",
+    "Status": "Резидент",
+    "BIKSWF": "123456789", 
+    "RS": "12345678909876543212",
+    "Desk": "",
+},
+{
+    "ID": 4,
+    "Number": "04",
+    "Name": "Азиатско-Тихоокеанский Банк",
+    "Status": "Резидент",
+    "BIKSWF": "123456789", 
+    "RS": "12345678909876543212",
+    "Desk": "",
+},
+{
+    "ID": 5,
+    "Number": "05",
+    "Name": "Азиатско-Тихоокеанский Банк",
+    "Status": "Резидент",
+    "BIKSWF": "123456789", 
+    "RS": "12345678909876543212",
+    "Desk": "",
+},
+{
+    "ID": 6,
+    "Number": "06",
+    "Name": "Азиатско-Тихоокеанский Банк",
+    "Status": "Резидент",
+    "BIKSWF": "123456789", 
+    "RS": "12345678909876543212",
+    "Desk": "",
+}
+];
 
+ $("#dataGridCompanyReq").dxDataGrid({
+        dataSource: companyReq,
+        keyExpr: "ID",
+        width: 1550,
+        editing: {
+            // allowDeleting: true,
+            form: null,
+            mode: "row",
+            popup: null,
+            refreshMode: "full",
+            texts: {},
+            useIcons: true
+            },
+        hoverStateEnabled: true,
+        showBorders: true,
+        columns: 
+
+        [{
+            dataField: "Number",
+            caption: "Номер",
+            width: 100
+        },
+        {
+            dataField: "Name",
+            caption: "Наименование банка",
+             width: 343,
+
+            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку, навешиваем элемент radiogroup
+            $('<div class="datagrid__custom-radio-cell">')    //навешиваем  template иницилизируем его как radiogroup
+            .appendTo(cellElement)
+              .append($("<a href='#''>"+cellInfo.data.Name+"</a>"))
+             }, 
+            cssClass: "datagrid__link-cell" //обязательный класс
+        }, 
+        {
+            dataField: "Status",
+            caption: "Статус",
+            width: 266
+         
+        },   
+        {
+            dataField: "BIKSWF",
+            caption: "БИК/SWIFT",
+            width: 194
+        }, 
+        {
+            dataField: "RS",
+            caption: "Расчётный счёт",
+            width: 116
+        }, 
+        {
+            dataField: "Desk",
+            caption: "Описание",
+            width: 129
+        },
+        { 
+            width: 70,
+            cellTemplate: function(cellElement, cellInfo) {   //кнопка удаления
+            $("<button class='btn__rnd--del btn__rnd filelist__btn-del'></button>")    
+            .appendTo(cellElement)
+              .append($("<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14ZM8 9.41421L5.70711 11.7071L4.29289 10.2929L6.58579 8L4.29289 5.70711L5.70711 4.29289L8 6.58579L10.2929 4.29289L11.7071 5.70711L9.41421 8L11.7071 10.2929L10.2929 11.7071L8 9.41421Z' fill='#AAAAAA'/></svg>"))
+             }
+  
+        }],
+        showColumnLines: true,
+        showRowLines: true,    
+    }).data("dxDataGrid");
+
+ //-------------------------------------------------------------//
 
 var s = 123456789;
 var random = function() {
