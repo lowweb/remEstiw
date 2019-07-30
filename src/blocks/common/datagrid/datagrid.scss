@@ -89,7 +89,16 @@
 			margin-top: -2px;
 		}
 	}
+	
+	&--no-filters {
+		& .dx-datagrid-headers {
+			border-bottom: none;
+		}
+	}
 
+	& .dx-master-detail-cell {
+		padding: 10px 0 30px 20px !important;
+	}
 }
 
 .dg{

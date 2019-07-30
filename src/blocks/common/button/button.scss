@@ -145,6 +145,14 @@
 		border-bottom: 1px dashed $clr-blue;
 		margin-right: 8px;
 
+		&--nodash {
+			border-bottom: none;
+
+			&:hover {
+				border-bottom: none !important;
+			}
+		}
+
 		&:hover {
 			border-bottom: 1px dashed $clr-purple;
 		}
@@ -157,6 +165,10 @@
 
 	.app-lnk:hover > &-cap {
     	border-bottom: 1px dashed $clr-purple;
+	}
+
+	.app-lnk:hover > &-cap--nodash {
+    	border-bottom: none;
 	}
 
 

@@ -1,4 +1,54 @@
 <div style="width: 790px;">
-<div id="dataGridCompanyReq" class="datagrid datagrid--remove"></div>
+<div id="dataGridCompanyReq" class="datagrid datagrid--remove datagrid--no-filters"></div>
 </div>
-
+<!-- сделанно через шаблон, для удобства редактирования, нужный кусок html внутри div-а с классом company-req-templ -->
+<div class="company-req-templ" style="display: none;">
+  <div class="block__cont" style="width: 740px;">
+  	<div class="block__row mb20">
+  		<div id="company-req-radio" class="radiogroup"></div>
+  	</div>
+	<div class="block__row block__row--gap20 mb20">
+		<div class="input-field" style="width: 556px;">
+		    <div class="input-field__cont input-field__icn-dropdown pseudoClassSelectBox"></div>
+		    <div class="input-field__label">
+		        <label for="pseudoClassSelectBox__id">Наименование банка:</label> 
+		    </div>        
+		</div>
+  		<div class="input-field" style="width: 164px;">
+		    <div class="input-field__cont pseudoClassTextEditor"></div>
+		    <div class="input-field__label">
+		    	<label for="pseudoElementTextEditor__id">БИК:</label> 
+		    </div>
+		</div>
+  	</div>
+  	<div class="block__row block__row--gap20 mb20">
+  		<div class="input-field">
+		    <div class="input-field__cont pseudoClassTextEditor"></div>
+		    <div class="input-field__label">
+		    	<label for="pseudoElementTextEditor__id">Корреспондентский счёт:</label> 
+		    </div>
+		</div>
+		<div class="input-field">
+		    <div class="input-field__cont pseudoClassTextEditor"></div>
+		    <div class="input-field__label">
+		    	<label for="pseudoElementTextEditor__id">Расчетный счёт:</label> 
+		    </div>
+		</div>
+  	</div>
+  	<div class="block__row block__row--gap20 mb20">
+  		<div class="input-field">
+		    <div class="input-field__cont pseudoClassTextEditor"></div>
+		    <div class="input-field__label">
+		    	<label for="pseudoElementTextEditor__id">Описание:</label> 
+		    </div>
+		</div>
+  	</div>
+  	<div class="block__row mb20">
+  		<div id="company-req-def-checkbox" class="checkbox"></div>
+  	</div>
+  	<div class="block__row">
+		<button class="button purple-button mr20">Сохранить</button>
+		<button class="button basic-button">Отменить</button>
+	</div>
+  </div>
+</div>

@@ -691,8 +691,20 @@ var companyReq = [{
             texts: {},
             useIcons: true
             },
+            selection: {
+            mode: "single"
+        },
         hoverStateEnabled: true,
         showBorders: true,
+        onSelectionChanged: function(e) {
+            e.component.collapseAll(-1);
+            e.component.expandRow(e.currentSelectedRowKeys[0]);
+        },
+        onContentReady: function(e) {
+            if(!e.component.getSelectedRowKeys().length)
+                e.component.selectRowsByIndexes(0);
+            checkboxInit ("company-req-def-checkbox", "Основные реквизиты");
+        },
         columns: 
 
         [{
@@ -740,7 +752,7 @@ var companyReq = [{
         {
             dataField: "Desk",
             caption: "Описание",
-            width: 331
+            width: 329
         },
         { 
             width: 70,
@@ -751,8 +763,32 @@ var companyReq = [{
              }
   
         }],
+        summary: {
+            totalItems: [{
+                    column: "Name"
+                }
+            ]
+        },
+        masterDetail: {
+            enabled: false,
+            template: function(container, options) { 
+                // container.append($('<div class="employeeInfo">hgghg</div>'));
+                return $($('.company-req-templ').html());
+            }
+        },
         showColumnLines: true,
-        showRowLines: true,    
+        showRowLines: true, 
+        //для перерисовки summary
+        onCellPrepared: function(e) {  
+           if (e.rowType == 'totalFooter') {  
+               var summaryItem = e.cellElement.find('.dx-datagrid-summary-item');  
+               if (summaryItem.length > 0) {  
+                   $.each(summaryItem, function(_, item) {  
+                      $(item).html("<button class='btn__rnd btn__rnd--add app-lnk'><span class='btn__rnd-cap btn__rnd-cap--nodash'>Добавить</span><svg width='16' height='16' fill='none' class='svg replaced-svg'><path d='M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16zm0-2A6 6 0 1 0 8 2a6 6 0 0 0 0 12zm1-7h3v2H9v3H7V9H4V7h3V4h2v3z' fill='#0073BE'></path></svg></button>")  
+                   });  
+               }  
+           }  
+        }, 
     }).data("dxDataGrid");
 
  //-------------------------------------------------------------//
