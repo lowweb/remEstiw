@@ -643,11 +643,12 @@ var companyReq = [{
 {
     "ID": 3,
     "Number": "03",
-    "Name": "Азиатско-Тихоокеанский Банк",
+    "Name": "Газпромбанк",
     "Status": "Резидент",
     "BIKSWF": "123456789", 
     "RS": "12345678909876543212",
     "Desk": "",
+    "Def": true,
 },
 {
     "ID": 4,
@@ -681,9 +682,8 @@ var companyReq = [{
  $("#dataGridCompanyReq").dxDataGrid({
         dataSource: companyReq,
         keyExpr: "ID",
-        width: 1550,
+        width: 1392,
         editing: {
-            // allowDeleting: true,
             form: null,
             mode: "row",
             popup: null,
@@ -698,40 +698,49 @@ var companyReq = [{
         [{
             dataField: "Number",
             caption: "Номер",
-            width: 100
+            width: 69,
+            alignment: "center",
         },
         {
             dataField: "Name",
             caption: "Наименование банка",
-             width: 343,
+             width: 366,
 
             cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку, навешиваем элемент radiogroup
-            $('<div class="datagrid__custom-radio-cell">')    //навешиваем  template иницилизируем его как radiogroup
-            .appendTo(cellElement)
-              .append($("<a href='#''>"+cellInfo.data.Name+"</a>"))
+            if (cellInfo.data.Def == true) {
+                $('<div class="datagrid__custom-cell--def">')    //навешиваем  template иницилизируем его как radiogroup
+                .appendTo(cellElement)
+                 .append($("<a href='#''>"+cellInfo.data.Name+"</a>"))
+            }
+            else
+                $('<div class="datagrid__custom-cell">')    //навешиваем  template иницилизируем его как radiogroup
+                 .appendTo(cellElement)
+                 .append($("<a href='#''>"+cellInfo.data.Name+"</a>"))
+
+
              }, 
-            cssClass: "datagrid__link-cell" //обязательный класс
+            cssClass: "datagrid__link-cell--dash" //обязательный класс
         }, 
         {
             dataField: "Status",
             caption: "Статус",
-            width: 266
+            width: 133
          
         },   
         {
             dataField: "BIKSWF",
             caption: "БИК/SWIFT",
-            width: 194
+            width: 163
         }, 
         {
             dataField: "RS",
             caption: "Расчётный счёт",
-            width: 116
+            width: 260
         }, 
         {
             dataField: "Desk",
             caption: "Описание",
-            width: 129
+            width: 331
         },
         { 
             width: 70,

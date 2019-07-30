@@ -45,6 +45,19 @@
 			}
 		}
 	}
+
+	.dx-data-row &__link-cell--dash{ 
+		 a {
+			cursor: pointer;
+			color: $clr-blue;	
+			border-bottom: 1px dashed $clr-blue;
+
+			&:hover{
+				color: $clr-purple;
+				border-bottom: none;
+			}
+		}
+	}
 	
 	& .dx-data-row > td {
 		white-space: normal;
@@ -57,7 +70,25 @@
 	& .dx-datagrid .dx-sort-up:before, & .dx-datagrid .dx-sort-down:before {
      color: $clr-blue; 
 	}
+	
+	& .dx-datagrid .dx-row > td {
+		padding: 15px 10px;
+	}
 
+	&__custom-cell--def {
+		display: flex;
+		&:before {
+			content: "";
+			width: 16px;
+			height: 11px;
+			display: block;
+			border-left: 2px solid $clr-green;
+			border-bottom: 2px solid $clr-green;
+			transform: rotate(-45deg);
+			margin-right: 12px;
+			margin-top: -2px;
+		}
+	}
 
 }
 
