@@ -170,7 +170,16 @@
 	.app-lnk:hover > &-cap--nodash {
     	border-bottom: none;
 	}
-
+	
+	&:disabled {
+		color:$clr-dark-light;
+		fill: $clr-dark-light;
+		cursor: not-allowed;
+		&:hover path{
+			fill: $clr-dark-light;
+		}
+		
+	}
 
 }
 // .button__del-ovl {

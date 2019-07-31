@@ -29,4 +29,4 @@ $("." + classElement).dxSelectBox({
     });
 };
 
-selectBoxInitForClass("pseudoClassSelectBox",[ "значение", "значение", "значенадывжлавдылажвылаие123456789" ],"pseudoNameElementSelectBox__id","input-field__value");
+selectBoxInitForClass("pseudoClassSelectBox",[ "значение", "значение", "значенадывжлавдылажвылаие 123456789" ],"pseudoNameElementSelectBox__id","input-field__value");

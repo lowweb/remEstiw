@@ -638,7 +638,7 @@ var companyReq = [{
     "Status": "Резидент",
     "BIKSWF": "123456789", 
     "RS": "12345678909876543212",
-    "Desk": "",
+    "Desk": "Short description for a ban",
 },
 {
     "ID": 3,
@@ -657,7 +657,7 @@ var companyReq = [{
     "Status": "Резидент",
     "BIKSWF": "123456789", 
     "RS": "12345678909876543212",
-    "Desk": "",
+    "Desk": "Short description for a ban",
 },
 {
     "ID": 5,
@@ -675,14 +675,14 @@ var companyReq = [{
     "Status": "Резидент",
     "BIKSWF": "123456789", 
     "RS": "12345678909876543212",
-    "Desk": "",
+    "Desk": "Short description for a ban",
 }
 ];
 
  $("#dataGridCompanyReq").dxDataGrid({
         dataSource: companyReq,
         keyExpr: "ID",
-        width: 1392,
+        width: "100%",
         editing: {
             form: null,
             mode: "row",
@@ -700,11 +700,12 @@ var companyReq = [{
             e.component.collapseAll(-1);
             e.component.expandRow(e.currentSelectedRowKeys[0]);
         },
-        onContentReady: function(e) {
-            if(!e.component.getSelectedRowKeys().length)
-                e.component.selectRowsByIndexes(0);
-            checkboxInit ("company-req-def-checkbox", "Основные реквизиты");
-        },
+        //показаь detail на первой срочке
+        // onContentReady: function(e) {
+        //     if(!e.component.getSelectedRowKeys().length)
+        //         e.component.selectRowsByIndexes(0);
+        //     checkboxInit ("company-req-def-checkbox", "Основные реквизиты");
+        // },
         columns: 
 
         [{
@@ -718,16 +719,16 @@ var companyReq = [{
             caption: "Наименование банка",
              width: 366,
 
-            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку, навешиваем элемент radiogroup
+            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку
             if (cellInfo.data.Def == true) {
-                $('<div class="datagrid__custom-cell--def">')    //навешиваем  template иницилизируем его как radiogroup
+                $('<div class="datagrid__custom-cell--def">')    //навешиваем  template иницилизируем его 
                 .appendTo(cellElement)
-                 .append($("<a href='#''>"+cellInfo.data.Name+"</a>"))
+                 .append($("<a id='company-req__bank-name' href='#''>"+cellInfo.data.Name+"</a>"))
             }
             else
-                $('<div class="datagrid__custom-cell">')    //навешиваем  template иницилизируем его как radiogroup
+                $('<div class="datagrid__custom-cell">')   
                  .appendTo(cellElement)
-                 .append($("<a href='#''>"+cellInfo.data.Name+"</a>"))
+                 .append($("<a id='company-req__bank-name' href='#''>"+cellInfo.data.Name+"</a>"))
 
 
              }, 
@@ -791,6 +792,190 @@ var companyReq = [{
     }).data("dxDataGrid");
 
  //-------------------------------------------------------------//
+
+
+
+//-----------company users-list --------------//
+var companyUsersList = [{
+    "ID": 1,
+    "Number": "01",
+    "Photo": "img/users-list-ph01.png",
+    "FamalyName": "Константинопольский Константин Константинович",
+    "Name": "Konstantine.Konst",
+    "Position": "Менеджер",
+    "Status": "Резидент",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail@mail.com",
+    "Def": false,
+},
+{
+    "ID": 2,
+    "Number": "02",
+    "Photo": "img/users-list-ph02.png",
+    "FamalyName": "Иванов Иван Петрович (основной пользователь)",
+    "Name": "Konstantine.Konst",
+    "Position": "Менеджер",
+    "Status": "Резидент",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail@mail.com",
+    "Def": false,
+},
+{
+    "ID": 3,
+    "Number": "03",
+    "Photo": "img/users-list-ph03.png",
+    "FamalyName": "Александр Солженицын",
+    "Name": "Konstantine.Konst",
+    "Position": "Менеджер",
+    "Status": "Резидент",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail@mail.com",
+    "Def": false,
+},
+{
+    "ID": 4,
+    "Number": "04",
+    "Photo": "img/users-list-ph04.png",
+    "FamalyName": "Растропович Олег Александрович",
+    "Name": "Konstantine.Konst",
+    "Position": "Менеджер",
+    "Status": "Резидент",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail@mail.com",
+    "Def": false,
+},
+{
+    "ID": 5,
+    "Number": "05",
+    "Photo": "img/users-list-ph05.png",
+    "FamalyName": "Иванов Иван Петрович",
+    "Name": "Konstantine.Konst",
+    "Position": "Менеджер",
+    "Status": "Резидент",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail@mail.com",
+    "Def": true,
+},
+{
+    "ID": 6,
+    "Number": "06",
+    "Photo": "img/users-list-ph06.png",
+    "FamalyName": "Константинопольский Сергей Михаилович",
+    "Name": "Konstantine.Konst",
+    "Position": "Менеджер",
+    "Status": "Резидент",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemailfsdfsdfsfdsfsdfdsfsdfds@mail.com",
+    "Def": false,
+},
+{
+    "ID": 7,
+    "Number": "07",
+    "Photo": "img/users-list-ph07.png",
+    "FamalyName": "Елизавета Николаевна Однофамильцева",
+    "Name": "Konstantine.Konst",
+    "Position": "Менеджер",
+    "Status": "Резидент",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail@mail.com",
+    "Def": false,
+}
+];
+
+ $("#dataGridCompanyUsersList").dxDataGrid({
+        dataSource: companyUsersList,
+        keyExpr: "ID",
+        width: "100%",
+        editing: {
+            form: null,
+            mode: "row",
+            popup: null,
+            refreshMode: "full",
+            texts: {},
+            useIcons: true
+            },
+
+        hoverStateEnabled: true,
+        showBorders: true,
+        columns: 
+
+        [{
+            dataField: "Number",
+            caption: "№",
+            width: 60,
+            alignment: "center",
+        },
+        {
+            dataField: "Photo",
+            caption: "Фото",
+            width: 56,
+            alignment: "center",
+            cellTemplate: function(cellElement, cellInfo) {   //кнопка удаления
+            $("<div class='usr-pic__cont'><img src='" + cellInfo.data.Photo +"'></div>").appendTo(cellElement);
+             }
+        },
+        {
+            dataField: "FamalyName",
+            caption: "ФИО/Обращение",
+             width: 421,
+
+            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку
+            //ячека с зеленой галкой
+            if (cellInfo.data.Def == true) {
+                $('<div class="datagrid__custom-cell--def">')    
+                .appendTo(cellElement)
+                 .append($("<a id='company-req__bank-name' href='#''>"+cellInfo.data.FamalyName+"</a>"))
+            }
+            else
+                $('<div class="datagrid__custom-cell">')    //навешиваем  template иницилизируем его как radiogroup
+                 .appendTo(cellElement)
+                 .append($("<a id='company-req__bank-name' href='#''>"+cellInfo.data.FamalyName+"</a>"))
+
+
+             }, 
+            cssClass: "datagrid__link-cell--dash" //обязательный класс
+        }, 
+        {
+            dataField: "Name",
+            caption: "Имя пользователя",
+            width: 187
+         
+        },   
+        {
+            dataField: "Position",
+            caption: "Должность",
+            width: 130
+        }, 
+        {
+            dataField: "Status",
+            caption: "Статус",
+            width: 113
+        }, 
+        {
+            dataField: "Tel",
+            caption: "Контактный телефон",
+            width: 173
+        },
+        {
+            dataField: "Email",
+            caption: "E-mail",
+            width: 180
+        },
+        { 
+            width: 70,
+            cellTemplate: function(cellElement, cellInfo) {   //кнопка удаления
+            $("<button class='btn__rnd--del btn__rnd filelist__btn-del'></button>")    
+            .appendTo(cellElement)
+              .append($("<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14ZM8 9.41421L5.70711 11.7071L4.29289 10.2929L6.58579 8L4.29289 5.70711L5.70711 4.29289L8 6.58579L10.2929 4.29289L11.7071 5.70711L9.41421 8L11.7071 10.2929L10.2929 11.7071L8 9.41421Z' fill='#AAAAAA'/></svg>"))
+             }
+  
+        }],
+        showColumnLines: true,
+        showRowLines: true, 
+    }).data("dxDataGrid");
+
+ //-------------------------------------------------------------//
+
 
 var s = 123456789;
 var random = function() {

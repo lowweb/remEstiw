@@ -125,11 +125,27 @@
 	&-wsum__summary {
 		border: 1px solid $clr-grey-v2;
 		border-top: none;
-		height: 56px;
+		min-height: 56px;
 		width: 100%;
 		display: flex;
-		align-items: center;
-		padding-left: 68px;
+		flex-wrap: wrap;
+		flex-direction: column;
+
+
+
+		&-row {
+			padding-left: 78px;
+			display: flex;
+			align-items: center;
+			height: 56px;
+
+			&--exp {
+				background-color: #ECF4FA;
+			}
+		}
+		&-cont {
+			padding: 10px 0 30px 20px; 
+		}
 	}
 }
 
