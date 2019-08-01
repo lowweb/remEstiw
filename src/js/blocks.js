@@ -220,6 +220,8 @@ checkboxInit ("company-req-def-checkbox", "Основные реквизиты")
 
 
  
+
+
 //-----------customs-clearance-3agent-modal
 var employees = [{
     "ID": 1,
@@ -901,6 +903,8 @@ var companyReq = [{
 }
 ];
 
+
+var rowIndexCompanyTb={};
  $("#dataGridCompanyReq").dxDataGrid({
         dataSource: companyReq,
         keyExpr: "ID",
@@ -919,15 +923,25 @@ var companyReq = [{
         hoverStateEnabled: true,
         showBorders: true,
         onSelectionChanged: function(e) {
-            e.component.collapseAll(-1);
-            e.component.expandRow(e.currentSelectedRowKeys[0]);
+            // rowIndexCompanyTb = e;
+            // e.component.collapseAll(-1);
+            // e.component.expandRow(e.currentSelectedRowKeys[0]);
         },
-        //показаь detail на первой срочке
-        // onContentReady: function(e) {
+        //запоминаем обьект втаблицы в глобальную переменную
+        onContentReady: function(e) {
+            rowIndexCompanyTb = e;
+          $('.company-req__bank-name').click(function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                rowIndexCompanyTb.component.collapseAll(-1);
+                rowIndexCompanyTb.component.expandRow($(this).attr('data'));
+                console.log(rowIndexCompanyTb);
+                console.log($(this).attr('data'));
+            });
         //     if(!e.component.getSelectedRowKeys().length)
         //         e.component.selectRowsByIndexes(0);
         //     checkboxInit ("company-req-def-checkbox", "Основные реквизиты");
-        // },
+        },
         columns: 
 
         [{
@@ -945,12 +959,12 @@ var companyReq = [{
             if (cellInfo.data.Def == true) {
                 $('<div class="datagrid__custom-cell--def">')    //навешиваем  template иницилизируем его 
                 .appendTo(cellElement)
-                 .append($("<a id='company-req__bank-name' href='#''>"+cellInfo.data.Name+"</a>"))
+                 .append($("<a data=" + cellInfo.rowIndex + " class='company-req__bank-name' href='#''>"+cellInfo.data.Name+"</a>"))
             }
             else
                 $('<div class="datagrid__custom-cell">')   
                  .appendTo(cellElement)
-                 .append($("<a id='company-req__bank-name' href='#''>"+cellInfo.data.Name+"</a>"))
+                 .append($("<a data=" + cellInfo.rowIndex + " class='company-req__bank-name' href='#''>"+cellInfo.data.Name+"</a>"))
 
 
              }, 
@@ -1252,6 +1266,7 @@ $("#gridContainerr").dxDataGrid({
             e.component.option("loadPanel.enabled", false);
         }
     });
+
 
 
     $(".fileUploader").dxFileUploader({

@@ -14,6 +14,7 @@ $('.user-popup-menu__title-pic').click(function(){
 });
 
 
+
 //demo progressbar
 //runProgressBar();
 
