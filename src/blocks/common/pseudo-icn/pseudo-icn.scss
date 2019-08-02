@@ -28,6 +28,13 @@
 
 	}
 
+	&__create{
+		&:before{
+				content: url('#{$imgFolder}icn-create.svg');
+			}
+
+	}
+
 	&__clock-y{
 		&:before{
 				content: url('#{$imgFolder}icn-clock-yellow.svg');
