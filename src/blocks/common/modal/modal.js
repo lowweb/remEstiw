@@ -150,6 +150,13 @@ checkboxInit ("expertise-optionally__dest-checkbox", " В пункте назн�
 checkboxInit ("expertise-optionally__anotherplace-checkbox", "Дополнительно в другом месте");
 };
 
+if ($('.modal').hasClass('modal-company-user-add')) {
+	inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
+	radiogroupInit ("company-personloc-radio",["Резиден", "Не резидент"],"horizontal");
+	checkboxInit ("company-maintel-checkbox", "Основной");
+}
+
+
 };
 
 
@@ -195,7 +202,7 @@ initModal("modal-versions-compare-edit5", 740 , "auto", 'modal__title-templ','mo
 initModal("modal-versions-compare-send", 480 , "auto", 'modal__title-templ','modal__content-templ',"center");	
 initModal("modal-req-start", 470 , "auto", 'modal__title-templ','modal__content-templ',"center");	
 initModal("modal-request-price-wr", 691 , "auto", 'modal__title-templ','modal__content-templ',"center");	
-
+initModal("modal-company-user-add", 790 , "auto", 'modal__title-templ','modal__content-templ',"center");
 
 
 

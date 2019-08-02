@@ -682,7 +682,7 @@ var companyReq = [{
 ];
 
 
-var rowIndexCompanyTb={};
+
  $("#dataGridCompanyReq").dxDataGrid({
         dataSource: companyReq,
         keyExpr: "ID",
@@ -701,27 +701,20 @@ var rowIndexCompanyTb={};
         hoverStateEnabled: true,
         showBorders: true,
         onSelectionChanged: function(e) {
-            // rowIndexCompanyTb = e;
-            // e.component.collapseAll(-1);
-            // e.component.expandRow(e.currentSelectedRowKeys[0]);
+            rowIndexCompanyTb = e;
+            e.component.collapseAll(-1);
+            e.component.expandRow(e.currentSelectedRowKeys[0]);
         },
         //запоминаем обьект втаблицы в глобальную переменную
         onContentReady: function(e) {
-            rowIndexCompanyTb = e;
-          $('.company-req__bank-name').click(function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                rowIndexCompanyTb.component.collapseAll(-1);
-                rowIndexCompanyTb.component.expandRow($(this).attr('data'));
-                console.log(rowIndexCompanyTb);
-                console.log($(this).attr('data'));
-            });
-        //     if(!e.component.getSelectedRowKeys().length)
-        //         e.component.selectRowsByIndexes(0);
-        //     checkboxInit ("company-req-def-checkbox", "Основные реквизиты");
+            // rowIndexCompanyTb = e;
+            //  $('.company-req__bank-name').click(function(e) {
+            //     e.preventDefault();
+            //     e.stopPropagation();
+            //     rowIndexCompanyTb.component.collapseAll(-1);
+            // });
         },
         columns: 
-
         [{
             dataField: "Number",
             caption: "Номер",

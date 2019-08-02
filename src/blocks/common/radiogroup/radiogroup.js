@@ -70,7 +70,6 @@ radiogroupInit ("cargo-escort-reqedit__radio",["По решению исполн
 radiogroupInit ("hbl-reqedit__radio",["Уже выпущен и имеется", "Самостоятельно","Необходимо выпустить","По решению исполнителя","Не нужен"],"horizontal");
 radiogroupInit ("version-compare_hdr__radio",["Показать все параметры, в т.ч. с одинаковыми значениями", "Показать только изменённые, несовпадающие параметры"],"horizontal");
 radiogroupInit ("company-req-radio",["БИК", "SWIFT"],"horizontal");
-
 //нативный radiogroup request-price
 $('input[type="radio"]').on('change', function(e) {
 	// console.log($(this).parent().parent());

@@ -1,0 +1,210 @@
+<div class="modal-company-user-add modal"></div>
+
+<template class="modal__title-templ">
+  <div class='modal__btn-close'>&times;</div>
+  <div class="modal__title">
+    <div class="modal__title-cap mb30">
+      <h2 class="mb30">Добавление нового пользователя</h2>
+      <div id="company-personloc-radio" class="radiogroup"></div>
+    </div>
+    <div class="modal__title-cont--mb12 block__cont">
+      <div class="block__row">
+          <div class="tabs">
+            <ul class="tabs__links">
+            <li class="tabs__link tabs__link--active"><a href="tabs-company-user-add-info" class="">Общая информация</a></li>
+            <li class="tabs__link"><a href="tabs-company-user-add-contacts" class="">Контакты</a></li>
+            <li class="tabs__link"><a href="tabs-company-user-add-passport" class="">Персональные данные</a></li>
+            </ul>
+          </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template class="modal__content-templ">
+  <!-- <div class="scrollView"> -->
+  <div class="modal__view">
+     <div id="tabs-company-user-add-info" class="tabs__cont tabs__cont--active">
+      <div class="modal__subview">
+        <div class="flx-r">
+          <div class="block__cont" style="min-width: 424px;">
+            <div class="block__row">
+              <div class="input-field">
+                  <div class="input-field__cont pseudoClassTextEditor"></div>
+                  <div class="input-field__label">
+                    <label for="pseudoElementTextEditor__id">Имя:</label> 
+                  </div>
+              </div>
+              </div>
+              <div class="block__row">
+              <div class="input-field">
+                  <div class="input-field__cont pseudoClassTextEditor"></div>
+                  <div class="input-field__label">
+                    <label for="pseudoElementTextEditor__id">Отчество:</label> 
+                  </div>
+              </div>
+              </div>
+              <div class="block__row">
+              <div class="input-field">
+                  <div class="input-field__cont pseudoClassTextEditor"></div>
+                  <div class="input-field__label">
+                    <label for="pseudoElementTextEditor__id">Фамилия:</label> 
+                  </div>
+              </div>
+              </div>
+              <div class="block__row">
+              <div class="input-field">
+                  <div class="input-field__cont pseudoClassTextEditor"></div>
+                  <div class="input-field__label">
+                    <label for="pseudoElementTextEditor__id">Занимаемая должность:</label> 
+                  </div>
+              </div>
+              </div>
+              <div class="block__row">
+              <div class="input-field">
+                  <div class="input-field__cont pseudoClassTextEditor"></div>
+                  <div class="input-field__label">
+                    <label for="pseudoElementTextEditor__id">Как к вам обращаться:</label> 
+                  </div>
+              </div>
+              </div>
+              <div class="block__row">
+                <div class="input-field input-field__datebox">
+                    <div id="date-field" class="input-field__cont input-field__icn-calendar"></div>
+                    <div class="input-field__label">
+                      <label for="date-field__id">Дата рождения:</label> 
+                    </div>
+                </div>
+              </div>
+          </div>
+          <div class="block__cont ml30">
+            <div class="input-field">
+                <form class="photo-prof" method="post" action="" enctype="multipart/form-data">
+                <img src="img/photo-upl.svg" class="svg">
+                <div class="photo-prof__input">
+                  <input class="photo-prof__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple />
+                  <div>Перенесите сюда изображение или нажмите <label class="app-dash-lnk" for="file">выбрать</label></div>
+                </div>
+                <div class="photo-prof__rem">максимальные размер 1000px, jpg или png, 2MB</div>
+              </form>
+                <div class="input-field__label">
+                  <label for="date-field__id">Фотография:</label> 
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     </div>     
+
+     <div id="tabs-company-user-add-contacts" class="tabs__cont">
+     <div class="modal__subview"> 
+        <div class="flx-r">
+          <div class="block__cont" style="min-width: 424px;">
+            <div class="block__row block__row--gap20">
+              <div class="input-field">
+                  <div class="input-field__cont pseudoClassTextEditor"></div>
+                  <div class="input-field__label">
+                    <label for="pseudoElementTextEditor__id">Контакнтый телефон:</label> 
+                  </div>
+              </div>
+              <div class="input-field">
+                  <div class="input-field__cont pseudoClassTextEditor"></div>
+                  <div class="input-field__label">
+                    <label for="pseudoElementTextEditor__id">E-mail (основной):</label> 
+                  </div>
+              </div>
+            </div>
+            <div class="block__row block__row--gap20">
+              <div class="input-field">
+                  <div class="input-field__cont pseudoClassTextEditor"></div>
+                  <div class="input-field__label">
+                    <label for="pseudoElementTextEditor__id">Офисный телефон:</label> 
+                  </div>
+                  <div id="company-maintel-checkbox" class="checkbox mt10"></div>
+              </div>
+              <div class="input-field">
+                  <div class="input-field__cont pseudoClassTextEditor"></div>
+                  <div class="input-field__label">
+                    <label for="pseudoElementTextEditor__id">E-mail (дополнительный):</label> 
+                  </div>
+              </div>
+            </div>
+            <div class="block__row" style="width: 360px;">
+              <div class="input-field">
+                  <div class="input-field__cont pseudoClassTextEditor"></div>
+                  <div class="input-field__label">
+                    <label for="pseudoElementTextEditor__id">Домашний телефон:</label> 
+                  </div>
+              </div>
+            </div> 
+          </div>
+     </div> <!-- modal__subview -->
+     </div>
+    </div> <!-- tabs contact -->
+
+     <div id="tabs-company-user-add-passport" class="tabs__cont">
+     <div class="modal__subview"> 
+        <div class="flx-r">
+          <div class="block__cont">
+            <div class="block__row block__row--gap20">
+              <div class="input-field">
+                  <div class="input-field__cont pseudoClassTextEditor"></div>
+                  <div class="input-field__label">
+                    <label for="pseudoElementTextEditor__id">Серия:</label> 
+                  </div>
+              </div>
+              <div class="input-field">
+                  <div class="input-field__cont pseudoClassTextEditor"></div>
+                  <div class="input-field__label">
+                    <label for="pseudoElementTextEditor__id">Номер:</label> 
+                  </div>
+              </div>
+              <div class="input-field input-field__datebox" style="min-width: 266px;">
+                  <div id="date-field" class="input-field__cont input-field__icn-calendar"></div>
+                  <div class="input-field__label">
+                    <label for="date-field__id">Когда выдан:</label> 
+                  </div>
+              </div>
+            </div>
+            <div class="block__row block__row--gap20">
+              <div class="input-field" style="min-width: 424px;">
+                  <div class="input-field__cont pseudoClassTextEditor"></div>
+                  <div class="input-field__label">
+                    <label for="pseudoElementTextEditor__id">Кем выдан:</label> 
+                  </div>
+              </div>
+              <div class="input-field">
+                  <div class="input-field__cont pseudoClassTextEditor"></div>
+                  <div class="input-field__label">
+                    <label for="pseudoElementTextEditor__id">Код подразделения:</label> 
+                  </div>
+              </div>
+            </div>
+            <div class="block__row">
+              <div class="input-field">
+                  <div class="input-field__cont pseudoClassTextEditor"></div>
+                  <div class="input-field__label">
+                    <label for="pseudoElementTextEditor__id">Адрес регистрации:</label> 
+                  </div>
+              </div>        
+            </div>    
+          </div>
+        </div>
+     </div> <!-- modal__subview -->
+     </div> <!-- tabs passport-->
+
+  </div> 
+<!-- </div> -->
+
+
+  <div class="modal__foo">
+    <div class="block__row block__row--gap20">
+      <button class="button basic-button purple-button" role="button" tabindex="0">
+        <div class="dx-button-content">Сохранить</div>
+      </button>
+      <button class="button basic-button" role="button" tabindex="0">
+        <div class="dx-button-content">Отмена</div>
+      </button>
+    </div>
+  </div>
+</template>
