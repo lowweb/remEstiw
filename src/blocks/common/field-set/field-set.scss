@@ -37,15 +37,16 @@
 		.field-set__cargo-ready &{
 			display: flex;
 			flex-direction: column;
-	}
-	&-r {
-		padding: 14px 0 0 0;
-	}
+		}
+		&-r {
+			padding: 14px 0 0 0;
+		}	
 
-	&--rem{
-		flex-wrap: wrap;
-	}
+		&--rem{
+			flex-wrap: wrap;
+		}
 	
+
 
 	}
 
@@ -162,6 +163,10 @@
 		border: 1px solid $clr-green;
 	}
 
-
+	&--dash {
+		border-bottom: 1px dashed $clr-grey-v2;
+		border-bottom-right-radius: 0px;
+		border-bottom-left-radius: 0px;
+	}
 		
 }

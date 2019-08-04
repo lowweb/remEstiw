@@ -65,6 +65,15 @@ color: $clr-dark;
   color: rgba(0, 0, 0, 0.7); 
 }
 
+.ft-common--1416{
+  font-family: Lucida Grande, Tahoma, Arial; 
+  font-style: normal; 
+  font-weight: normal; 
+  line-height: 16px; 
+  font-size: 14px; 
+  color: rgba(0, 0, 0, 0.7); 
+}
+
 .ft-form {
 	font-family: Fira Sans, sans-serif;
 	font-style: normal;
@@ -381,6 +390,10 @@ h2{
 .mt10{
 	margin-top: 10px;
 }	
+
+.mt30 {
+	margin-top: 30px;
+}
 
 .ml10	{
 	margin-left: 10px;
