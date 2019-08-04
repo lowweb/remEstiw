@@ -76,4 +76,11 @@
 			}
 
 	}
+
+	&__case--gr{
+		&:before{
+				content: url('#{$imgFolder}icn-case-gr.svg');
+			}
+
+	}
 }
