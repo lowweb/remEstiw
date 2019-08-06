@@ -72,7 +72,11 @@ radiogroupInit ("version-compare_hdr__radio",["Показать все пара�
 radiogroupInit ("company-req-radio",["БИК", "SWIFT"],"horizontal");
 radiogroupInit ("hbl-app-radio",["Один оригинал", "Два оригинала", "Три оригинала"],"horizontal");
 radiogroupInit ("hbl2-app-radio",["На предъявителя", "Ордерный"],"horizontal");
+radiogroupInit ("hbl3-app-radio",["Уведомить как получатель", "Как отправитель"],"horizontal");
+
 radiogroupInit ("delivery-cond-radio",["Нет поручения как распорядиться", "Собрать", "Выдать"],"horizontal");
+radiogroupInit ("delivery-cond2-radio",["Выдать", "Отправить (куда/кому)"],"horizontal");
+
 
 //нативный radiogroup request-price
 $('input[type="radio"]').on('change', function(e) {
