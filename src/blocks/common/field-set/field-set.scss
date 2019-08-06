@@ -96,6 +96,11 @@
 	    	font-weight: 600;
 	    	margin-right: 5px;
 	    }
+
+	    & > span.field-set__bcap--r {
+			margin-left: 5px;
+			margin-right: 0;
+		}
 	}
 
 	&__type-deal {
@@ -168,5 +173,7 @@
 		border-bottom-right-radius: 0px;
 		border-bottom-left-radius: 0px;
 	}
+
+
 		
 }

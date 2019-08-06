@@ -1,14 +1,17 @@
 
 .dx-datebox-calendar .dx-dropdowneditor-icon:before {
     content: url(#{$imgFolder}input-field__btn-calendar.svg);
+    max-width: 20px;
 }
 
 .dx-datebox-calendar .dx-dropdowneditor-icon:hover::before {
    	 content: url(#{$imgFolder}input-field__btn-calendar--hover.svg);
-     // background-color: unset;
+
     }
 .input-field__icn-calendar .dx-dropdowneditor-icon{
 		background-color: $clr-grey-v4;
+        display: flex;
+        align-items: center;
 	}
 
 .input-field__icn-calendar.dx-dropdowneditor.dx-state-hover .dx-dropdowneditor-icon,

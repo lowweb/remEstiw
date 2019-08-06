@@ -21,8 +21,12 @@
 	    position: absolute;
 	    z-index: -1;
 	}
+	&__input {
+		max-width: 204px;
+	}
 	&__rem {
 		@include font-lucida (#999999,12px,14px);
+		max-width: 182px;
 	}
 
 	&.is-drugover{
