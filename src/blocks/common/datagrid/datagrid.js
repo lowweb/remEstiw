@@ -1070,6 +1070,322 @@ var companyUsersList = [{
 
 //--------------------------------------
 
+
+//--------------- application-view-modal-v2 ------------------
+var address = [{
+    "ID": 1,
+    "Type": "Склад",
+    "Point": "Петропавловск-Камчатский",
+    "Location": "г.Петропавловск-Камчатский, ул. Бассейная, 6"
+},{
+    "ID": 1,
+    "Type": "Офис",
+    "Point": "Махачкала",
+    "Location": "г. Москва, ул. Стрельникова, 12, офис 23"
+},
+{
+    "ID": 1,
+    "Type": "Аэропорт",
+    "Point": "Владивосток",
+    "Location": "г. Москва, ул. Стрельникова, 12, офис 23"
+},
+{
+    "ID": 1,
+    "Type": "Офис",
+    "Point": "Москва",
+    "Location": "г. Москва, ул. Стрельникова, 12, офис 23"
+},
+{
+    "ID": 1,
+    "Type": "Склад",
+    "Point": "Шанхай",
+    "Location": "г. Москва, ул. Стрельникова, 12, офис 23"
+} ];
+
+function initAppViewV2DataGrid () {
+    var dataGrid =  $("#grid-app-view-v2").dxDataGrid({
+        dataSource: address,
+        keyExpr: "ID",
+        selection: {
+            mode: "single"
+        },
+        scrolling: {
+            mode: "virtual"
+        },
+        hoverStateEnabled: true,
+        showBorders: true,
+        columns: 
+
+        [{
+            dataField: "Type",
+            caption: "Тип места",
+            width: 115
+        },
+        {
+            dataField: "Point",
+            caption: "Населённый пункт",
+             width: 277,
+
+            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку, навешиваем элемент radiogroup
+            $('<div class="datagrid__custom-radio-cell">')    //навешиваем  template иницилизируем его как radiogroup
+            .appendTo(cellElement)
+            .dxRadioGroup({ 
+                items: [{id: 1}],
+                valueExpr: 'id',
+                value: cellInfo.data.state ? 1 : null,
+                onValueChanged: function(e) {                    
+                    clearState(dataGrid.option("dataSource"), cellInfo.data.id);
+                    dataGrid.refresh();
+                    }
+                })
+                .append($("<a href='#''>"+cellInfo.data.Point+"</a>"))
+             }, 
+
+            cssClass: "datagrid__link-cell" //обязательный класс
+        }, 
+        {
+            dataField: "Location",
+            caption: "Адрес",
+            width: 416
+         
+        }],
+
+        filterRow: {
+            applyFilter: "auto",
+            applyFilterText: "Apply filter",
+            betweenEndText: "End",
+            betweenStartText: "Start",
+            resetOperationText: "Reset",
+            showAllText: "",
+            showOperationChooser: true,
+            visible: true
+            },
+        showColumnLines: true,
+        showRowLines: true,    
+    }).data("dxDataGrid");
+};
+
+//-------------------------------//
+
+//--------------- application-view-modal-v3 ------------------
+var manager = [{
+    "ID": 1,
+    "Position": "Менеджер",
+    "Name": "Константин Константинопольский",
+    "Tel": "+7 (923) 123 456 78"
+},
+{
+    "ID": 1,
+    "Position": "Менеджер",
+    "Name": "Михаил",
+    "Tel": "+7 (923) 123 456 78, +7 (923) 123 456 78"
+},
+{
+    "ID": 1,
+    "Position": "Менеджер",
+    "Name": "Иванов Иван Иваныч",
+    "Tel": "+7 (923) 123 456 78"
+},
+{
+    "ID": 1,
+    "Position": "Менеджер",
+    "Name": "Константин Константинопольский",
+    "Tel": "+7 (923) 123 456 78"
+},
+{
+    "ID": 1,
+    "Position": "Менеджер",
+    "Name": "Константин Константинопольский",
+    "Tel": "+7 (923) 123 456 78"
+}
+,{
+    "ID": 1,
+    "Position": "Менеджер",
+    "Name": "Екатерина",
+    "Tel": "+7 (923) 123 456 78"
+}];
+
+function initAppViewV3DataGrid () {
+    var dataGrid =  $("#grid-app-view-v3").dxDataGrid({
+        dataSource: manager,
+        keyExpr: "ID",
+        selection: {
+            mode: "single"
+        },
+        scrolling: {
+            mode: "virtual"
+        },
+        hoverStateEnabled: true,
+        showBorders: true,
+        columns: 
+
+        [{
+            dataField: "Position",
+            caption: "Должность",
+            width: 145
+        },
+        {
+            dataField: "Name",
+            caption: "Обращение (ФИО)",
+             width: 313,
+
+            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку, навешиваем элемент radiogroup
+            $('<div class="datagrid__custom-radio-cell">')    //навешиваем  template иницилизируем его как radiogroup
+            .appendTo(cellElement)
+            .dxRadioGroup({ 
+                items: [{id: 1}],
+                valueExpr: 'id',
+                value: cellInfo.data.state ? 1 : null,
+                onValueChanged: function(e) {                    
+                    clearState(dataGrid.option("dataSource"), cellInfo.data.id);
+                    dataGrid.refresh();
+                    }
+                })
+                .append($("<a href='#''>"+cellInfo.data.Name+"</a>"))
+             }, 
+
+            cssClass: "datagrid__link-cell" //обязательный класс
+        }, 
+        {
+            dataField: "Tel",
+            caption: "Контактный телефон",
+            width: 350,
+         
+        }],
+
+        filterRow: {
+            applyFilter: "auto",
+            applyFilterText: "Apply filter",
+            betweenEndText: "End",
+            betweenStartText: "Start",
+            resetOperationText: "Reset",
+            showAllText: "",
+            showOperationChooser: true,
+            visible: true
+            },
+        showColumnLines: true,
+        showRowLines: true,    
+    }).data("dxDataGrid");
+};
+
+//-------------------------------//
+
+//--------------- application-view-modal-v5 ------------------
+var banks = [{
+    "ID": 1,
+    "Name": '"ДЖЕЙ ЭНД ТИ БАНК" (ЗАО)',
+    "Bik": "044583770",
+    "RS": "30101810900000000770",
+    "Status": "Резидент"
+},
+{
+    "ID": 1,
+    "Name": '"ЕДИНЫЙ СТРОИТЕЛЬНЫЙ БАНК" (ООО)',
+    "Bik": "044583770",
+    "RS": "30101810900000000770",
+    "Status": "Резидент"
+},
+{
+    "ID": 1,
+    "Name": '"ЕКАТЕРИНБУРГСКИЙ" ФИЛИАЛ ОАО БАНК ЗЕНИТ',
+    "Bik": "044583770",
+    "RS": "30101810900000000770",
+    "Status": "Резидент"
+},
+{
+    "ID": 1,
+    "Name": '"ДЖЕЙ ЭНД ТИ БАНК" (ЗАО)',
+    "Bik": "044583770",
+    "RS": "30101810900000000770",
+    "Status": "Резидент"
+},
+{
+    "ID": 1,
+    "Name": '"ЕДИНЫЙ СТРОИТЕЛЬНЫЙ БАНК" (ООО)',
+    "Bik": "044583770",
+    "RS": "30101810900000000770",
+    "Status": "Резидент"
+},
+{
+    "ID": 1,
+    "Name": '"ЕКАТЕРИНБУРГСКИЙ" ФИЛИАЛ ОАО БАНК ЗЕНИТ',
+    "Bik": "044583770",
+    "RS": "30101810900000000770",
+    "Status": "Резидент"
+}];
+
+function initAppViewV5DataGrid () {
+    var dataGrid =  $("#grid-app-view-v5").dxDataGrid({
+        dataSource: banks,
+        keyExpr: "ID",
+        selection: {
+            mode: "single"
+        },
+        scrolling: {
+            mode: "virtual"
+        },
+        hoverStateEnabled: true,
+        showBorders: true,
+        columns: 
+
+        [
+        {
+            dataField: "Name",
+            caption: "Наименование банка",
+             width: 470,
+
+            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку, навешиваем элемент radiogroup
+            $('<div class="datagrid__custom-radio-cell">')    //навешиваем  template иницилизируем его как radiogroup
+            .appendTo(cellElement)
+            .dxRadioGroup({ 
+                items: [{id: 1}],
+                valueExpr: 'id',
+                value: cellInfo.data.state ? 1 : null,
+                onValueChanged: function(e) {                    
+                    clearState(dataGrid.option("dataSource"), cellInfo.data.id);
+                    dataGrid.refresh();
+                    }
+                })
+                .append($("<a href='#''>"+cellInfo.data.Name+"</a>"))
+             }, 
+
+            cssClass: "datagrid__link-cell" //обязательный класс
+        },
+        {
+            dataField: "Bik",
+            caption: "БИК/SWIFT",
+            width: 113
+        }, 
+        {
+            dataField: "RS",
+            caption: "Расчётный счет",
+            width: 241
+         
+        },
+        {
+            dataField: "Status",
+            caption: "Статус",
+            width: 157
+         
+        }],
+
+        filterRow: {
+            applyFilter: "auto",
+            applyFilterText: "Apply filter",
+            betweenEndText: "End",
+            betweenStartText: "Start",
+            resetOperationText: "Reset",
+            showAllText: "",
+            showOperationChooser: true,
+            visible: true
+            },
+        showColumnLines: true,
+        showRowLines: true,    
+    }).data("dxDataGrid");
+};
+
+//-------------------------------//
+
 var s = 123456789;
 var random = function() {
     s = (1103515245 * s + 12345) % 2147483647;

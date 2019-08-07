@@ -91,12 +91,13 @@
     min-width: 60px;
 }
 
+
 .dx-datagrid-filter-row > td {
   border-left: 1px solid $clr-grey-v2 !important;
   &:first-child {
     border-left: 0px !important;
   }
-  &:last-child {
+  .datagrid--remove &:last-child {
     border-left: 0px !important;
   }
 }

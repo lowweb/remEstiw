@@ -159,8 +159,15 @@ if ($('.modal').hasClass('modal-company-user-add')) {
 
 if ($('.modal').hasClass('modal-application-view')) {
 	 initDataGrid ();
-	 // inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
-	 // radiogroupInit ("custom-clearence__3agent-radio",["Резидент", "Нерезидент"],"horizontal");
+};
+if ($('.modal').hasClass('modal-application-view-v2')) {
+	 initAppViewV2DataGrid ()
+};
+if ($('.modal').hasClass('modal-application-view-v3')) {
+	 initAppViewV3DataGrid ()
+};
+if ($('.modal').hasClass('modal-application-view-v5')) {
+	 initAppViewV5DataGrid ()
 };
 
 };
@@ -210,7 +217,8 @@ initModal("modal-req-start", 470 , "auto", 'modal__title-templ','modal__content-
 initModal("modal-request-price-wr", 691 , "auto", 'modal__title-templ','modal__content-templ',"center");	
 initModal("modal-company-user-add", 790 , "auto", 'modal__title-templ','modal__content-templ',"center");
 initModal("modal-application-view", 1024 , "80%", 'modal__title-templ','modal__content-templ',"center");
-
-
+initModal("modal-application-view-v2", 860 , "80%", 'modal__title-templ','modal__content-templ',"center");
+initModal("modal-application-view-v3", 860 , "80%", 'modal__title-templ','modal__content-templ',"center");
+initModal("modal-application-view-v5", 1024 , "80%", 'modal__title-templ','modal__content-templ',"center");
 
 

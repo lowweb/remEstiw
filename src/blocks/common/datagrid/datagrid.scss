@@ -1,5 +1,5 @@
 .datagrid {
-	width: 984px;
+	// width: 984px;
 	@include font-lucida ($clr-dark-light, 13px, normal);
 
 	& tr.dx-row-lines.dx-column-lines:nth-child(2n) {

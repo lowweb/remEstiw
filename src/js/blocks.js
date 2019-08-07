@@ -1292,6 +1292,322 @@ var companyUsersList = [{
 
 //--------------------------------------
 
+
+//--------------- application-view-modal-v2 ------------------
+var address = [{
+    "ID": 1,
+    "Type": "Склад",
+    "Point": "Петропавловск-Камчатский",
+    "Location": "г.Петропавловск-Камчатский, ул. Бассейная, 6"
+},{
+    "ID": 1,
+    "Type": "Офис",
+    "Point": "Махачкала",
+    "Location": "г. Москва, ул. Стрельникова, 12, офис 23"
+},
+{
+    "ID": 1,
+    "Type": "Аэропорт",
+    "Point": "Владивосток",
+    "Location": "г. Москва, ул. Стрельникова, 12, офис 23"
+},
+{
+    "ID": 1,
+    "Type": "Офис",
+    "Point": "Москва",
+    "Location": "г. Москва, ул. Стрельникова, 12, офис 23"
+},
+{
+    "ID": 1,
+    "Type": "Склад",
+    "Point": "Шанхай",
+    "Location": "г. Москва, ул. Стрельникова, 12, офис 23"
+} ];
+
+function initAppViewV2DataGrid () {
+    var dataGrid =  $("#grid-app-view-v2").dxDataGrid({
+        dataSource: address,
+        keyExpr: "ID",
+        selection: {
+            mode: "single"
+        },
+        scrolling: {
+            mode: "virtual"
+        },
+        hoverStateEnabled: true,
+        showBorders: true,
+        columns: 
+
+        [{
+            dataField: "Type",
+            caption: "Тип места",
+            width: 115
+        },
+        {
+            dataField: "Point",
+            caption: "Населённый пункт",
+             width: 277,
+
+            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку, навешиваем элемент radiogroup
+            $('<div class="datagrid__custom-radio-cell">')    //навешиваем  template иницилизируем его как radiogroup
+            .appendTo(cellElement)
+            .dxRadioGroup({ 
+                items: [{id: 1}],
+                valueExpr: 'id',
+                value: cellInfo.data.state ? 1 : null,
+                onValueChanged: function(e) {                    
+                    clearState(dataGrid.option("dataSource"), cellInfo.data.id);
+                    dataGrid.refresh();
+                    }
+                })
+                .append($("<a href='#''>"+cellInfo.data.Point+"</a>"))
+             }, 
+
+            cssClass: "datagrid__link-cell" //обязательный класс
+        }, 
+        {
+            dataField: "Location",
+            caption: "Адрес",
+            width: 416
+         
+        }],
+
+        filterRow: {
+            applyFilter: "auto",
+            applyFilterText: "Apply filter",
+            betweenEndText: "End",
+            betweenStartText: "Start",
+            resetOperationText: "Reset",
+            showAllText: "",
+            showOperationChooser: true,
+            visible: true
+            },
+        showColumnLines: true,
+        showRowLines: true,    
+    }).data("dxDataGrid");
+};
+
+//-------------------------------//
+
+//--------------- application-view-modal-v3 ------------------
+var manager = [{
+    "ID": 1,
+    "Position": "Менеджер",
+    "Name": "Константин Константинопольский",
+    "Tel": "+7 (923) 123 456 78"
+},
+{
+    "ID": 1,
+    "Position": "Менеджер",
+    "Name": "Михаил",
+    "Tel": "+7 (923) 123 456 78, +7 (923) 123 456 78"
+},
+{
+    "ID": 1,
+    "Position": "Менеджер",
+    "Name": "Иванов Иван Иваныч",
+    "Tel": "+7 (923) 123 456 78"
+},
+{
+    "ID": 1,
+    "Position": "Менеджер",
+    "Name": "Константин Константинопольский",
+    "Tel": "+7 (923) 123 456 78"
+},
+{
+    "ID": 1,
+    "Position": "Менеджер",
+    "Name": "Константин Константинопольский",
+    "Tel": "+7 (923) 123 456 78"
+}
+,{
+    "ID": 1,
+    "Position": "Менеджер",
+    "Name": "Екатерина",
+    "Tel": "+7 (923) 123 456 78"
+}];
+
+function initAppViewV3DataGrid () {
+    var dataGrid =  $("#grid-app-view-v3").dxDataGrid({
+        dataSource: manager,
+        keyExpr: "ID",
+        selection: {
+            mode: "single"
+        },
+        scrolling: {
+            mode: "virtual"
+        },
+        hoverStateEnabled: true,
+        showBorders: true,
+        columns: 
+
+        [{
+            dataField: "Position",
+            caption: "Должность",
+            width: 145
+        },
+        {
+            dataField: "Name",
+            caption: "Обращение (ФИО)",
+             width: 313,
+
+            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку, навешиваем элемент radiogroup
+            $('<div class="datagrid__custom-radio-cell">')    //навешиваем  template иницилизируем его как radiogroup
+            .appendTo(cellElement)
+            .dxRadioGroup({ 
+                items: [{id: 1}],
+                valueExpr: 'id',
+                value: cellInfo.data.state ? 1 : null,
+                onValueChanged: function(e) {                    
+                    clearState(dataGrid.option("dataSource"), cellInfo.data.id);
+                    dataGrid.refresh();
+                    }
+                })
+                .append($("<a href='#''>"+cellInfo.data.Name+"</a>"))
+             }, 
+
+            cssClass: "datagrid__link-cell" //обязательный класс
+        }, 
+        {
+            dataField: "Tel",
+            caption: "Контактный телефон",
+            width: 350,
+         
+        }],
+
+        filterRow: {
+            applyFilter: "auto",
+            applyFilterText: "Apply filter",
+            betweenEndText: "End",
+            betweenStartText: "Start",
+            resetOperationText: "Reset",
+            showAllText: "",
+            showOperationChooser: true,
+            visible: true
+            },
+        showColumnLines: true,
+        showRowLines: true,    
+    }).data("dxDataGrid");
+};
+
+//-------------------------------//
+
+//--------------- application-view-modal-v5 ------------------
+var banks = [{
+    "ID": 1,
+    "Name": '"ДЖЕЙ ЭНД ТИ БАНК" (ЗАО)',
+    "Bik": "044583770",
+    "RS": "30101810900000000770",
+    "Status": "Резидент"
+},
+{
+    "ID": 1,
+    "Name": '"ЕДИНЫЙ СТРОИТЕЛЬНЫЙ БАНК" (ООО)',
+    "Bik": "044583770",
+    "RS": "30101810900000000770",
+    "Status": "Резидент"
+},
+{
+    "ID": 1,
+    "Name": '"ЕКАТЕРИНБУРГСКИЙ" ФИЛИАЛ ОАО БАНК ЗЕНИТ',
+    "Bik": "044583770",
+    "RS": "30101810900000000770",
+    "Status": "Резидент"
+},
+{
+    "ID": 1,
+    "Name": '"ДЖЕЙ ЭНД ТИ БАНК" (ЗАО)',
+    "Bik": "044583770",
+    "RS": "30101810900000000770",
+    "Status": "Резидент"
+},
+{
+    "ID": 1,
+    "Name": '"ЕДИНЫЙ СТРОИТЕЛЬНЫЙ БАНК" (ООО)',
+    "Bik": "044583770",
+    "RS": "30101810900000000770",
+    "Status": "Резидент"
+},
+{
+    "ID": 1,
+    "Name": '"ЕКАТЕРИНБУРГСКИЙ" ФИЛИАЛ ОАО БАНК ЗЕНИТ',
+    "Bik": "044583770",
+    "RS": "30101810900000000770",
+    "Status": "Резидент"
+}];
+
+function initAppViewV5DataGrid () {
+    var dataGrid =  $("#grid-app-view-v5").dxDataGrid({
+        dataSource: banks,
+        keyExpr: "ID",
+        selection: {
+            mode: "single"
+        },
+        scrolling: {
+            mode: "virtual"
+        },
+        hoverStateEnabled: true,
+        showBorders: true,
+        columns: 
+
+        [
+        {
+            dataField: "Name",
+            caption: "Наименование банка",
+             width: 470,
+
+            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку, навешиваем элемент radiogroup
+            $('<div class="datagrid__custom-radio-cell">')    //навешиваем  template иницилизируем его как radiogroup
+            .appendTo(cellElement)
+            .dxRadioGroup({ 
+                items: [{id: 1}],
+                valueExpr: 'id',
+                value: cellInfo.data.state ? 1 : null,
+                onValueChanged: function(e) {                    
+                    clearState(dataGrid.option("dataSource"), cellInfo.data.id);
+                    dataGrid.refresh();
+                    }
+                })
+                .append($("<a href='#''>"+cellInfo.data.Name+"</a>"))
+             }, 
+
+            cssClass: "datagrid__link-cell" //обязательный класс
+        },
+        {
+            dataField: "Bik",
+            caption: "БИК/SWIFT",
+            width: 113
+        }, 
+        {
+            dataField: "RS",
+            caption: "Расчётный счет",
+            width: 241
+         
+        },
+        {
+            dataField: "Status",
+            caption: "Статус",
+            width: 157
+         
+        }],
+
+        filterRow: {
+            applyFilter: "auto",
+            applyFilterText: "Apply filter",
+            betweenEndText: "End",
+            betweenStartText: "Start",
+            resetOperationText: "Reset",
+            showAllText: "",
+            showOperationChooser: true,
+            visible: true
+            },
+        showColumnLines: true,
+        showRowLines: true,    
+    }).data("dxDataGrid");
+};
+
+//-------------------------------//
+
 var s = 123456789;
 var random = function() {
     s = (1103515245 * s + 12345) % 2147483647;
@@ -1346,6 +1662,72 @@ $("#gridContainerr").dxDataGrid({
         }
     });
 
+
+
+    $(".fileUploader").dxFileUploader({
+        accept:"image/*,*.zip,*.pdf,*.mp4",
+        width: 424,
+	    multiple: true,
+	    allowCanceling: true,
+	    selectButtonText: "нажмите выбрать",
+		showFileList: true,
+		labelText: "Перенесите сюда файл (xls, word, pdf) или",
+		uploadFailedMessage: "dsfs",
+		onUploadStarted: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploaded: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploadError: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
+		},
+		uploadedMessage: "",
+		uploadFailedMessage: "",
+    });
+
+    $(".fileUploader--full").dxFileUploader({
+        accept:"image/*,*.zip,*.pdf,*.mp4",
+	    multiple: true,
+	    allowCanceling: true,
+	    selectButtonText: "нажмите выбрать",
+		showFileList: true,
+		labelText: "Перенесите сюда файл (xls, word, pdf) или",
+		uploadFailedMessage: "dsfs",
+		onUploadStarted: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploaded: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploadError: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
+		},
+		uploadedMessage: "",
+		uploadFailedMessage: "",
+    });
+
+   $(".fileUploader--sm").dxFileUploader({
+        accept:"image/*,*.zip,*.pdf,*.mp4",
+        width: 276,
+	    multiple: true,
+	    allowCanceling: true,
+	    selectButtonText: "нажмите выбрать",
+		showFileList: true,
+		labelText: "Перенесите сюда файл (xls, word, pdf) или",
+		uploadFailedMessage: "dsfs",
+		onUploadStarted: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploaded: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
+		},
+		onUploadError: function () {
+			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
+		},
+		uploadedMessage: "",
+		uploadFailedMessage: "",
+    });
 
 //название запроса
 $("#requestName").dxTextBox({
@@ -1583,8 +1965,15 @@ if ($('.modal').hasClass('modal-company-user-add')) {
 
 if ($('.modal').hasClass('modal-application-view')) {
 	 initDataGrid ();
-	 // inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
-	 // radiogroupInit ("custom-clearence__3agent-radio",["Резидент", "Нерезидент"],"horizontal");
+};
+if ($('.modal').hasClass('modal-application-view-v2')) {
+	 initAppViewV2DataGrid ()
+};
+if ($('.modal').hasClass('modal-application-view-v3')) {
+	 initAppViewV3DataGrid ()
+};
+if ($('.modal').hasClass('modal-application-view-v5')) {
+	 initAppViewV5DataGrid ()
 };
 
 };
@@ -1634,8 +2023,9 @@ initModal("modal-req-start", 470 , "auto", 'modal__title-templ','modal__content-
 initModal("modal-request-price-wr", 691 , "auto", 'modal__title-templ','modal__content-templ',"center");	
 initModal("modal-company-user-add", 790 , "auto", 'modal__title-templ','modal__content-templ',"center");
 initModal("modal-application-view", 1024 , "80%", 'modal__title-templ','modal__content-templ',"center");
-
-
+initModal("modal-application-view-v2", 860 , "80%", 'modal__title-templ','modal__content-templ',"center");
+initModal("modal-application-view-v3", 860 , "80%", 'modal__title-templ','modal__content-templ',"center");
+initModal("modal-application-view-v5", 1024 , "80%", 'modal__title-templ','modal__content-templ',"center");
 
 
 
@@ -1657,6 +2047,22 @@ function numberBoxInit (idElement,idAttrName) {
 numberBoxInit ("pseudoClassNumberBox","pseudoNameElementNumberBox__id");
 
 
+
+var $form = $('.photo-prof');
+
+$form.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  })
+  .on('dragover dragenter', function() {
+    $form.addClass('is-dragover');
+  })
+  .on('dragleave dragend drop', function() {
+    $form.removeClass('is-dragover');
+  })
+  .on('drop', function(e) {
+    droppedFiles = e.originalEvent.dataTransfer.files;
+  });
 $('.progress-bar__step').hover (function(){
 	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
 },
@@ -1839,78 +2245,90 @@ $(function() {
 
     });
 });
-
-    $(".fileUploader").dxFileUploader({
-        accept:"image/*,*.zip,*.pdf,*.mp4",
-        width: 424,
-	    multiple: true,
-	    allowCanceling: true,
-	    selectButtonText: "нажмите выбрать",
-		showFileList: true,
-		labelText: "Перенесите сюда файл (xls, word, pdf) или",
-		uploadFailedMessage: "dsfs",
-		onUploadStarted: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploaded: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploadError: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
-		},
-		uploadedMessage: "",
-		uploadFailedMessage: "",
-    });
-
-    $(".fileUploader--full").dxFileUploader({
-        accept:"image/*,*.zip,*.pdf,*.mp4",
-	    multiple: true,
-	    allowCanceling: true,
-	    selectButtonText: "нажмите выбрать",
-		showFileList: true,
-		labelText: "Перенесите сюда файл (xls, word, pdf) или",
-		uploadFailedMessage: "dsfs",
-		onUploadStarted: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploaded: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploadError: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
-		},
-		uploadedMessage: "",
-		uploadFailedMessage: "",
-    });
-
-   $(".fileUploader--sm").dxFileUploader({
-        accept:"image/*,*.zip,*.pdf,*.mp4",
-        width: 276,
-	    multiple: true,
-	    allowCanceling: true,
-	    selectButtonText: "нажмите выбрать",
-		showFileList: true,
-		labelText: "Перенесите сюда файл (xls, word, pdf) или",
-		uploadFailedMessage: "dsfs",
-		onUploadStarted: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploaded: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hide this el
-		},
-		onUploadError: function () {
-			// $('#fileUploader .dx-fileuploader-input-wrapper').hide(); //hude this el
-		},
-		uploadedMessage: "",
-		uploadFailedMessage: "",
-    });
-
 $('.req-price .app-lnk__clhd').click(function(event) {
 
 	$(this).toggleClass('app-lnk__clhd--opn');
 	$(this).parents('.req-price__list').toggleClass('req-price__list--hide');
 
 });
+$('.spoiler').click(function(event) {
+	$(this).toggleClass('spoiler--show');
+});
+//add consignment block
+
+//реализация добавление блоков на первом шаге. убрали тк по идеи не нужна
+// function cnstCargoCheracter (count) { return "<field-set id='field-set__cargo-cheracter--part"+ count + "' class='field-set field-set__cargo-cheracter'><legend class='field-set__cap'>Характеристики груза</legend><div class='field-set__items'><div id='cargo-cheracter__radioGroup' class='radiogroup'></div></div></field-set>"};
+// function cnstTransportMod (count) { return "<field-set id='field-set__transport-mod--part"+ count + "' class='field-set field-set__transport-mod'><legend class='field-set__cap'>Способ перевозки</legend><div class='field-set__items'><div id='transport-mod__radioGroup' class='radiogroup'></div></div></field-set>"};
+// function cnstSpecialConditions (count) { return "<field-set id='field-set__special-conditions--part"+ count + "' class='field-set field-set__special-conditions'><legend class='field-set__cap'>Особые условия хранения и перевозки</legend><div class='field-set__items'><div id='special-conditions__radioGroup' class='radiogroup'></div></div></field-set>"};
+// function cnstAdditionalCharacter (count) { return "<field-set id='field-set__additional-character--part"+ count + "' class='field-set field-set__additional-character'><legend class='field-set__cap'>Дополнительные характеристики</legend><div class='field-set__items checkbox-items'><div id='danger-cargo__checkbox' class='checkbox'></div><div id='oversize-cargo__checkbox' class='checkbox'></div><div id='humane-cargo__checkbox' class='checkbox'></div><div id='home-cargo__checkbox' class='checkbox'></div><div id='used-cargo__checkbox' class='checkbox'></div></div></field-set>"};
+
+// $(document.body).on('click', '.step-block__sep-btn-add' ,function(){
+// //add del btn to first element
+// 	if ($( ".consignment" ).length == 1 )
+// 		$( ".consignment .step-block__sep").append("<div class='step-block__sep-btn-close'></div>");
+	
+// 	//add content
+// 	var consignmentCount= $( ".consignment" ).length + 1;
+
+// 	$( ".consignment" ).last().after($( "<section class='consignment'><div class='step-block__sep'><h2 class='step-block__sep-cap'>Партия №" + consignmentCount +"</h2><div class='step-block__sep-line'></div><div class='step-block__sep-btn-close'></div> </div></section>" ));
+// 	$( ".consignment").last().append(cnstCargoCheracter(consignmentCount));
+// 	$( ".consignment").last().append(cnstTransportMod(consignmentCount));
+// 	$( ".consignment").last().append(cnstSpecialConditions(consignmentCount));
+// 	$( ".consignment").last().append(cnstAdditionalCharacter(consignmentCount));
+
+// 	var el=$(".consignment #cargo-cheracter__radioGroup").last();
+// 	 	$(el).dxRadioGroup({
+//    	 	   items: cargoCheracterItem
+//    		});
+//    		el=$(".consignment #transport-mod__radioGroup").last();
+// 	 	$(el).dxRadioGroup({
+//    	 	   items: transportModItem
+//    		});
+//    		el=$(".consignment #special-conditions__radioGroup").last();
+// 	 	$(el).dxRadioGroup({
+//    	 	   items: specialConditionsItem
+//    		});
+
+// 	 	el=$(".consignment #danger-cargo__checkbox").last();
+// 	 	$(el).dxCheckBox({
+//        		 text: "Опасный груз",
+//        		 value: false
+//    		 });
+// 	 	el=$(".consignment #oversize-cargo__checkbox").last();
+// 	 	$(el).dxCheckBox({
+//        		text: "Негабаритный",
+//         	value: false
+//    		 });
+
+// 	 	el=$(".consignment #humane-cargo__checkbox").last();
+// 	 	$(el).dxCheckBox({
+//        		 text: "Гуманитарная помощь",
+//        		 value: false,
+//    		 });
+// 	 	el=$(".consignment #home-cargo__checkbox").last();
+// 	 	$(el).dxCheckBox({
+//        		 text: "Домашние вещи",
+//        		 value: false,
+//    		 });
+// 	 	el=$(".consignment #used-cargo__checkbox").last();
+// 	 	$(el).dxCheckBox({
+//        		 text: "Бывший в употреблении",
+//        		 value: false,
+//    		 });
+// });
+
+
+// //del consignment block 
+// $(document.body).on('click', '.step-block__sep-btn-close' ,function(){
+// 	$(this).parent().parent().remove();
+// 	var consignmentElement = document.getElementsByClassName("consignment");
+// 		for(var i=0; i < consignmentElement.length; i++){
+// 			$(consignmentElement[i]).find('.step-block__sep-cap').replaceWith("<h2 class='step-block__sep-cap'>Партия №"+ (i+1) +"</h2>");
+// 		}
+
+// 	if ($( ".consignment" ).length == 1 )
+// 		$( ".consignment .step-block__sep .step-block__sep-btn-close").remove();
+// });
     $(".init-switch").dxSwitch({
         value: false
     });
@@ -2547,25 +2965,25 @@ $('.ver-comp .app-lnk__clhd').click(function(event) {
 	$(this).parents('.ver-comp__bl').toggleClass('ver-comp__bl--hide');
 
 });
+// $(".navbar").scroll (function () {
 
-var $form = $('.photo-prof');
+//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
 
-$form.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-  })
-  .on('dragover dragenter', function() {
-    $form.addClass('is-dragover');
-  })
-  .on('dragleave dragend drop', function() {
-    $form.removeClass('is-dragover');
-  })
-  .on('drop', function(e) {
-    droppedFiles = e.originalEvent.dataTransfer.files;
-  });
-$('.spoiler').click(function(event) {
-	$(this).toggleClass('spoiler--show');
-});
+//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
+//     $(".navbar-ul").addClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-sticky')[0].scrollIntoView(true);
+
+// }  
+// if ( $(this).scrollTop() == 0) {
+
+//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
+//     $(".navbar-ul").removeClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-currency')[0].scrollIntoView(true);
+//  }
+
+//  });
 $('.timezone-popup-menu__title-btn').click(function(){
 // console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
 // if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
@@ -2618,100 +3036,6 @@ function userPopupClose() {
 		$('.app-lnk-disable').toggleClass('app-lnk-disable');
 	}
 }
-// $(".navbar").scroll (function () {
-
-//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
-
-//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
-//     $(".navbar-ul").addClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-sticky')[0].scrollIntoView(true);
-
-// }  
-// if ( $(this).scrollTop() == 0) {
-
-//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
-//     $(".navbar-ul").removeClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-currency')[0].scrollIntoView(true);
-//  }
-
-//  });
-//add consignment block
-
-//реализация добавление блоков на первом шаге. убрали тк по идеи не нужна
-// function cnstCargoCheracter (count) { return "<field-set id='field-set__cargo-cheracter--part"+ count + "' class='field-set field-set__cargo-cheracter'><legend class='field-set__cap'>Характеристики груза</legend><div class='field-set__items'><div id='cargo-cheracter__radioGroup' class='radiogroup'></div></div></field-set>"};
-// function cnstTransportMod (count) { return "<field-set id='field-set__transport-mod--part"+ count + "' class='field-set field-set__transport-mod'><legend class='field-set__cap'>Способ перевозки</legend><div class='field-set__items'><div id='transport-mod__radioGroup' class='radiogroup'></div></div></field-set>"};
-// function cnstSpecialConditions (count) { return "<field-set id='field-set__special-conditions--part"+ count + "' class='field-set field-set__special-conditions'><legend class='field-set__cap'>Особые условия хранения и перевозки</legend><div class='field-set__items'><div id='special-conditions__radioGroup' class='radiogroup'></div></div></field-set>"};
-// function cnstAdditionalCharacter (count) { return "<field-set id='field-set__additional-character--part"+ count + "' class='field-set field-set__additional-character'><legend class='field-set__cap'>Дополнительные характеристики</legend><div class='field-set__items checkbox-items'><div id='danger-cargo__checkbox' class='checkbox'></div><div id='oversize-cargo__checkbox' class='checkbox'></div><div id='humane-cargo__checkbox' class='checkbox'></div><div id='home-cargo__checkbox' class='checkbox'></div><div id='used-cargo__checkbox' class='checkbox'></div></div></field-set>"};
-
-// $(document.body).on('click', '.step-block__sep-btn-add' ,function(){
-// //add del btn to first element
-// 	if ($( ".consignment" ).length == 1 )
-// 		$( ".consignment .step-block__sep").append("<div class='step-block__sep-btn-close'></div>");
-	
-// 	//add content
-// 	var consignmentCount= $( ".consignment" ).length + 1;
-
-// 	$( ".consignment" ).last().after($( "<section class='consignment'><div class='step-block__sep'><h2 class='step-block__sep-cap'>Партия №" + consignmentCount +"</h2><div class='step-block__sep-line'></div><div class='step-block__sep-btn-close'></div> </div></section>" ));
-// 	$( ".consignment").last().append(cnstCargoCheracter(consignmentCount));
-// 	$( ".consignment").last().append(cnstTransportMod(consignmentCount));
-// 	$( ".consignment").last().append(cnstSpecialConditions(consignmentCount));
-// 	$( ".consignment").last().append(cnstAdditionalCharacter(consignmentCount));
-
-// 	var el=$(".consignment #cargo-cheracter__radioGroup").last();
-// 	 	$(el).dxRadioGroup({
-//    	 	   items: cargoCheracterItem
-//    		});
-//    		el=$(".consignment #transport-mod__radioGroup").last();
-// 	 	$(el).dxRadioGroup({
-//    	 	   items: transportModItem
-//    		});
-//    		el=$(".consignment #special-conditions__radioGroup").last();
-// 	 	$(el).dxRadioGroup({
-//    	 	   items: specialConditionsItem
-//    		});
-
-// 	 	el=$(".consignment #danger-cargo__checkbox").last();
-// 	 	$(el).dxCheckBox({
-//        		 text: "Опасный груз",
-//        		 value: false
-//    		 });
-// 	 	el=$(".consignment #oversize-cargo__checkbox").last();
-// 	 	$(el).dxCheckBox({
-//        		text: "Негабаритный",
-//         	value: false
-//    		 });
-
-// 	 	el=$(".consignment #humane-cargo__checkbox").last();
-// 	 	$(el).dxCheckBox({
-//        		 text: "Гуманитарная помощь",
-//        		 value: false,
-//    		 });
-// 	 	el=$(".consignment #home-cargo__checkbox").last();
-// 	 	$(el).dxCheckBox({
-//        		 text: "Домашние вещи",
-//        		 value: false,
-//    		 });
-// 	 	el=$(".consignment #used-cargo__checkbox").last();
-// 	 	$(el).dxCheckBox({
-//        		 text: "Бывший в употреблении",
-//        		 value: false,
-//    		 });
-// });
-
-
-// //del consignment block 
-// $(document.body).on('click', '.step-block__sep-btn-close' ,function(){
-// 	$(this).parent().parent().remove();
-// 	var consignmentElement = document.getElementsByClassName("consignment");
-// 		for(var i=0; i < consignmentElement.length; i++){
-// 			$(consignmentElement[i]).find('.step-block__sep-cap').replaceWith("<h2 class='step-block__sep-cap'>Партия №"+ (i+1) +"</h2>");
-// 		}
-
-// 	if ($( ".consignment" ).length == 1 )
-// 		$( ".consignment .step-block__sep .step-block__sep-btn-close").remove();
-// });
 var cityData = [{
     id: 1,
     name: "Владивосток, Приморский край, Россия",
@@ -2915,6 +3239,10 @@ textAriaInitAutoResize('pseudoClassTextAriaAutoHeight', "auto");
     });
 
   $(".popup__info-newmsg").dxToast("show");
+$('.header-currency__lang').click( function () {
+	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
+	$('.header-currency__lang').toggleClass('header-currency__lang--en');
+});
 //эффект на иконке при hover тк заголовок всегда 1
 $('.navbar__header-link').hover(  
 function(){
@@ -2988,9 +3316,4 @@ $('.navbar__item-header').click(function(){
 	$(this).parents(".navbar__item").find('.navbar__submenu').toggleClass('navbar__submenu--open');
 	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
 
-});
-
-$('.header-currency__lang').click( function () {
-	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
-	$('.header-currency__lang').toggleClass('header-currency__lang--en');
 });

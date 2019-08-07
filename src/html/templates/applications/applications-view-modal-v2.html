@@ -1,0 +1,52 @@
+<div class="modal-application-view-v2 modal"></div>
+
+<template class="modal__title-templ">
+  <div class='modal__btn-close'>&times;</div>
+  <div class="modal__title">
+    <div class="modal__title-cap mb30">
+      <h2>Выберите адрес отправителя МаринТехнолоджис</h2>
+    </div>
+    <div class="modal__title-cont--mb12 block__cont">
+      <div class="block__row">
+          <div class="tabs">
+            <ul class="tabs__links">
+            <li class="tabs__link tabs__link--active"><a href="tabs-application-view-select-list" class="">Выбрать из списка </a></li>
+            <li class="tabs__link"><a href="tabs-application-view-new-address" class="">Ввести новый адрес</a></li>
+            </ul>
+          </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template class="modal__content-templ">
+  <div class="scrollView">
+  <div class="modal__view">
+    
+     <div id="tabs-application-view-select-list" class="tabs__cont tabs__cont--active">
+      <div class="modal__subview">
+       <div id="grid-app-view-v2" class="datagrid"></div>
+      </div>
+     </div>     
+
+     <div id="tabs-application-view-new-address" class="tabs__cont">
+     <div class="modal__subview"> 
+ 
+      </div> <!-- modal__subview -->
+      </div>
+
+  </div> 
+</div>
+
+
+  <div class="modal__foo">
+    <div class="block__row block__row--gap20">
+      <button class="button basic-button purple-button" role="button" tabindex="0">
+        <div class="dx-button-content">Ok</div>
+      </button>
+      <button class="button basic-button" role="button" tabindex="0">
+        <div class="dx-button-content">Отмена</div>
+      </button>
+    </div>
+  </div>
+</template>
