@@ -157,6 +157,12 @@ if ($('.modal').hasClass('modal-company-user-add')) {
 }
 
 
+if ($('.modal').hasClass('modal-application-view')) {
+	 initDataGrid ();
+	 // inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
+	 // radiogroupInit ("custom-clearence__3agent-radio",["Резидент", "Нерезидент"],"horizontal");
+};
+
 };
 
 
@@ -203,7 +209,7 @@ initModal("modal-versions-compare-send", 480 , "auto", 'modal__title-templ','mod
 initModal("modal-req-start", 470 , "auto", 'modal__title-templ','modal__content-templ',"center");	
 initModal("modal-request-price-wr", 691 , "auto", 'modal__title-templ','modal__content-templ',"center");	
 initModal("modal-company-user-add", 790 , "auto", 'modal__title-templ','modal__content-templ',"center");
-
+initModal("modal-application-view", 1024 , "80%", 'modal__title-templ','modal__content-templ',"center");
 
 
 
