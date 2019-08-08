@@ -99,6 +99,16 @@
 	& .dx-master-detail-cell {
 		padding: 10px 0 30px 20px !important;
 	}
+
+	& .dx-datagrid-filter-row .dx-selectbox .dx-texteditor-buttons-container {
+		background: #FFFFFF;
+		border: 1px solid $clr-grey-v2;
+		border-radius: 3px;
+
+		& .dx-dropdowneditor-icon:before {
+			color: $clr-blue;
+		}
+	}
 }
 
 .dg{

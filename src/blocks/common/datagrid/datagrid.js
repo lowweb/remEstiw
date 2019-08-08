@@ -1101,13 +1101,25 @@ var address = [{
     "Point": "Шанхай",
     "Location": "г. Москва, ул. Стрельникова, 12, офис 23"
 } ];
+var selectType = [
+    {
+        "ID": 1,
+        "Name": "Офис"
+    }, {
+        "ID": 2,
+        "Name": "Аэропорт"
+    }, {
+        "ID": 3,
+        "Name": "Склад"
+    }];
+
 
 function initAppViewV2DataGrid () {
     var dataGrid =  $("#grid-app-view-v2").dxDataGrid({
         dataSource: address,
         keyExpr: "ID",
-        selection: {
-            mode: "single"
+        filterRow: {
+            visible: true
         },
         scrolling: {
             mode: "virtual"
@@ -1115,11 +1127,16 @@ function initAppViewV2DataGrid () {
         hoverStateEnabled: true,
         showBorders: true,
         columns: 
-
         [{
             dataField: "Type",
+            lookup: {
+                    dataSource: selectType,
+                    valueExpr: "Name",
+                    displayExpr: "Name"
+                },
             caption: "Тип места",
-            width: 115
+            width: 115,
+
         },
         {
             dataField: "Point",
@@ -1149,17 +1166,6 @@ function initAppViewV2DataGrid () {
             width: 416
          
         }],
-
-        filterRow: {
-            applyFilter: "auto",
-            applyFilterText: "Apply filter",
-            betweenEndText: "End",
-            betweenStartText: "Start",
-            resetOperationText: "Reset",
-            showAllText: "",
-            showOperationChooser: true,
-            visible: true
-            },
         showColumnLines: true,
         showRowLines: true,    
     }).data("dxDataGrid");
@@ -1205,6 +1211,12 @@ var manager = [{
     "Tel": "+7 (923) 123 456 78"
 }];
 
+var selectManager = [
+    {
+        "ID": 1,
+        "Name": "Менеджер"
+    }];
+
 function initAppViewV3DataGrid () {
     var dataGrid =  $("#grid-app-view-v3").dxDataGrid({
         dataSource: manager,
@@ -1222,7 +1234,12 @@ function initAppViewV3DataGrid () {
         [{
             dataField: "Position",
             caption: "Должность",
-            width: 145
+            width: 145,
+            lookup: {
+                    dataSource: selectManager,
+                    valueExpr: "Name",
+                    displayExpr: "Name"
+                },
         },
         {
             dataField: "Name",
@@ -1313,6 +1330,16 @@ var banks = [{
     "RS": "30101810900000000770",
     "Status": "Резидент"
 }];
+var selectRes = [
+    {
+        "ID": 1,
+        "Name": "Резидент"
+    },
+    {
+        "ID": 2,
+        "Name": "Нерезидент"
+    }];
+
 
 function initAppViewV5DataGrid () {
     var dataGrid =  $("#grid-app-view-v5").dxDataGrid({
@@ -1365,8 +1392,12 @@ function initAppViewV5DataGrid () {
         {
             dataField: "Status",
             caption: "Статус",
-            width: 157
-         
+            width: 157,
+            lookup: {
+                    dataSource: selectRes,
+                    valueExpr: "Name",
+                    displayExpr: "Name"
+                }
         }],
 
         filterRow: {
