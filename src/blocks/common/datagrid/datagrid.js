@@ -1416,7 +1416,186 @@ function initAppViewV5DataGrid () {
 };
 
 //-------------------------------//
+//-----------counterparties --------------//
+var counterparties = [{
+    "ID": 1,
+    "Forma": "ООО",
+    "Name": "Экология XXI-Век",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail@mail.com",
+    "Loc": "Владивосток",
+    "INN": "7701583861",
+},
+{
+    "ID": 2,
+    "Forma": "ЗАО",
+    "Name": "Сигма Марин Технолоджи",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very-long@mail.com",
+    "Loc": "Махачкала",
+    "INN": "1234583861",
+},
+{
+    "ID": 1,
+    "Forma": "СОДНТ",
+    "Name": "ТП Альянс Триумф Корпарэйшн",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very@mail.com",
+    "Loc": "Петропавловск-Камчатский",
+    "INN": "3246673861",
+},
+{
+    "ID": 3,
+    "Forma": "ЗАО",
+    "Name": "Сигма Марин Технолоджи",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very-long@mail.com",
+    "Loc": "Махачкала",
+    "INN": "1234583861",
+},
+{
+    "ID": 4,
+    "Forma": "СОДНТ",
+    "Name": "ТП Альянс Триумф Корпарэйшн",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very@mail.com",
+    "Loc": "Петропавловск-Камчатский",
+    "INN": "3246673861",
+},
+{
+    "ID": 5,
+    "Forma": "ЗАО",
+    "Name": "Сигма Марин Технолоджи",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very-long@mail.com",
+    "Loc": "Махачкала",
+    "INN": "1234583861",
+},
+{
+    "ID": 6,
+    "Forma": "СОДНТ",
+    "Name": "ТП Альянс Триумф Корпарэйшн",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very@mail.com",
+    "Loc": "Петропавловск-Камчатский",
+    "INN": "3246673861",
+},
+{
+    "ID": 7,
+    "Forma": "ЗАО",
+    "Name": "Сигма Марин Технолоджи",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very-long@mail.com",
+    "Loc": "Махачкала",
+    "INN": "1234583861",
+},
+{
+    "ID": 8,
+    "Forma": "СОДНТ",
+    "Name": "ТП Альянс Триумф Корпарэйшн",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very@mail.com",
+    "Loc": "Петропавловск-Камчатский",
+    "INN": "3246673861",
+},
+{
+    "ID": 9,
+    "Forma": "ЗАО",
+    "Name": "Сигма Марин Технолоджи",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very-long@mail.com",
+    "Loc": "Махачкала",
+    "INN": "1234583861",
+},
+{
+    "ID": 10,
+    "Forma": "СОДНТ",
+    "Name": "ТП Альянс Триумф Корпарэйшн",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very@mail.com",
+    "Loc": "Петропавловск-Камчатский",
+    "INN": "3246673861",
+},
+];
+//https://js.devexpress.com/Documentation/Guide/Widgets/DataGrid/Columns/Customize_Column_Headers/
+ $("#dataGridСounterparties").dxDataGrid({
+        dataSource: counterparties,
+        keyExpr: "ID",
+        width: "100%",
+        editing: {
+            form: null,
+            mode: "row",
+            popup: null,
+            refreshMode: "full",
+            texts: {},
+            useIcons: true
+            },
 
+        hoverStateEnabled: true,
+        showBorders: true,
+        columns: 
+
+        [{
+            dataField: "Forma",
+            caption: "Форм. собств.",
+            width: 148,
+        },
+        {
+            dataField: "Name",
+            caption: "Наименование контрагента",
+            width: 256,
+            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку
+                $('<div class="datagrid__custom-cell">')    //навешиваем  template иницилизируем его как radiogroup
+                 .appendTo(cellElement)
+                 .append($("<a id='company-req__bank-name' href='#''>"+cellInfo.data.Name+"</a>"))
+             }, 
+            cssClass: "datagrid__link-cell--dash" //обязательный класс
+        },
+         {
+            dataField: "Tel",
+            caption: "Телефон",
+            width: 168
+        },
+        {
+            dataField: "Email",
+            caption: "E-mail",
+            width: 255
+        }, 
+        {
+            dataField: "Loc",
+            caption: "Местоположение",
+            width: 228
+         
+        },   
+        {
+            dataField: "INN",
+            caption: "ИНН",
+            width: 110
+        },  
+        { 
+            width: 70,
+            cellTemplate: function(cellElement, cellInfo) {   //кнопка удаления
+            $("<button class='btn__rnd--del btn__rnd filelist__btn-del'></button>")    
+            .appendTo(cellElement)
+              .append($("<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14ZM8 9.41421L5.70711 11.7071L4.29289 10.2929L6.58579 8L4.29289 5.70711L5.70711 4.29289L8 6.58579L10.2929 4.29289L11.7071 5.70711L9.41421 8L11.7071 10.2929L10.2929 11.7071L8 9.41421Z' fill='#AAAAAA'/></svg>"))
+             }
+  
+        }],
+        filterRow: {
+            applyFilter: "auto",
+            applyFilterText: "Apply filter",
+            betweenEndText: "End",
+            betweenStartText: "Start",
+            resetOperationText: "Reset",
+            showAllText: "",
+            showOperationChooser: true,
+            visible: true
+            },
+        showColumnLines: true,
+        showRowLines: true,
+    }).data("dxDataGrid");
+
+ //-------------------------------------------------------------//
 var s = 123456789;
 var random = function() {
     s = (1103515245 * s + 12345) % 2147483647;
