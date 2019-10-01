@@ -9,7 +9,6 @@ function initButton (Element) {
             });
 };
 
-
 initButton("button");
 
 //button like earth

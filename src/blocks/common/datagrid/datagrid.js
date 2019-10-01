@@ -1517,6 +1517,20 @@ var counterparties = [{
     "INN": "3246673861",
 },
 ];
+
+var selectResCounter = [
+    {
+        "ID": 1,
+        "Name": "ООО"
+    },
+    {
+        "ID": 2,
+        "Name": "ЗАО"
+    },
+    {
+        "ID": 2,
+        "Name": "СОДНТ"
+    }];
 //https://js.devexpress.com/Documentation/Guide/Widgets/DataGrid/Columns/Customize_Column_Headers/
  $("#dataGridСounterparties").dxDataGrid({
         dataSource: counterparties,
@@ -1539,6 +1553,11 @@ var counterparties = [{
             dataField: "Forma",
             caption: "Форм. собств.",
             width: 148,
+            lookup: {
+                    dataSource: selectResCounter,
+                    valueExpr: "Name",
+                    displayExpr: "Name"
+                }
         },
         {
             dataField: "Name",
