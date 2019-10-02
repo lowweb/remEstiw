@@ -156,6 +156,14 @@ if ($('.modal').hasClass('modal-company-user-add')) {
 	checkboxInit ("company-maintel-checkbox", "Основной");
 }
 
+if ($('.modal').hasClass('modal-counterparties-view')) {
+	initСounterpartiesPlaceGrid ();
+	inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
+	radiogroupInit ("counterparties-radio-person",["Резиден", "Не резидент"],"horizontal");
+	
+}
+
+initСounterpartiesPlaceGrid ();
 
 if ($('.modal').hasClass('modal-application-view')) {
 	 initDataGrid ();
@@ -220,5 +228,6 @@ initModal("modal-application-view", 1024 , "80%", 'modal__title-templ','modal__c
 initModal("modal-application-view-v2", 860 , "80%", 'modal__title-templ','modal__content-templ',"center");
 initModal("modal-application-view-v3", 860 , "80%", 'modal__title-templ','modal__content-templ',"center");
 initModal("modal-application-view-v5", 1024 , "80%", 'modal__title-templ','modal__content-templ',"center");
+initModal("modal-counterparties-view", 760 , "80%", 'modal__title-templ','modal__content-templ',"center");
 
 

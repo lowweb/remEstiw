@@ -382,16 +382,16 @@ var requestAllData = [{
             caption: "Дата готовности",
             width: 208
         },
-        { 
-            width: 70,
-            cellTemplate: function(cellElement, cellInfo) {   //кнопка удаления
-            $("<button class='btn__rnd--del btn__rnd filelist__btn-del'></button>")    
-            .appendTo(cellElement)
-              .append($("<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14ZM8 9.41421L5.70711 11.7071L4.29289 10.2929L6.58579 8L4.29289 5.70711L5.70711 4.29289L8 6.58579L10.2929 4.29289L11.7071 5.70711L9.41421 8L11.7071 10.2929L10.2929 11.7071L8 9.41421Z' fill='#AAAAAA'/></svg>"))
-             }
+        // { 
+        //     width: 70,
+        //     cellTemplate: function(cellElement, cellInfo) {   //кнопка удаления
+        //     $("<button class='btn__rnd--del btn__rnd filelist__btn-del'></button>")    
+        //     .appendTo(cellElement)
+        //       .append($("<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14ZM8 9.41421L5.70711 11.7071L4.29289 10.2929L6.58579 8L4.29289 5.70711L5.70711 4.29289L8 6.58579L10.2929 4.29289L11.7071 5.70711L9.41421 8L11.7071 10.2929L10.2929 11.7071L8 9.41421Z' fill='#AAAAAA'/></svg>"))
+        //      }
   
-        }],
-
+        // }],
+],
         filterRow: {
             applyFilter: "auto",
             applyFilterText: "Apply filter",
@@ -1615,6 +1615,108 @@ var selectResCounter = [
     }).data("dxDataGrid");
 
  //-------------------------------------------------------------//
+
+//--------------- counterparties modal ------------------
+var countpartaddress = [{
+    "ID": 1,
+    "Type": "Офис",
+    "Point": "Backaland, Eday",
+    "Location": "105062, г. Москва, Фурманный пер., д.24"
+},{
+    "ID": 2,
+    "Type": "Склад",
+    "Point": "Backaland, Eday",
+    "Location": "109316, г. Москва, Остаповский проезд, д.3, стр.5"
+},
+{
+    "ID": 3,
+    "Type": "Аэропорт",
+    "Point": "Петропавловск-Камчатский",
+    "Location": "123456, г. Петропавловск-Камчатский, д.999. стр. 823 "
+},
+{
+    "ID": 4,
+    "Type": "Склад",
+    "Point": "Backaland, Eday",
+    "Location": "109316, г. Москва, Остаповский проезд, д.3, стр.5"
+},
+{
+    "ID": 5,
+    "Type": "Склад",
+    "Point": "Backaland, Eday",
+    "Location": "105062, г. Москва, Фурманный пер., д.24"
+} ];
+var selectTypePart = [
+    {
+        "ID": 1,
+        "Name": "Офис"
+    }, {
+        "ID": 2,
+        "Name": "Аэропорт"
+    }, {
+        "ID": 3,
+        "Name": "Склад"
+    }];
+
+
+function initСounterpartiesPlaceGrid () {
+     var dataGrid =  $("#dataGridСounterpartiesPlace").dxDataGrid({
+        dataSource: address,
+        keyExpr: "ID",
+        filterRow: {
+            visible: true
+        },
+        scrolling: {
+            mode: "virtual"
+        },
+        hoverStateEnabled: true,
+        showBorders: true,
+        columns: 
+        [{
+            dataField: "Type",
+            lookup: {
+                    dataSource: selectType,
+                    valueExpr: "Name",
+                    displayExpr: "Name"
+                },
+            caption: "Тип места",
+            width: 115,
+
+        },
+        {
+            dataField: "Point",
+            caption: "Населённый пункт",
+             width: 277,
+
+            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку, навешиваем элемент radiogroup
+            $('<div class="datagrid__custom-cell">')    //навешиваем  template иницилизируем его как radiogroup
+               .appendTo(cellElement   )
+                .append($("<a href='#''>"+cellInfo.data.Point+"</a>"))
+             }, 
+
+            cssClass: "datagrid__link-cell--dash" //обязательный класс
+        }, 
+        {
+            dataField: "Location",
+            caption: "Адрес",
+            width: 216
+         
+        },
+        { 
+            width: 70,
+            cellTemplate: function(cellElement, cellInfo) {   //кнопка удаления
+            $("<button class='btn__rnd--del btn__rnd filelist__btn-del'></button>")    
+            .appendTo(cellElement)
+              .append($("<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14ZM8 9.41421L5.70711 11.7071L4.29289 10.2929L6.58579 8L4.29289 5.70711L5.70711 4.29289L8 6.58579L10.2929 4.29289L11.7071 5.70711L9.41421 8L11.7071 10.2929L10.2929 11.7071L8 9.41421Z' fill='#AAAAAA'/></svg>"))
+             }
+  
+        }],
+        showColumnLines: true,
+        showRowLines: true,    
+    }).data("dxDataGrid");
+};
+
+//-------------------------------//
 var s = 123456789;
 var random = function() {
     s = (1103515245 * s + 12345) % 2147483647;
