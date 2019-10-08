@@ -257,6 +257,38 @@ color: $clr-dark;
 
 }
 
+.app-lnk__row-right {
+	cursor: pointer;
+	color: $clr-blue;
+	fill: $clr-blue;
+	display: flex;
+	align-items: center;
+	&:hover {
+		color: $clr-purple;
+		fill: $clr-purple;
+	}
+	.app-lnk__row-right-cp {
+		
+		border-bottom: 1px dashed $clr-blue;
+	
+		&:hover {
+			border-bottom: 1px dashed $clr-purple;
+		}
+
+		&--mr16 {
+			margin-right: 16px;
+		}
+
+	}
+	
+	& > svg {
+		vertical-align: middle;
+	}
+	& > svg, & > svg path{
+			fill: inherit;
+	}
+}
+
 .view::-webkit-scrollbar{
      // display: none;    
 }

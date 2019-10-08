@@ -1416,7 +1416,368 @@ function initAppViewV5DataGrid () {
 };
 
 //-------------------------------//
+//-----------counterparties --------------//
+var counterparties = [{
+    "ID": 1,
+    "Forma": "ООО",
+    "Name": "Экология XXI-Век",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail@mail.com",
+    "Loc": "Владивосток",
+    "INN": "7701583861",
+},
+{
+    "ID": 2,
+    "Forma": "ЗАО",
+    "Name": "Сигма Марин Технолоджи",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very-long@mail.com",
+    "Loc": "Махачкала",
+    "INN": "1234583861",
+},
+{
+    "ID": 3,
+    "Forma": "СОДНТ",
+    "Name": "ТП Альянс Триумф Корпарэйшн",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very@mail.com",
+    "Loc": "Петропавловск-Камчатский",
+    "INN": "3246673861",
+},
+{
+    "ID": 4,
+    "Forma": "ЗАО",
+    "Name": "Сигма Марин Технолоджи",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very-long@mail.com",
+    "Loc": "Махачкала",
+    "INN": "1234583861",
+},
+{
+    "ID": 5,
+    "Forma": "СОДНТ",
+    "Name": "ТП Альянс Триумф Корпарэйшн",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very@mail.com",
+    "Loc": "Петропавловск-Камчатский",
+    "INN": "3246673861",
+},
+{
+    "ID": 6,
+    "Forma": "ЗАО",
+    "Name": "Сигма Марин Технолоджи",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very-long@mail.com",
+    "Loc": "Махачкала",
+    "INN": "1234583861",
+},
+{
+    "ID": 7,
+    "Forma": "СОДНТ",
+    "Name": "ТП Альянс Триумф Корпарэйшн",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very@mail.com",
+    "Loc": "Петропавловск-Камчатский",
+    "INN": "3246673861",
+},
+{
+    "ID": 8,
+    "Forma": "ЗАО",
+    "Name": "Сигма Марин Технолоджи",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very-long@mail.com",
+    "Loc": "Махачкала",
+    "INN": "1234583861",
+},
+{
+    "ID": 9,
+    "Forma": "СОДНТ",
+    "Name": "ТП Альянс Триумф Корпарэйшн",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very@mail.com",
+    "Loc": "Петропавловск-Камчатский",
+    "INN": "3246673861",
+},
+{
+    "ID": 10,
+    "Forma": "ЗАО",
+    "Name": "Сигма Марин Технолоджи",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very-long@mail.com",
+    "Loc": "Махачкала",
+    "INN": "1234583861",
+},
+{
+    "ID": 11,
+    "Forma": "СОДНТ",
+    "Name": "ТП Альянс Триумф Корпарэйшн",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very@mail.com",
+    "Loc": "Петропавловск-Камчатский",
+    "INN": "3246673861",
+},
+];
 
+var selectResCounter = [
+    {
+        "ID": 1,
+        "Name": "ООО"
+    },
+    {
+        "ID": 2,
+        "Name": "ЗАО"
+    },
+    {
+        "ID": 2,
+        "Name": "СОДНТ"
+    }];
+//https://js.devexpress.com/Documentation/Guide/Widgets/DataGrid/Columns/Customize_Column_Headers/
+ $("#dataGridСounterparties").dxDataGrid({
+        dataSource: counterparties,
+        keyExpr: "ID",
+        width: "100%",
+        editing: {
+            form: null,
+            mode: "row",
+            popup: null,
+            refreshMode: "full",
+            texts: {},
+            useIcons: true
+            },
+        hoverStateEnabled: true,
+        showBorders: true,
+        columns: 
+
+        [{
+            dataField: "Forma",
+            caption: "Форм. собств.",
+            width: 148,
+            lookup: {
+                    dataSource: selectResCounter,
+                    valueExpr: "Name",
+                    displayExpr: "Name"
+                }
+        },
+        {
+            dataField: "Name",
+            caption: "Наименование контрагента",
+            width: 256,
+            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку
+                $('<div class="datagrid__custom-cell">')    //навешиваем  template иницилизируем его как radiogroup
+                 .appendTo(cellElement)
+                 .append($("<a id='company-req__bank-name' href='#''>"+cellInfo.data.Name+"</a>"))
+             }, 
+            cssClass: "datagrid__link-cell--dash" //обязательный класс
+        },
+         {
+            dataField: "Tel",
+            caption: "Телефон",
+            width: 168
+        },
+        {
+            dataField: "Email",
+            caption: "E-mail",
+            width: 255
+        }, 
+        {
+            dataField: "Loc",
+            caption: "Местоположение",
+            width: 228
+         
+        },   
+        {
+            dataField: "INN",
+            caption: "ИНН",
+            width: 110
+        },  
+        { 
+            width: 70,
+            cellTemplate: function(cellElement, cellInfo) {   //кнопка удаления
+            $("<button class='btn__rnd--del btn__rnd filelist__btn-del'></button>")    
+            .appendTo(cellElement)
+              .append($("<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14ZM8 9.41421L5.70711 11.7071L4.29289 10.2929L6.58579 8L4.29289 5.70711L5.70711 4.29289L8 6.58579L10.2929 4.29289L11.7071 5.70711L9.41421 8L11.7071 10.2929L10.2929 11.7071L8 9.41421Z' fill='#AAAAAA'/></svg>"))
+             }
+  
+        }],
+        filterRow: {
+            applyFilter: "auto",
+            applyFilterText: "Apply filter",
+            betweenEndText: "End",
+            betweenStartText: "Start",
+            resetOperationText: "Reset",
+            showAllText: "",
+            showOperationChooser: true,
+            visible: true
+            },
+        showColumnLines: true,
+        showRowLines: true,
+    }).data("dxDataGrid");
+
+ //-------------------------------------------------------------//
+
+//--------------- counterparties modal ------------------
+var countpartaddress = [{
+    "ID": 1,
+    "Type": "Офис",
+    "Point": "Backaland, Eday",
+    "Location": "105062, г. Москва, Фурманный пер., д.24"
+},{
+    "ID": 2,
+    "Type": "Склад",
+    "Point": "Backaland, Eday",
+    "Location": "109316, г. Москва, Остаповский проезд, д.3, стр.5"
+},
+{
+    "ID": 3,
+    "Type": "Аэропорт",
+    "Point": "Петропавловск-Камчатский",
+    "Location": "123456, г. Петропавловск-Камчатский, ул. Завойко д.999. стр. 823 "
+},
+{
+    "ID": 4,
+    "Type": "Склад",
+    "Point": "Backaland, Eday",
+    "Location": "109316, г. Москва, Остаповский проезд, д.3, стр.5"
+},
+{
+    "ID": 5,
+    "Type": "Склад",
+    "Point": "Backaland, Eday",
+    "Location": "105062, г. Москва, Фурманный пер., д.24"
+} ];
+var selectTypePart = [
+    {
+        "ID": 1,
+        "Name": "Офис"
+    }, {
+        "ID": 2,
+        "Name": "Аэропорт"
+    }, {
+        "ID": 3,
+        "Name": "Склад"
+    }];
+
+
+function initСounterpartiesPlaceGrid () {
+     var dataGrid =  $("#dataGridСounterpartiesPlace").dxDataGrid({
+        dataSource: countpartaddress ,
+        keyExpr: "ID",
+        filterRow: {
+            visible: true
+        },
+        scrolling: {
+            mode: "virtual"
+        },
+        hoverStateEnabled: true,
+        showBorders: true,
+
+        // for master detail
+        selection: {
+            mode: "single"
+        },
+        onSelectionChanged: function(e) {
+            rowIndexCompanyTb = e;
+            e.component.collapseAll(-1);
+            e.component.expandRow(e.currentSelectedRowKeys[0]);
+        },
+        ///////////////////
+        columns: 
+        [{
+            dataField: "Type",
+            lookup: {
+                    dataSource: selectType,
+                    valueExpr: "Name",
+                    displayExpr: "Name"
+                },
+            caption: "Тип места",
+            width: 134,
+
+        },
+        {
+            dataField: "Location",
+            caption: "Адрес",
+            width: 390,
+            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку, навешиваем элемент radiogroup
+            $('<div class="datagrid__custom-cell">')    //навешиваем  template иницилизируем его как radiogroup
+               .appendTo(cellElement   )
+                .append($("<a href='#''>"+cellInfo.data.Location+"</a>"))
+             }, 
+
+            cssClass: "datagrid__link-cell--dash" //обязательный класс
+        },
+        {
+            dataField: "Point",
+            caption: "Населённый пункт",
+             width: 110
+        }, 
+        { 
+            width: 70,
+            cellTemplate: function(cellElement, cellInfo) {   //кнопка удаления
+            $("<button class='btn__rnd--del btn__rnd filelist__btn-del'></button>")    
+            .appendTo(cellElement)
+              .append($("<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14ZM8 9.41421L5.70711 11.7071L4.29289 10.2929L6.58579 8L4.29289 5.70711L5.70711 4.29289L8 6.58579L10.2929 4.29289L11.7071 5.70711L9.41421 8L11.7071 10.2929L10.2929 11.7071L8 9.41421Z' fill='#AAAAAA'/></svg>"))
+             }
+  
+        }],
+        masterDetail: {
+            enabled: false,
+            template: function(container, options) { 
+                return $($('.counterparties-view-modal-details').html());
+            }
+        },
+        showColumnLines: true,
+        showRowLines: true, 
+        onInitialized: function(e) {
+
+//step для шагов внутри модального окна
+function initModalStepr (contName,nextbtn, prevbtn, dynamCap, curSlide) {
+    console.log ($('.modal__block-item').length);
+    const $stepContainer = $(contName),
+          $steps         = $('.modal__step'),
+          numSteps       = $steps.length,
+          $form          = $('.modal .dx-popup-normal'),
+          $next          = $(nextbtn),
+          $prev          = $(prevbtn);
+
+        var stepWidth = $form.width();
+        var currentSlide = curSlide;
+         // alert ($form.width());
+        $steps.css({ width: stepWidth + "px" });
+        $stepContainer.css("width", stepWidth*numSteps + "px"); 
+
+        animateSlider();    
+
+        function animateSlider() {
+          $stepContainer.css('transform', 'translateX('+ (-stepWidth * currentSlide)+'px)');
+        }
+        console.log($next);     
+        $next.on('click', function(e) {
+            console.log('fsdfs');
+            e.preventDefault(); 
+          if(currentSlide < numSteps-1){
+          currentSlide ++;
+          animateSlider();
+          }
+
+          //если заголовок следующего шага берется из элемента инициируещего
+          if (dynamCap==true)
+          $('.modal__block-back').text($(this).text());
+        });         
+        $prev.on('click', function(e) {
+            console.log('fsdfdsqq');
+          if(currentSlide > 0) {
+            currentSlide --;
+            animateSlider();
+          } 
+        });
+};
+
+            initModalStepr('.modal__step-container-point','.modal__block-item','.modal__block-prev',true,0);
+        }   
+    }).data("dxDataGrid");
+};
+
+//-------------------------------//
 var s = 123456789;
 var random = function() {
     s = (1103515245 * s + 12345) % 2147483647;

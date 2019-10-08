@@ -11,6 +11,7 @@ const gulp= require('gulp'),
       sequence = require('run-sequence'),
       autoprefixer = require('gulp-autoprefixer'),
 	  browserSync = require("browser-sync"),
+      rename = require('gulp-rename'),
 	  reload = browserSync.reload;
 
 // runSequence = require('run-sequence').use(gulp);
@@ -24,7 +25,8 @@ var path = {
         fonts: 'build/fonts/'
     },
     src: {
-        html: 'src/html/*.html',
+        html: ['!src/html/_*.html','src/html/*.html'],
+        htmlall: 'src/html/*.html',
         jsGlobal: 'src/js/app.js',
         js: 'src/blocks/**/*.js',
         style: 'src/blocks/**/*.scss',
@@ -44,11 +46,29 @@ var path = {
 gulp.task('html:build', function () {
      return gulp.src(path.src.html)
         .pipe(rigger())
-        .pipe(gulp.dest(path.build.html)); 
-        // .pipe(reload({stream: true}));
+        .pipe(gulp.dest(path.build.html))
+        .pipe(reload({stream: true}));
         setTimeout(function (cb) {
         cb();
     }, 1000); 
+});
+
+// gulp.task('html:build', function () {
+//     gulp.src(path.src.html)
+//         .pipe(rigger())
+//         .pipe(gulp.dest(path.build.html)); 
+//         .pipe(reload({stream: true})); 
+// });
+
+
+gulp.task('htmlall:build', function () {
+     return gulp.src(path.src.htmlall)
+        .pipe(rigger())
+         .pipe(rename(function(opt) {
+              opt.basename = opt.basename.replace(/^_/, '');
+              return opt;
+        }))
+        .pipe(gulp.dest(path.build.html)); 
 });
 
 
@@ -89,8 +109,8 @@ gulp.task('js:rigger', ['js:cnct'], function () {
         // .pipe(sourcemaps.init()) 
         // .pipe(uglify()) 
         // .pipe(sourcemaps.write())
-        .pipe(gulp.dest(path.build.js)); 
-        // .pipe(reload({stream: true}));       
+        .pipe(gulp.dest(path.build.js)) 
+        .pipe(reload({stream: true}));       
 });
 
 gulp.task ('js:justCopy',function () {
@@ -161,6 +181,15 @@ gulp.task('build', [
     'fonts:build'
 ]);
 
+gulp.task('buildall', [
+    'htmlall:build',
+    // 'js:cnct',
+    'js:build',
+    'style:build',
+    'image:build',
+    'fonts:build'
+]);
+
 gulp.task ('html:refresh' , ['html:build'], function () {
     return browserSync.reload();
 });
@@ -178,7 +207,7 @@ gulp.task('watch', function(){
     // });
 
     watch([path.watch.html], function(event, cb) {
-        gulp.start('html:refresh');
+        gulp.start('html:build');
         
     });
 

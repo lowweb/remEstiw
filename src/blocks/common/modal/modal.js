@@ -1,6 +1,7 @@
 
 //step для шагов внутри модального окна
 function initModalStep (contName,nextbtn, prevbtn, dynamCap, curSlide) {
+	console.log ($('.modal__block-item').length);
 	const $stepContainer = $(contName),
        	  $steps         = $('.modal__step'),
       	  numSteps       = $steps.length,
@@ -21,6 +22,7 @@ function initModalStep (contName,nextbtn, prevbtn, dynamCap, curSlide) {
 		}
 				
 		$next.on('click', function(e) {
+			console.log('fsdfs');
 			e.preventDefault();	
 		  if(currentSlide < numSteps-1){
 		  currentSlide ++;
@@ -32,6 +34,7 @@ function initModalStep (contName,nextbtn, prevbtn, dynamCap, curSlide) {
 		  $('.modal__block-back').text($(this).text());
 		});			
 		$prev.on('click', function(e) {
+			console.log('fsdfdsqq');
 		  if(currentSlide > 0) {
 		    currentSlide --;
 		    animateSlider();
@@ -156,6 +159,15 @@ if ($('.modal').hasClass('modal-company-user-add')) {
 	checkboxInit ("company-maintel-checkbox", "Основной");
 }
 
+if ($('.modal').hasClass('modal-counterparties-view')) {
+	initСounterpartiesPlaceGrid ();
+	inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
+	radiogroupInit ("counterparties-radio-person",["Резиден", "Не резидент"],"horizontal");
+
+	// initModalStep('.modal__step-container-point','.modal__block-item','.modal__block-prev',true,0);
+	
+}
+
 
 if ($('.modal').hasClass('modal-application-view')) {
 	 initDataGrid ();
@@ -220,5 +232,6 @@ initModal("modal-application-view", 1024 , "80%", 'modal__title-templ','modal__c
 initModal("modal-application-view-v2", 860 , "80%", 'modal__title-templ','modal__content-templ',"center");
 initModal("modal-application-view-v3", 860 , "80%", 'modal__title-templ','modal__content-templ',"center");
 initModal("modal-application-view-v5", 1024 , "80%", 'modal__title-templ','modal__content-templ',"center");
+initModal("modal-counterparties-view", 760 , "80%", 'modal__title-templ','modal__content-templ',"center");
 
 
