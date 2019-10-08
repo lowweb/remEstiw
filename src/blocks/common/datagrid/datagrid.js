@@ -382,16 +382,16 @@ var requestAllData = [{
             caption: "Дата готовности",
             width: 208
         },
-        // { 
-        //     width: 70,
-        //     cellTemplate: function(cellElement, cellInfo) {   //кнопка удаления
-        //     $("<button class='btn__rnd--del btn__rnd filelist__btn-del'></button>")    
-        //     .appendTo(cellElement)
-        //       .append($("<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14ZM8 9.41421L5.70711 11.7071L4.29289 10.2929L6.58579 8L4.29289 5.70711L5.70711 4.29289L8 6.58579L10.2929 4.29289L11.7071 5.70711L9.41421 8L11.7071 10.2929L10.2929 11.7071L8 9.41421Z' fill='#AAAAAA'/></svg>"))
-        //      }
+        { 
+            width: 70,
+            cellTemplate: function(cellElement, cellInfo) {   //кнопка удаления
+            $("<button class='btn__rnd--del btn__rnd filelist__btn-del'></button>")    
+            .appendTo(cellElement)
+              .append($("<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14ZM8 9.41421L5.70711 11.7071L4.29289 10.2929L6.58579 8L4.29289 5.70711L5.70711 4.29289L8 6.58579L10.2929 4.29289L11.7071 5.70711L9.41421 8L11.7071 10.2929L10.2929 11.7071L8 9.41421Z' fill='#AAAAAA'/></svg>"))
+             }
   
-        // }],
-],
+        }],
+
         filterRow: {
             applyFilter: "auto",
             applyFilterText: "Apply filter",
@@ -1436,61 +1436,43 @@ var counterparties = [{
     "INN": "1234583861",
 },
 {
-    "ID": 1,
+    "ID": 3,
     "Forma": "СОДНТ",
     "Name": "ТП Альянс Триумф Корпарэйшн",
     "Tel": " +7 923 123 456 78", 
     "Email": "somemail-very@mail.com",
     "Loc": "Петропавловск-Камчатский",
     "INN": "3246673861",
-},
-{
-    "ID": 3,
-    "Forma": "ЗАО",
-    "Name": "Сигма Марин Технолоджи",
-    "Tel": " +7 923 123 456 78", 
-    "Email": "somemail-very-long@mail.com",
-    "Loc": "Махачкала",
-    "INN": "1234583861",
 },
 {
     "ID": 4,
-    "Forma": "СОДНТ",
-    "Name": "ТП Альянс Триумф Корпарэйшн",
+    "Forma": "ЗАО",
+    "Name": "Сигма Марин Технолоджи",
     "Tel": " +7 923 123 456 78", 
-    "Email": "somemail-very@mail.com",
-    "Loc": "Петропавловск-Камчатский",
-    "INN": "3246673861",
+    "Email": "somemail-very-long@mail.com",
+    "Loc": "Махачкала",
+    "INN": "1234583861",
 },
 {
     "ID": 5,
-    "Forma": "ЗАО",
-    "Name": "Сигма Марин Технолоджи",
+    "Forma": "СОДНТ",
+    "Name": "ТП Альянс Триумф Корпарэйшн",
     "Tel": " +7 923 123 456 78", 
-    "Email": "somemail-very-long@mail.com",
-    "Loc": "Махачкала",
-    "INN": "1234583861",
+    "Email": "somemail-very@mail.com",
+    "Loc": "Петропавловск-Камчатский",
+    "INN": "3246673861",
 },
 {
     "ID": 6,
-    "Forma": "СОДНТ",
-    "Name": "ТП Альянс Триумф Корпарэйшн",
+    "Forma": "ЗАО",
+    "Name": "Сигма Марин Технолоджи",
     "Tel": " +7 923 123 456 78", 
-    "Email": "somemail-very@mail.com",
-    "Loc": "Петропавловск-Камчатский",
-    "INN": "3246673861",
+    "Email": "somemail-very-long@mail.com",
+    "Loc": "Махачкала",
+    "INN": "1234583861",
 },
 {
     "ID": 7,
-    "Forma": "ЗАО",
-    "Name": "Сигма Марин Технолоджи",
-    "Tel": " +7 923 123 456 78", 
-    "Email": "somemail-very-long@mail.com",
-    "Loc": "Махачкала",
-    "INN": "1234583861",
-},
-{
-    "ID": 8,
     "Forma": "СОДНТ",
     "Name": "ТП Альянс Триумф Корпарэйшн",
     "Tel": " +7 923 123 456 78", 
@@ -1499,7 +1481,7 @@ var counterparties = [{
     "INN": "3246673861",
 },
 {
-    "ID": 9,
+    "ID": 8,
     "Forma": "ЗАО",
     "Name": "Сигма Марин Технолоджи",
     "Tel": " +7 923 123 456 78", 
@@ -1508,7 +1490,25 @@ var counterparties = [{
     "INN": "1234583861",
 },
 {
+    "ID": 9,
+    "Forma": "СОДНТ",
+    "Name": "ТП Альянс Триумф Корпарэйшн",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very@mail.com",
+    "Loc": "Петропавловск-Камчатский",
+    "INN": "3246673861",
+},
+{
     "ID": 10,
+    "Forma": "ЗАО",
+    "Name": "Сигма Марин Технолоджи",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very-long@mail.com",
+    "Loc": "Махачкала",
+    "INN": "1234583861",
+},
+{
+    "ID": 11,
     "Forma": "СОДНТ",
     "Name": "ТП Альянс Триумф Корпарэйшн",
     "Tel": " +7 923 123 456 78", 
@@ -1544,7 +1544,6 @@ var selectResCounter = [
             texts: {},
             useIcons: true
             },
-
         hoverStateEnabled: true,
         showBorders: true,
         columns: 
@@ -1632,7 +1631,7 @@ var countpartaddress = [{
     "ID": 3,
     "Type": "Аэропорт",
     "Point": "Петропавловск-Камчатский",
-    "Location": "123456, г. Петропавловск-Камчатский, д.999. стр. 823 "
+    "Location": "123456, г. Петропавловск-Камчатский, ул. Завойко д.999. стр. 823 "
 },
 {
     "ID": 4,
@@ -1661,7 +1660,7 @@ var selectTypePart = [
 
 function initСounterpartiesPlaceGrid () {
      var dataGrid =  $("#dataGridСounterpartiesPlace").dxDataGrid({
-        dataSource: address,
+        dataSource: countpartaddress ,
         keyExpr: "ID",
         filterRow: {
             visible: true
@@ -1671,6 +1670,17 @@ function initСounterpartiesPlaceGrid () {
         },
         hoverStateEnabled: true,
         showBorders: true,
+
+        // for master detail
+        selection: {
+            mode: "single"
+        },
+        onSelectionChanged: function(e) {
+            rowIndexCompanyTb = e;
+            e.component.collapseAll(-1);
+            e.component.expandRow(e.currentSelectedRowKeys[0]);
+        },
+        ///////////////////
         columns: 
         [{
             dataField: "Type",
@@ -1680,28 +1690,26 @@ function initСounterpartiesPlaceGrid () {
                     displayExpr: "Name"
                 },
             caption: "Тип места",
-            width: 115,
+            width: 134,
 
+        },
+        {
+            dataField: "Location",
+            caption: "Адрес",
+            width: 390,
+            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку, навешиваем элемент radiogroup
+            $('<div class="datagrid__custom-cell">')    //навешиваем  template иницилизируем его как radiogroup
+               .appendTo(cellElement   )
+                .append($("<a href='#''>"+cellInfo.data.Location+"</a>"))
+             }, 
+
+            cssClass: "datagrid__link-cell--dash" //обязательный класс
         },
         {
             dataField: "Point",
             caption: "Населённый пункт",
-             width: 277,
-
-            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку, навешиваем элемент radiogroup
-            $('<div class="datagrid__custom-cell">')    //навешиваем  template иницилизируем его как radiogroup
-               .appendTo(cellElement   )
-                .append($("<a href='#''>"+cellInfo.data.Point+"</a>"))
-             }, 
-
-            cssClass: "datagrid__link-cell--dash" //обязательный класс
+             width: 110
         }, 
-        {
-            dataField: "Location",
-            caption: "Адрес",
-            width: 216
-         
-        },
         { 
             width: 70,
             cellTemplate: function(cellElement, cellInfo) {   //кнопка удаления
@@ -1711,8 +1719,61 @@ function initСounterpartiesPlaceGrid () {
              }
   
         }],
+        masterDetail: {
+            enabled: false,
+            template: function(container, options) { 
+                return $($('.counterparties-view-modal-details').html());
+            }
+        },
         showColumnLines: true,
-        showRowLines: true,    
+        showRowLines: true, 
+        onInitialized: function(e) {
+
+//step для шагов внутри модального окна
+function initModalStepr (contName,nextbtn, prevbtn, dynamCap, curSlide) {
+    console.log ($('.modal__block-item').length);
+    const $stepContainer = $(contName),
+          $steps         = $('.modal__step'),
+          numSteps       = $steps.length,
+          $form          = $('.modal .dx-popup-normal'),
+          $next          = $(nextbtn),
+          $prev          = $(prevbtn);
+
+        var stepWidth = $form.width();
+        var currentSlide = curSlide;
+         // alert ($form.width());
+        $steps.css({ width: stepWidth + "px" });
+        $stepContainer.css("width", stepWidth*numSteps + "px"); 
+
+        animateSlider();    
+
+        function animateSlider() {
+          $stepContainer.css('transform', 'translateX('+ (-stepWidth * currentSlide)+'px)');
+        }
+        console.log($next);     
+        $next.on('click', function(e) {
+            console.log('fsdfs');
+            e.preventDefault(); 
+          if(currentSlide < numSteps-1){
+          currentSlide ++;
+          animateSlider();
+          }
+
+          //если заголовок следующего шага берется из элемента инициируещего
+          if (dynamCap==true)
+          $('.modal__block-back').text($(this).text());
+        });         
+        $prev.on('click', function(e) {
+            console.log('fsdfdsqq');
+          if(currentSlide > 0) {
+            currentSlide --;
+            animateSlider();
+          } 
+        });
+};
+
+            initModalStepr('.modal__step-container-point','.modal__block-item','.modal__block-prev',true,0);
+        }   
     }).data("dxDataGrid");
 };
 

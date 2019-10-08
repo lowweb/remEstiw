@@ -33,12 +33,12 @@
 	}
 	
 	.dx-data-row &__link-cell{ 
-
 		// white-space: normal;
 
 		 a {
 			cursor: pointer;
-			color: $clr-blue;	
+			color: $clr-blue;
+			// line-height: 21px;	
 
 			&:hover{
 				color: $clr-purple;
@@ -51,6 +51,7 @@
 			cursor: pointer;
 			color: $clr-blue;	
 			border-bottom: 1px dashed $clr-blue;
+			line-height: 21px;
 
 			&:hover{
 				color: $clr-purple;
@@ -101,6 +102,11 @@
 
 	& .dx-master-detail-cell {
 		padding: 10px 0 30px 20px !important;
+		background-color: #ffffff !important;
+	}
+
+	& &__master-detail {
+		padding: 10px 30px 0px 0px;
 	}
 
 	& .dx-datagrid-filter-row .dx-selectbox .dx-texteditor-buttons-container {

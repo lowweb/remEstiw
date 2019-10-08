@@ -46,15 +46,34 @@
      </div>     
 
      <div id="tabs-counterparties-general-place" class="tabs__cont">
-     <div class="modal__subview"> 
-      <div id="dataGridСounterpartiesPlace" class="datagrid--remove"></div>
-        <!-- <div id="dataGridСounterpartiesPlace" class="datagrid--remove datagrid--no-filters"></div> -->
-      </div> <!-- modal__subview -->
+      <div class='modal__step-container modal__step-container-point'>
+        <div class='modal__step'>
+         <div class="modal__view modal__subview"> 
+
+          <div id="dataGridСounterpartiesPlace" class="datagrid datagrid--remove"></div>
+            <!-- <div id="dataGridСounterpartiesPlace" class="datagrid--remove datagrid--no-filters"></div> -->
+          </div> <!-- modal__subview -->
+        </div>
+
+        <div class='modal__step'>
+         <div class='modal__block-cap'>
+           <img src="img/modal-city--next-btn.svg" class="modal__block-prev svg">
+            <a class='modal__block-back'>Восстановление пароля </a>
+         </div>
+          <div class="modal__view modal__subview">
+            rferferferferfre
+           </div>
+         </div>
+       </div>
       </div>
 
   </div> 
 </div>
-
+  <div class="dg-wsum__summary">
+    <div class="dg-wsum__summary-row" style="padding-left:155px;">
+      <button class='btn__rnd btn__rnd--add app-lnk'><span class='btn__rnd-cap btn__rnd-cap--nodash'>Добавить</span><img src="img/btn__rnd-sm--add.svg" class="svg"></button>
+    </div>
+  </div>
 
   <div class="modal__foo">
     <div class="block__row block__row--gap20">
@@ -67,3 +86,58 @@
     </div>
   </div>
 </template>
+
+<!-- сделанно через шаблон, для удобства редактирования, нужный кусок html внутри div-а с классом company-req-templ -->
+<div class="counterparties-view-modal-details" style="display: none;">
+  <div class="block__cont datagrid__master-detail">
+              <!-- <ul class='modal__block-items'>
+            <li id="123" class='modal__block-item'><a class='modal__block-tx'>Россия</a></li>
+           </ul> -->
+  <div class="block__row block__row--gap20">
+    <div class="input-field" style="width: 256px;">
+      <div class="input-field__cont pseudoClassTextEditor"></div>
+      <div class="input-field__label">
+        <label for="pseudoElementTextEditor__id">Тип места:</label> 
+      </div>
+    </div>
+    <div class="input-field">
+        <div id="" class="input-field__cont input-field__city"></div>
+        <div class="input-field__btn">
+            <img src="/img/btn__earth.svg" class="svg">
+        </div>
+        <div class="input-field__label">
+            <label for="city-btn__id">Населённый пункт:</label> 
+        </div>
+    </div>  
+    </div>
+
+    <div class="block__row block__row--gapb30">
+      <div class="input-field">
+        <div class="input-field__cont pseudoClassTextEditor"></div>
+        <div class="input-field__label">
+          <label for="pseudoElementTextEditor__id">Почтовый адрес (фактический):</label> 
+        </div>
+    </div>
+    </div>
+
+    <div class="block__row">
+      <div>Контактные лица:</div>
+    </div>
+
+    <div class="block__row">
+      <ul class='modal__block-items'>
+        <li class='modal__block-item modal__block-item--ml17'><a class='modal__block-tx'><span>Россия</span></a></li>
+        <li class='modal__block-item modal__block-item--ml17'><a class='modal__block-tx'>Китай (КНР)</a></li>
+        <li class='modal__block-item modal__block-item--ml17'><a class='modal__block-tx'>Республика Корея</a></li>
+      </ul>
+     <!--  <div class='modal__block-items'>
+            <div id="123" class=''><a class='modal__block-tx'>Олег Пастухов</a></div>
+        </div> -->
+      <!-- <a id="modal__agree-lnk" class="modal__dash-lnk app-dash-lnk">Олег Пастухов</a> -->
+    </div>
+    <div class="block__row">
+    <button class="button purple-button mr20">Сохранить</button>
+    <button class="button basic-button">Отменить</button>
+  </div>
+  </div>
+</div>

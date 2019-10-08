@@ -1,6 +1,7 @@
 
 //step для шагов внутри модального окна
 function initModalStep (contName,nextbtn, prevbtn, dynamCap, curSlide) {
+	console.log ($('.modal__block-item').length);
 	const $stepContainer = $(contName),
        	  $steps         = $('.modal__step'),
       	  numSteps       = $steps.length,
@@ -21,6 +22,7 @@ function initModalStep (contName,nextbtn, prevbtn, dynamCap, curSlide) {
 		}
 				
 		$next.on('click', function(e) {
+			console.log('fsdfs');
 			e.preventDefault();	
 		  if(currentSlide < numSteps-1){
 		  currentSlide ++;
@@ -32,6 +34,7 @@ function initModalStep (contName,nextbtn, prevbtn, dynamCap, curSlide) {
 		  $('.modal__block-back').text($(this).text());
 		});			
 		$prev.on('click', function(e) {
+			console.log('fsdfdsqq');
 		  if(currentSlide > 0) {
 		    currentSlide --;
 		    animateSlider();
@@ -160,10 +163,11 @@ if ($('.modal').hasClass('modal-counterparties-view')) {
 	initСounterpartiesPlaceGrid ();
 	inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
 	radiogroupInit ("counterparties-radio-person",["Резиден", "Не резидент"],"horizontal");
+
+	// initModalStep('.modal__step-container-point','.modal__block-item','.modal__block-prev',true,0);
 	
 }
 
-initСounterpartiesPlaceGrid ();
 
 if ($('.modal').hasClass('modal-application-view')) {
 	 initDataGrid ();

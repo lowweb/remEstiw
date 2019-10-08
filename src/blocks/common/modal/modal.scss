@@ -138,6 +138,13 @@
                }
           }
 
+          &-item--ml17 {
+            height: 33px;
+            font-size: 14px;
+            line-height: 16px;
+            border-bottom: none;
+          }
+
           &-tx {
               width: 100%;
               height: 100%;
@@ -153,7 +160,13 @@
                 content: url(#{$imgFolder}modal-city--next-btn--hov.svg);
              }
           }
-
+          &-item--ml17 &-tx {
+            width: auto;
+            &:after {
+              margin-left: 16px;  
+            }
+            
+          }
         &-prev {
           transform: rotate(180deg);
           margin-right: 18px;
