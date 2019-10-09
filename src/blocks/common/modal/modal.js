@@ -1,7 +1,6 @@
 
 //step для шагов внутри модального окна
 function initModalStep (contName,nextbtn, prevbtn, dynamCap, curSlide) {
-	console.log ($('.modal__block-item').length);
 	const $stepContainer = $(contName),
        	  $steps         = $('.modal__step'),
       	  numSteps       = $steps.length,
@@ -22,7 +21,6 @@ function initModalStep (contName,nextbtn, prevbtn, dynamCap, curSlide) {
 		}
 				
 		$next.on('click', function(e) {
-			console.log('fsdfs');
 			e.preventDefault();	
 		  if(currentSlide < numSteps-1){
 		  currentSlide ++;
@@ -34,7 +32,6 @@ function initModalStep (contName,nextbtn, prevbtn, dynamCap, curSlide) {
 		  $('.modal__block-back').text($(this).text());
 		});			
 		$prev.on('click', function(e) {
-			console.log('fsdfdsqq');
 		  if(currentSlide > 0) {
 		    currentSlide --;
 		    animateSlider();

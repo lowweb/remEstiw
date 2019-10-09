@@ -1722,58 +1722,17 @@ function initСounterpartiesPlaceGrid () {
         masterDetail: {
             enabled: false,
             template: function(container, options) { 
-                return $($('.counterparties-view-modal-details').html());
+                return  $($('#counterparties-view-modal-details').html()); 
             }
+        },
+
+        onRowExpanded: function () {
+            inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
+            autocompleteInitClass ("input-field__city","input-field__city-id","input-field__value");
+            initModalStep('.modal__step-container-point','.app-lnk__row-right','.modal__block-prev',true,0);
         },
         showColumnLines: true,
         showRowLines: true, 
-        onInitialized: function(e) {
-
-//step для шагов внутри модального окна
-function initModalStepr (contName,nextbtn, prevbtn, dynamCap, curSlide) {
-    console.log ($('.modal__block-item').length);
-    const $stepContainer = $(contName),
-          $steps         = $('.modal__step'),
-          numSteps       = $steps.length,
-          $form          = $('.modal .dx-popup-normal'),
-          $next          = $(nextbtn),
-          $prev          = $(prevbtn);
-
-        var stepWidth = $form.width();
-        var currentSlide = curSlide;
-         // alert ($form.width());
-        $steps.css({ width: stepWidth + "px" });
-        $stepContainer.css("width", stepWidth*numSteps + "px"); 
-
-        animateSlider();    
-
-        function animateSlider() {
-          $stepContainer.css('transform', 'translateX('+ (-stepWidth * currentSlide)+'px)');
-        }
-        console.log($next);     
-        $next.on('click', function(e) {
-            console.log('fsdfs');
-            e.preventDefault(); 
-          if(currentSlide < numSteps-1){
-          currentSlide ++;
-          animateSlider();
-          }
-
-          //если заголовок следующего шага берется из элемента инициируещего
-          if (dynamCap==true)
-          $('.modal__block-back').text($(this).text());
-        });         
-        $prev.on('click', function(e) {
-            console.log('fsdfdsqq');
-          if(currentSlide > 0) {
-            currentSlide --;
-            animateSlider();
-          } 
-        });
-};
-
-            initModalStepr('.modal__step-container-point','.modal__block-item','.modal__block-prev',true,0);
-        }   
     }).data("dxDataGrid");
 };
 

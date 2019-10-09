@@ -88,11 +88,8 @@
 </template>
 
 <!-- сделанно через шаблон, для удобства редактирования, нужный кусок html внутри div-а с классом company-req-templ -->
-<div class="counterparties-view-modal-details" style="display: none;">
+<template id="counterparties-view-modal-details">
   <div class="block__cont datagrid__master-detail">
-              <!-- <ul class='modal__block-items'>
-            <li id="123" class='modal__block-item'><a class='modal__block-tx'>Россия</a></li>
-           </ul> -->
   <div class="block__row block__row--gap20">
     <div class="input-field" style="width: 256px;">
       <div class="input-field__cont pseudoClassTextEditor"></div>
@@ -131,11 +128,11 @@
           <img src="/img/icn-next-arrow.svg" class="svg">
         </li>
         <li class="app-lnk__row-right">
-          <div class="app-lnk__row-right-cp app-lnk__row-right-cp--mr16">Контрагент 1</div>
+          <div class="app-lnk__row-right-cp app-lnk__row-right-cp--mr16">Контрагент 2</div>
           <img src="/img/icn-next-arrow.svg" class="svg">
         </li>
         <li class="app-lnk__row-right">
-          <div class="app-lnk__row-right-cp app-lnk__row-right-cp--mr16">Контрагент 1</div>
+          <div class="app-lnk__row-right-cp app-lnk__row-right-cp--mr16">Контрагент 3</div>
           <img src="/img/icn-next-arrow.svg" class="svg">
         </li>
       </ul>
@@ -150,4 +147,4 @@
     <button class="button basic-button">Отменить</button>
   </div>
   </div>
-</div>
+</template>

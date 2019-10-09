@@ -120,7 +120,6 @@ function initButton (Element) {
             });
 };
 
-
 initButton("button");
 
 //button like earth
@@ -140,6 +139,86 @@ $('#footer__button-save').dxButton({
                 }
             });
      
+function checkboxInit (element, text) {
+    $("[id="+element+"]").dxCheckBox({
+        text: text,
+        value: false,
+    });
+};
+
+
+
+checkboxInit ("used-cargo__checkbox", "Бывший в употреблении");
+checkboxInit ("home-cargo__checkbox", "Домашние вещи");
+checkboxInit ("humane-cargo__checkbox", "Гуманитарная помощь");
+checkboxInit ("oversize-cargo__checkbox", "Негабаритный");
+checkboxInit ("danger-cargo__checkbox", "Опасный груз");
+checkboxInit ("law-cargo__checkbox", "Юридическое сопровождение (ваши интересы в суде)");
+checkboxInit ("bay-cargo__checkbox", "Купить");
+checkboxInit ("deliver-cargo__checkbox", "Доставить груз");
+checkboxInit ("safer__checkbox", "Надежнёе");
+checkboxInit ("faster__checkbox", "Быстрее");
+checkboxInit ("cheaper__checkbox", "Дешевле");
+
+checkboxInit ("custom-clearence__import-checkbox", "При импорте");
+checkboxInit ("custom-clearence__export-checkbox", "При экспорте");
+checkboxInit ("custom-clearence-gd__import-checkbox", "Для экспорта из России");
+checkboxInit ("custom-clearence-gd__export-checkbox", "Для импорта в России");
+
+checkboxInit ("cargo-escort__gun-checkbox", "С огнестрельным оружием");
+
+
+checkboxInit ("expertise__accept-checkbox ", "При приёмке");
+checkboxInit ("expertise__delivery-checkbox ", "При сдаче");  
+
+checkboxInit ("documentary-credit__add-checkbox", "Данные аккредитива сообщу дополнительно"); 
+
+checkboxInit ("expertise-optionally__depart-checkbox", "В пункте отправления");
+checkboxInit ("expertise-optionally__dest-checkbox", " В пункте назначения");
+checkboxInit ("expertise-optionally__anotherplace-checkbox", "Дополнительно в другом месте");
+
+checkboxInit ("coast-incoterms__1checkbox", "Есть готовые");
+checkboxInit ("coast-incoterms__2checkbox", "Будут выпущены");
+checkboxInit ("coast-incoterms__3checkbox", "Выпустить");
+checkboxInit ("coast-incoterms__4checkbox", "По решению исполнителя");
+
+checkboxInit ("common-cargo-params-bulk", "Указать размеры фракций или составляющих массу");
+
+checkboxInit ("common-goodies-params__checkbox", "Будет выпущено классификационное решение ФТС РФ");
+
+checkboxInit ("common-cargo-params-container__checkbox", "Не возражаю против перегрузки в другие контейнера в транзитных пунктах");
+
+checkboxInit ("oversize-rzd__checkbox", "Не уверен, прошу определить по чертежу");
+
+checkboxInit ("ccp-mass-bulk-open__checkbox", "Указать размеры фракций или составляющих массу");
+
+checkboxInit ("requestall__filter-checkbox", "Доставить груз");
+checkboxInit ("requestall__filter-checkbox1", "Купить");
+checkboxInit ("basic-info__test", "Необходимо испытание образцов перед оплатой");
+checkboxInit ("suppagree1__checkbox", "Дополнительное соглашение №1 (ТЭО)");
+checkboxInit ("suppagree2__checkbox", "Дополнительное соглашение №2 (LCL)");
+checkboxInit ("suppagree3__checkbox", "Дополнительное соглашение №3 (Покупка)");
+checkboxInit ("suppagree4__checkbox", "Дополнительное соглашение №4 (Юридические услуги)");
+checkboxInit ("suppagree5__checkbox", "Дополнительное соглашение №5 (ЭОД)");
+checkboxInit ("contrct-iagree-checkbox", "Я согласен с условиями договора и дополнительных соглашений к нему");
+checkboxInit ("company-checkbox", "Зарегистрировано новое контактное лицо Вашей компании");
+checkboxInit ("company-cap-checkbox", "");
+checkboxInit ("company1-checkbox", "Договор создан");
+checkboxInit ("company2-checkbox", "Дополнительное соглашение создано");
+checkboxInit ("company3-checkbox", "Запущен процесс согласования изменений по договору/дополнению");
+checkboxInit ("company4-checkbox", "Отменён процесс согласования по договору/дополнению");
+checkboxInit ("company5-checkbox", "Завершён процесс согласования изменений по договору");
+checkboxInit ("company6-checkbox", "Изменения к договору/дополнению отправлены вам");
+checkboxInit ("company7-checkbox", "Изменения к договору/дополнению получены персональным экспертом");
+checkboxInit ("company8-checkbox", "Изменения к договору/дополнению одобрено юристом исполнителя");
+checkboxInit ("company9-checkbox", "Изменения к договору/дополнению принято обеими сторонами");
+checkboxInit ("company10-checkbox", "Изменения к договору/дополнению оформлены в виде документа");
+checkboxInit ("company11-checkbox", "Отклонён процесс согласования изменений по договору");
+checkboxInit ("company-req-def-checkbox", "Основные реквизиты");
+
+
+
+ 
 
 
 //-----------customs-clearance-3agent-modal
@@ -1558,7 +1637,327 @@ function initAppViewV5DataGrid () {
 };
 
 //-------------------------------//
+//-----------counterparties --------------//
+var counterparties = [{
+    "ID": 1,
+    "Forma": "ООО",
+    "Name": "Экология XXI-Век",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail@mail.com",
+    "Loc": "Владивосток",
+    "INN": "7701583861",
+},
+{
+    "ID": 2,
+    "Forma": "ЗАО",
+    "Name": "Сигма Марин Технолоджи",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very-long@mail.com",
+    "Loc": "Махачкала",
+    "INN": "1234583861",
+},
+{
+    "ID": 3,
+    "Forma": "СОДНТ",
+    "Name": "ТП Альянс Триумф Корпарэйшн",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very@mail.com",
+    "Loc": "Петропавловск-Камчатский",
+    "INN": "3246673861",
+},
+{
+    "ID": 4,
+    "Forma": "ЗАО",
+    "Name": "Сигма Марин Технолоджи",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very-long@mail.com",
+    "Loc": "Махачкала",
+    "INN": "1234583861",
+},
+{
+    "ID": 5,
+    "Forma": "СОДНТ",
+    "Name": "ТП Альянс Триумф Корпарэйшн",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very@mail.com",
+    "Loc": "Петропавловск-Камчатский",
+    "INN": "3246673861",
+},
+{
+    "ID": 6,
+    "Forma": "ЗАО",
+    "Name": "Сигма Марин Технолоджи",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very-long@mail.com",
+    "Loc": "Махачкала",
+    "INN": "1234583861",
+},
+{
+    "ID": 7,
+    "Forma": "СОДНТ",
+    "Name": "ТП Альянс Триумф Корпарэйшн",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very@mail.com",
+    "Loc": "Петропавловск-Камчатский",
+    "INN": "3246673861",
+},
+{
+    "ID": 8,
+    "Forma": "ЗАО",
+    "Name": "Сигма Марин Технолоджи",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very-long@mail.com",
+    "Loc": "Махачкала",
+    "INN": "1234583861",
+},
+{
+    "ID": 9,
+    "Forma": "СОДНТ",
+    "Name": "ТП Альянс Триумф Корпарэйшн",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very@mail.com",
+    "Loc": "Петропавловск-Камчатский",
+    "INN": "3246673861",
+},
+{
+    "ID": 10,
+    "Forma": "ЗАО",
+    "Name": "Сигма Марин Технолоджи",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very-long@mail.com",
+    "Loc": "Махачкала",
+    "INN": "1234583861",
+},
+{
+    "ID": 11,
+    "Forma": "СОДНТ",
+    "Name": "ТП Альянс Триумф Корпарэйшн",
+    "Tel": " +7 923 123 456 78", 
+    "Email": "somemail-very@mail.com",
+    "Loc": "Петропавловск-Камчатский",
+    "INN": "3246673861",
+},
+];
 
+var selectResCounter = [
+    {
+        "ID": 1,
+        "Name": "ООО"
+    },
+    {
+        "ID": 2,
+        "Name": "ЗАО"
+    },
+    {
+        "ID": 2,
+        "Name": "СОДНТ"
+    }];
+//https://js.devexpress.com/Documentation/Guide/Widgets/DataGrid/Columns/Customize_Column_Headers/
+ $("#dataGridСounterparties").dxDataGrid({
+        dataSource: counterparties,
+        keyExpr: "ID",
+        width: "100%",
+        editing: {
+            form: null,
+            mode: "row",
+            popup: null,
+            refreshMode: "full",
+            texts: {},
+            useIcons: true
+            },
+        hoverStateEnabled: true,
+        showBorders: true,
+        columns: 
+
+        [{
+            dataField: "Forma",
+            caption: "Форм. собств.",
+            width: 148,
+            lookup: {
+                    dataSource: selectResCounter,
+                    valueExpr: "Name",
+                    displayExpr: "Name"
+                }
+        },
+        {
+            dataField: "Name",
+            caption: "Наименование контрагента",
+            width: 256,
+            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку
+                $('<div class="datagrid__custom-cell">')    //навешиваем  template иницилизируем его как radiogroup
+                 .appendTo(cellElement)
+                 .append($("<a id='company-req__bank-name' href='#''>"+cellInfo.data.Name+"</a>"))
+             }, 
+            cssClass: "datagrid__link-cell--dash" //обязательный класс
+        },
+         {
+            dataField: "Tel",
+            caption: "Телефон",
+            width: 168
+        },
+        {
+            dataField: "Email",
+            caption: "E-mail",
+            width: 255
+        }, 
+        {
+            dataField: "Loc",
+            caption: "Местоположение",
+            width: 228
+         
+        },   
+        {
+            dataField: "INN",
+            caption: "ИНН",
+            width: 110
+        },  
+        { 
+            width: 70,
+            cellTemplate: function(cellElement, cellInfo) {   //кнопка удаления
+            $("<button class='btn__rnd--del btn__rnd filelist__btn-del'></button>")    
+            .appendTo(cellElement)
+              .append($("<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14ZM8 9.41421L5.70711 11.7071L4.29289 10.2929L6.58579 8L4.29289 5.70711L5.70711 4.29289L8 6.58579L10.2929 4.29289L11.7071 5.70711L9.41421 8L11.7071 10.2929L10.2929 11.7071L8 9.41421Z' fill='#AAAAAA'/></svg>"))
+             }
+  
+        }],
+        filterRow: {
+            applyFilter: "auto",
+            applyFilterText: "Apply filter",
+            betweenEndText: "End",
+            betweenStartText: "Start",
+            resetOperationText: "Reset",
+            showAllText: "",
+            showOperationChooser: true,
+            visible: true
+            },
+        showColumnLines: true,
+        showRowLines: true,
+    }).data("dxDataGrid");
+
+ //-------------------------------------------------------------//
+
+//--------------- counterparties modal ------------------
+var countpartaddress = [{
+    "ID": 1,
+    "Type": "Офис",
+    "Point": "Backaland, Eday",
+    "Location": "105062, г. Москва, Фурманный пер., д.24"
+},{
+    "ID": 2,
+    "Type": "Склад",
+    "Point": "Backaland, Eday",
+    "Location": "109316, г. Москва, Остаповский проезд, д.3, стр.5"
+},
+{
+    "ID": 3,
+    "Type": "Аэропорт",
+    "Point": "Петропавловск-Камчатский",
+    "Location": "123456, г. Петропавловск-Камчатский, ул. Завойко д.999. стр. 823 "
+},
+{
+    "ID": 4,
+    "Type": "Склад",
+    "Point": "Backaland, Eday",
+    "Location": "109316, г. Москва, Остаповский проезд, д.3, стр.5"
+},
+{
+    "ID": 5,
+    "Type": "Склад",
+    "Point": "Backaland, Eday",
+    "Location": "105062, г. Москва, Фурманный пер., д.24"
+} ];
+var selectTypePart = [
+    {
+        "ID": 1,
+        "Name": "Офис"
+    }, {
+        "ID": 2,
+        "Name": "Аэропорт"
+    }, {
+        "ID": 3,
+        "Name": "Склад"
+    }];
+
+
+function initСounterpartiesPlaceGrid () {
+     var dataGrid =  $("#dataGridСounterpartiesPlace").dxDataGrid({
+        dataSource: countpartaddress ,
+        keyExpr: "ID",
+        filterRow: {
+            visible: true
+        },
+        scrolling: {
+            mode: "virtual"
+        },
+        hoverStateEnabled: true,
+        showBorders: true,
+
+        // for master detail
+        selection: {
+            mode: "single"
+        },
+        onSelectionChanged: function(e) {
+            rowIndexCompanyTb = e;
+            e.component.collapseAll(-1);
+            e.component.expandRow(e.currentSelectedRowKeys[0]);
+        },
+        ///////////////////
+        columns: 
+        [{
+            dataField: "Type",
+            lookup: {
+                    dataSource: selectType,
+                    valueExpr: "Name",
+                    displayExpr: "Name"
+                },
+            caption: "Тип места",
+            width: 134,
+
+        },
+        {
+            dataField: "Location",
+            caption: "Адрес",
+            width: 390,
+            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку, навешиваем элемент radiogroup
+            $('<div class="datagrid__custom-cell">')    //навешиваем  template иницилизируем его как radiogroup
+               .appendTo(cellElement   )
+                .append($("<a href='#''>"+cellInfo.data.Location+"</a>"))
+             }, 
+
+            cssClass: "datagrid__link-cell--dash" //обязательный класс
+        },
+        {
+            dataField: "Point",
+            caption: "Населённый пункт",
+             width: 110
+        }, 
+        { 
+            width: 70,
+            cellTemplate: function(cellElement, cellInfo) {   //кнопка удаления
+            $("<button class='btn__rnd--del btn__rnd filelist__btn-del'></button>")    
+            .appendTo(cellElement)
+              .append($("<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14ZM8 9.41421L5.70711 11.7071L4.29289 10.2929L6.58579 8L4.29289 5.70711L5.70711 4.29289L8 6.58579L10.2929 4.29289L11.7071 5.70711L9.41421 8L11.7071 10.2929L10.2929 11.7071L8 9.41421Z' fill='#AAAAAA'/></svg>"))
+             }
+  
+        }],
+        masterDetail: {
+            enabled: false,
+            template: function(container, options) { 
+                return  $($('#counterparties-view-modal-details').html()); 
+            }
+        },
+
+        onRowExpanded: function () {
+            inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
+            autocompleteInitClass ("input-field__city","input-field__city-id","input-field__value");
+            initModalStep('.modal__step-container-point','.app-lnk__row-right','.modal__block-prev',true,0);
+        },
+        showColumnLines: true,
+        showRowLines: true, 
+    }).data("dxDataGrid");
+};
+
+//-------------------------------//
 var s = 123456789;
 var random = function() {
     s = (1103515245 * s + 12345) % 2147483647;
@@ -1679,81 +2078,6 @@ $("#gridContainerr").dxDataGrid({
 		uploadedMessage: "",
 		uploadFailedMessage: "",
     });
-
-//название запроса
-$("#requestName").dxTextBox({
-  inputAttr: {
-   		 id: "requestName__id",  //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
-   		 class:"input-field__value" //обязятельный класс
-   }
-}).dxValidator({
-        validationRules: [{
-            type: "required",
-            message: "Обязательно к заполнению"
-        }, {
-            type: "pattern",
-            pattern: /^[^0-9]+$/,
-            message: "Строка не может содержать цифры"
-        }, {
-            type: "stringLength",
-            min: 2,
-            message: "Длина строки не меньше 2 символов"
-        }],
-        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
-    });
-
-
-// $("#input-field__totalWeight").dxTextBox({
-//   inputAttr: {
-//        id: "input-field__totalWeight-id",
-//        class:"input-field__value" 
-//    },
-//    width: 128,
-//    readOnly: true,
-//    value: "100",
-// })
-
-
-//инициализировать элементы необходимо по id элемента
-//в верстке реализованна инициализация по классу, для массовости, класс pseudoClassTextEditor на инициализируемом элементе можно удалить, если таковой не применяется
-function inputFieldInit (element, elementId, defValue, readOnlyFlag ) {
-  $("."+ element).dxTextBox({
-  inputAttr: {
-       id: elementId,
-       class:"input-field__value" 
-   },
-   value: defValue,
-   readOnly: readOnlyFlag
-  }).dxValidator({
-        validationRules: [{
-            type: "required",
-            message: "Обязательно к заполнению"
-        }, {
-            type: "pattern",
-            pattern: /^[^0-9]+$/,
-            message: "Строка не может содержать цифры"
-        }, {
-            type: "stringLength",
-            min: 2,
-            message: "Длина строки не меньше 2 символов"
-        }],
-        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
-    });;
-};
-
-
-inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
-inputFieldInit ("pseudoClassTextEditorReadOnly","pseudoClassTextEditorReadOnly__id","100",true);
-
-
-$("#loadPanel").dxLoadPanel({
-        closeOnOutsideClick: true,
-        visible: true,
-        shading: true,
-		shadingColor: "rgba(255,255,255, 0.8)",
-		message: ""
-    });
-
 
 
 //step для шагов внутри модального окна
@@ -1913,6 +2237,15 @@ if ($('.modal').hasClass('modal-company-user-add')) {
 	checkboxInit ("company-maintel-checkbox", "Основной");
 }
 
+if ($('.modal').hasClass('modal-counterparties-view')) {
+	initСounterpartiesPlaceGrid ();
+	inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
+	radiogroupInit ("counterparties-radio-person",["Резиден", "Не резидент"],"horizontal");
+
+	// initModalStep('.modal__step-container-point','.modal__block-item','.modal__block-prev',true,0);
+	
+}
+
 
 if ($('.modal').hasClass('modal-application-view')) {
 	 initDataGrid ();
@@ -1977,25 +2310,17 @@ initModal("modal-application-view", 1024 , "80%", 'modal__title-templ','modal__c
 initModal("modal-application-view-v2", 860 , "80%", 'modal__title-templ','modal__content-templ',"center");
 initModal("modal-application-view-v3", 860 , "80%", 'modal__title-templ','modal__content-templ',"center");
 initModal("modal-application-view-v5", 1024 , "80%", 'modal__title-templ','modal__content-templ',"center");
+initModal("modal-counterparties-view", 760 , "80%", 'modal__title-templ','modal__content-templ',"center");
 
 
 
- 
-function numberBoxInit (idElement,idAttrName) {
-	 $("."+idElement).dxNumberBox({
-        value: 15,
-        min: 10,
-        max: 100,
-        showSpinButtons: true,
-        inputAttr: {
-   		 id: idAttrName,
-   		 class: "input-field__value" 
-   		}
-   		//width: widthElement
+$("#loadPanel").dxLoadPanel({
+        closeOnOutsideClick: true,
+        visible: true,
+        shading: true,
+		shadingColor: "rgba(255,255,255, 0.8)",
+		message: ""
     });
-};
-
-numberBoxInit ("pseudoClassNumberBox","pseudoNameElementNumberBox__id");
 
 
 $('.progress-bar__step').hover (function(){
@@ -2180,15 +2505,99 @@ $(function() {
 
     });
 });
+ 
+function numberBoxInit (idElement,idAttrName) {
+	 $("."+idElement).dxNumberBox({
+        value: 15,
+        min: 10,
+        max: 100,
+        showSpinButtons: true,
+        inputAttr: {
+   		 id: idAttrName,
+   		 class: "input-field__value" 
+   		}
+   		//width: widthElement
+    });
+};
+
+numberBoxInit ("pseudoClassNumberBox","pseudoNameElementNumberBox__id");
+
+
+//название запроса
+$("#requestName").dxTextBox({
+  inputAttr: {
+   		 id: "requestName__id",  //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
+   		 class:"input-field__value" //обязятельный класс
+   }
+}).dxValidator({
+        validationRules: [{
+            type: "required",
+            message: "Обязательно к заполнению"
+        }, {
+            type: "pattern",
+            pattern: /^[^0-9]+$/,
+            message: "Строка не может содержать цифры"
+        }, {
+            type: "stringLength",
+            min: 2,
+            message: "Длина строки не меньше 2 символов"
+        }],
+        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
+    });
+
+
+// $("#input-field__totalWeight").dxTextBox({
+//   inputAttr: {
+//        id: "input-field__totalWeight-id",
+//        class:"input-field__value" 
+//    },
+//    width: 128,
+//    readOnly: true,
+//    value: "100",
+// })
+
+
+//инициализировать элементы необходимо по id элемента
+//в верстке реализованна инициализация по классу, для массовости, класс pseudoClassTextEditor на инициализируемом элементе можно удалить, если таковой не применяется
+function inputFieldInit (element, elementId, defValue, readOnlyFlag ) {
+  $("."+ element).dxTextBox({
+  inputAttr: {
+       id: elementId,
+       class:"input-field__value" 
+   },
+   value: defValue,
+   readOnly: readOnlyFlag
+  }).dxValidator({
+        validationRules: [{
+            type: "required",
+            message: "Обязательно к заполнению"
+        }, {
+            type: "pattern",
+            pattern: /^[^0-9]+$/,
+            message: "Строка не может содержать цифры"
+        }, {
+            type: "stringLength",
+            min: 2,
+            message: "Длина строки не меньше 2 символов"
+        }],
+        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
+    });;
+};
+
+
+inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
+inputFieldInit ("pseudoClassTextEditorReadOnly","pseudoClassTextEditorReadOnly__id","100",true);
+
+
 $('.req-price .app-lnk__clhd').click(function(event) {
 
 	$(this).toggleClass('app-lnk__clhd--opn');
 	$(this).parents('.req-price__list').toggleClass('req-price__list--hide');
 
 });
-$('.spoiler').click(function(event) {
-	$(this).toggleClass('spoiler--show');
-});
+    $(".init-switch").dxSwitch({
+        value: false
+    });
 //add consignment block
 
 //реализация добавление блоков на первом шаге. убрали тк по идеи не нужна
@@ -2264,19 +2673,6 @@ $('.spoiler').click(function(event) {
 // 	if ($( ".consignment" ).length == 1 )
 // 		$( ".consignment .step-block__sep .step-block__sep-btn-close").remove();
 // });
-    $(".init-switch").dxSwitch({
-        value: false
-    });
-$('.tabs__link a').click(function (e) {
-  e.preventDefault();
-  $('.tabs__link').removeClass('tabs__link--active');
-  $(this).parent().addClass('tabs__link--active');
-  $('.tabs__cont').removeClass('tabs__cont--active');
-  $('#'+ $(this).attr('href')).addClass('tabs__cont--active');
-
-});
-
-
     var simpleProducts = [
     "Выбор 1",
     "Выбор 12",
@@ -2894,92 +3290,16 @@ var tnvd= [
 
 
 
-function checkboxInit (element, text) {
-    $("[id="+element+"]").dxCheckBox({
-        text: text,
-        value: false,
-    });
-};
-
-
-
-checkboxInit ("used-cargo__checkbox", "Бывший в употреблении");
-checkboxInit ("home-cargo__checkbox", "Домашние вещи");
-checkboxInit ("humane-cargo__checkbox", "Гуманитарная помощь");
-checkboxInit ("oversize-cargo__checkbox", "Негабаритный");
-checkboxInit ("danger-cargo__checkbox", "Опасный груз");
-checkboxInit ("law-cargo__checkbox", "Юридическое сопровождение (ваши интересы в суде)");
-checkboxInit ("bay-cargo__checkbox", "Купить");
-checkboxInit ("deliver-cargo__checkbox", "Доставить груз");
-checkboxInit ("safer__checkbox", "Надежнёе");
-checkboxInit ("faster__checkbox", "Быстрее");
-checkboxInit ("cheaper__checkbox", "Дешевле");
-
-checkboxInit ("custom-clearence__import-checkbox", "При импорте");
-checkboxInit ("custom-clearence__export-checkbox", "При экспорте");
-checkboxInit ("custom-clearence-gd__import-checkbox", "Для экспорта из России");
-checkboxInit ("custom-clearence-gd__export-checkbox", "Для импорта в России");
-
-checkboxInit ("cargo-escort__gun-checkbox", "С огнестрельным оружием");
-
-
-checkboxInit ("expertise__accept-checkbox ", "При приёмке");
-checkboxInit ("expertise__delivery-checkbox ", "При сдаче");  
-
-checkboxInit ("documentary-credit__add-checkbox", "Данные аккредитива сообщу дополнительно"); 
-
-checkboxInit ("expertise-optionally__depart-checkbox", "В пункте отправления");
-checkboxInit ("expertise-optionally__dest-checkbox", " В пункте назначения");
-checkboxInit ("expertise-optionally__anotherplace-checkbox", "Дополнительно в другом месте");
-
-checkboxInit ("coast-incoterms__1checkbox", "Есть готовые");
-checkboxInit ("coast-incoterms__2checkbox", "Будут выпущены");
-checkboxInit ("coast-incoterms__3checkbox", "Выпустить");
-checkboxInit ("coast-incoterms__4checkbox", "По решению исполнителя");
-
-checkboxInit ("common-cargo-params-bulk", "Указать размеры фракций или составляющих массу");
-
-checkboxInit ("common-goodies-params__checkbox", "Будет выпущено классификационное решение ФТС РФ");
-
-checkboxInit ("common-cargo-params-container__checkbox", "Не возражаю против перегрузки в другие контейнера в транзитных пунктах");
-
-checkboxInit ("oversize-rzd__checkbox", "Не уверен, прошу определить по чертежу");
-
-checkboxInit ("ccp-mass-bulk-open__checkbox", "Указать размеры фракций или составляющих массу");
-
-checkboxInit ("requestall__filter-checkbox", "Доставить груз");
-checkboxInit ("requestall__filter-checkbox1", "Купить");
-checkboxInit ("basic-info__test", "Необходимо испытание образцов перед оплатой");
-checkboxInit ("suppagree1__checkbox", "Дополнительное соглашение №1 (ТЭО)");
-checkboxInit ("suppagree2__checkbox", "Дополнительное соглашение №2 (LCL)");
-checkboxInit ("suppagree3__checkbox", "Дополнительное соглашение №3 (Покупка)");
-checkboxInit ("suppagree4__checkbox", "Дополнительное соглашение №4 (Юридические услуги)");
-checkboxInit ("suppagree5__checkbox", "Дополнительное соглашение №5 (ЭОД)");
-checkboxInit ("contrct-iagree-checkbox", "Я согласен с условиями договора и дополнительных соглашений к нему");
-checkboxInit ("company-checkbox", "Зарегистрировано новое контактное лицо Вашей компании");
-checkboxInit ("company-cap-checkbox", "");
-checkboxInit ("company1-checkbox", "Договор создан");
-checkboxInit ("company2-checkbox", "Дополнительное соглашение создано");
-checkboxInit ("company3-checkbox", "Запущен процесс согласования изменений по договору/дополнению");
-checkboxInit ("company4-checkbox", "Отменён процесс согласования по договору/дополнению");
-checkboxInit ("company5-checkbox", "Завершён процесс согласования изменений по договору");
-checkboxInit ("company6-checkbox", "Изменения к договору/дополнению отправлены вам");
-checkboxInit ("company7-checkbox", "Изменения к договору/дополнению получены персональным экспертом");
-checkboxInit ("company8-checkbox", "Изменения к договору/дополнению одобрено юристом исполнителя");
-checkboxInit ("company9-checkbox", "Изменения к договору/дополнению принято обеими сторонами");
-checkboxInit ("company10-checkbox", "Изменения к договору/дополнению оформлены в виде документа");
-checkboxInit ("company11-checkbox", "Отклонён процесс согласования изменений по договору");
-checkboxInit ("company-req-def-checkbox", "Основные реквизиты");
-
-
-
- 
-$('.ver-comp .app-lnk__clhd').click(function(event) {
-
-	$(this).toggleClass('app-lnk__clhd--opn');
-	$(this).parents('.ver-comp__bl').toggleClass('ver-comp__bl--hide');
+$('.tabs__link a').click(function (e) {
+  e.preventDefault();
+  $('.tabs__link').removeClass('tabs__link--active');
+  $(this).parent().addClass('tabs__link--active');
+  $('.tabs__cont').removeClass('tabs__cont--active');
+  $('#'+ $(this).attr('href')).addClass('tabs__cont--active');
 
 });
+
+
 
 var $form = $('.photo-prof');
 
@@ -2996,6 +3316,15 @@ $form.on('drag dragstart dragend dragover dragenter dragleave drop', function(e)
   .on('drop', function(e) {
     droppedFiles = e.originalEvent.dataTransfer.files;
   });
+$('.spoiler').click(function(event) {
+	$(this).toggleClass('spoiler--show');
+});
+$('.ver-comp .app-lnk__clhd').click(function(event) {
+
+	$(this).toggleClass('app-lnk__clhd--opn');
+	$(this).parents('.ver-comp__bl').toggleClass('ver-comp__bl--hide');
+
+});
 $('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
 	// $(this).toggleClass('user-popup-menu__title-btn--up');
 	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
@@ -3067,6 +3396,18 @@ function timezonePopupClose(e) {
 //  }
 
 //  });
+ $(".popup__info-newmsg").dxToast({
+        message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
+        displayTime: 300000,
+        position: {my: 'center right', at: 'center right', offset: '-50 0'},
+        width: 375,
+		onShowing: function () {
+			//for left separate line on block message
+			$('.dx-toast-message').height($('.dx-toast-content').height());
+		}
+    });
+
+  $(".popup__info-newmsg").dxToast("show");
 var cityData = [{
     id: 1,
     name: "Владивосток, Приморский край, Россия",
@@ -3258,18 +3599,6 @@ function textAriaInitAutoResize (className, width) {
 
 textAriaInit('pseudoClassTextAria', "auto", 72);
 textAriaInitAutoResize('pseudoClassTextAriaAutoHeight', "auto");
- $(".popup__info-newmsg").dxToast({
-        message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
-        displayTime: 300000,
-        position: {my: 'center right', at: 'center right', offset: '-50 0'},
-        width: 375,
-		onShowing: function () {
-			//for left separate line on block message
-			$('.dx-toast-message').height($('.dx-toast-content').height());
-		}
-    });
-
-  $(".popup__info-newmsg").dxToast("show");
 $('.header-currency__lang').click( function () {
 	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
 	$('.header-currency__lang').toggleClass('header-currency__lang--en');
