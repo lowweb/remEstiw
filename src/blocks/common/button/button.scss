@@ -144,6 +144,11 @@
 		font-size: 14px;
 		border-bottom: 1px dashed $clr-blue;
 		margin-right: 8px;
+		font-family: Lucida Grande, Tahoma, Arial; 
+  		font-style: normal; 
+  		font-weight: 500; 
+  		line-height: 16px; 
+
 
 		&--nodash {
 			border-bottom: none;
@@ -151,6 +156,10 @@
 			&:hover {
 				border-bottom: none !important;
 			}
+		}
+
+		&--mr16 {
+			margin-right: 16px;
 		}
 
 		&:hover {

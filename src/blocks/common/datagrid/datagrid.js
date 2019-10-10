@@ -1729,7 +1729,8 @@ function initСounterpartiesPlaceGrid () {
         onRowExpanded: function () {
             inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
             autocompleteInitClass ("input-field__city","input-field__city-id","input-field__value");
-            initModalStep('.modal__step-container-point','.app-lnk__row-right','.modal__block-prev',true,0);
+            initModalStep('.modal__step-container-point','.modal__block-next','.modal__block-prev',true,0);
+            makeInlineSvg();
         },
         showColumnLines: true,
         showRowLines: true, 

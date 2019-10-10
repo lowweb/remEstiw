@@ -75,6 +75,15 @@ color: $clr-dark;
   color: rgba(0, 0, 0, 0.7); 
 }
 
+.ft-common--1315 {
+  font-family: Lucida Grande, Tahoma, Arial; 
+  font-style: normal; 
+  font-weight: 500; 
+  line-height: 15px; 
+  font-size: 13px; 
+  color: #373F51; 
+}
+
 .ft-form {
 	font-family: Fira Sans, sans-serif;
 	font-style: normal;
@@ -140,154 +149,7 @@ color: $clr-dark;
 	@include font-lucida ($clr-dark, 12px, normal);
 }
 
-.app-lnk {
-	color: $clr-blue;
-	text-decoration: none;
-	fill: $clr-blue;
-	cursor: pointer;
-	&:hover {
-		color: $clr-purple;
-		fill: $clr-purple;
-		
-	}
-	
-	& > svg, & > img {
-		vertical-align: middle;
-	}
 
-	& > svg, & > svg path{
-			fill: inherit;
-	}
-}
-
-.app-lnk-disable {
-	color: $clr-dark-light !important;
-  	// cursor: not-allowed;	
-}
-
-.app-lnk-img {
-	background-color: $clr-blue;
-	&:hover {
-		background-color: $clr-purple;
-	}
-}
-
-.app-dash-lnk {
-	color: $clr-blue;
-	fill: $clr-blue;;
-	border-bottom: 1px dashed $clr-blue;
-	cursor: pointer;
-	&:hover {
-		color: $clr-purple;
-		fill: $clr-purple;
-		border-bottom: 1px dashed $clr-purple;
-	}
-	& > svg {
-		vertical-align: middle;
-		// width: 20px;
-		// margin-right: 10px;
-	}
-	& > svg, & > svg path{
-			fill: inherit;
-	}
-}
-
-* {
-	margin: 0;
-	padding: 0;
-	text-decoration: none;
-	list-style-type: none;
-	box-sizing: border-box;
-	outline: none; //так дизайнер попросил
-}
-
-
-.app-lnk__clhd {
-	cursor: pointer;
-	color: $clr-blue;
-	fill: $clr-blue;
-	display: flex;
-	align-items: center;
-	&:hover {
-		color: $clr-purple;
-		fill: $clr-purple;
-	}
-	.app-lnk__clhd-cp {
-		
-		border-bottom: 1px dashed $clr-blue;
-	
-		&:hover {
-			border-bottom: 1px dashed $clr-purple;
-		}
-
-		&--rgh {
-			margin-left: 8px;
-		}
-
-	}
-	
-	& > svg {
-		vertical-align: middle;
-		transform: rotate(180deg);
-	}
-	& > svg, & > svg path{
-			fill: inherit;
-	}
-
-	&--opn{
-		color: rgba(0, 0, 0, 0.7);
-		border-bottom: none;
-		&:hover {
-			color: rgba(0, 0, 0, 0.7);
-			fill: $clr-purple;
-		}
-
-		.app-lnk__clhd-cp {
-			border-bottom: none;
-		 &:hover {
-			border-bottom: none;
-			}
-		}
-
-		& > svg {
-			vertical-align: middle;
-			transform: rotate(0deg);
-		}
-	}
-
-}
-
-.app-lnk__row-right {
-	cursor: pointer;
-	color: $clr-blue;
-	fill: $clr-blue;
-	display: flex;
-	align-items: center;
-	&:hover {
-		color: $clr-purple;
-		fill: $clr-purple;
-	}
-	.app-lnk__row-right-cp {
-		
-		border-bottom: 1px dashed $clr-blue;
-	
-		&:hover {
-			border-bottom: 1px dashed $clr-purple;
-		}
-
-		&--mr16 {
-			margin-right: 16px;
-		}
-
-	}
-	
-	& > svg {
-		vertical-align: middle;
-	}
-	& > svg, & > svg path{
-			fill: inherit;
-	}
-}
 
 .view::-webkit-scrollbar{
      // display: none;    

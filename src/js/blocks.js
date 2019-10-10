@@ -1950,7 +1950,8 @@ function initСounterpartiesPlaceGrid () {
         onRowExpanded: function () {
             inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
             autocompleteInitClass ("input-field__city","input-field__city-id","input-field__value");
-            initModalStep('.modal__step-container-point','.app-lnk__row-right','.modal__block-prev',true,0);
+            initModalStep('.modal__step-container-point','.modal__block-next','.modal__block-prev',true,0);
+            makeInlineSvg();
         },
         showColumnLines: true,
         showRowLines: true, 
@@ -2078,6 +2079,81 @@ $("#gridContainerr").dxDataGrid({
 		uploadedMessage: "",
 		uploadFailedMessage: "",
     });
+
+//название запроса
+$("#requestName").dxTextBox({
+  inputAttr: {
+   		 id: "requestName__id",  //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
+   		 class:"input-field__value" //обязятельный класс
+   }
+}).dxValidator({
+        validationRules: [{
+            type: "required",
+            message: "Обязательно к заполнению"
+        }, {
+            type: "pattern",
+            pattern: /^[^0-9]+$/,
+            message: "Строка не может содержать цифры"
+        }, {
+            type: "stringLength",
+            min: 2,
+            message: "Длина строки не меньше 2 символов"
+        }],
+        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
+    });
+
+
+// $("#input-field__totalWeight").dxTextBox({
+//   inputAttr: {
+//        id: "input-field__totalWeight-id",
+//        class:"input-field__value" 
+//    },
+//    width: 128,
+//    readOnly: true,
+//    value: "100",
+// })
+
+
+//инициализировать элементы необходимо по id элемента
+//в верстке реализованна инициализация по классу, для массовости, класс pseudoClassTextEditor на инициализируемом элементе можно удалить, если таковой не применяется
+function inputFieldInit (element, elementId, defValue, readOnlyFlag ) {
+  $("."+ element).dxTextBox({
+  inputAttr: {
+       id: elementId,
+       class:"input-field__value" 
+   },
+   value: defValue,
+   readOnly: readOnlyFlag
+  }).dxValidator({
+        validationRules: [{
+            type: "required",
+            message: "Обязательно к заполнению"
+        }, {
+            type: "pattern",
+            pattern: /^[^0-9]+$/,
+            message: "Строка не может содержать цифры"
+        }, {
+            type: "stringLength",
+            min: 2,
+            message: "Длина строки не меньше 2 символов"
+        }],
+        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
+    });;
+};
+
+
+inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
+inputFieldInit ("pseudoClassTextEditorReadOnly","pseudoClassTextEditorReadOnly__id","100",true);
+
+
+$("#loadPanel").dxLoadPanel({
+        closeOnOutsideClick: true,
+        visible: true,
+        shading: true,
+		shadingColor: "rgba(255,255,255, 0.8)",
+		message: ""
+    });
+
 
 
 //step для шагов внутри модального окна
@@ -2314,15 +2390,40 @@ initModal("modal-counterparties-view", 760 , "80%", 'modal__title-templ','modal_
 
 
 
-$("#loadPanel").dxLoadPanel({
-        closeOnOutsideClick: true,
-        visible: true,
-        shading: true,
-		shadingColor: "rgba(255,255,255, 0.8)",
-		message: ""
+ 
+function numberBoxInit (idElement,idAttrName) {
+	 $("."+idElement).dxNumberBox({
+        value: 15,
+        min: 10,
+        max: 100,
+        showSpinButtons: true,
+        inputAttr: {
+   		 id: idAttrName,
+   		 class: "input-field__value" 
+   		}
+   		//width: widthElement
     });
+};
+
+numberBoxInit ("pseudoClassNumberBox","pseudoNameElementNumberBox__id");
 
 
+
+var $form = $('.photo-prof');
+
+$form.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  })
+  .on('dragover dragenter', function() {
+    $form.addClass('is-dragover');
+  })
+  .on('dragleave dragend drop', function() {
+    $form.removeClass('is-dragover');
+  })
+  .on('drop', function(e) {
+    droppedFiles = e.originalEvent.dataTransfer.files;
+  });
 $('.progress-bar__step').hover (function(){
 	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
 },
@@ -2505,99 +2606,15 @@ $(function() {
 
     });
 });
- 
-function numberBoxInit (idElement,idAttrName) {
-	 $("."+idElement).dxNumberBox({
-        value: 15,
-        min: 10,
-        max: 100,
-        showSpinButtons: true,
-        inputAttr: {
-   		 id: idAttrName,
-   		 class: "input-field__value" 
-   		}
-   		//width: widthElement
-    });
-};
-
-numberBoxInit ("pseudoClassNumberBox","pseudoNameElementNumberBox__id");
-
-
-//название запроса
-$("#requestName").dxTextBox({
-  inputAttr: {
-   		 id: "requestName__id",  //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
-   		 class:"input-field__value" //обязятельный класс
-   }
-}).dxValidator({
-        validationRules: [{
-            type: "required",
-            message: "Обязательно к заполнению"
-        }, {
-            type: "pattern",
-            pattern: /^[^0-9]+$/,
-            message: "Строка не может содержать цифры"
-        }, {
-            type: "stringLength",
-            min: 2,
-            message: "Длина строки не меньше 2 символов"
-        }],
-        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
-    });
-
-
-// $("#input-field__totalWeight").dxTextBox({
-//   inputAttr: {
-//        id: "input-field__totalWeight-id",
-//        class:"input-field__value" 
-//    },
-//    width: 128,
-//    readOnly: true,
-//    value: "100",
-// })
-
-
-//инициализировать элементы необходимо по id элемента
-//в верстке реализованна инициализация по классу, для массовости, класс pseudoClassTextEditor на инициализируемом элементе можно удалить, если таковой не применяется
-function inputFieldInit (element, elementId, defValue, readOnlyFlag ) {
-  $("."+ element).dxTextBox({
-  inputAttr: {
-       id: elementId,
-       class:"input-field__value" 
-   },
-   value: defValue,
-   readOnly: readOnlyFlag
-  }).dxValidator({
-        validationRules: [{
-            type: "required",
-            message: "Обязательно к заполнению"
-        }, {
-            type: "pattern",
-            pattern: /^[^0-9]+$/,
-            message: "Строка не может содержать цифры"
-        }, {
-            type: "stringLength",
-            min: 2,
-            message: "Длина строки не меньше 2 символов"
-        }],
-        validationGroup: "validateItems" //обязательный параметр для валидации см. src/blocks/common/validate.js:
-    });;
-};
-
-
-inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
-inputFieldInit ("pseudoClassTextEditorReadOnly","pseudoClassTextEditorReadOnly__id","100",true);
-
-
 $('.req-price .app-lnk__clhd').click(function(event) {
 
 	$(this).toggleClass('app-lnk__clhd--opn');
 	$(this).parents('.req-price__list').toggleClass('req-price__list--hide');
 
 });
-    $(".init-switch").dxSwitch({
-        value: false
-    });
+$('.spoiler').click(function(event) {
+	$(this).toggleClass('spoiler--show');
+});
 //add consignment block
 
 //реализация добавление блоков на первом шаге. убрали тк по идеи не нужна
@@ -2673,6 +2690,19 @@ $('.req-price .app-lnk__clhd').click(function(event) {
 // 	if ($( ".consignment" ).length == 1 )
 // 		$( ".consignment .step-block__sep .step-block__sep-btn-close").remove();
 // });
+    $(".init-switch").dxSwitch({
+        value: false
+    });
+$('.tabs__link a').click(function (e) {
+  e.preventDefault();
+  $('.tabs__link').removeClass('tabs__link--active');
+  $(this).parent().addClass('tabs__link--active');
+  $('.tabs__cont').removeClass('tabs__cont--active');
+  $('#'+ $(this).attr('href')).addClass('tabs__cont--active');
+
+});
+
+
     var simpleProducts = [
     "Выбор 1",
     "Выбор 12",
@@ -3290,65 +3320,31 @@ var tnvd= [
 
 
 
-$('.tabs__link a').click(function (e) {
-  e.preventDefault();
-  $('.tabs__link').removeClass('tabs__link--active');
-  $(this).parent().addClass('tabs__link--active');
-  $('.tabs__cont').removeClass('tabs__cont--active');
-  $('#'+ $(this).attr('href')).addClass('tabs__cont--active');
-
-});
-
-
-
-var $form = $('.photo-prof');
-
-$form.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-  })
-  .on('dragover dragenter', function() {
-    $form.addClass('is-dragover');
-  })
-  .on('dragleave dragend drop', function() {
-    $form.removeClass('is-dragover');
-  })
-  .on('drop', function(e) {
-    droppedFiles = e.originalEvent.dataTransfer.files;
-  });
-$('.spoiler').click(function(event) {
-	$(this).toggleClass('spoiler--show');
-});
 $('.ver-comp .app-lnk__clhd').click(function(event) {
 
 	$(this).toggleClass('app-lnk__clhd--opn');
 	$(this).parents('.ver-comp__bl').toggleClass('ver-comp__bl--hide');
 
 });
-$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
-	// $(this).toggleClass('user-popup-menu__title-btn--up');
-	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
-		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
-		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
-		$(this).toggleClass('btn-rotate180');
-		$(this).toggleClass('app-lnk-disable');
-	// }
-});
+// $(".navbar").scroll (function () {
 
+//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
 
-$(".user-popup-menu__title-btn").click(function(e) {
-  e.stopPropagation(); 
-});
+//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
+//     $(".navbar-ul").addClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-sticky')[0].scrollIntoView(true);
 
+// }  
+// if ( $(this).scrollTop() == 0) {
 
-function userPopupClose() {
-	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
-		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
-		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
-		$('.app-lnk-disable').toggleClass('btn-rotate180');
-		$('.app-lnk-disable').toggleClass('app-lnk-disable');
-	}
-}
+//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
+//     $(".navbar-ul").removeClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-currency')[0].scrollIntoView(true);
+//  }
+
+//  });
 $('.timezone-popup-menu__title-btn').click(function(){
 // console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
 // if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
@@ -3377,37 +3373,30 @@ function timezonePopupClose(e) {
 }
 
 
-// $(".navbar").scroll (function () {
+$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
+	// $(this).toggleClass('user-popup-menu__title-btn--up');
+	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
+		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
+		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
+		$(this).toggleClass('btn-rotate180');
+		$(this).toggleClass('app-lnk-disable');
+	// }
+});
 
-//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
 
-//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
-//     $(".navbar-ul").addClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-sticky')[0].scrollIntoView(true);
+$(".user-popup-menu__title-btn").click(function(e) {
+  e.stopPropagation(); 
+});
 
-// }  
-// if ( $(this).scrollTop() == 0) {
 
-//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
-//     $(".navbar-ul").removeClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-currency')[0].scrollIntoView(true);
-//  }
-
-//  });
- $(".popup__info-newmsg").dxToast({
-        message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
-        displayTime: 300000,
-        position: {my: 'center right', at: 'center right', offset: '-50 0'},
-        width: 375,
-		onShowing: function () {
-			//for left separate line on block message
-			$('.dx-toast-message').height($('.dx-toast-content').height());
-		}
-    });
-
-  $(".popup__info-newmsg").dxToast("show");
+function userPopupClose() {
+	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
+		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
+		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
+		$('.app-lnk-disable').toggleClass('btn-rotate180');
+		$('.app-lnk-disable').toggleClass('app-lnk-disable');
+	}
+}
 var cityData = [{
     id: 1,
     name: "Владивосток, Приморский край, Россия",
@@ -3599,6 +3588,18 @@ function textAriaInitAutoResize (className, width) {
 
 textAriaInit('pseudoClassTextAria', "auto", 72);
 textAriaInitAutoResize('pseudoClassTextAriaAutoHeight', "auto");
+ $(".popup__info-newmsg").dxToast({
+        message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
+        displayTime: 300000,
+        position: {my: 'center right', at: 'center right', offset: '-50 0'},
+        width: 375,
+		onShowing: function () {
+			//for left separate line on block message
+			$('.dx-toast-message').height($('.dx-toast-content').height());
+		}
+    });
+
+  $(".popup__info-newmsg").dxToast("show");
 $('.header-currency__lang').click( function () {
 	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
 	$('.header-currency__lang').toggleClass('header-currency__lang--en');
