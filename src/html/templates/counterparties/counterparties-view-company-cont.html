@@ -20,9 +20,9 @@
 </template>
 
 <template class="modal__content-templ">
-  <div class="scrollView">
+<div class="scrollView">
   <div class="modal__view">
-     
+
      <div id="tabs-counterparties-general-info" class="tabs__cont tabs__cont--active">
       <div class="modal__subview mt10">
         <div class="step-block__sep--blank">
@@ -42,8 +42,8 @@
             </div>
         </div>  
 
-      </div>
-     </div>     
+      </div>  
+    </div>
 
      <div id="tabs-counterparties-general-place" class="tabs__cont">
       <div class='modal__step-container modal__step-container-point'>
@@ -51,6 +51,11 @@
          <div class="modal__view modal__subview"> 
 
           <div id="dataGridСounterpartiesPlace" class="datagrid datagrid--remove"></div>
+            <div class="dg-wsum__summary">
+              <div class="dg-wsum__summary-row" style="padding-left:155px;">
+                <button class='btn__rnd btn__rnd--add app-lnk'><span class='btn__rnd-cap btn__rnd-cap--nodash'>Добавить</span><img src="img/btn__rnd-sm--add.svg" class="svg"></button>
+              </div>
+            </div>
             <!-- <div id="dataGridСounterpartiesPlace" class="datagrid--remove datagrid--no-filters"></div> -->
           </div> <!-- modal__subview -->
         </div>
@@ -68,23 +73,17 @@
               //= contacts/contacts.html
             </div>
              <div class="input-field">
-                <div id="pseudoElementTextAria" class="input-field__cont pseudoClassTextAria"></div>
+              <div id="pseudoElementTextAria" class="input-field__cont pseudoClassTextAria"></div>
                 <div class="input-field__label">
-                    <label for="pseudoElementTextAria__id">Комментарий:</label> 
+                 <label for="pseudoElementTextAria__id">Комментарий:</label> 
                 </div>
              </div> 
            </div>
          </div>
        </div>
       </div>
-
-  </div> 
-</div>
-  <div class="dg-wsum__summary">
-    <div class="dg-wsum__summary-row" style="padding-left:155px;">
-      <button class='btn__rnd btn__rnd--add app-lnk'><span class='btn__rnd-cap btn__rnd-cap--nodash'>Добавить</span><img src="img/btn__rnd-sm--add.svg" class="svg"></button>
-    </div>
   </div>
+</div>
 
   <div class="modal__foo">
     <div class="block__row block__row--gap20">
@@ -96,9 +95,11 @@
       </button>
     </div>
   </div>
+
+
 </template>
 
-<!-- сделанно через шаблон, для удобства редактирования, нужный кусок html внутри div-а с классом company-req-templ -->
+<!-- шаблон master detail для таблицы -->
 <template id="counterparties-view-modal-details">
   <div class="block__cont datagrid__master-detail">
   <div class="block__row block__row--gap20">
