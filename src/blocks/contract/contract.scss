@@ -82,7 +82,7 @@
 
 .contract {
     @include font-lucida (rgba(0, 0, 0, 0.7), 14px, 21px);
-    width: 1264px;
+    width: 1294px;
   & ol {
      color: rgba(0, 0, 0, 0.7); 
     list-style-type: none;
@@ -117,7 +117,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    padding: 20px 38px 25px 76px;
+    padding: 14px 158px 30px 96px;
   }
 
   &__counts {
@@ -160,6 +160,9 @@
     .contract__block-cap:hover & {
       border-bottom: 1px dashed $clr-purple;
     }
+    .contract__mod-block-cap:hover & {
+      border-bottom: 1px dashed $clr-purple;
+    }
     &:before {
         counter-increment: item;
         content: counters(item,".") ". ";
@@ -187,9 +190,9 @@
         display: block;
         counter-increment: item;
         content: counters(item,".") " ";
-        flex: 0 0 96px; 
+        flex: 0 0 64px; 
         padding: 8px 0; 
-          // margin-bottom: 8px;
+        margin-right: 16px;
         }
       
       & > p {
@@ -210,10 +213,12 @@
       display: inline-flex;
       width: 100%;
       padding: 5px 0;
+      padding-left: 16px;
       align-items: center;
       &:before{
-        flex: 0 0 76px; 
+        flex: 0 0 64px; 
         padding: 5px 0;
+        margin-right: 16px;
         counter-increment: item;
         content: counters(item,".") " ";
       }
@@ -331,5 +336,17 @@
 		color: #999999;
     }
 
-
+    &__edit-block {
+      border: 4px solid #ECF4FA;
+      margin-bottom: 16px;
+    }
+    &__mod-block-cap {
+      padding: 16px 0px 16px 96px;
+    }
+    &__mod-block--hide &__block--ch{
+      display: none;
+    }
+    &__mod-block--hide &__mod-block-cap > svg  {
+          transform: rotate(180deg);
+    }
 }
