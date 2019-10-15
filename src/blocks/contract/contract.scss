@@ -331,6 +331,24 @@
     &__mod-block-cap {
       padding: 16px 0px 16px 96px;
 
+
+
+      &--approved {
+            display: inline-block;
+            &:before {
+              content: "";
+              width: 16px;
+              height: 11px;
+              display: inline-block;
+              border-left: 2px solid $clr-green;
+              border-bottom: 2px solid $clr-green;
+              transform: rotate(-45deg);
+              margin-right: 12px;
+              vertical-align: 5px;
+              // position: absolute
+            }
+      }
+
       & > span {
         border-bottom: 1px dashed $clr-blue;
         margin-right: 8px;  
@@ -362,6 +380,10 @@
 
       &--blue {
         border-left: 4px solid $clr-blue;
+      }
+
+      &--green{
+        border-left: 4px solid $clr-green;
       }
 
       &-edition-owner {
