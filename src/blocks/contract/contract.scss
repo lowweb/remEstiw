@@ -113,11 +113,19 @@
     }
   }
   
-  &__block--ch {
+  &__mod-block {
+    margin-bottom: 16px;
+  }
+
+  &__mod-block--blue {
+    border: 4px solid #ECF4FA;
+  }
+
+  &__mod-block-cont {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    padding: 14px 158px 30px 96px;
+    padding: 14px 136px 30px 92px;
   }
 
   &__counts {
@@ -158,9 +166,6 @@
     border-bottom: 1px dashed $clr-blue;
     margin-right: 8px;
     .contract__block-cap:hover & {
-      border-bottom: 1px dashed $clr-purple;
-    }
-    .contract__mod-block-cap:hover & {
       border-bottom: 1px dashed $clr-purple;
     }
     &:before {
@@ -307,16 +312,6 @@
       height: 36px;
     }
 
-    &__mod-cl {
-      flex: 0 0 50%;
-      max-width: 480px;
-      margin-right: 40px;
-    }
-
-     &__mod-ew {
-      flex: 0 0 50%;
-      max-width: 480px;
-    }
 
     &__mod-btn {
       margin-top: 20px;
@@ -329,24 +324,102 @@
       }
     }
 
-    &__mod-date {
-    	margin-left: auto;
-    	font-size: 12px;
-		line-height: 14px;
-		color: #999999;
-    }
-
     &__edit-block {
       border: 4px solid #ECF4FA;
       margin-bottom: 16px;
     }
     &__mod-block-cap {
       padding: 16px 0px 16px 96px;
+
+      & > span {
+        border-bottom: 1px dashed $clr-blue;
+        margin-right: 8px;  
+        }
+      &:hover > span {
+          border-bottom: 1px dashed $clr-purple;
+        } 
     }
-    &__mod-block--hide &__block--ch{
+    &__mod-block--hide &__mod-block-cont{
       display: none;
     }
     &__mod-block--hide &__mod-block-cap > svg  {
           transform: rotate(180deg);
+    }
+
+
+    &__dialog {
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 16px;
+      flex: 0 0 480px;
+      max-width: 480px;
+      height: 100%;
+
+
+      &:first-child {
+        margin-right: 20px;
+      }
+
+      &--blue {
+        border-left: 4px solid $clr-blue;
+      }
+
+      &-edition-owner {
+        @include font-lucida ($clr-dark-light, 13px, 15px);
+          font-weight: 500;
+      }
+      &-mod-date {
+        margin-left: auto;
+        font-size: 12px;
+        line-height: 14px;
+        color: #999999;
+      }
+
+      &-text {
+        flex: 1 0 100%;
+        margin-top: 8px;
+        @include font-lucida (rgba(0, 0, 0, 0.7), 15px, 18px);
+
+      }
+
+      &-comment {
+        margin-top: 20px;
+
+        &-cap {
+          @include font-lucida ($clr-dark-light, 13px, 15px);
+        }
+        &-text {
+          @include font-lucida (#999999, 15px, 18px);
+          margin-top: 8px;
+        }
+      } 
+      
+      &-row {
+        display: flex;
+        margin-bottom: 30px;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      &-btn {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        & > button {
+          margin-right: 20px;
+        }
+        & > button:last-child {
+          margin-right: 0px;
+        }
+        & > button:nth-child(3) {
+          margin-top: 22px;
+        }
+
+        &-esw {
+          margin-left: 500px;
+        }
+      }
+
+
     }
 }
