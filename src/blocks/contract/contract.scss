@@ -115,17 +115,25 @@
   
   &__mod-block {
     margin-bottom: 16px;
+
+    &--blue {
+      border: 4px solid #ECF4FA;
+    }
+    &--red {
+      border: 4px solid rgba(255, 0, 0, 0.1);
+    }
+     &--green {
+      border: 4px solid #E6F9F5;
+    }
+
   }
 
-  &__mod-block--blue {
-    border: 4px solid #ECF4FA;
-  }
 
   &__mod-block-cont {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    padding: 14px 136px 30px 92px;
+    padding: 0px 136px 30px 92px;
   }
 
   &__counts {
@@ -229,35 +237,35 @@
       }
     }
 
-    &__line-add--act {
-      background-color: rgba(2, 195, 154, 0.1);
+    // &__line-add--act {
+    //   background-color: rgba(2, 195, 154, 0.1);
 
-      & > .btn__rnd--add {
+    //   & > .btn__rnd--add {
 
-        color: $clr-dark-light;
-        fill: $clr-dark-light;
-        cursor: default;
-         & > .btn__rnd-cap {
-                border-bottom: 1px dashed $clr-dark-light;
-         }
+    //     color: $clr-dark-light;
+    //     fill: $clr-dark-light;
+    //     cursor: default;
+    //      & > .btn__rnd-cap {
+    //             border-bottom: 1px dashed $clr-dark-light;
+    //      }
 
-         &:hover > .btn__rnd-cap {
-                border-bottom: 1px dashed $clr-dark-light;
-         } 
+    //      &:hover > .btn__rnd-cap {
+    //             border-bottom: 1px dashed $clr-dark-light;
+    //      } 
 
-         &:hover > svg > path{
-           fill: $clr-dark-light;
-         }
+    //      &:hover > svg > path{
+    //        fill: $clr-dark-light;
+    //      }
 
-      } 
-      & .contract__actn {
+    //   } 
+    //   & .contract__actn {
 
-      	display: flex;
-        align-self: center;
-        align-items: center;
-      	margin-left: auto;
-      }
-    }
+    //   	display: flex;
+    //     align-self: center;
+    //     align-items: center;
+    //   	margin-left: auto;
+    //   }
+    // }
 
 	&__line--edit {
 		background-color: #ECF4FA;
@@ -329,8 +337,11 @@
       margin-bottom: 16px;
     }
     &__mod-block-cap {
-      padding: 16px 0px 16px 96px;
-
+      padding: 16px 0px 16px 92px;
+      
+      & > img {
+        margin-right: 6px;
+      }
 
 
       &--approved {
@@ -373,7 +384,9 @@
       max-width: 480px;
       height: 100%;
 
-
+      &--input {
+        padding-left: 0px;
+      }
       &:first-child {
         margin-right: 20px;
       }
@@ -384,6 +397,10 @@
 
       &--green{
         border-left: 4px solid $clr-green;
+      }
+      
+      &--red{
+        border-left: 4px solid $clr-red;
       }
 
       &-edition-owner {
@@ -421,6 +438,15 @@
         margin-bottom: 30px;
         align-items: flex-start;
         width: 100%;
+
+        &:first-child {
+          margin-top: 14px;
+        }
+
+        &-org {
+          padding: 3px 0 30px 0;
+        }
+        
       }
 
       &-btn {

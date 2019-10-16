@@ -22,6 +22,20 @@ function textAriaInitAutoResize (className, width) {
     });
 };
 
+function textAriaInitAutoResizeminHeight (className, width, minHeight) {
+  $("." + className).dxTextArea({
+        spellcheck: false,
+        width: width,
+        minHeight: minHeight,
+        autoResizeEnabled: true,
+        inputAttr: {
+       id: "pseudoElementTextAria__id",
+       class:"input-field__value" 
+   }
+    });
+};
+
 
 textAriaInit('pseudoClassTextAria', "auto", 72);
 textAriaInitAutoResize('pseudoClassTextAriaAutoHeight', "auto");
+textAriaInitAutoResizeminHeight('pseudoClassTextAriaAutoHeight72', "auto" , 72);
