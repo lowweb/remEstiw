@@ -129,6 +129,7 @@
     & .contract__line {
       padding-left: 12px;
     }
+
   }
 
 
@@ -221,6 +222,20 @@
 
       & span {
         color: #000000;
+      }
+
+      &--rem-approved{
+
+        &:before {
+          color: $clr-red;
+          opacity: 0.4;
+
+        }
+        & > p {
+          color: $clr-red;
+          opacity: 0.4;
+        }
+        
       }
     }
 
