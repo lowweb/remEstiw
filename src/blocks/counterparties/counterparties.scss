@@ -17,4 +17,18 @@
 			margin: 7px 0 0 0;
 		}
 	}
+
+	&__header-cell {
+		display: flex;
+		align-items: center;
+
+	}
+
+	&__btn-add-header{
+		height: 16px !important;
+    	margin-right: 10px;
+		min-width: 16px !important;
+		border: none;
+    	cursor: pointer;
+	}
 }

@@ -1757,7 +1757,7 @@ var selectResCounter = [
         "ID": 2,
         "Name": "СОДНТ"
     }];
-//https://js.devexpress.com/Documentation/Guide/Widgets/DataGrid/Columns/Customize_Column_Headers/
+
  $("#dataGridСounterparties").dxDataGrid({
         dataSource: counterparties,
         keyExpr: "ID",
@@ -1788,6 +1788,13 @@ var selectResCounter = [
             dataField: "Name",
             caption: "Наименование контрагента",
             width: 256,
+            headerCellTemplate: function (cellElement, cellInfo) {
+                $("<div class='counterparties__header-cell'><button class='counterparties__btn-add-header btn__rnd--add btn__rnd'><svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14ZM9 7H12V9H9V12H7V9H4V7H7V4H9V7Z' fill='#0073BE'/></svg></button>Наименование контрагента</div>")    //навешиваем  template 
+                 .appendTo(cellElement)
+                //  .append($("<div class='counterparties__header-cell'><button class='btn__rnd-add-only'></button>Наименование контрагента</div>"))
+                // .append($("<div class='counterparties__header-cell'><button class='btn__rnd--add btn__rnd counterparties__btn-add-header'><svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14ZM9 7H12V9H9V12H7V9H4V7H7V4H9V7Z' fill='#0073BE'/></svg></button>Наименование контрагента</div>"))
+                
+            },
             cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку
                 $('<div class="datagrid__custom-cell">')    //навешиваем  template иницилизируем его как radiogroup
                  .appendTo(cellElement)
@@ -1825,6 +1832,12 @@ var selectResCounter = [
              }
   
         }],
+        onContentReady: function(e) {
+            $('.btn__rnd-add-only').click(function() {
+                e.preventDefault;
+                alert('sdfdfdsf');
+            });
+        },
         filterRow: {
             applyFilter: "auto",
             applyFilterText: "Apply filter",
@@ -1964,6 +1977,143 @@ function initСounterpartiesPlaceGrid () {
 };
 
 //-------------------------------//
+
+//-----------manufacturers--------------//
+var manufacturers = [{
+    "ID": 1,
+    "Name": "APL Co Pte Ltd (Singapore)",
+    "Loc": "Сингапур",
+    "Address": "9 North Buona Vista Drive, #14-01 The Metropolis Tower 1, Singapore 138588"
+},
+{
+    "ID": 2,
+    "Name": "Azuma Shipping Co., Ltd.",
+    "Loc": "Япония",
+    "Address": "33 fl, Office Tower Z, Harumi Island, Triton Square, 8-12, Harumi 1-Chome, Chuo-ku, Tokyo 104-6233"
+},
+{
+    "ID": 3,
+    "Name": "Farmosa Transportatiopn Co. Ltd",
+    "Loc": "Тайвань",
+    "Address": "12 Floor, No. 164, Fu Hsing North Road, Taipei, Taiwan 10487"
+},
+{
+    "ID": 4,
+    "Name": "БЕРИЛЛ",
+    "Loc": "Россия ",
+    "Address": "690065, г. Владивосток, ул. Стрельникова, д. 9, каб 26А"
+},
+{
+    "ID": 5,
+    "Name": "ООО «АвтоКом»",
+    "Loc": "Россия ",
+    "Address": "690012, Россия, Приморский край, г. Владивосток, ул. Березовая 25."
+},
+{
+    "ID": 6,
+    "Name": "APL Co Pte Ltd (Singapore)",
+    "Loc": "Сингапур",
+    "Address": "9 North Buona Vista Drive, #14-01 The Metropolis Tower 1, Singapore 138588"
+},
+{
+    "ID": 7,
+    "Name": "Azuma Shipping Co., Ltd.",
+    "Loc": "Япония",
+    "Address": "33 fl, Office Tower Z, Harumi Island, Triton Square, 8-12, Harumi 1-Chome, Chuo-ku, Tokyo 104-6233"
+},
+{
+    "ID": 8,
+    "Name": "Farmosa Transportatiopn Co. Ltd",
+    "Loc": "Тайвань",
+    "Address": "12 Floor, No. 164, Fu Hsing North Road, Taipei, Taiwan 10487"
+},
+{
+    "ID": 9,
+    "Name": "БЕРИЛЛ",
+    "Loc": "Россия ",
+    "Address": "690065, г. Владивосток, ул. Стрельникова, д. 9, каб 26А"
+},
+{
+    "ID": 10,
+    "Name": "ООО «АвтоКом»",
+    "Loc": "Россия ",
+    "Address": "690012, Россия, Приморский край, г. Владивосток, ул. Березовая 25."
+}
+];
+
+ $("#dataGridManufacturers").dxDataGrid({
+        dataSource: manufacturers,
+        keyExpr: "ID",
+        width: "100%",
+        editing: {
+            form: null,
+            mode: "row",
+            popup: null,
+            refreshMode: "full",
+            texts: {},
+            useIcons: true
+            },
+        hoverStateEnabled: true,
+        showBorders: true,
+        columns: 
+
+        [
+        {
+            dataField: "Name",
+            caption: "Наименование",
+            width: 296,
+            headerCellTemplate: function (cellElement, cellInfo) {
+                $("<div class='counterparties__header-cell'><button class='counterparties__btn-add-header btn__rnd--add btn__rnd'><svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14ZM9 7H12V9H9V12H7V9H4V7H7V4H9V7Z' fill='#0073BE'/></svg></button>Наименование</div>")    //навешиваем  template 
+                 .appendTo(cellElement)
+                
+            },
+            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку
+                $('<div class="datagrid__custom-cell">')   
+                 .appendTo(cellElement)
+                 .append($("<a id='company-req__bank-name' href='#''>"+cellInfo.data.Name+"</a>"))
+             }, 
+            cssClass: "datagrid__link-cell" //обязательный класс
+        },
+         {
+            dataField: "Loc",
+            caption: "Страна",
+            width: 157
+        },
+        {
+            dataField: "Address",
+            caption: "Адрес",
+            width: 709
+        },  
+        { 
+            width: 70,
+            cellTemplate: function(cellElement, cellInfo) {   //кнопка удаления
+            $("<button class='btn__rnd--del btn__rnd filelist__btn-del'></button>")    
+            .appendTo(cellElement)
+              .append($("<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8C16 12.4183 12.4183 16 8 16ZM8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14ZM8 9.41421L5.70711 11.7071L4.29289 10.2929L6.58579 8L4.29289 5.70711L5.70711 4.29289L8 6.58579L10.2929 4.29289L11.7071 5.70711L9.41421 8L11.7071 10.2929L10.2929 11.7071L8 9.41421Z' fill='#AAAAAA'/></svg>"))
+             }
+  
+        }],
+        filterRow: {
+            applyFilter: "auto",
+            applyFilterText: "Apply filter",
+            betweenEndText: "End",
+            betweenStartText: "Start",
+            resetOperationText: "Reset",
+            showAllText: "",
+            showOperationChooser: true,
+            visible: true
+            },
+        showColumnLines: true,
+        showRowLines: true,
+    }).data("dxDataGrid");
+
+ //-------------------------------------------------------------//
+
+
+
+
+
+
 var s = 123456789;
 var random = function() {
     s = (1103515245 * s + 12345) % 2147483647;
