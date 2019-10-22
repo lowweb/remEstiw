@@ -2490,6 +2490,11 @@ if ($('.modal').hasClass('modal-application-view-v3')) {
 if ($('.modal').hasClass('modal-application-view-v5')) {
 	 initAppViewV5DataGrid ()
 };
+if ($('.modal').hasClass('modal-manufactures-view')) {
+	inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
+};
+
+
 
 };
 
@@ -2542,6 +2547,7 @@ initModal("modal-application-view-v2", 860 , "80%", 'modal__title-templ','modal_
 initModal("modal-application-view-v3", 860 , "80%", 'modal__title-templ','modal__content-templ',"center");
 initModal("modal-application-view-v5", 1024 , "80%", 'modal__title-templ','modal__content-templ',"center");
 initModal("modal-counterparties-view", 760 , "80%", 'modal__title-templ','modal__content-templ',"center");
+initModal("modal-manufactures-view", 760 , "auto", 'modal__title-templ','modal__content-templ',"center");
 
 
 

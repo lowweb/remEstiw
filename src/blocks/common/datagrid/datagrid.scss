@@ -9,6 +9,7 @@
 	& tr.dx-row-lines.dx-column-lines {
 		// color: rgba(0, 0, 0, 0.7);
 		@include font-lucida (rgba(0, 0, 0, 0.7), 14px, normal);
+		line-height: 16px;
 	}
 
 	& .dx-header-row {
