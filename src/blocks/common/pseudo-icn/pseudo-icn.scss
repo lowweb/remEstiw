@@ -83,4 +83,21 @@
 			}
 
 	}
+
+	&__add--pr{
+		&:before{
+			content: url('#{$imgFolder}icn-add-pr.svg');
+		}
+	}
+
+	
+
+	&-right {
+		&__add--pr{
+			&:after{
+				content: url('#{$imgFolder}icn-add-pr.svg');
+			}
+		}
+
+	}
 }

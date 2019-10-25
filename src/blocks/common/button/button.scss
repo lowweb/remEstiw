@@ -70,6 +70,12 @@
 		margin-right: 8px;
 	}
 
+
+	&.icn-right:after{
+		margin-left: 8px;
+	}
+
+
 	&:disabled {
 		cursor: not-allowed;
 		background: #F2F3FB;
