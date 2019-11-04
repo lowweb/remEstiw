@@ -29,4 +29,39 @@ $("." + classElement).dxSelectBox({
     });
 };
 
-selectBoxInitForClass("pseudoClassSelectBox",[ "значение", "значение", "значенадывжлавдылажвылаие 123456789" ],"pseudoNameElementSelectBox__id","input-field__value");
+selectBoxInitForClass("pseudoClassSelectBox", [ "значение", "значение", "значенадывжлавдылажвылаие 123456789" ],"pseudoNameElementSelectBox__id","input-field__value");
+
+
+
+
+
+function selectBoxForChat (classElement, dataS, inputAttrId, inputAttrVal ) {
+    $("." + classElement).dxSelectBox({
+        dataSource: dataS,
+        placeholder: "",
+        fieldTemplate: function (data, container) {
+            var result = $("<div class='messages__custom-select'><div class='messages__dialog-type-select-color messages__dialog-type-select-color--green'></div><div class='messages__dialog-type-name'></div></div>");
+            result
+                .find(".messages__dialog-type-name")
+                .dxTextBox({
+                    value: data && data.typeName,
+                    readonly: true,
+                    inputAttr: {
+                        id: inputAttrId, //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а••
+                        class: inputAttrVal //обязятельный класс
+                       }
+                });
+            container.append(result);
+        },
+        itemTemplate: function (data) {
+            return "<div class='messages__custom-select-list'><div class='messages__dialog-type-select-color messages__dialog-type-select-color--"+data.type+"'></div><div class='messages__dialog-type-name'>"+data.typeName+"</div></div>";
+        },
+        inputAttr: {
+          id: inputAttrId, //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
+          class: inputAttrVal //обязятельный класс
+         }
+    });
+};
+
+
+

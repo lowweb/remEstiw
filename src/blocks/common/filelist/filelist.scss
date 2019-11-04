@@ -57,4 +57,22 @@
    		flex: 0 1 auto;
 	}
 
+	&--chat {
+		background-color: #ffffff;
+		border: none;
+		padding: 0;
+
+		& .filelist__itm {
+			margin-bottom: 14px;
+
+			&:last-child {
+				margin-bottom: 2px;
+			}
+		}
+
+		& .filelist__btn-del{
+			margin-left: 20px;
+		}
+	}
+
 }

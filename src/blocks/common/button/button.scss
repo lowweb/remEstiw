@@ -83,6 +83,12 @@
 		box-shadow: inset 0px -3px 0px rgba(0, 0, 0, 0.05);
 		color: #B4B8C5;
 	}
+
+	&-square{
+		box-shadow: none;
+		padding-left: 6px;
+    	padding-right: 6px;
+	}
 }
 //эффект поворота кнопок угольных
 .btn-rotate180:before {

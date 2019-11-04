@@ -99,6 +99,17 @@ $('.input-field__cont').change ( function () {
 	 	$(this).parent().find('.input-field__label').removeClass('input-field__label--err');
 	 }
 });
+$('.messages__chat-header-search .input-field__btn').click(function (e) {
+    e.preventDefault();
+    $(this).parents('.messages__chat-header-search').toggleClass('messages__chat-header-search--active');
+    $(this).parents('.messages__chat-header').find('.messages__chat-header-people').toggleClass('messages__chat-header-people--hide');
+  });
+
+  $('#messages__fileuploader-btn').click(function (e) {
+    e.preventDefault();
+    $(this).toggleClass('messages__fileuploader-btn--hide');
+    $(this).parents('.messages__chat-fotter').find('.messages__chat-fotter-fileuploader').toggleClass('messages__chat-fotter-fileuploader--active');
+  });
 $('.contract__block-cap').click(function(event) {
 
 	$(this).parents('.contract__block').toggleClass('contract__block--hide');
@@ -2494,6 +2505,37 @@ if ($('.modal').hasClass('modal-manufactures-view')) {
 	inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
 };
 
+if ($('.modal').hasClass('modal-messages-chat-new')) {
+	inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
+	$(".fileUploader").dxFileUploader({
+        accept:"image/*,*.zip,*.pdf,*.mp4",
+        width: 424,
+	    multiple: true,
+	    allowCanceling: true,
+	    selectButtonText: "нажмите выбрать",
+		showFileList: true,
+		labelText: "Перенесите сюда файл (xls, word, pdf) или",
+		uploadFailedMessage: "dsfs",
+		uploadedMessage: "",
+		uploadFailedMessage: "",
+	});
+	var messageType = [{
+		"type": "green",
+		"typeName": "значение 1 dwkjdhkjwedhkjewdh whdkjwhedkjhewkdjhkwjdhkjwedew jkhdjkewhdejkwhjk"
+	}, {
+		"type": "blue",
+		"typeName": "значение 2"
+	}, {
+		"type": "yellow",
+		"typeName": "значение 3"
+	}
+	
+	];
+	
+	selectBoxForChat("pseudoClassSelectBoxCustom",messageType,"pseudoNameElementSelectBox__id","input-field__value");
+
+};
+
 
 
 };
@@ -2548,25 +2590,7 @@ initModal("modal-application-view-v3", 860 , "80%", 'modal__title-templ','modal_
 initModal("modal-application-view-v5", 1024 , "80%", 'modal__title-templ','modal__content-templ',"center");
 initModal("modal-counterparties-view", 760 , "80%", 'modal__title-templ','modal__content-templ',"center");
 initModal("modal-manufactures-view", 760 , "auto", 'modal__title-templ','modal__content-templ',"center");
-
-
-
- 
-function numberBoxInit (idElement,idAttrName) {
-	 $("."+idElement).dxNumberBox({
-        value: 15,
-        min: 10,
-        max: 100,
-        showSpinButtons: true,
-        inputAttr: {
-   		 id: idAttrName,
-   		 class: "input-field__value" 
-   		}
-   		//width: widthElement
-    });
-};
-
-numberBoxInit ("pseudoClassNumberBox","pseudoNameElementNumberBox__id");
+initModal("modal-messages-chat-new", 464 , 547, 'modal__title-templ','modal__content-templ',"center");
 
 
 
@@ -2585,40 +2609,6 @@ $form.on('drag dragstart dragend dragover dragenter dragleave drop', function(e)
   .on('drop', function(e) {
     droppedFiles = e.originalEvent.dataTransfer.files;
   });
-$('.progress-bar__step').hover (function(){
-	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
-},
-function (){
-	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
-}
-);
-
-
-var progressPercentValue=10;
-  
-$('.header-progress').click(function() {
-
-	// progressPercentValue=Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100);
-	console.log('do='+progressPercentValue);
-	if (progressPercentValue < 100) {
-		$('.progress-bar__status').width((progressPercentValue + 5)+'%');
-		// console.log('posle='+ Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100));
-		if(progressPercentValue == 45){
-			$('.progress-bar__second-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
-			$('.progress-bar__second-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
-
-		}
-
-		if(progressPercentValue == 95){
-			$('.progress-bar__third-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
-			$('.progress-bar__third-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
-
-		}
-	progressPercentValue+=5;	
-	}
-
-
-});
 var typeDealitem = ["РФ (Внутренациональная)", "ВЭД (Международная)"];
 var cargoReceiverItem = ["Физическое лицо", "Юридическое лицо"];
 var volumeItem = ["До 5 м", "Свыше 5 м"];
@@ -3487,25 +3477,82 @@ $('.ver-comp .app-lnk__clhd').click(function(event) {
 	$(this).parents('.ver-comp__bl').toggleClass('ver-comp__bl--hide');
 
 });
-// $(".navbar").scroll (function () {
+$('.progress-bar__step').hover (function(){
+	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
+},
+function (){
+	$(this).find('.progress-bar__step-border').toggleClass('progress-bar__step-border--hov');
+}
+);
 
-//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
 
-//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
-//     $(".navbar-ul").addClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-sticky')[0].scrollIntoView(true);
+var progressPercentValue=10;
+  
+$('.header-progress').click(function() {
 
-// }  
-// if ( $(this).scrollTop() == 0) {
+	// progressPercentValue=Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100);
+	console.log('do='+progressPercentValue);
+	if (progressPercentValue < 100) {
+		$('.progress-bar__status').width((progressPercentValue + 5)+'%');
+		// console.log('posle='+ Math.ceil($('.progress-bar__status').width()/$('.progress-bar').width()*100));
+		if(progressPercentValue == 45){
+			$('.progress-bar__second-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
+			$('.progress-bar__second-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
 
-//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
-//     $(".navbar-ul").removeClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-currency')[0].scrollIntoView(true);
-//  }
+		}
 
-//  });
+		if(progressPercentValue == 95){
+			$('.progress-bar__third-step').find('.progress-bar__step-border').toggleClass('progress-bar__step-border--active');
+			$('.progress-bar__third-step').find('.progress-bar__step-link').toggleClass('progress-bar__step-link--active');
+
+		}
+	progressPercentValue+=5;	
+	}
+
+
+});
+ 
+function numberBoxInit (idElement,idAttrName) {
+	 $("."+idElement).dxNumberBox({
+        value: 15,
+        min: 10,
+        max: 100,
+        showSpinButtons: true,
+        inputAttr: {
+   		 id: idAttrName,
+   		 class: "input-field__value" 
+   		}
+   		//width: widthElement
+    });
+};
+
+numberBoxInit ("pseudoClassNumberBox","pseudoNameElementNumberBox__id");
+
+
+$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
+	// $(this).toggleClass('user-popup-menu__title-btn--up');
+	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
+		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
+		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
+		$(this).toggleClass('btn-rotate180');
+		$(this).toggleClass('app-lnk-disable');
+	// }
+});
+
+
+$(".user-popup-menu__title-btn").click(function(e) {
+  e.stopPropagation(); 
+});
+
+
+function userPopupClose() {
+	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
+		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
+		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
+		$('.app-lnk-disable').toggleClass('btn-rotate180');
+		$('.app-lnk-disable').toggleClass('app-lnk-disable');
+	}
+}
 $('.timezone-popup-menu__title-btn').click(function(){
 // console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
 // if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
@@ -3534,30 +3581,25 @@ function timezonePopupClose(e) {
 }
 
 
-$('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
-	// $(this).toggleClass('user-popup-menu__title-btn--up');
-	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
-		$(this).parents(".user-popup-menu").toggleClass('user-popup-menu--active');
-		$(this).parents(".user-popup-menu").find('.user-popup-menu__add').toggleClass('user-popup-menu__add--active');
-		$(this).toggleClass('btn-rotate180');
-		$(this).toggleClass('app-lnk-disable');
-	// }
-});
+// $(".navbar").scroll (function () {
 
+//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
 
-$(".user-popup-menu__title-btn").click(function(e) {
-  e.stopPropagation(); 
-});
+//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
+//     $(".navbar-ul").addClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-sticky')[0].scrollIntoView(true);
 
+// }  
+// if ( $(this).scrollTop() == 0) {
 
-function userPopupClose() {
-	if ($('.user-popup-menu__title-info-name').hasClass('app-lnk-disable')){
-		$(".user-popup-menu--active").toggleClass('user-popup-menu--active');
-		$('.user-popup-menu__add--active').toggleClass('user-popup-menu__add--active');
-		$('.app-lnk-disable').toggleClass('btn-rotate180');
-		$('.app-lnk-disable').toggleClass('app-lnk-disable');
-	}
-}
+//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
+//     $(".navbar-ul").removeClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-currency')[0].scrollIntoView(true);
+//  }
+
+//  });
 var cityData = [{
     id: 1,
     name: "Владивосток, Приморский край, Россия",
@@ -3720,7 +3762,42 @@ $("." + classElement).dxSelectBox({
     });
 };
 
-selectBoxInitForClass("pseudoClassSelectBox",[ "значение", "значение", "значенадывжлавдылажвылаие 123456789" ],"pseudoNameElementSelectBox__id","input-field__value");
+selectBoxInitForClass("pseudoClassSelectBox", [ "значение", "значение", "значенадывжлавдылажвылаие 123456789" ],"pseudoNameElementSelectBox__id","input-field__value");
+
+
+
+
+
+function selectBoxForChat (classElement, dataS, inputAttrId, inputAttrVal ) {
+    $("." + classElement).dxSelectBox({
+        dataSource: dataS,
+        placeholder: "",
+        fieldTemplate: function (data, container) {
+            var result = $("<div class='messages__custom-select'><div class='messages__dialog-type-select-color messages__dialog-type-select-color--green'></div><div class='messages__dialog-type-name'></div></div>");
+            result
+                .find(".messages__dialog-type-name")
+                .dxTextBox({
+                    value: data && data.typeName,
+                    readonly: true,
+                    inputAttr: {
+                        id: inputAttrId, //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а••
+                        class: inputAttrVal //обязятельный класс
+                       }
+                });
+            container.append(result);
+        },
+        itemTemplate: function (data) {
+            return "<div class='messages__custom-select-list'><div class='messages__dialog-type-select-color messages__dialog-type-select-color--"+data.type+"'></div><div class='messages__dialog-type-name'>"+data.typeName+"</div></div>";
+        },
+        inputAttr: {
+          id: inputAttrId, //иницилизируем элемент с id - имя сопадает с именем элемента label для input-а
+          class: inputAttrVal //обязятельный класс
+         }
+    });
+};
+
+
+
 
 function textAriaInit (className, width,height) {
 	$("." + className).dxTextArea({
@@ -3759,10 +3836,25 @@ function textAriaInitAutoResizeminHeight (className, width, minHeight) {
     });
 };
 
+function textAriaInitAutoResizemaxHeight (className, width, maxHeight) {
+    $("." + className).dxTextArea({
+          spellcheck: false,
+          width: width,
+          minHeight: 36,
+          maxHeight: maxHeight,
+          autoResizeEnabled: true,
+          inputAttr: {
+         id: "pseudoElementTextAria__id",
+         class:"input-field__value" 
+     }
+      });
+  };
+
 
 textAriaInit('pseudoClassTextAria', "auto", 72);
 textAriaInitAutoResize('pseudoClassTextAriaAutoHeight', "auto");
 textAriaInitAutoResizeminHeight('pseudoClassTextAriaAutoHeight72', "auto" , 72);
+textAriaInitAutoResizemaxHeight('pseudoClassTextAriaAutoHeightMax108', "auto" , 108);
  $(".popup__info-newmsg").dxToast({
         message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
         displayTime: 300000,
@@ -3775,10 +3867,6 @@ textAriaInitAutoResizeminHeight('pseudoClassTextAriaAutoHeight72', "auto" , 72);
     });
 
   $(".popup__info-newmsg").dxToast("show");
-$('.header-currency__lang').click( function () {
-	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
-	$('.header-currency__lang').toggleClass('header-currency__lang--en');
-});
 //эффект на иконке при hover тк заголовок всегда 1
 $('.navbar__header-link').hover(  
 function(){
@@ -3852,4 +3940,9 @@ $('.navbar__item-header').click(function(){
 	$(this).parents(".navbar__item").find('.navbar__submenu').toggleClass('navbar__submenu--open');
 	$(this).find('.navbar__item-btn-submenu').toggleClass('btn-rotate180');
 
+});
+
+$('.header-currency__lang').click( function () {
+	$('.header-currency__lang').toggleClass('header-currency__lang--ru');
+	$('.header-currency__lang').toggleClass('header-currency__lang--en');
 });

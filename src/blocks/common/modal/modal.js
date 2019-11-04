@@ -182,6 +182,37 @@ if ($('.modal').hasClass('modal-manufactures-view')) {
 	inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
 };
 
+if ($('.modal').hasClass('modal-messages-chat-new')) {
+	inputFieldInit ("pseudoClassTextEditor","pseudoElementTextEditor__id","",false);
+	$(".fileUploader").dxFileUploader({
+        accept:"image/*,*.zip,*.pdf,*.mp4",
+        width: 424,
+	    multiple: true,
+	    allowCanceling: true,
+	    selectButtonText: "нажмите выбрать",
+		showFileList: true,
+		labelText: "Перенесите сюда файл (xls, word, pdf) или",
+		uploadFailedMessage: "dsfs",
+		uploadedMessage: "",
+		uploadFailedMessage: "",
+	});
+	var messageType = [{
+		"type": "green",
+		"typeName": "значение 1 dwkjdhkjwedhkjewdh whdkjwhedkjhewkdjhkwjdhkjwedew jkhdjkewhdejkwhjk"
+	}, {
+		"type": "blue",
+		"typeName": "значение 2"
+	}, {
+		"type": "yellow",
+		"typeName": "значение 3"
+	}
+	
+	];
+	
+	selectBoxForChat("pseudoClassSelectBoxCustom",messageType,"pseudoNameElementSelectBox__id","input-field__value");
+
+};
+
 
 
 };
@@ -236,5 +267,5 @@ initModal("modal-application-view-v3", 860 , "80%", 'modal__title-templ','modal_
 initModal("modal-application-view-v5", 1024 , "80%", 'modal__title-templ','modal__content-templ',"center");
 initModal("modal-counterparties-view", 760 , "80%", 'modal__title-templ','modal__content-templ',"center");
 initModal("modal-manufactures-view", 760 , "auto", 'modal__title-templ','modal__content-templ',"center");
-
+initModal("modal-messages-chat-new", 464 , 547, 'modal__title-templ','modal__content-templ',"center");
 
