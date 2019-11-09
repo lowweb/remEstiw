@@ -2019,6 +2019,208 @@ var selectResTypeAlerts = [
  //-------------------------------------------------------------//
 
 
+//-----------dataGridDeals--------------//
+var deals = [{
+    "ID": 1,
+    "Num": "001",
+    "Name": "Наименование международной сделки на покупку",
+    "DepDest": "Шанхай, Китай (DOOR (EXW)) →  Новосибирск, Россия (FI (FOB))",
+    "Status": "Ожидает подписания",
+    "TypeAdd": "№3 (Покупка) Приобретение товара. Услуги импортёра",
+    "DateSign": "-",
+    "DateEnd": "-"
+},
+{
+    "ID": 2,
+    "Num": "001",
+    "Name": "Наименование международной сделки на покупку",
+    "DepDest": "Шанхай, Китай (DOOR (EXW)) →  Новосибирск, Россия (FI (FOB))",
+    "Status": "В работе",
+    "TypeAdd": "№3 (Покупка) Приобретение товара. Услуги импортёра",
+    "DateSign": "12.04.2017",
+    "DateEnd": "12.12.2019"
+},
+{
+    "ID": 3,
+    "Num": "001",
+    "Name": "Наименование сделки на доставку груза",
+    "DepDest": "Шанхай, Китай (DOOR (EXW)) →  Новосибирск, Россия (FI (FOB))",
+    "Status": "Приостановленные",
+    "TypeAdd": "№3 (Покупка) Приобретение товара. Услуги импортёра",
+    "DateSign": "12.04.2017",
+    "DateEnd": "12.12.2019"
+},
+{
+    "ID": 4,
+    "Num": "001",
+    "Name": "Наименование международной сделки на покупку",
+    "DepDest": "Шанхай, Китай (DOOR (EXW)) →  Новосибирск, Россия (FI (FOB))",
+    "Status": "В работе",
+    "TypeAdd": "№3 (Покупка) Приобретение товара. Услуги импортёра",
+    "DateSign": "12.04.2017",
+    "DateEnd": "12.12.2019"
+},
+{
+    "ID": 5,
+    "Num": "001",
+    "Name": "Наименование международной сделки на покупку",
+    "DepDest": "Шанхай, Китай (DOOR (EXW)) →  Новосибирск, Россия (FI (FOB))",
+    "Status": "Ожидает подписания",
+    "TypeAdd": "№3 (Покупка) Приобретение товара. Услуги импортёра",
+    "DateSign": "-",
+    "DateEnd": "-"
+},
+{
+    "ID": 6,
+    "Num": "001",
+    "Name": "Наименование международной сделки на покупку",
+    "DepDest": "Шанхай, Китай (DOOR (EXW)) →  Новосибирск, Россия (FI (FOB))",
+    "Status": "Завершённые",
+    "TypeAdd": "№3 (Покупка) Приобретение товара. Услуги импортёра",
+    "DateSign": "12.04.2017",
+    "DateEnd": "12.12.2019"
+},
+{
+    "ID": 7,
+    "Num": "001",
+    "Name": "Наименование сделки на доставку груза",
+    "DepDest": "Шанхай, Китай (DOOR (EXW)) →  Новосибирск, Россия (FI (FOB))",
+    "Status": "Завершённые",
+    "TypeAdd": "№3 (Покупка) Приобретение товара. Услуги импортёра",
+    "DateSign": "12.04.2017",
+    "DateEnd": "12.12.2019"
+},
+{
+    "ID": 8,
+    "Num": "001",
+    "Name": "Наименование международной сделки на покупку",
+    "DepDest": "Barysaw, Белоруссия (DOOR (EXW)) → Antwerp, Бельгия (FI (FOB))",
+    "Status": "В работе",
+    "TypeAdd": "№3 (Покупка) Приобретение товара. Услуги импортёра",
+    "DateSign": "12.04.2017",
+    "DateEnd": "12.12.2019"
+}
+];
+
+var selectResDealsStatus = [
+    {
+        "ID": 1,
+        "Name": "Ожидает подписания"
+    },
+    {
+        "ID": 2,
+        "Name": "В работе"
+    },
+    {
+        "ID": 3,
+        "Name": "Приостановленные"
+    },
+    {
+        "ID": 4,
+        "Name": "Завершённые"
+    }];
+var selectResDealType = [
+    {
+        "ID": 1,
+        "Name": "№3 (Покупка) Приобретение товара. Услуги импортёра"
+    }];    
+
+ $("#dataGridDeals").dxDataGrid({
+        dataSource: deals,
+        keyExpr: "ID",
+        width: "100%",
+        editing: {
+            form: null,
+            mode: "row",
+            popup: null,
+            refreshMode: "full",
+            texts: {},
+            useIcons: true
+            },
+        hoverStateEnabled: true,
+        showBorders: true,
+        columns: 
+
+        [
+        {
+            dataField: "Num",
+            caption: "Номер",
+            width: 87,
+            alignment: "left"
+        },
+        {
+            dataField: "Name",
+            caption: "Наименование сделки",
+            width: 320,
+            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку, навешиваем элемент radiogroup
+            $('<div class="datagrid__custom-cell">')    //навешиваем  template иницилизируем его как radiogroup
+               .appendTo(cellElement   )
+                .append($("<a href='#''>"+cellInfo.data.Name+"</a>"))
+             }, 
+
+            cssClass: "datagrid__link-cell" //обязательный класс
+        },
+        {
+            dataField: "DepDest",
+            caption: "Отправление → Назначение",
+            width: 315
+        },
+        {
+            dataField: "Status",
+            caption: "Статус",
+            width: 212,
+            lookup: {
+                    dataSource: selectResDealsStatus,
+                    valueExpr: "Name",
+                    displayExpr: "Name"
+                },
+            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку
+            if (cellInfo.data.Status == "Завершённые") {
+                $("<div class='datagrid__custom-cell--def'>" + cellInfo.data.Status + "</div>")
+                .appendTo(cellElement)
+            }
+            else
+                $("<div class='datagrid__custom-cell'>" + cellInfo.data.Status + "</div>")   
+                 .appendTo(cellElement)
+             },     
+        },
+        {
+            dataField: "TypeAdd",
+            caption: "Тип доп. соглашения",
+            width: 294,
+            lookup: {
+                    dataSource: selectResDealType,
+                    valueExpr: "Name",
+                    displayExpr: "Name"
+                }
+            
+        },
+        {
+            dataField: "DateSign",
+            caption: "Дата подписания",
+            width: 155
+        },
+        {
+            dataField: "DateEnd",
+            caption: "Дата окончания",
+            width: 161
+        },],
+        filterRow: {
+            applyFilter: "auto",
+            applyFilterText: "Apply filter",
+            betweenEndText: "End",
+            betweenStartText: "Start",
+            resetOperationText: "Reset",
+            showAllText: "",
+            showOperationChooser: true,
+            visible: true
+            },
+        showColumnLines: true,
+        showRowLines: true,
+    }).data("dxDataGrid");
+
+ //-------------------------------------------------------------//
+
 
 var s = 123456789;
 var random = function() {
