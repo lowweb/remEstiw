@@ -1,0 +1,47 @@
+.rightside-panel {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	top: 40px;
+	right: 27px;
+	opacity: 0.5;
+	width: 444px;
+
+	&:hover {
+		opacity: 1;
+		transition: opacity 0.5s
+	}
+
+	&__cap {
+		@include font-fira ($clr-dark-light, 17px, normal);
+		letter-spacing: 0.01em;
+		margin-left: 16px;
+
+		&-lnk{
+			@include font-fira ($clr-blue, 17px, normal);
+			letter-spacing: 0.01em;
+			margin-left: 2px;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+
+			 &:before{
+				margin-right: 14px;
+				width: auto;
+			 }
+		}
+
+	}
+
+	&__items{
+		background: #FFFFFF;
+		box-shadow: 0px 8px 16px rgba(55, 63, 81, 0.16);
+		border-radius: 3px;
+		width: 444px;
+		margin-top: 16px;
+		padding: 0 16px;
+	}
+
+
+
+}
