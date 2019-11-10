@@ -100,4 +100,19 @@
 		}
 
 	}
+
+	&__inwork--gr{
+		&:before{
+				content: url('#{$imgFolder}icn-inwork-gr.svg');
+			}
+
+	}
+
+	&__credit{
+		&:before{
+				content: url('#{$imgFolder}icn-credit.svg');
+			}
+
+	}
+
 }

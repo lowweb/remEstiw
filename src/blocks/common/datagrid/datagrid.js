@@ -1889,7 +1889,7 @@ var systemAlerts = [{
     "ID": 1,
     "Date": "12.04.2017 17:54",
     "Type": "Заключение договора",
-    "Event": "Запущен процесс согласования Изменения к доп. соглашению №1 заказчика", 
+    "Event": "Запущен процесс <a href='#' class='app-lnk'>sadsad</a> согласования Изменения к доп. соглашению №1 заказчика", 
 },
 {
     "ID": 2,
@@ -2001,6 +2001,11 @@ var selectResTypeAlerts = [
             dataField: "Event",
             caption: "Описание события",
             width: 627,
+            cellTemplate: function(cellElement, cellInfo) { 
+                $("<div class='datagrid__custom-cell'>Запущен процесс <a href='#' class='app-lnk'>согласования Изменения к доп. соглашению №4 </a>заказчика</div>")
+               .appendTo(cellElement);
+            }
+            
         }],
         filterRow: {
             applyFilter: "auto",
@@ -2146,16 +2151,28 @@ var selectResDealType = [
             dataField: "Num",
             caption: "Номер",
             width: 87,
-            alignment: "left"
+            alignment: "left",
+            cellTemplate: function(cellElement, cellInfo) { 
+                if (cellInfo.data.Status == 'Приостановленные')
+                $("<div class='datagrid__custom-cell--dsbl'>" + cellInfo.data.Num+"</div>").appendTo(cellElement);
+                else
+                $("<div class='datagrid__custom-cell'>" + cellInfo.data.Num + "</div>").appendTo(cellElement);
+             }
         },
         {
             dataField: "Name",
             caption: "Наименование сделки",
             width: 320,
-            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку, навешиваем элемент radiogroup
+            cellTemplate: function(cellElement, cellInfo) { 
+                //кастомим ячейку, навешиваем элемент radiogroup
+            if (cellInfo.data.Status == 'Приостановленные')
+             $('<div class="datagrid__custom-cell datagrid__custom-cell--dsbl">')    //навешиваем  template иницилизируем его как radiogroup
+                .appendTo(cellElement)
+                .append($("<a href='#''>"+cellInfo.data.Name+"</a>"));
+            else
             $('<div class="datagrid__custom-cell">')    //навешиваем  template иницилизируем его как radiogroup
-               .appendTo(cellElement   )
-                .append($("<a href='#''>"+cellInfo.data.Name+"</a>"))
+               .appendTo(cellElement)
+                .append($("<a href='#''>"+cellInfo.data.Name+"</a>"));
              }, 
 
             cssClass: "datagrid__link-cell" //обязательный класс
@@ -2163,7 +2180,13 @@ var selectResDealType = [
         {
             dataField: "DepDest",
             caption: "Отправление → Назначение",
-            width: 315
+            width: 315,
+            cellTemplate: function(cellElement, cellInfo) { 
+                if (cellInfo.data.Status == 'Приостановленные')
+                $("<div class='datagrid__custom-cell--dsbl'>" + cellInfo.data.DepDest+"</div>").appendTo(cellElement);
+                else
+                $("<div class='datagrid__custom-cell'>" + cellInfo.data.DepDest + "</div>").appendTo(cellElement);
+             }
         },
         {
             dataField: "Status",
@@ -2175,7 +2198,9 @@ var selectResDealType = [
                     displayExpr: "Name"
                 },
             cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку
-            if (cellInfo.data.Status == "Завершённые") {
+            if (cellInfo.data.Status == 'Приостановленные')
+                $("<div class='datagrid__custom-cell--dsbl'>" + cellInfo.data.Status+"</div>").appendTo(cellElement);   
+            else if (cellInfo.data.Status == "Завершённые") {
                 $("<div class='datagrid__custom-cell--def'>" + cellInfo.data.Status + "</div>")
                 .appendTo(cellElement)
             }
@@ -2188,6 +2213,12 @@ var selectResDealType = [
             dataField: "TypeAdd",
             caption: "Тип доп. соглашения",
             width: 294,
+            cellTemplate: function(cellElement, cellInfo) { 
+                if (cellInfo.data.Status == 'Приостановленные')
+                $("<div class='datagrid__custom-cell--dsbl'>" + cellInfo.data.TypeAdd+"</div>").appendTo(cellElement);
+                else
+                $("<div class='datagrid__custom-cell'>" + cellInfo.data.TypeAdd + "</div>").appendTo(cellElement);
+             },
             lookup: {
                     dataSource: selectResDealType,
                     valueExpr: "Name",
@@ -2198,12 +2229,24 @@ var selectResDealType = [
         {
             dataField: "DateSign",
             caption: "Дата подписания",
-            width: 155
+            width: 155,
+            cellTemplate: function(cellElement, cellInfo) { 
+                if (cellInfo.data.Status == 'Приостановленные')
+                $("<div class='datagrid__custom-cell--dsbl'>" + cellInfo.data.DateSign+"</div>").appendTo(cellElement);
+                else
+                $("<div class='datagrid__custom-cell'>" + cellInfo.data.DateSign + "</div>").appendTo(cellElement);
+             }
         },
         {
             dataField: "DateEnd",
             caption: "Дата окончания",
-            width: 161
+            width: 161,
+            cellTemplate: function(cellElement, cellInfo) { 
+                if (cellInfo.data.Status == 'Приостановленные')
+                $("<div class='datagrid__custom-cell--dsbl'>" + cellInfo.data.DateEnd+"</div>").appendTo(cellElement);
+                else
+                $("<div class='datagrid__custom-cell'>" + cellInfo.data.DateEnd + "</div>").appendTo(cellElement);
+             }
         },],
         filterRow: {
             applyFilter: "auto",

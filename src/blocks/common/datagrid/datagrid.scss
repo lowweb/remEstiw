@@ -95,6 +95,10 @@
 		}
 	}
 	
+	&__custom-cell--dsbl {
+		opacity: 0.5;
+	}
+
 	&--no-filters {
 		& .dx-datagrid-headers {
 			border-bottom: none;

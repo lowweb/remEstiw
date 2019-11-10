@@ -161,6 +161,11 @@
   		font-weight: 500; 
   		line-height: 16px; 
 
+		&--icn-left {
+			margin-right: 0;
+			margin-left: 8px;
+
+		}  
 
 		&--nodash {
 			border-bottom: none;

@@ -1,0 +1,53 @@
+.bills {
+    font-family: Lucida Grande, Tahoma, Arial;
+	line-height: 21px;
+	font-size: 14px;
+	color: rgba(0, 0, 0, 0.7);
+	font-style: normal;
+	font-weight: normal;
+    width: 1294px;
+  & ol {
+     color: rgba(0, 0, 0, 0.7); 
+    list-style-type: none;
+    counter-reset: item;
+    margin: 0;
+    padding: 0; 
+    width: 100%;
+  }
+
+  &__num {
+    font-family: Fira Sans, sans-serif; 
+	font-style: normal; 
+	font-weight: normal; 
+	line-height: 20px; 
+	font-size: 17px; 
+	letter-spacing: 0.01em; 
+    color: #00171F;
+    margin-bottom: 10px;
+  }
+
+  &__total-sum {
+    font-family: Fira Sans, sans-serif; 
+	font-style: normal; 
+	font-weight: normal; 
+	line-height: 20px; 
+	font-size: 17px; 
+	letter-spacing: 0.01em; 
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  &__action {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+
+      & button {
+          margin-right: 20px;
+          &:last-child{
+              margin-right: 0;
+          }
+      }
+  }
+
+}
