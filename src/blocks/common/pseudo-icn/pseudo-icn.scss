@@ -114,5 +114,12 @@
 			}
 
 	}
+	&__circl-ready--gr{
+		&:before{
+				content: url('#{$imgFolder}icn-circl-ready--gr.svg');
+			}
+
+	}
+	
 
 }

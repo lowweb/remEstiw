@@ -2005,7 +2005,6 @@ var selectResTypeAlerts = [
                 $("<div class='datagrid__custom-cell'>Запущен процесс <a href='#' class='app-lnk'>согласования Изменения к доп. соглашению №4 </a>заказчика</div>")
                .appendTo(cellElement);
             }
-            
         }],
         filterRow: {
             applyFilter: "auto",
@@ -2023,6 +2022,211 @@ var selectResTypeAlerts = [
 
  //-------------------------------------------------------------//
 
+ //-----------dataGridBills--------------//
+var bills = [{
+    "ID": 1,
+    "Num": "001 234 282",
+    "Name": "Запрос на перевозку тунца",
+    "Type": "Предоплата по сделке",
+    "DateOpen": "14.02.2019",
+    "Sum": "999 999 $",
+    "Status": "Оплата подтверждена",
+    "DateEnd": "14.02.2019"
+},
+{
+    "ID": 2,
+    "Num": "001 234 282 282",
+    "Name": "Название проекта приложения",
+    "Type": "Доплата по сделке",
+    "DateOpen": "06.12.2018",
+    "Sum": "999 999, 99 $",
+    "Status": "Выставлен / Ждёт оплаты",
+    "DateEnd": ""
+},
+{
+    "ID": 3,
+    "Num": "001 234 282",
+    "Name": "Запрос на перевозку тунца",
+    "Type": "Предоплата по сделке",
+    "DateOpen": "14.02.2019",
+    "Sum": "999 999 $",
+    "Status": "Оплачен / ждёт подтверждения",
+    "DateEnd": "14.02.2019"
+},
+{
+    "ID": 4,
+    "Num": "001 234 282 282",
+    "Name": "Название проекта приложения",
+    "Type": "Доплата по сделке",
+    "DateOpen": "06.12.2018",
+    "Sum": "999 999, 99 $",
+    "Status": "Выставлен / Ждёт оплаты",
+    "DateEnd": ""
+},
+{
+    "ID": 5,
+    "Num": "001 234 282",
+    "Name": "Запрос на перевозку тунца",
+    "Type": "Предоплата по сделке",
+    "DateOpen": "14.02.2019",
+    "Sum": "999 999 $",
+    "Status": "Оплата подтверждена",
+    "DateEnd": "14.02.2019"
+},
+{
+    "ID": 6,
+    "Num": "001 234 282 282",
+    "Name": "Название проекта приложения",
+    "Type": "Доплата по сделке",
+    "DateOpen": "06.12.2018",
+    "Sum": "999 999, 99 $",
+    "Status": "Выставлен / Ждёт оплаты",
+    "DateEnd": ""
+},{
+    "ID": 7,
+    "Num": "001 234 282",
+    "Name": "Запрос на перевозку тунца",
+    "Type": "Предоплата по сделке",
+    "DateOpen": "14.02.2019",
+    "Sum": "999 999 $",
+    "Status": "Оплачен / ждёт подтверждения",
+    "DateEnd": "14.02.2019"
+},
+{
+    "ID": 8,
+    "Num": "001 234 282 282",
+    "Name": "Название проекта приложения",
+    "Type": "Доплата по сделке",
+    "DateOpen": "06.12.2018",
+    "Sum": "999 999, 99 $",
+    "Status": "Выставлен / Ждёт оплаты",
+    "DateEnd": ""
+},
+];
+
+var selectResTypeBills = [
+    {
+        "ID": 1,
+        "Name": "Предоплата по сделке"
+    },
+    {
+        "ID": 2,
+        "Name": "Доплата по сделке"
+    }];
+    var selectResStatusBills = [
+        {
+            "ID": 1,
+            "Name": "Оплата подтверждена"
+        },
+        {
+            "ID": 2,
+            "Name": "Выставлен / Ждёт оплаты"
+        },
+        {
+            "ID": 3,
+            "Name": "Оплачен / ждёт подтверждения"
+        }];
+ $("#dataGridBills").dxDataGrid({
+        dataSource: bills,
+        keyExpr: "ID",
+        width: "100%",
+        editing: {
+            form: null,
+            mode: "row",
+            popup: null,
+            refreshMode: "full",
+            texts: {},
+            useIcons: true
+            },
+        hoverStateEnabled: true,
+        showBorders: true,
+        columns: 
+
+        [
+        {
+            dataField: "Num",
+            caption: "№",
+            width: 182,
+            cellTemplate: function(cellElement, cellInfo) { 
+                $('<div class="datagrid__custom-cell">')   
+                 .appendTo(cellElement)
+                 .append($("<a href='#''>"+cellInfo.data.Num+"</a>"))
+             }, 
+            cssClass: "datagrid__link-cell" 
+        },
+        {
+            dataField: "Name",
+            caption: "Наименование сделки",
+            width: 359,
+            cellTemplate: function(cellElement, cellInfo) { 
+                $('<div class="datagrid__custom-cell">')   
+                 .appendTo(cellElement)
+                 .append($("<a href='#''>"+cellInfo.data.Name+"</a>"))
+             }, 
+            cssClass: "datagrid__link-cell" 
+        },
+        {
+            dataField: "Type",
+            caption: "Тип счета",
+            width: 266,
+            lookup: {
+                    dataSource: selectResTypeBills,
+                    valueExpr: "Name",
+                    displayExpr: "Name"
+                }
+        },
+        {
+            dataField: "DateOpen",
+            caption: "Выставлен",
+            width: 137
+        },
+        {
+            dataField: "Sum",
+            caption: "Сумма к оплате",
+            width: 154
+        },
+        {
+            dataField: "Status",
+            caption: "Состояние",
+            width: 278,
+            lookup: {
+                dataSource: selectResStatusBills,
+                valueExpr: "Name",
+                displayExpr: "Name"
+            },
+            cellTemplate: function(cellElement, cellInfo) {   //кастомим ячейку
+                if (cellInfo.data.Status == "Оплата подтверждена") {
+                    $("<div class='datagrid__custom-cell--def'>" + cellInfo.data.Status + "</div>")
+                    .appendTo(cellElement)
+                }
+                else
+                    $("<div class='datagrid__custom-cell'>" + cellInfo.data.Status + "</div>")   
+                     .appendTo(cellElement)
+            }, 
+
+
+        },
+        {
+            dataField: "DateEnd",
+            caption: "Оплачен/закрыт",
+            width: 168
+        },
+        ],
+        filterRow: {
+            applyFilter: "auto",
+            applyFilterText: "Apply filter",
+            betweenEndText: "End",
+            betweenStartText: "Start",
+            resetOperationText: "Reset",
+            showAllText: "",
+            showOperationChooser: true,
+            visible: true
+            },
+        showColumnLines: true,
+        showRowLines: true,
+    }).data("dxDataGrid");
+
+ //-------------------------------------------------------------//
 
 //-----------dataGridDeals--------------//
 var deals = [{

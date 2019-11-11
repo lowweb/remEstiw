@@ -99,6 +99,9 @@
 		opacity: 0.5;
 	}
 
+	&__custom-cell--gr-border-l {
+		border-left: 3px solid $clr-green;
+	}
 	&--no-filters {
 		& .dx-datagrid-headers {
 			border-bottom: none;
