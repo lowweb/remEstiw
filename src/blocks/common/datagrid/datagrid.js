@@ -2150,7 +2150,10 @@ var selectResTypeBills = [
             cellTemplate: function(cellElement, cellInfo) { 
                 $('<div class="datagrid__custom-cell">')   
                  .appendTo(cellElement)
-                 .append($("<a href='#''>"+cellInfo.data.Num+"</a>"))
+                 .append($("<a href='#''>"+cellInfo.data.Num+"</a>"));
+                 console.log(cellElement);
+                 if (cellInfo.data.Status == 'Оплата подтверждена')
+                 $(cellElement).addClass('datagrid__custom-cell--gr-border-l');
              }, 
             cssClass: "datagrid__link-cell" 
         },

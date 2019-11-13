@@ -100,7 +100,7 @@
 	}
 
 	&__custom-cell--gr-border-l {
-		border-left: 3px solid $clr-green;
+		border-left: 3px solid $clr-green !important;
 	}
 	&--no-filters {
 		& .dx-datagrid-headers {
