@@ -339,6 +339,10 @@
                     margin-left: 10px;
                     margin-right: 30px;
                 }
+
+                & > button {
+                    flex: 1 0 auto;
+                }
     
             }
             &-fileuploader {
@@ -379,6 +383,7 @@
         &-time {
             @include font-lucida (#999999, 12px, 14px);
             margin-left: auto;
+            align-self: flex-end;
 
         }
         &-question{

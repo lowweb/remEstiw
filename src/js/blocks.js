@@ -3177,6 +3177,24 @@ initModal("modal-manufactures-view", 760 , "auto", 'modal__title-templ','modal__
 initModal("modal-messages-chat-new", 464 , 547, 'modal__title-templ','modal__content-templ',"center");
 
 
+ 
+function numberBoxInit (idElement,idAttrName) {
+	 $("."+idElement).dxNumberBox({
+        value: 15,
+        min: 10,
+        max: 100,
+        showSpinButtons: true,
+        inputAttr: {
+   		 id: idAttrName,
+   		 class: "input-field__value" 
+   		}
+   		//width: widthElement
+    });
+};
+
+numberBoxInit ("pseudoClassNumberBox","pseudoNameElementNumberBox__id");
+
+
 
 var $form = $('.photo-prof');
 
@@ -4166,24 +4184,6 @@ function userPopupClose() {
 		$('.app-lnk-disable').toggleClass('app-lnk-disable');
 	}
 }
- 
-function numberBoxInit (idElement,idAttrName) {
-	 $("."+idElement).dxNumberBox({
-        value: 15,
-        min: 10,
-        max: 100,
-        showSpinButtons: true,
-        inputAttr: {
-   		 id: idAttrName,
-   		 class: "input-field__value" 
-   		}
-   		//width: widthElement
-    });
-};
-
-numberBoxInit ("pseudoClassNumberBox","pseudoNameElementNumberBox__id");
-
-
 var cityData = [{
     id: 1,
     name: "Владивосток, Приморский край, Россия",
