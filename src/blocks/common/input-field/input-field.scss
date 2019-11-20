@@ -89,6 +89,11 @@
 	&__condition {
 		flex: 1 0 221px;
 		max-width: 221px;
+
+		& > .input-field__cont {
+			width: 175px;
+			max-width: 175px;
+		}
 	}
 
 	&__btn {

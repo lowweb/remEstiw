@@ -4113,25 +4113,6 @@ $('.ver-comp .app-lnk__clhd').click(function(event) {
 	$(this).parents('.ver-comp__bl').toggleClass('ver-comp__bl--hide');
 
 });
-// $(".navbar").scroll (function () {
-
-//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
-
-//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
-//     $(".navbar-ul").addClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-sticky')[0].scrollIntoView(true);
-
-// }  
-// if ( $(this).scrollTop() == 0) {
-
-//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
-//     $(".navbar-ul").removeClass("navbar-ul--understicky");
-//     //прокрутили соседа
-//     $('.header-currency')[0].scrollIntoView(true);
-//  }
-
-//  });
 $('.timezone-popup-menu__title-btn').click(function(){
 // console.log ($(',timezone-popup-menu__title-btn').hasClass('app-lnk-disable'));
 // if (!$('.timezone-popup-menu__title-btn').hasClass('app-lnk-disable')) {
@@ -4160,6 +4141,25 @@ function timezonePopupClose(e) {
 }
 
 
+// $(".navbar").scroll (function () {
+
+//  if ( $(this).scrollTop() > $('.navbar__header-roll').height()) {
+
+//     $(".navbar__header-sticky").addClass("navbar__header-sticky--active");
+//     $(".navbar-ul").addClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-sticky')[0].scrollIntoView(true);
+
+// }  
+// if ( $(this).scrollTop() == 0) {
+
+//     $(".navbar__header-sticky").removeClass("navbar__header-sticky--active");
+//     $(".navbar-ul").removeClass("navbar-ul--understicky");
+//     //прокрутили соседа
+//     $('.header-currency')[0].scrollIntoView(true);
+//  }
+
+//  });
 $('.user-popup-menu__title-btn').click(function(){ //button not global beacause js individual
 	// $(this).toggleClass('user-popup-menu__title-btn--up');
 	// if (!$('.user-popup-menu__title-btn').hasClass('app-lnk-disable')) {
@@ -4315,62 +4315,6 @@ var now = new Date();
 
 
 
-function textAriaInit (className, width,height) {
-	$("." + className).dxTextArea({
-        spellcheck: false,
-        width: width,
-        height: height,
-        inputAttr: {
-       id: "pseudoElementTextAria__id",
-       class:"input-field__value" 
-   }
-    });
-};
-
-function textAriaInitAutoResize (className, width) {
-	$("." + className).dxTextArea({
-        spellcheck: false,
-        width: width,
-        autoResizeEnabled: true,
-        inputAttr: {
-       id: "pseudoElementTextAria__id",
-       class:"input-field__value" 
-   }
-    });
-};
-
-function textAriaInitAutoResizeminHeight (className, width, minHeight) {
-  $("." + className).dxTextArea({
-        spellcheck: false,
-        width: width,
-        minHeight: minHeight,
-        autoResizeEnabled: true,
-        inputAttr: {
-       id: "pseudoElementTextAria__id",
-       class:"input-field__value" 
-   }
-    });
-};
-
-function textAriaInitAutoResizemaxHeight (className, width, maxHeight) {
-    $("." + className).dxTextArea({
-          spellcheck: false,
-          width: width,
-          minHeight: 36,
-          maxHeight: maxHeight,
-          autoResizeEnabled: true,
-          inputAttr: {
-         id: "pseudoElementTextAria__id",
-         class:"input-field__value" 
-     }
-      });
-  };
-
-
-textAriaInit('pseudoClassTextAria', "auto", 72);
-textAriaInitAutoResize('pseudoClassTextAriaAutoHeight', "auto");
-textAriaInitAutoResizeminHeight('pseudoClassTextAriaAutoHeight72', "auto" , 72);
-textAriaInitAutoResizemaxHeight('pseudoClassTextAriaAutoHeightMax108', "auto" , 108);
 function selectBoxInitForId (idElement, dataS, inputAttrId, inputAttrVal ) {
 $("#" + idElement).dxSelectBox({
         dataSource: dataS,
@@ -4439,6 +4383,62 @@ function selectBoxForChat (classElement, dataS, inputAttrId, inputAttrVal ) {
 
 
 
+function textAriaInit (className, width,height) {
+	$("." + className).dxTextArea({
+        spellcheck: false,
+        width: width,
+        height: height,
+        inputAttr: {
+       id: "pseudoElementTextAria__id",
+       class:"input-field__value" 
+   }
+    });
+};
+
+function textAriaInitAutoResize (className, width) {
+	$("." + className).dxTextArea({
+        spellcheck: false,
+        width: width,
+        autoResizeEnabled: true,
+        inputAttr: {
+       id: "pseudoElementTextAria__id",
+       class:"input-field__value" 
+   }
+    });
+};
+
+function textAriaInitAutoResizeminHeight (className, width, minHeight) {
+  $("." + className).dxTextArea({
+        spellcheck: false,
+        width: width,
+        minHeight: minHeight,
+        autoResizeEnabled: true,
+        inputAttr: {
+       id: "pseudoElementTextAria__id",
+       class:"input-field__value" 
+   }
+    });
+};
+
+function textAriaInitAutoResizemaxHeight (className, width, maxHeight) {
+    $("." + className).dxTextArea({
+          spellcheck: false,
+          width: width,
+          minHeight: 36,
+          maxHeight: maxHeight,
+          autoResizeEnabled: true,
+          inputAttr: {
+         id: "pseudoElementTextAria__id",
+         class:"input-field__value" 
+     }
+      });
+  };
+
+
+textAriaInit('pseudoClassTextAria', "auto", 72);
+textAriaInitAutoResize('pseudoClassTextAriaAutoHeight', "auto");
+textAriaInitAutoResizeminHeight('pseudoClassTextAriaAutoHeight72', "auto" , 72);
+textAriaInitAutoResizemaxHeight('pseudoClassTextAriaAutoHeightMax108', "auto" , 108);
  $(".popup__info-newmsg").dxToast({
         message: "У вас новое сообщение по запросу (пример всплывающего уведомления)",
         displayTime: 300000,
