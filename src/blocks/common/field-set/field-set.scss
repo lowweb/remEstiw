@@ -101,6 +101,20 @@
 			margin-left: 5px;
 			margin-right: 0;
 		}
+
+		& > .field-set__cap-ar--rght {
+			width: 12px;
+			height: 11px;
+			align-self: center;
+			margin-left: 5px;
+		}
+
+		& > .field-set__cap-ar--lf {
+			width: 12px;
+			height: 11px;
+			align-self: center;
+			margin-right: 5px;
+		}
 	}
 
 	&__type-deal {
