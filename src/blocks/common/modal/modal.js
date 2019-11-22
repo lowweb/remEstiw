@@ -214,6 +214,14 @@ if ($('.modal').hasClass('modal-messages-chat-new')) {
 };
 
 
+if ($('.modal').hasClass('modal-fs-helper-view')) { 
+	checkboxInit ("used-cargo__checkbox", "Бывший в употреблении");
+	checkboxInit ("home-cargo__checkbox", "Домашние вещи");
+	checkboxInit ("humane-cargo__checkbox", "Гуманитарная помощь");
+	checkboxInit ("oversize-cargo__checkbox", "Негабаритный");
+	checkboxInit ("danger-cargo__checkbox", "Опасный груз");
+	};
+
 
 };
 
@@ -268,4 +276,4 @@ initModal("modal-application-view-v5", 1024 , "80%", 'modal__title-templ','modal
 initModal("modal-counterparties-view", 760 , "80%", 'modal__title-templ','modal__content-templ',"center");
 initModal("modal-manufactures-view", 760 , "auto", 'modal__title-templ','modal__content-templ',"center");
 initModal("modal-messages-chat-new", 464 , 547, 'modal__title-templ','modal__content-templ',"center");
-
+initModal("modal-fs-helper-view", 640 , "80%", 'modal__title-templ','modal__content-templ',"center");
