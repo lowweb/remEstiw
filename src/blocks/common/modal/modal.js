@@ -214,14 +214,6 @@ if ($('.modal').hasClass('modal-messages-chat-new')) {
 };
 
 
-if ($('.modal').hasClass('modal-fs-helper-view')) { 
-	checkboxInit ("used-cargo__checkbox", "Бывший в употреблении");
-	checkboxInit ("home-cargo__checkbox", "Домашние вещи");
-	checkboxInit ("humane-cargo__checkbox", "Гуманитарная помощь");
-	checkboxInit ("oversize-cargo__checkbox", "Негабаритный");
-	checkboxInit ("danger-cargo__checkbox", "Опасный груз");
-	};
-
 
 };
 
