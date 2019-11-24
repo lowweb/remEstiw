@@ -1,34 +1,56 @@
 .switch {
 	display: flex;
 	align-items: center;
+	flex-wrap: wrap;
 
-	&__double {
+	&__toggle {
+		order: 2;
+	}
 
-		&.dx-switch-on-value ~ .switch__title {
-			color: $clr-dark;
-		}
-		&.dx-switch-on-value ~ .switch__pre-title {
-			color: #999999;
-		}
+	&--double  {
+	&.dx-switch-on-value ~ .switch__title--rt {
+		color: $clr-dark;
+	}
+	&.dx-switch-on-value ~ .switch__title--lf {
+		color: rgba(0, 23, 31, 0.6);
+	}
 
-		& + .switch__pre-title {
+	& + .switch__title--lf {
+		color: $clr-dark;
+	}
+	}
+
+
+	&--left  {
+		&.dx-switch-on-value ~ .switch__title--rt {
 			color: $clr-dark;
 		}
 	}
 
-	
+	&--right  {
+		&.dx-switch-on-value ~ .switch__title--lf {
+			color: $clr-dark;
+		}
+	}
 
-	&__title {
-		@include font-lucida (#999999, 12px, normal);
+
+	&__title--rt {
+		@include font-lucida (rgba(0, 23, 31, 0.6), 13px, normal);
 		margin-left: 10px;
 		order: 3;
 	}
 
 
-	&__pre-title{
-		@include font-lucida (#999999, 13px, normal);
+	&__title--lf{
+		@include font-lucida (rgba(0, 23, 31, 0.6), 13px, normal);
 		margin-right: 12px;
 		order: 1;
+	}
+
+	&__rem--rt {
+		@include font-lucida (#999999, 12px, 14px);
+		margin-left: 10px;
+		order: 3;
 	}
 
 	&__rem {
@@ -38,13 +60,7 @@
 		&:last-child{
 			margin-bottom: 0;
 		}
+		order: 3;
+		width: 100%;
 	}
-}
-
-.init-switch {
-	order: 2;
-
-	&:not(.switch__double).dx-switch-on-value ~ .switch__pre-title {
-			color: $clr-dark;
-		}
 }

@@ -1,3 +1,3 @@
-    $(".init-switch").dxSwitch({
+    $(".switch__toggle").dxSwitch({
         value: false
     });
